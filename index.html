@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Distila — Think clearly. Decide confidently.</title>
-<meta name="description" content="Distila is a private decision intelligence platform. AI does the heavy lifting. You stay accountable for every conclusion. Knowledge accumulates. Claims persist. Contradictions surface.">
+<meta name="description" content="Distila is a private decision intelligence platform. Evidence-weighted confidence scoring. Multi-LLM pipeline with configurable roles. Knowledge graph that compounds over time. Responsible AI by design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -588,8 +588,9 @@
   <p class="hero-sub">
     AI just made it worse — faster answers, higher volume, no way to know what's actually true.
     Distila is a <strong>decision intelligence platform</strong> built differently.
-    Every claim sourced and scored. Contradictions surfaced, not hidden.
-    A private knowledge base that compounds with every session.
+    Every claim sourced, scored, and verified against evidence — not self-reported by the model.
+    Contradictions surfaced, not hidden. A private knowledge graph that compounds with every session.
+    Your LLMs, your roles, your rules.
   </p>
   <p class="hero-kicker">This is what it feels like to actually know something.</p>
   <div class="hero-actions">
@@ -616,8 +617,8 @@
     <span class="stat-label">Sessions — knowledge compounds with every research run</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">7</span>
-    <span class="stat-label">Decision lenses — same evidence, right framing for your role</span>
+    <span class="stat-num">4</span>
+    <span class="stat-label">Named model roles — Research, Orchestrator, Writer, Verifier</span>
   </div>
 </div>
 
@@ -656,7 +657,7 @@
 <section class="how" id="how" aria-label="How Distila works">
   <div class="section-eyebrow">How Distila works</div>
   <h2>Four phases. One growing <em>intelligence layer.</em></h2>
-  <p class="section-intro">Every research run goes through the same rigorous pipeline — then adds to a private knowledge graph that compounds over time.</p>
+  <p class="section-intro">Every research run goes through the same rigorous pipeline — then adds to a private knowledge graph that compounds over time. When coverage is thin, the pipeline detects it and reformulates the query automatically before moving forward.</p>
   <div class="how-grid">
     <div class="how-step">
       <div class="how-step-tag">Phase 1</div>
@@ -675,18 +676,28 @@
     </div>
     <div class="how-step">
       <div class="how-step-tag">Phase 4</div>
-      <h3>Synthesis for your lens</h3>
-      <p>The same evidence base becomes an Analyst brief, an Executive summary, a Financial note, or a Sales intelligence report — shaped for how you actually make decisions.</p>
+      <h3>Synthesis + publication</h3>
+      <p>Orchestrator synthesises the brief through your chosen decision lens. A dedicated Report Writer model produces publication-ready output — board paper, investment memo, blog post, LinkedIn thread, or policy brief — in the prose style you trust.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Always on</div>
       <h3>Knowledge graph</h3>
-      <p>Every claim, entity, and document persists in a private local database. Confidence updates as evidence accumulates. Contradictions surface across topics automatically.</p>
+      <p>Every claim, entity, and document persists in a private local database. Contradictions surface across topics automatically. Click any entity to see everything Distila knows about it across all your research — not just this topic.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Evidence weighted</div>
+      <h3>Confidence you can trust</h3>
+      <p>Confidence scores are computed from evidence — source tier, cross-provider consensus, Socratic challenge survival, document corroboration, and recency decay. Not self-reported by the model. Current research confirms LLM verbalized confidence is fundamentally broken. Distila doesn't use it.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Positions</div>
+      <h3>Stake and track</h3>
+      <p>State what you believe to be true. Every subsequent research run checks whether new claims support or challenge your position. The confidence bar moves. You see the evidence shift in real time.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Your data</div>
       <h3>Fully private</h3>
-      <p>Distila runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Your knowledge base is yours alone.</p>
+      <p>Distila runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Run fully airgapped with local models if required.</p>
     </div>
   </div>
 </section>
@@ -695,9 +706,9 @@
 <!-- Multi-LLM pipeline -->
 <section class="pipeline" id="pipeline">
   <div class="section-eyebrow">The configurable pipeline</div>
-  <h2>Your models. Your rules.<br><em>Every role, your choice.</em></h2>
+  <h2>Your models. Your roles.<br><em>Different models for different jobs.</em></h2>
   <p class="section-intro">
-    Distila's pipeline assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination. Switch providers per task. Run fully airgapped if required.
+    Distila assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination. Sprint 6 introduces Deep Research mode: each worker runs the full pipeline independently, and the Orchestrator calibrates across N independent reasoning chains.
   </p>
 
   <div class="pipeline-roles-grid">
@@ -709,7 +720,7 @@
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Gemini 3.1 Pro</span><span class="rp-tag tag-cloud">Google</span></div>
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Domain SLM</span><span class="rp-tag tag-custom">Custom</span></div>
       </div>
-      <p class="role-desc">Run in parallel during Phase 2. More workers = broader coverage, higher consensus confidence. Ollama excluded by default — add it back when you want fully offline research.</p>
+      <p class="role-desc">Run in parallel during Phase 2. Each provider independently extracts claims — confidence is then weighted by cross-provider consensus, not just count. More workers = broader coverage + stronger calibration signal. Ollama excluded by default to avoid local model variance diluting the consensus.</p>
     </div>
 
     <div class="pipeline-role-card">
@@ -718,7 +729,7 @@
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Claude Opus 4.6</span><span class="rp-tag tag-cloud">Anthropic</span></div>
         <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">GPT-5.4</span><span class="rp-tag tag-off">Fallback</span></div>
       </div>
-      <p class="role-desc">Runs Phases 3 and 4 — Socratic challenge, synthesis, community summaries, and chat. Single model for consistency. Choose the one whose reasoning you trust most for high-stakes decisions.</p>
+      <p class="role-desc">Runs Phases 3 and 4 — Socratic challenge, synthesis, community summaries, and chat. Also the first fallback when a provider hits a rate limit. Single model for reasoning consistency. Choose the one you trust most for high-stakes decisions.</p>
     </div>
 
     <div class="pipeline-role-card role-card-highlight">
@@ -736,7 +747,7 @@
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Mistral Large (local)</span><span class="rp-tag tag-local">Local</span></div>
         <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">Qwen3 / Llama 4</span><span class="rp-tag tag-local">Local</span></div>
       </div>
-      <p class="role-desc">Runs the atomic fact decomposition and evidence cross-check loop on each claim. Intentionally local — verification is privacy-critical and doesn't need a frontier model. Fast, offline, deterministic.</p>
+      <p class="role-desc">Runs the Chain-of-Verification loop on each claim — decomposes into atomic facts, answers each independently without seeing the original claim, scores by verification pass rate. Intentionally local — verification is privacy-critical, fast, and doesn't need a frontier model.</p>
     </div>
 
     <div class="pipeline-role-card pipeline-role-full">
@@ -755,14 +766,14 @@
 <section class="claims-section">
   <div class="section-eyebrow">Claim intelligence</div>
   <h2>Not summaries. <em>Evidence.</em></h2>
-  <p class="section-intro">Every finding in Distila is a structured claim — individually scored, sourced, and traceable. Here's what that looks like on a topic every knowledge worker is navigating right now.</p>
+  <p class="section-intro">Every finding in Distila is a structured claim — individually scored with evidence-weighted confidence, sourced, and traceable. Confidence is computed from source tier, provider consensus, verification outcome, and recency — never self-reported by the model.</p>
 
   <div class="claims-topic-header">
     <span class="claims-topic-title">AI productivity impact on knowledge workers</span>
     <div class="claims-meta">
       <span class="claims-meta-pill">18 claims</span>
-      <span class="claims-meta-pill">avg 74%</span>
-      <span class="claims-meta-pill">3 providers · Socratic challenge complete</span>
+      <span class="claims-meta-pill">avg 74% computed confidence</span>
+      <span class="claims-meta-pill">3 providers · Deep verified · Socratic challenge complete</span>
     </div>
   </div>
 
@@ -813,7 +824,7 @@
         <span class="claim-conf conf-high">77%</span>
       </div>
       <p class="claim-card-text">Organisations with explicit human oversight frameworks for AI report higher decision quality and fewer reversals than those operating without governance.</p>
-      <div class="claim-card-source">OECD Digital Economy Outlook (2026) · EU AI Act research · Tier 1</div>
+      <div class="claim-card-source">OECD Digital Economy Outlook (2026) · EU AI Act research · Tier 1 · Evidence confidence: 82% · Reasoning confidence: 79%</div>
     </div>
   </div>
 </section>
@@ -845,7 +856,7 @@
     <div class="audience-card">
       <span class="audience-icon">⚖️</span>
       <h3>Legal & compliance teams</h3>
-      <p>Build a structured knowledge base around regulatory changes, case law, and precedent. Claims linked to sources. Contradictions flagged automatically.</p>
+      <p>Build a structured knowledge base around regulatory changes, case law, and precedent. Claims linked to sources, dated, and marked when they age. Decision log captures the full evidence state at the moment advice was given. The audit trail regulators expect.</p>
       <span class="audience-pill">Research to position</span>
     </div>
     <div class="audience-card">
@@ -857,7 +868,7 @@
     <div class="audience-card">
       <span class="audience-icon">🚀</span>
       <h3>Founders & strategists</h3>
-      <p>Market intelligence that grows with your company. Competitive claims with confidence scores. Industry gaps surfaced automatically across every research session.</p>
+      <p>Market intelligence that grows with your company. Stake a position on a market thesis — Distila tracks whether evidence supports or challenges it across every research run.</p>
       <span class="audience-pill">Intelligence to strategy</span>
     </div>
   </div>
@@ -871,7 +882,7 @@
     AI should do the <em>heavy lifting.</em><br>Humans should own every conclusion.
   </div>
   <p class="philosophy-body">
-    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built from the ground up with the human governance layer that AI tools almost always skip — because that's what makes the difference between a tool that impresses and one you can actually trust.
+    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025-2026 confirms LLM verbalized confidence is fundamentally broken. Distila computes confidence from evidence: source tier, cross-provider consensus, verification outcome, recency decay. The field calls this behavioural validation. Distila has had it since day one.
   </p>
   <div class="philosophy-pillars">
     <div class="pillar">
@@ -887,7 +898,7 @@
     <div class="pillar">
       <div class="pillar-key">Principle 03</div>
       <div class="pillar-val">Contradictions surface</div>
-      <div class="pillar-desc">The system finds where sources conflict and shows you — rather than picking a side and hiding the tension.</div>
+      <div class="pillar-desc">The system finds where sources conflict and shows you — structurally, via subject-verb-object triplets, not just word matching.</div>
     </div>
   </div>
 </section>
@@ -895,12 +906,13 @@
 <!-- Coming soon -->
 <section class="coming-soon" id="contact">
   <div class="coming-soon-inner">
-    <span class="cs-badge">In active development</span>
+    <span class="cs-badge">Sprint 5 complete · Sprint 6 in progress</span>
     <h2 style="font-family:var(--serif);letter-spacing:-0.02em">Something is being<br>built here.</h2>
     <p>
-      Distila is in active development. The desktop app is running.
-      The knowledge graph is working. We're refining before we open doors.
-      Watch this space — or reach out if you want to talk earlier.
+      The desktop app is running. The knowledge graph is live. Evidence-weighted confidence scoring,
+      position tracking, streaming chat, and multi-LLM role assignment are all working.
+      Sprint 6 brings the visual knowledge graph, Deep Research mode, and streaming research.
+      Reach out if you want early access or want to talk.
     </p>
     <div class="cs-links">
       <a href="distila_demo.html" class="cs-link cs-link-demo">Try the preview &rarr;</a>
