@@ -346,7 +346,7 @@
   /* ── Philosophy ── */
   .philosophy {
     background: #161614; color: var(--ink);
-    text-align: center; padding-top: 72px; padding-bottom: 72px;
+    text-align: center; padding-top: 80px; padding-bottom: 80px;
   }
   .philosophy .section-eyebrow { color: rgba(240,237,232,0.4); text-align: center; }
   .philosophy-headline {
@@ -442,7 +442,7 @@
   /* ── Responsive ── */  @media (max-width: 640px) {
     section, .hero, footer, .coming-soon { padding-left: 20px; padding-right: 20px; }
     .stat-bar { flex-direction: column; }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.1); padding: 20px 20px; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.1); padding: 16px 20px; display: flex; align-items: baseline; gap: 14px; }
     .stat-item:last-child { border-bottom: none; }
     .how-grid { grid-template-columns: 1fr; }
       .philosophy-pillars { flex-direction: column; }
@@ -458,6 +458,8 @@
     .nav-links { display: none; }
     .claims-topic-header { flex-direction: column; align-items: flex-start; gap: 8px; }
     .hero-tagline { display: none; }
+    .stat-num { font-size: 28px; min-width: 52px; }
+    .stat-label { font-size: 13px; max-width: 260px; line-height: 1.4; }
   }
   @media (max-width: 900px) {
     .problem-cards { grid-template-columns: 1fr 1fr; }
@@ -516,6 +518,34 @@
   @media (max-width: 640px) {
     .pipeline-roles-grid { grid-template-columns: 1fr; }
     .pipeline-role-full { grid-column: auto; }
+  }
+
+
+  /* ── Responsible AI badge ── */
+  .responsible-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 14px 6px 10px; border-radius: 6px; margin-bottom: 24px;
+    border: 1px solid rgba(74,222,128,0.25); color: var(--accent);
+    background: rgba(74,222,128,0.06);
+  }
+  .responsible-badge::before {
+    content: ""; display: block; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--accent); flex-shrink: 0;
+  }
+
+  /* ── Stat bar mobile override ── */
+  @media (max-width: 640px) {
+    .stat-item {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 16px 20px;
+      border-right: none;
+      border-bottom: 1px solid rgba(240,237,232,0.1);
+    }
+    .stat-item:last-child { border-bottom: none; }
+    .stat-num { font-size: 28px; min-width: 52px; }
+    .stat-label { font-size: 13px; max-width: 260px; line-height: 1.4; }
   }
 
 </style>
