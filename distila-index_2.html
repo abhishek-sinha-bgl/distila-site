@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distila — Think clearly. Decide confidently.</title>
+<meta name="description" content="Distila is a private decision intelligence platform. AI does the heavy lifting. You stay accountable for every conclusion. Knowledge accumulates. Claims persist. Contradictions surface.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f0ede8;
+    --paper: #0f0f0e;
+    --accent: #4ade80;
+    --accent-light: rgba(74,222,128,0.1);
+    --signal: #fb923c;
+    --muted: #9a9890;
+    --border: rgba(240,237,232,0.1);
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(15,15,14,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 22px; letter-spacing: -0.02em;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 14px; font-weight: 400; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  /* nav-badge already uses accent */
+  .nav-badge {
+    font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 99px;
+    background: var(--accent-light); color: var(--accent);
+    border: 1px solid rgba(26,71,42,0.2);
+  }
+  .nav-cta {
+    font-size: 13px; font-weight: 500;
+    padding: 9px 20px; border-radius: 99px;
+    background: var(--ink); color: var(--paper);
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.8; }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 1.0; letter-spacing: -0.03em;
+    max-width: 900px; margin-bottom: 32px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px); font-weight: 300; line-height: 1.65;
+    color: var(--muted); max-width: 560px; margin-bottom: 20px;
+  }
+  .hero-sub strong { font-weight: 500; color: var(--ink); }
+  .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    font-size: 15px; font-weight: 500; padding: 14px 32px; border-radius: 99px;
+    background: var(--ink); color: var(--paper); text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.85; }
+  .btn-ghost {
+    font-size: 15px; font-weight: 400; padding: 14px 32px; border-radius: 99px;
+    border: 1px solid rgba(240,237,232,0.2); color: var(--ink); text-decoration: none;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-ghost:hover { background: rgba(74,222,128,0.08); }
+
+  .hero-kicker {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(15px, 1.8vw, 18px); color: var(--muted);
+    margin-top: -28px; margin-bottom: 40px; font-weight: 400;
+  }
+  .hero-tagline {
+    position: absolute; bottom: 48px; right: 48px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 14px; color: var(--muted);
+    text-align: right; line-height: 1.8;
+  }
+
+  /* decorative grid lines */
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(240,237,232,0.06) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(240,237,232,0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* ── Stat bar ── */
+  .stat-bar {
+    border-top: 1px solid rgba(240,237,232,0.1);
+    border-bottom: 1px solid rgba(240,237,232,0.1);
+    display: flex; overflow-x: auto; background: #0c0c0b;
+  }
+  .stat-item {
+    flex: 1; min-width: 180px; padding: 32px 40px;
+    border-right: 1px solid rgba(240,237,232,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--serif); font-size: 42px; letter-spacing: -0.03em;
+    color: var(--ink); display: block; margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* ── Section base ── */
+  section { padding: 100px 48px; }
+  .section-eyebrow {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 20px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1; letter-spacing: -0.02em;
+    max-width: 700px; margin-bottom: 20px;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+  .section-intro {
+    font-size: 17px; line-height: 1.7; color: var(--muted);
+    max-width: 560px; margin-bottom: 60px; font-weight: 300;
+  }
+
+  /* ── Problem ── */
+  .problem { background: #161614; color: var(--ink); }
+  .problem .section-eyebrow { color: rgba(240,237,232,0.4); }
+  .problem h2 { color: var(--ink); }
+  .problem h2 em { color: #fb923c; }
+  .problem .section-intro { color: var(--muted); }
+  .problem-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px; background: rgba(245,243,239,0.1); border: 1px solid rgba(245,243,239,0.1);
+  }
+  .problem-card {
+    background: #1c1c1a; padding: 36px 32px;
+    border: 1px solid rgba(240,237,232,0.08); transition: background 0.2s;
+  }
+  .problem-card:hover { background: #252522; }
+  .problem-card-num {
+    font-family: var(--mono); font-size: 11px; color: rgba(240,237,232,0.3);
+    margin-bottom: 20px; display: block;
+  }
+  .problem-card h3 {
+    font-family: var(--serif); font-size: 24px; font-weight: 400;
+    color: var(--ink); margin-bottom: 12px; line-height: 1.2;
+  }
+  .problem-card p {
+    font-size: 14px; color: rgba(240,237,232,0.55); line-height: 1.7; font-weight: 300;
+  }
+
+  /* ── How it works ── */
+  .how { background: #0f0f0e; }
+  .how-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0;
+    border: 1px solid var(--border);
+  }
+  .how-step {
+    padding: 36px 28px; border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .how-step:hover { background: var(--accent-light); }
+  .how-step-tag {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .how-step-tag::before {
+    content: ''; width: 20px; height: 1px; background: var(--accent); display: block;
+  }
+  .how-step h3 {
+    font-family: var(--serif); font-size: 20px; font-weight: 400;
+    margin-bottom: 10px; line-height: 1.2;
+  }
+  .how-step p { font-size: 13.5px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+
+  /* ── Claims card grid ── */
+  .claims-topic-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px; margin-bottom: 24px;
+  }
+  .claims-topic-title {
+    font-family: var(--serif); font-size: 20px; font-weight: 400;
+    color: var(--ink);
+  }
+  .claims-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .claims-meta-pill {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+    padding: 3px 10px; border-radius: 99px;
+    border: 1px solid rgba(240,237,232,0.15); color: var(--muted);
+  }
+  .claims-card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px;
+  }
+  .claim-card-item {
+    border-radius: 12px; padding: 20px 22px;
+    display: flex; flex-direction: column; gap: 10px;
+    border-top: 3px solid transparent;
+    background: #1a1a18;
+    transition: transform 0.2s;
+  }
+  .claim-card-item:hover { transform: translateY(-2px); }
+  .verified-card  { border-top-color: #4ade80; }
+  .contested-card { border-top-color: #fb923c; }
+  .weak-card      { border-top-color: #f87171; }
+  .claim-card-top {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .claim-card-text {
+    font-size: 13.5px; color: rgba(240,237,232,0.85); line-height: 1.6;
+    flex: 1;
+  }
+  .claim-card-source {
+    font-family: var(--mono); font-size: 10.5px;
+    color: rgba(240,237,232,0.3); line-height: 1.5;
+    border-top: 1px solid rgba(240,237,232,0.08); padding-top: 8px;
+  }
+
+  /* ── Multi-LLM pipeline ── */
+  .pipeline { background: #161614; color: var(--ink); }
+  .pipeline .section-eyebrow { color: rgba(240,237,232,0.4); }
+  .pipeline h2 { color: var(--ink); }
+  .pipeline h2 em { color: #7dd3a8; }
+  .pipeline .section-intro { color: var(--muted); }
+  .pipeline-feature {
+    padding: 22px 22px; border-left: 2px solid #1D9E75;
+    background: rgba(29,158,117,0.05);
+  }
+  .pipeline-feature.airgap { border-left-color: #fcd34d; background: rgba(252,211,77,0.04); }
+  .pipeline-feature h4 {
+    font-family: var(--serif); font-size: 19px; font-weight: 400;
+    color: var(--ink); margin-bottom: 8px; line-height: 1.2;
+  }
+  .pipeline-feature.airgap h4 { color: #fcd34d; }
+  @media (max-width: 768px) { .pipeline-layout { grid-template-columns: 1fr; } }
+
+  /* ── For everyone ── */
+  .audience { background: #131312; }
+  .audience-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
+  }
+  .audience-card {
+    background: #1a1a18; border-radius: 16px; padding: 28px 24px;
+    border: 1px solid rgba(240,237,232,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .audience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+  .audience-icon {
+    font-size: 28px; margin-bottom: 14px; display: block; line-height: 1;
+  }
+  .audience-card h3 {
+    font-size: 16px; font-weight: 500; margin-bottom: 8px;
+  }
+  .audience-card p {
+    font-size: 13.5px; color: var(--muted); line-height: 1.65; font-weight: 300;
+  }
+  .audience-pill {
+    display: inline-block; margin-top: 12px;
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 99px;
+    background: rgba(74,222,128,0.1); color: var(--accent);
+  }
+
+  /* ── Claim anatomy ── */
+  .claims-section { background: #0f0f0e; overflow: hidden; }
+  .claim-demo {
+    background: #161614; border-radius: 16px; padding: 32px;
+    max-width: 700px; margin: 0 auto;
+    font-family: var(--mono); font-size: 13px;
+  }
+  .claim-demo-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
+    color: rgba(245,243,239,0.4); font-size: 11px; letter-spacing: 0.08em;
+  }
+  .claim-row {
+    display: flex; align-items: flex-start; gap: 14px; padding: 14px 0;
+    border-bottom: 1px solid rgba(240,237,232,0.08);
+  }
+  .claim-row:last-child { border-bottom: none; }
+  .claim-badge {
+    flex-shrink: 0; font-size: 9px; font-weight: 500; letter-spacing: 0.08em;
+    padding: 3px 8px; border-radius: 4px; text-transform: uppercase; margin-top: 2px;
+  }
+  .badge-verified   { background: rgba(34,197,94,0.15);  color: #4ade80; }
+  .badge-contested  { background: rgba(251,146,60,0.15);  color: #fb923c; }
+  .badge-weak       { background: rgba(239,68,68,0.12);   color: #f87171; }
+  .claim-text-col { flex: 1; color: rgba(245,243,239,0.85); line-height: 1.5; font-size: 13px; font-family: var(--sans); }
+  .claim-conf {
+    flex-shrink: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+    min-width: 36px; text-align: right;
+  }
+  .conf-high   { color: #4ade80; }
+  .conf-mid    { color: #fb923c; }
+  .conf-low    { color: #f87171; }
+  .claim-source { font-size: 11px; color: rgba(245,243,239,0.3); margin-top: 4px; font-family: var(--mono); }
+
+  /* ── Philosophy ── */
+  .philosophy {
+    background: #161614; color: var(--ink);
+    text-align: center; padding-top: 72px; padding-bottom: 72px;
+  }
+  .philosophy .section-eyebrow { color: rgba(240,237,232,0.4); text-align: center; }
+  .philosophy-headline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.15; letter-spacing: -0.02em;
+    max-width: 760px; margin: 0 auto 24px;
+    color: var(--ink);
+  }
+  .philosophy-headline em { font-style: italic; color: #fb923c; }
+  .philosophy-body {
+    font-size: 17px; line-height: 1.75; color: var(--muted);
+    max-width: 620px; margin: 0 auto 56px; font-weight: 300;
+  }
+  .philosophy-pillars {
+    display: flex; gap: 0; max-width: 760px; margin: 0 auto;
+    border: 1px solid rgba(245,243,239,0.12);
+  }
+  .pillar {
+    flex: 1; padding: 32px 24px; border-right: 1px solid rgba(245,243,239,0.12);
+    text-align: left;
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar-key {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(240,237,232,0.35); margin-bottom: 10px;
+  }
+  .pillar-val {
+    font-family: var(--serif); font-size: 20px; color: var(--ink); margin-bottom: 8px;
+  }
+  .pillar-desc {
+    font-size: 12.5px; color: var(--muted); line-height: 1.6; font-weight: 300;
+  }
+
+  /* ── Coming soon ── */
+  .coming-soon { padding: 80px 48px; text-align: center; background: #0f0f0e; }
+  .coming-soon-inner {
+    max-width: 520px; margin: 0 auto;
+    border: 1px solid rgba(240,237,232,0.12); border-radius: 20px; padding: 52px 48px;
+  }
+  .cs-badge {
+    display: inline-block; font-family: var(--mono); font-size: 10px;
+    font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 99px; margin-bottom: 24px;
+    background: var(--accent-light); color: var(--accent);
+    border: 1px solid rgba(26,71,42,0.2);
+  }
+  .coming-soon h2 {
+    font-size: 38px; margin: 0 auto 16px; max-width: 100%; text-align: center;
+  }
+  .coming-soon p {
+    font-size: 16px; line-height: 1.7; color: var(--muted); font-weight: 300; margin-bottom: 32px;
+  }
+  .cs-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cs-link {
+    font-size: 14px; color: var(--accent); text-decoration: none;
+    font-weight: 500; padding: 10px 20px; border-radius: 99px;
+    border: 1px solid rgba(26,71,42,0.25); transition: background 0.2s;
+  }
+  .cs-link:hover { background: var(--accent-light); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid rgba(240,237,232,0.1); background: #0c0c0b;
+    padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: var(--serif); font-size: 18px; color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-tagline {
+    font-family: var(--serif); font-style: italic;
+    font-size: 13px; color: var(--muted);
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--ink); }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  h1             { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub      { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-kicker   { animation: fadeUp 0.6s 0.25s ease both; }
+  .hero-actions  { animation: fadeUp 0.6s 0.35s ease both; }
+
+  /* ── Responsive ── */  @media (max-width: 640px) {
+    section, .hero, footer, .coming-soon { padding-left: 20px; padding-right: 20px; }
+    .stat-bar { flex-direction: column; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.1); padding: 20px 20px; }
+    .stat-item:last-child { border-bottom: none; }
+    .how-grid { grid-template-columns: 1fr; }
+      .philosophy-pillars { flex-direction: column; }
+    .pillar { border-right: none; border-bottom: 1px solid rgba(240,237,232,0.08); }
+    .pillar:last-child { border-bottom: none; }
+    .claims-card-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+    .coming-soon-inner { padding: 32px 20px; }
+    .cs-links { flex-direction: column; }
+    h2 { font-size: clamp(28px, 8vw, 42px); }
+    .nav-links { display: none; }
+    .claims-topic-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .hero-tagline { display: none; }
+  }
+  @media (max-width: 900px) {
+    .problem-cards { grid-template-columns: 1fr 1fr; }
+    }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ── Pipeline role cards ── */
+  .pipeline-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .pipeline-role-full { grid-column: 1 / -1; }
+  .pipeline-role-card {
+    background: #1c1c1a; border-radius: 12px; padding: 22px 22px;
+    border: 1px solid rgba(240,237,232,0.08);
+    display: flex; flex-direction: column; gap: 14px;
+    transition: border-color 0.2s;
+  }
+  .pipeline-role-card:hover { border-color: rgba(74,222,128,0.25); }
+  .role-card-highlight {
+    border-color: rgba(74,222,128,0.2);
+    background: rgba(74,222,128,0.04);
+  }
+  .role-label {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+  }
+  .airgap-label { color: #fcd34d; }
+  .role-providers { display: flex; flex-direction: column; gap: 7px; }
+  .role-provider {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px;
+  }
+  .role-provider.off { opacity: 0.45; }
+  .rp-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .on-dot  { background: var(--accent); }
+  .off-dot { background: rgba(240,237,232,0.3); }
+  .rp-name { flex: 1; color: var(--ink); font-weight: 400; }
+  .rp-tag {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .role-desc {
+    font-size: 13px; color: rgba(240,237,232,0.5);
+    line-height: 1.65; font-weight: 300;
+  }
+  @media (max-width: 640px) {
+    .pipeline-roles-grid { grid-template-columns: 1fr; }
+    .pipeline-role-full { grid-column: auto; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav aria-label="Main navigation" role="navigation">
+  <a href="#" class="nav-logo" aria-label="Distila home">Distil<span>a</span></a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#for-you">Who it's for</a>
+    <a href="#vision">Vision</a>
+    <span class="nav-badge">In development</span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<main id="main-content">
+<section class="hero">
+  <div class="hero-eyebrow">Decision intelligence · Responsible AI · Local-first</div>
+  <h1>More information.<br>Less <em>certainty.</em><br>Something is broken.</h1>
+  <p class="hero-sub">
+    AI just made it worse — faster answers, higher volume, no way to know what's actually true.
+    Distila is a <strong>decision intelligence platform</strong> built differently.
+    Every claim sourced and scored. Contradictions surfaced, not hidden.
+    A private knowledge base that compounds with every session.
+  </p>
+  <p class="hero-kicker">This is what it feels like to actually know something.</p>
+  <div class="hero-actions">
+    <a href="#how" class="btn-primary">See how it works</a>
+    <a href="#vision" class="btn-ghost">Our philosophy</a>
+  </div>
+  <div class="hero-tagline" aria-hidden="true">
+    Knowledge accumulates<br>
+    Claims persist<br>
+    Contradictions surface
+  </div>
+</section>
+
+<!-- Stat bar -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-num">4</span>
+    <span class="stat-label">Research phases — from scan to synthesis, every time</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Private — your knowledge graph never leaves your device</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">Sessions — knowledge compounds with every research run</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">7</span>
+    <span class="stat-label">Decision lenses — same evidence, right framing for your role</span>
+  </div>
+</div>
+
+<!-- Problem -->
+<section class="problem" id="problem">
+  <div class="section-eyebrow">The problem</div>
+  <h2>AI gave you more answers.<br>It gave you <em>less certainty.</em></h2>
+  <p class="section-intro">
+    The information keeps coming. The confidence keeps dropping. Here's why.
+  </p>
+  <div class="problem-cards">
+    <div class="problem-card">
+      <span class="problem-card-num">01</span>
+      <h3>Everything is plausible, nothing is provable</h3>
+      <p>ChatGPT, Perplexity, Deep Research — all return fluent sentences with no indication of what's verified, contested, or simply fabricated. You spend more time checking than deciding.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-card-num">02</span>
+      <h3>Every session forgets everything</h3>
+      <p>Research you did last Tuesday is invisible today. There's no accumulation, no linkage between topics, no way to ask "what do I already know about this?" Knowledge evaporates.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-card-num">03</span>
+      <h3>One output, regardless of what you need</h3>
+      <p>An analyst, an executive, and a first-year student all need the same facts framed completely differently. A single chat output serves none of them well.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-card-num">04</span>
+      <h3>No audit trail for your decisions</h3>
+      <p>When a choice is challenged six months later, you have no record of what you knew, how confident you were, or what contradictions you were aware of at the time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="how" id="how" aria-label="How Distila works">
+  <div class="section-eyebrow">How Distila works</div>
+  <h2>Four phases. One growing <em>intelligence layer.</em></h2>
+  <p class="section-intro">Every research run goes through the same rigorous pipeline — then adds to a private knowledge graph that compounds over time.</p>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-step-tag">Phase 1</div>
+      <h3>Discovery scan</h3>
+      <p>Distila quickly maps the terrain — themes, initial claims, and knowledge gaps — using your own LLM providers in parallel. Web grounding optional, always transparent.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Phase 2</div>
+      <h3>Deep research</h3>
+      <p>Multiple AI providers work in parallel. Every claim extracted carries a status (Verified, Contested, Weak), a confidence score, a source tier, and the reasoning chain behind it.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Phase 3</div>
+      <h3>Socratic challenge</h3>
+      <p>The system interrogates its own findings. What assumptions underpin each claim? Where does the evidence actually conflict? What would have to be false for this conclusion to hold?</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Phase 4</div>
+      <h3>Synthesis for your lens</h3>
+      <p>The same evidence base becomes an Analyst brief, an Executive summary, a Financial note, or a Sales intelligence report — shaped for how you actually make decisions.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Always on</div>
+      <h3>Knowledge graph</h3>
+      <p>Every claim, entity, and document persists in a private local database. Confidence updates as evidence accumulates. Contradictions surface across topics automatically.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Your data</div>
+      <h3>Fully private</h3>
+      <p>Distila runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Your knowledge base is yours alone.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Multi-LLM pipeline -->
+<section class="pipeline" id="pipeline">
+  <div class="section-eyebrow">The configurable pipeline</div>
+  <h2>Your models. Your rules.<br><em>Every role, your choice.</em></h2>
+  <p class="section-intro">
+    Distila's pipeline assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination. Switch providers per task. Run fully airgapped if required.
+  </p>
+
+  <div class="pipeline-roles-grid">
+
+    <div class="pipeline-role-card">
+      <div class="role-label">Research workers</div>
+      <div class="role-providers">
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">GPT-5.4</span><span class="rp-tag tag-cloud">OpenAI</span></div>
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Gemini 3.1 Pro</span><span class="rp-tag tag-cloud">Google</span></div>
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Domain SLM</span><span class="rp-tag tag-custom">Custom</span></div>
+      </div>
+      <p class="role-desc">Run in parallel during Phase 2. More workers = broader coverage, higher consensus confidence. Ollama excluded by default — add it back when you want fully offline research.</p>
+    </div>
+
+    <div class="pipeline-role-card">
+      <div class="role-label">Orchestrator</div>
+      <div class="role-providers">
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Claude Opus 4.6</span><span class="rp-tag tag-cloud">Anthropic</span></div>
+        <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">GPT-5.4</span><span class="rp-tag tag-off">Fallback</span></div>
+      </div>
+      <p class="role-desc">Runs Phases 3 and 4 — Socratic challenge, synthesis, community summaries, and chat. Single model for consistency. Choose the one whose reasoning you trust most for high-stakes decisions.</p>
+    </div>
+
+    <div class="pipeline-role-card role-card-highlight">
+      <div class="role-label">Report writer</div>
+      <div class="role-providers">
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Claude Opus 4.6</span><span class="rp-tag tag-cloud">Anthropic</span></div>
+        <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">GPT-5.4</span><span class="rp-tag tag-off">Alt</span></div>
+      </div>
+      <p class="role-desc">Produces the final published output — board paper, investment memo, blog post, LinkedIn thread, or policy brief. Choose the model whose prose style fits your audience. The research is the same; the voice is your call.</p>
+    </div>
+
+    <div class="pipeline-role-card">
+      <div class="role-label">Claim verifier</div>
+      <div class="role-providers">
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Mistral Large (local)</span><span class="rp-tag tag-local">Local</span></div>
+        <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">Qwen3 / Llama 4</span><span class="rp-tag tag-local">Local</span></div>
+      </div>
+      <p class="role-desc">Runs the atomic fact decomposition and evidence cross-check loop on each claim. Intentionally local — verification is privacy-critical and doesn't need a frontier model. Fast, offline, deterministic.</p>
+    </div>
+
+    <div class="pipeline-role-card pipeline-role-full">
+      <div class="role-label airgap-label">Zero-trust mode</div>
+      <div class="role-providers" style="flex-wrap:wrap">
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Your preferred local model (all roles)</span><span class="rp-tag tag-local">Local</span></div>
+        <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">All cloud providers</span><span class="rp-tag tag-off">Disabled</span></div>
+      </div>
+      <p class="role-desc">Assign any open-weight model — Mistral, Llama, Qwen, or your own fine-tune — to every role. No data leaves the device. No API keys. No cloud dependency. Full structured pipeline running entirely on your hardware. For legal, healthcare, defence, and corporate intelligence environments where data sovereignty is non-negotiable.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Claims demo -->
+<section class="claims-section">
+  <div class="section-eyebrow">Claim intelligence</div>
+  <h2>Not summaries. <em>Evidence.</em></h2>
+  <p class="section-intro">Every finding in Distila is a structured claim — individually scored, sourced, and traceable. Here's what that looks like on a topic every knowledge worker is navigating right now.</p>
+
+  <div class="claims-topic-header">
+    <span class="claims-topic-title">AI productivity impact on knowledge workers</span>
+    <div class="claims-meta">
+      <span class="claims-meta-pill">18 claims</span>
+      <span class="claims-meta-pill">avg 74%</span>
+      <span class="claims-meta-pill">3 providers · Socratic challenge complete</span>
+    </div>
+  </div>
+
+  <div class="claims-card-grid">
+    <div class="claim-card-item verified-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-verified">Verified</span>
+        <span class="claim-conf conf-high">89%</span>
+      </div>
+      <p class="claim-card-text">Knowledge workers using AI assistants complete first drafts 40–60% faster, with the largest gains in research synthesis and structured writing.</p>
+      <div class="claim-card-source">McKinsey Global Institute (2025) · Stanford HAI · Tier 1 · Cross-verified by 3 providers</div>
+    </div>
+    <div class="claim-card-item contested-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-contested">Contested</span>
+        <span class="claim-conf conf-mid">51%</span>
+      </div>
+      <p class="claim-card-text">AI-assisted workers make fewer factual errors than unassisted peers across complex analytical tasks.</p>
+      <div class="claim-card-source">Microsoft Research (2025) vs MIT CSAIL — methodology diverges on error classification</div>
+    </div>
+    <div class="claim-card-item verified-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-verified">Verified</span>
+        <span class="claim-conf conf-high">82%</span>
+      </div>
+      <p class="claim-card-text">Cognitive load reduction is the primary self-reported benefit — workers spend less time on retrieval, more time on synthesis and judgment.</p>
+      <div class="claim-card-source">Harvard Business Review (Jan 2026) · Deloitte Future of Work Survey · Tier 1</div>
+    </div>
+    <div class="claim-card-item weak-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-weak">Weak</span>
+        <span class="claim-conf conf-low">29%</span>
+      </div>
+      <p class="claim-card-text">AI adoption will eliminate 30% of knowledge worker roles in professional services by 2028.</p>
+      <div class="claim-card-source">Single vendor forecast · No peer-reviewed basis · Flagged by Socratic challenge</div>
+    </div>
+    <div class="claim-card-item contested-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-contested">Contested</span>
+        <span class="claim-conf conf-mid">44%</span>
+      </div>
+      <p class="claim-card-text">Junior analysts using AI tools perform at parity with senior analysts on structured research within six months.</p>
+      <div class="claim-card-source">BCG Henderson Institute vs Wharton longitudinal study — task definition differs significantly</div>
+    </div>
+    <div class="claim-card-item verified-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-verified">Verified</span>
+        <span class="claim-conf conf-high">77%</span>
+      </div>
+      <p class="claim-card-text">Organisations with explicit human oversight frameworks for AI report higher decision quality and fewer reversals than those operating without governance.</p>
+      <div class="claim-card-source">OECD Digital Economy Outlook (2026) · EU AI Act research · Tier 1</div>
+    </div>
+  </div>
+</section>
+
+<!-- For everyone -->
+<section class="audience" id="for-you">
+  <div class="section-eyebrow">Who it's for</div>
+  <h2>For anyone who needs to <em>act on research</em> — not just read it.</h2>
+  <p class="section-intro">Distila works for the student writing their thesis, the analyst briefing a board, and the executive making a call on incomplete information.</p>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <span class="audience-icon">🎓</span>
+      <h3>Students & researchers</h3>
+      <p>Build a private knowledge base around your thesis topic. Every paper, claim, and contradiction tracked. Ask the research rather than re-reading everything.</p>
+      <span class="audience-pill">Essay to thesis</span>
+    </div>
+    <div class="audience-card">
+      <span class="audience-icon">🔬</span>
+      <h3>Analysts & consultants</h3>
+      <p>Run structured research across multiple topics with full evidence chains. Deliver briefs your clients can actually challenge — because every claim is traceable.</p>
+      <span class="audience-pill">Research to brief</span>
+    </div>
+    <div class="audience-card">
+      <span class="audience-icon">📊</span>
+      <h3>Executives & decision-makers</h3>
+      <p>The same evidence base synthesised for how you actually work — bottom line first, risk flagged, assumptions explicit. Not a wall of citations.</p>
+      <span class="audience-pill">Brief to decision</span>
+    </div>
+    <div class="audience-card">
+      <span class="audience-icon">⚖️</span>
+      <h3>Legal & compliance teams</h3>
+      <p>Build a structured knowledge base around regulatory changes, case law, and precedent. Claims linked to sources. Contradictions flagged automatically.</p>
+      <span class="audience-pill">Research to position</span>
+    </div>
+    <div class="audience-card">
+      <span class="audience-icon">📰</span>
+      <h3>Journalists & investigators</h3>
+      <p>Track a story across months with a private knowledge graph. Contradictions surface when sources conflict. Every claim persists for the record.</p>
+      <span class="audience-pill">Notes to story</span>
+    </div>
+    <div class="audience-card">
+      <span class="audience-icon">🚀</span>
+      <h3>Founders & strategists</h3>
+      <p>Market intelligence that grows with your company. Competitive claims with confidence scores. Industry gaps surfaced automatically across every research session.</p>
+      <span class="audience-pill">Intelligence to strategy</span>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="philosophy" id="vision" aria-label="Our philosophy">
+  <div class="section-eyebrow">Our philosophy</div>
+  <div class="responsible-badge">Responsible AI by design</div>
+  <div class="philosophy-headline">
+    AI should do the <em>heavy lifting.</em><br>Humans should own every conclusion.
+  </div>
+  <p class="philosophy-body">
+    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built from the ground up with the human governance layer that AI tools almost always skip — because that's what makes the difference between a tool that impresses and one you can actually trust.
+  </p>
+  <div class="philosophy-pillars">
+    <div class="pillar">
+      <div class="pillar-key">Principle 01</div>
+      <div class="pillar-val">Knowledge accumulates</div>
+      <div class="pillar-desc">Research compounds across sessions. What you learned last month informs what you learn today.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-key">Principle 02</div>
+      <div class="pillar-val">Claims persist</div>
+      <div class="pillar-desc">Every finding stays attributed, scored, and traceable. Nothing gets smoothed into a paragraph and lost.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-key">Principle 03</div>
+      <div class="pillar-val">Contradictions surface</div>
+      <div class="pillar-desc">The system finds where sources conflict and shows you — rather than picking a side and hiding the tension.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Coming soon -->
+<section class="coming-soon" id="contact">
+  <div class="coming-soon-inner">
+    <span class="cs-badge">In active development</span>
+    <h2 style="font-family:var(--serif);letter-spacing:-0.02em">Something is being<br>built here.</h2>
+    <p>
+      Distila is in active development. The desktop app is running.
+      The knowledge graph is working. We're refining before we open doors.
+      Watch this space — or reach out if you want to talk earlier.
+    </p>
+    <div class="cs-links">
+      <a href="/cdn-cgi/l/email-protection#ea8b88998384828b888698aa859f9e86858581c4898587" class="cs-link">Get in touch &rarr;</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <a href="#" class="footer-logo">Distil<span>a</span></a>
+  <div class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface</div>
+  <div class="footer-links"><a href="/cdn-cgi/l/email-protection#8eefecfde7e0e6efece2fccee1fbfae2e1e1e5a0ede1e3">Contact</a></div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const btn = document.querySelector('.cta-btn');
+    btn.textContent = 'You\'re on the list ✓';
+    btn.style.background = '#1a472a';
+    btn.disabled = true;
+    input.disabled = true;
+    input.style.borderColor = '#1a472a';
+  }
+
+  // Smooth scroll for nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Scroll-triggered fade in for sections
+  const observer = new Inter
