@@ -650,6 +650,11 @@
       <h3>No audit trail for your decisions</h3>
       <p>When a choice is challenged six months later, you have no record of what you knew, how confident you were, or what contradictions you were aware of at the time.</p>
     </div>
+    <div class="problem-card">
+      <span class="problem-card-num">05</span>
+      <h3>Your specialist models have nowhere to go</h3>
+      <p>You've fine-tuned a model on your legal corpus, clinical data, or financial filings. Every AI tool forces you to use their models. Your fine-tune has no role in the pipeline.</p>
+    </div>
   </div>
 </section>
 
@@ -696,8 +701,8 @@
     </div>
     <div class="how-step">
       <div class="how-step-tag">Your data</div>
-      <h3>Fully private</h3>
-      <p>Distila runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Run fully airgapped with local models if required.</p>
+      <h3>Fully private — fully yours</h3>
+      <p>Distila runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Fine-tune a domain specialist, add it as a worker, run fully airgapped. Your models, your data, your pipeline.</p>
     </div>
   </div>
 </section>
@@ -718,9 +723,9 @@
       <div class="role-providers">
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">GPT-5.4</span><span class="rp-tag tag-cloud">OpenAI</span></div>
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Gemini 3.1 Pro</span><span class="rp-tag tag-cloud">Google</span></div>
-        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Domain SLM</span><span class="rp-tag tag-custom">Custom</span></div>
+        <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">your-domain-specialist:latest</span><span class="rp-tag tag-custom">Fine-tuned</span></div>
       </div>
-      <p class="role-desc">Run in parallel during Phase 2. Each provider independently extracts claims — confidence is then weighted by cross-provider consensus, not just count. More workers = broader coverage + stronger calibration signal. Ollama excluded by default to avoid local model variance diluting the consensus.</p>
+      <p class="role-desc">Run in parallel during Phase 2. Each provider independently extracts claims — confidence weighted by cross-provider consensus, not just count. Bring your own fine-tuned domain specialist and slot it in alongside frontier models: specialist depth plus frontier breadth, synthesised by your Orchestrator. Ollama excluded by default but fully supported.</p>
     </div>
 
     <div class="pipeline-role-card">
@@ -756,7 +761,7 @@
         <div class="role-provider on"><span class="rp-dot on-dot"></span><span class="rp-name">Your preferred local model (all roles)</span><span class="rp-tag tag-local">Local</span></div>
         <div class="role-provider off"><span class="rp-dot off-dot"></span><span class="rp-name">All cloud providers</span><span class="rp-tag tag-off">Disabled</span></div>
       </div>
-      <p class="role-desc">Assign any open-weight model — Mistral, Llama, Qwen, or your own fine-tune — to every role. No data leaves the device. No API keys. No cloud dependency. Full structured pipeline running entirely on your hardware. For legal, healthcare, defence, and corporate intelligence environments where data sovereignty is non-negotiable.</p>
+      <p class="role-desc">Assign any open-weight model — Mistral, Llama, Qwen, or your own fine-tune — to every role. Run your domain-specialist alongside frontier models or replace them entirely. No data leaves the device. No API keys. No cloud dependency. Full structured pipeline on your hardware. For legal, healthcare, defence, and corporate intelligence where data sovereignty is non-negotiable.</p>
     </div>
 
   </div>
@@ -858,6 +863,12 @@
       <h3>Legal & compliance teams</h3>
       <p>Build a structured knowledge base around regulatory changes, case law, and precedent. Claims linked to sources, dated, and marked when they age. Decision log captures the full evidence state at the moment advice was given. The audit trail regulators expect.</p>
       <span class="audience-pill">Research to position</span>
+    </div>
+    <div class="audience-card">
+      <span class="audience-icon">🏥</span>
+      <h3>Healthcare & clinical</h3>
+      <p>Sensitive research stays on-device. Slot a fine-tuned clinical model into Research Workers alongside frontier models for specialist depth. Evidence trails for clinical decisions. Contradictions surfaced across literature automatically.</p>
+      <span class="audience-pill">Evidence to protocol</span>
     </div>
     <div class="audience-card">
       <span class="audience-icon">📰</span>
