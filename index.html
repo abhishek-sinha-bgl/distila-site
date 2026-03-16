@@ -96,10 +96,10 @@
   .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
   .btn-primary {
     font-size: 15px; font-weight: 500; padding: 14px 32px; border-radius: 99px;
-    background: var(--ink); color: var(--paper); text-decoration: none;
+    background: var(--accent); color: #0a1a0f; text-decoration: none;
     transition: transform 0.2s, opacity 0.2s; display: inline-block;
   }
-  .btn-primary:hover { transform: translateY(-2px); opacity: 0.85; }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
   .btn-ghost {
     font-size: 15px; font-weight: 400; padding: 14px 32px; border-radius: 99px;
     border: 1px solid rgba(240,237,232,0.2); color: var(--ink); text-decoration: none;
@@ -117,10 +117,15 @@
     font-weight: 400; max-width: 540px;
   }
   .hero-tagline {
-    position: absolute; bottom: 48px; right: 48px;
     font-family: var(--serif); font-style: italic;
-    font-size: 14px; color: var(--muted);
-    text-align: right; line-height: 1.8;
+    font-size: 15px; color: rgba(240,237,232,0.6);
+    line-height: 2; margin-top: 32px;
+    display: flex; gap: 16px; align-items: center;
+    letter-spacing: 0.02em;
+  }
+  .hero-tagline::before {
+    content: ''; display: block; width: 32px; height: 1px;
+    background: var(--accent); flex-shrink: 0; opacity: 0.6;
   }
 
   /* decorative grid lines */
@@ -468,7 +473,7 @@
     h2 { font-size: clamp(28px, 8vw, 42px); }
     .nav-links { display: none; }
     .claims-topic-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-    .hero-tagline { display: none; }
+    .hero-tagline { font-size: 13px; gap: 12px; margin-top: 24px; }
     .stat-num { font-size: 28px; min-width: 52px; }
     .stat-label { font-size: 13px; max-width: 260px; line-height: 1.4; }
   }
@@ -592,9 +597,7 @@
     <a href="#vision" class="btn-ghost">Our philosophy</a>
   </div>
   <div class="hero-tagline" aria-hidden="true">
-    Knowledge accumulates<br>
-    Claims persist<br>
-    Contradictions surface
+    Knowledge accumulates &nbsp;·&nbsp; Claims persist &nbsp;·&nbsp; Contradictions surface
   </div>
 </section>
 
@@ -901,7 +904,7 @@
     </p>
     <div class="cs-links">
       <a href="distila_demo.html" class="cs-link cs-link-demo">Try the preview &rarr;</a>
-      <a href="mailto:absinhablr@outlook.com" class="cs-link">Get in touch &rarr;</a>
+      <a href="/cdn-cgi/l/email-protection#b2d3d0c1dbdcdad3d0dec0f2ddc7c6deddddd99cd1dddf" class="cs-link">Get in touch &rarr;</a>
     </div>
   </div>
 </section>
@@ -915,7 +918,7 @@
   <div class="footer-links"><a href="/cdn-cgi/l/email-protection#8eefecfde7e0e6efece2fccee1fbfae2e1e1e5a0ede1e3">Contact</a></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const btn = document.querySelector('.cta-btn');
     btn.textContent = 'You\'re on the list ✓';
     btn.style.background = '#1a472a';
@@ -930,9 +933,4 @@ const btn = document.querySelector('.cta-btn');
       const id = a.getAttribute('href');
       if (id === '#') return;
       const el = document.querySelector(id);
-      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
-
-  // Scroll-triggered fade in for sections
-  const observer = new Inter
+      if (el) 
