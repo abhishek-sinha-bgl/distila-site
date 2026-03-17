@@ -487,6 +487,55 @@
     border-radius: 4px;
   }
 
+  /* ── Tag colours (pipeline role cards) ── */
+  .tag-cloud  { background: rgba(96,165,250,0.12); color: #60a5fa; }
+  .tag-local  { background: rgba(74,222,128,0.12); color: var(--accent); }
+  .tag-custom { background: rgba(167,139,250,0.12); color: #a78bfa; }
+  .tag-off    { background: rgba(240,237,232,0.07); color: rgba(240,237,232,0.3); }
+
+  /* ── Sprint badge variants ── */
+  .cs-badge-live {
+    display: inline-block; font-family: var(--mono); font-size: 10px;
+    font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 99px; margin-bottom: 10px;
+    background: rgba(74,222,128,0.12); color: var(--accent);
+    border: 1px solid rgba(74,222,128,0.3);
+  }
+  .cs-badge-next {
+    display: inline-block; font-family: var(--mono); font-size: 10px;
+    font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 99px; margin-bottom: 24px;
+    background: rgba(167,139,250,0.1); color: #a78bfa;
+    border: 1px solid rgba(167,139,250,0.25);
+  }
+  .cs-shipped { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; text-align: left; }
+  .cs-shipped-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+  }
+  .cs-shipped-item::before {
+    content: "✓"; color: var(--accent); font-weight: 600;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .cs-next { display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; text-align: left; }
+  .cs-next-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+  }
+  .cs-next-item::before {
+    content: "→"; color: #a78bfa; font-weight: 600;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .cs-divider {
+    width: 100%; border: none; border-top: 1px solid rgba(240,237,232,0.1);
+    margin: 20px 0;
+  }
+  .cs-next-label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #a78bfa; margin-bottom: 10px;
+    text-align: left;
+  }
+
   /* ── Pipeline role cards ── */
   .pipeline-roles-grid {
     display: grid;
@@ -576,14 +625,14 @@
     <a href="#how">How it works</a>
     <a href="#for-you">Who it's for</a>
     <a href="#vision">Vision</a>
-    <span class="nav-badge">In development</span>
+    <span class="nav-badge">Sprint 6B shipped</span>
   </div>
 </nav>
 
 <!-- Hero -->
 <main id="main-content">
 <section class="hero">
-  <div class="hero-eyebrow">Decision intelligence · Responsible AI · Local-first</div>
+  <div class="hero-eyebrow">Decision intelligence · Knowledge graph · Responsible AI · Local-first</div>
   <h1>More information.<br>Less <em>certainty.</em><br>Something is broken.</h1>
   <p class="hero-sub">
     AI just made it worse — faster answers, higher volume, no way to know what's actually true.
@@ -618,7 +667,7 @@
   </div>
   <div class="stat-item">
     <span class="stat-num">4</span>
-    <span class="stat-label">Named model roles — Research, Orchestrator, Writer, Verifier</span>
+    <span class="stat-label">Named model roles — any LLM for any role, mix cloud and local</span>
   </div>
 </div>
 
@@ -672,7 +721,7 @@
     <div class="how-step">
       <div class="how-step-tag">Phase 2</div>
       <h3>Deep research</h3>
-      <p>Multiple AI providers work in parallel. Every claim extracted carries a status (Verified, Contested, Weak), a confidence score, a source tier, and the reasoning chain behind it.</p>
+      <p>Multiple AI providers work in parallel. Claims appear live as each provider responds — the Claims counter increments in real time. Every claim carries a status (Verified, Contested, Weak), an evidence-weighted confidence score, a source tier, and the full reasoning chain.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Phase 3</div>
@@ -685,19 +734,29 @@
       <p>Orchestrator synthesises the brief through your chosen decision lens. A dedicated Report Writer model produces publication-ready output — board paper, investment memo, blog post, LinkedIn thread, or policy brief — in the prose style you trust.</p>
     </div>
     <div class="how-step">
+      <div class="how-step-tag">Decision lenses</div>
+      <h3>Same research, different frame</h3>
+      <p>Switch between Analyst, Executive, Financial, and other lenses to reframe the same evidence base for different audiences — without re-running research. Build custom lenses for your own use case. Sprint 7 adds a guided lens builder that writes the synthesis prompt for you.</p>
+    </div>
+    <div class="how-step">
       <div class="how-step-tag">Always on</div>
       <h3>Knowledge graph</h3>
-      <p>Every claim, entity, and document persists in a private local database. Contradictions surface across topics automatically. Click any entity to see everything Distila knows about it across all your research — not just this topic.</p>
+      <p>Every claim, entity, and document persists in a private local database. The Graph tab renders a live constellation — nodes sized by mention frequency, edges from subject–verb–object triplets. Click any entity to see everything Distila knows about it across all your research. Contradictions surface structurally, not by keyword matching.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Evidence weighted</div>
       <h3>Confidence you can trust</h3>
-      <p>Confidence scores are computed from evidence — source tier, cross-provider consensus, Socratic challenge survival, document corroboration, and recency decay. Not self-reported by the model. Current research confirms LLM verbalized confidence is fundamentally broken. Distila doesn't use it.</p>
+      <p>Confidence is computed from evidence — source tier, P(True)-weighted provider consensus, Socratic challenge survival, document corroboration, and recency decay. The contested penalty is tier-aware: a Tier 1 source challenged by another Tier 1 source is penalised more heavily than a Tier 3 challenge. LLM verbalized confidence is fundamentally broken. Distila doesn't use it.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Positions</div>
       <h3>Stake and track</h3>
       <p>State what you believe to be true. Every subsequent research run checks whether new claims support or challenge your position. The confidence bar moves. You see the evidence shift in real time.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Topic hierarchy</div>
+      <h3>Research trees</h3>
+      <p>Create sub-topics under any parent topic — drill into a specific angle without losing the broader context. When sub-topics have their own briefs, a single button synthesises them all into a cross-cutting parent brief that identifies where the threads agree, conflict, and diverge.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Your data</div>
@@ -713,7 +772,7 @@
   <div class="section-eyebrow">The configurable pipeline</div>
   <h2>Your models. Your roles.<br><em>Different models for different jobs.</em></h2>
   <p class="section-intro">
-    Distila assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination. Sprint 6 introduces Deep Research mode: each worker runs the full pipeline independently, and the Orchestrator calibrates across N independent reasoning chains.
+    Distila assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination of cloud, local, and fine-tuned models. Deep Research mode runs each worker through the full pipeline independently and calibrates across N independent reasoning chains for the highest-confidence output.
   </p>
 
   <div class="pipeline-roles-grid">
@@ -893,7 +952,7 @@
     AI should do the <em>heavy lifting.</em><br>Humans should own every conclusion.
   </div>
   <p class="philosophy-body">
-    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025-2026 confirms LLM verbalized confidence is fundamentally broken. Distila computes confidence from evidence: source tier, cross-provider consensus, verification outcome, recency decay. The field calls this behavioural validation. Distila has had it since day one.
+    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025-2026 confirms LLM verbalized confidence is fundamentally broken. Distila computes confidence from evidence: source tier, P(True)-weighted provider consensus, verification outcome, Socratic challenge survival, and recency decay. When two Tier 1 sources directly contradict each other, the penalty is steeper than when a low-credibility source challenges a high-credibility one. The field calls this calibrated behavioural validation. Distila has had the foundations since day one and keeps sharpening them.
   </p>
   <div class="philosophy-pillars">
     <div class="pillar">
@@ -917,14 +976,27 @@
 <!-- Coming soon -->
 <section class="coming-soon" id="contact">
   <div class="coming-soon-inner">
-    <span class="cs-badge">Sprint 5 complete · Sprint 6 in progress</span>
-    <h2 style="font-family:var(--serif);letter-spacing:-0.02em">Something is being<br>built here.</h2>
+    <span class="cs-badge-live">Sprint 6B shipped</span>
+    <h2 style="font-family:var(--serif);letter-spacing:-0.02em">It's running.<br>And compounding.</h2>
     <p>
-      The desktop app is running. The knowledge graph is live. Evidence-weighted confidence scoring,
-      position tracking, streaming chat, and multi-LLM role assignment are all working.
-      Sprint 6 brings the visual knowledge graph, Deep Research mode, and streaming research.
-      Reach out if you want early access or want to talk.
+      The desktop app is live and in active use. Every sprint adds capability that compounds — the knowledge graph grows richer, confidence scores get sharper, the pipeline gets faster.
     </p>
+    <div class="cs-shipped" aria-label="What's shipped">
+      <div class="cs-shipped-item">Visual knowledge graph — entity constellation with force simulation, pan, zoom, click-to-inspect</div>
+      <div class="cs-shipped-item">Deep Research mode — each provider runs the full pipeline independently, Orchestrator calibrates across N reasoning chains</div>
+      <div class="cs-shipped-item">Live claim streaming — Claims tab counter increments in real time as workers respond</div>
+      <div class="cs-shipped-item">Parent–child topics with cross-topic synthesis — sub-topic briefs merged into a unified parent brief</div>
+      <div class="cs-shipped-item">Tier-aware contested confidence penalty and P(True)-weighted provider consensus</div>
+    </div>
+    <hr class="cs-divider">
+    <div class="cs-next-label">Sprint 7 — in design</div>
+    <div class="cs-next" aria-label="What's next">
+      <div class="cs-next-item">Guided lens builder — structured form that writes your custom synthesis prompt for you</div>
+      <div class="cs-next-item">Three new built-in lenses: Student, Journalist, Legal — closing the gap between named user types and available views</div>
+      <div class="cs-next-item">Executive summary block — structured header for action-oriented lenses: bottom line, key risk, recommended action</div>
+      <div class="cs-next-item">Pipeline and store architecture refactor — modular, maintainable, ready for open contribution</div>
+      <div class="cs-next-item">Targeted accessibility audit — keyboard navigation, ARIA labels, focus management, contrast</div>
+    </div>
     <div class="cs-links">
       <a href="distila_demo.html" class="cs-link cs-link-demo">Try the preview &rarr;</a>
       <a href="/cdn-cgi/l/email-protection#b2d3d0c1dbdcdad3d0dec0f2ddc7c6deddddd99cd1dddf" class="cs-link">Get in touch &rarr;</a>
@@ -941,19 +1013,13 @@
   <div class="footer-links"><a href="/cdn-cgi/l/email-protection#8eefecfde7e0e6efece2fccee1fbfae2e1e1e5a0ede1e3">Contact</a></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const btn = document.querySelector('.cta-btn');
-    btn.textContent = 'You\'re on the list ✓';
-    btn.style.background = '#1a472a';
-    btn.disabled = true;
-    input.disabled = true;
-    input.style.borderColor = '#1a472a';
-  }
-
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Smooth scroll for nav
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href');
       if (id === '#') return;
       const el = document.querySelector(id);
-      if (el) 
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
