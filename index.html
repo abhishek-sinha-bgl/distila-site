@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distila — Think clearly. Decide confidently.</title>
-<meta name="description" content="Distila is a private decision intelligence platform. Evidence-weighted confidence scoring. Multi-LLM pipeline with configurable roles. Knowledge graph that compounds over time. Responsible AI by design.">
+<title>Distila — Research intelligence you can defend.</title>
+<meta name="description" content="Distila is a private decision intelligence platform built for Responsible AI in practice. Evidence-weighted confidence scoring, persistent knowledge graph, and the only AI research tool that generates an audit-ready Decision Log. EU AI Act compliant by design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@
     font-family: var(--serif); font-style: italic;
     font-size: 15px; color: rgba(240,237,232,0.6);
     line-height: 2; margin-top: 32px;
-    display: flex; gap: 16px; align-items: center;
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
     letter-spacing: 0.02em;
   }
   .hero-tagline::before {
@@ -372,7 +372,7 @@
     max-width: 620px; margin: 0 auto 56px; font-weight: 300;
   }
   .philosophy-pillars {
-    display: flex; gap: 0; max-width: 760px; margin: 0 auto;
+    display: flex; gap: 0; max-width: 960px; margin: 0 auto;
     border: 1px solid rgba(245,243,239,0.12);
   }
   .pillar {
@@ -389,6 +389,31 @@
   }
   .pillar-desc {
     font-size: 12.5px; color: var(--muted); line-height: 1.6; font-weight: 300;
+  }
+
+  /* ── Compliance strip ── */
+  .compliance-strip {
+    background: #0c0c0b;
+    border-top: 1px solid rgba(240,237,232,0.08);
+    border-bottom: 1px solid rgba(240,237,232,0.08);
+    padding: 20px 48px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .compliance-label {
+    font-family: var(--mono); font-size: 9px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(240,237,232,0.35); white-space: nowrap;
+  }
+  .compliance-items {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .compliance-item {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 4px;
+    background: rgba(74,222,128,0.06);
+    color: rgba(240,237,232,0.5);
+    border: 1px solid rgba(74,222,128,0.15);
+    white-space: nowrap;
   }
 
   /* ── Coming soon ── */
@@ -480,6 +505,8 @@
   }
   @media (max-width: 900px) {
     .problem-cards { grid-template-columns: 1fr 1fr; }
+    .philosophy-pillars { flex-wrap: wrap; }
+    .pillar { min-width: 50%; border-bottom: 1px solid rgba(245,243,239,0.08); }
     }
 
   :focus-visible {
@@ -625,7 +652,7 @@
   <div class="nav-links">
     <a href="#how">How it works</a>
     <a href="#for-you">Who it's for</a>
-    <a href="#vision">Vision</a>
+    <a href="#vision">Governance</a>
     <span class="nav-badge">Sprint 9 shipped</span>
   </div>
 </nav>
@@ -633,14 +660,14 @@
 <!-- Hero -->
 <main id="main-content">
 <section class="hero">
-  <div class="hero-eyebrow">Decision intelligence · Knowledge graph · Responsible AI · Local-first</div>
+  <div class="hero-eyebrow">Decision intelligence · Responsible AI · EU AI Act compliant · Local-first</div>
   <h1>More information.<br>Less <em>certainty.</em><br>AI made it worse.</h1>
   <p class="hero-sub">
     AI just made it worse — faster answers, higher volume, no way to know what's actually true.
     Distila is a <strong>decision intelligence platform</strong> built differently.
     Every claim sourced, scored, and verified against evidence — not self-reported by the model.
     Contradictions surfaced, not hidden. A private knowledge graph that compounds with every session.
-    Your LLMs, your roles, your rules.
+    And a Decision Log that records what you knew, how confident you were, and what you chose to do — the audit trail every other AI tool skips.
   </p>
   <p class="hero-kicker">This is what it feels like to actually know something.</p>
   <div class="hero-actions">
@@ -648,7 +675,7 @@
     <a href="#vision" class="btn-ghost">Our philosophy</a>
   </div>
   <div class="hero-tagline" aria-hidden="true">
-    Knowledge accumulates &nbsp;·&nbsp; Claims persist &nbsp;·&nbsp; Contradictions surface
+    Knowledge accumulates &nbsp;·&nbsp; Claims persist &nbsp;·&nbsp; Contradictions surface &nbsp;·&nbsp; Decisions are recorded
   </div>
 </section>
 
@@ -667,8 +694,8 @@
     <span class="stat-label">Claims processed across beta sessions and growing</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">4</span>
-    <span class="stat-label">Named model roles — any LLM for any role, mix cloud and local</span>
+    <span class="stat-num">0</span>
+    <span class="stat-label">Competitors with an audit-ready Decision Log. Distila is the only one.</span>
   </div>
 </div>
 
@@ -682,23 +709,23 @@
   <div class="problem-cards">
     <div class="problem-card">
       <span class="problem-card-num">01</span>
-      <h3>Everything is plausible, nothing is provable</h3>
-      <p>ChatGPT, Perplexity, Deep Research — all return fluent sentences with no indication of what's verified, contested, or simply fabricated. You spend more time checking than deciding.</p>
+      <h3>No audit trail — and now that's a liability</h3>
+      <p>The EU AI Act entered full enforcement in 2026. High-risk AI use in finance, legal, healthcare, and strategy now requires documented evidence of what your AI knew and how confident it was. Every other research tool generates none of this. Distila does.</p>
     </div>
     <div class="problem-card">
       <span class="problem-card-num">02</span>
+      <h3>Everything is plausible, nothing is provable</h3>
+      <p>ChatGPT, Perplexity, Gemini Deep Research — all return fluent answers with no indication of what's verified, contested, or simply fabricated. You spend more time checking than deciding.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-card-num">03</span>
       <h3>Every session forgets everything</h3>
       <p>Research you did last Tuesday is invisible today. There's no accumulation, no linkage between topics, no way to ask "what do I already know about this?" Knowledge evaporates.</p>
     </div>
     <div class="problem-card">
-      <span class="problem-card-num">03</span>
-      <h3>One output, regardless of what you need</h3>
-      <p>An analyst, an executive, and a first-year student all need the same facts framed completely differently. A single chat output serves none of them well.</p>
-    </div>
-    <div class="problem-card">
       <span class="problem-card-num">04</span>
-      <h3>No audit trail for your decisions</h3>
-      <p>When a choice is challenged six months later, you have no record of what you knew, how confident you were, or what contradictions you were aware of at the time.</p>
+      <h3>One output, regardless of what you need</h3>
+      <p>An analyst, an executive, and a compliance officer all need the same facts framed completely differently. A single chat output serves none of them well.</p>
     </div>
     <div class="problem-card">
       <span class="problem-card-num">05</span>
@@ -733,6 +760,11 @@
       <div class="how-step-tag">Phase 4</div>
       <h3>Synthesis + publication</h3>
       <p>Orchestrator synthesises the brief through your chosen decision lens. A dedicated Report Writer model produces publication-ready output — board paper, investment memo, blog post, LinkedIn thread, or policy brief — in the prose style you trust.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Decision log</div>
+      <h3>Record what you knew</h3>
+      <p>When you act on research, log the decision. Distila captures the full evidence state at that moment — every claim, its confidence score, the contradictions you were aware of, and the gaps that remained. Immutable, timestamped, audit-ready. The record regulators and boards now require.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Decision lenses</div>
@@ -903,7 +935,7 @@
 <section class="audience" id="for-you">
   <div class="section-eyebrow">Who it's for</div>
   <h2>For anyone who needs to <em>act on research</em> — not just read it.</h2>
-  <p class="section-intro">Distila works for the student writing their thesis, the analyst briefing a board, and the executive making a call on incomplete information.</p>
+  <p class="section-intro">Distila is built for teams where research quality has real consequences — the analyst briefing a board, the compliance officer building an audit trail, the executive making a call on incomplete information. And for anyone who needs their research to compound rather than evaporate.</p>
   <div class="audience-grid">
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="#4ade80" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11" x2="15" y2="11" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="14" x2="11" y2="14" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg></span>
@@ -920,7 +952,7 @@
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polyline points="3,16 8,10 12,13 19,6" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15,6 19,6 19,10" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <h3>Executives & decision-makers</h3>
-      <p>The same evidence base synthesised for how you actually work — bottom line first, risk flagged, assumptions explicit. Not a wall of citations.</p>
+      <p>The same evidence base synthesised for how you actually work — bottom line first, risk flagged, assumptions explicit. When you act, log the decision. Distila records the full evidence state at that moment. Six months later, you have the receipts.</p>
       <span class="audience-pill">Brief to decision</span>
     </div>
     <div class="audience-card">
@@ -952,13 +984,13 @@
 
 <!-- Philosophy -->
 <section class="philosophy" id="vision" aria-label="Our philosophy">
-  <div class="section-eyebrow">Our philosophy</div>
-  <div class="responsible-badge">Responsible AI by design</div>
+  <div class="section-eyebrow">Responsible AI · Our philosophy</div>
+  <div class="responsible-badge">Governance-grade by design</div>
   <div class="philosophy-headline">
     AI should do the <em>heavy lifting.</em><br>Humans should own every conclusion.
   </div>
   <p class="philosophy-body">
-    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025-2026 confirms LLM verbalized confidence is fundamentally broken. Distila computes confidence from evidence: source tier, P(True)-weighted provider consensus, verification outcome, Socratic challenge survival, and recency decay. When two Tier 1 sources directly contradict each other, the penalty is steeper than when a low-credibility source challenges a high-credibility one. The field calls this calibrated behavioural validation. Distila has had the foundations since day one and keeps sharpening them.
+    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025–2026 confirms LLM verbalized confidence is fundamentally broken. Distila computes confidence from evidence: source tier, P(True)-weighted provider consensus, verification outcome, Socratic challenge survival, and recency decay. When two Tier 1 sources directly contradict each other, the penalty is steeper than when a low-credibility source challenges a high-credibility one. The EU AI Act's full enforcement in 2026 validated what we built from day one: high-stakes AI decisions require documented evidence of what the system knew and how calibrated its confidence was. Distila has had these foundations since sprint one.
   </p>
   <div class="philosophy-pillars">
     <div class="pillar">
@@ -976,8 +1008,25 @@
       <div class="pillar-val">Contradictions surface</div>
       <div class="pillar-desc">The system finds where sources conflict and shows you — structurally, via subject-verb-object triplets, not just word matching.</div>
     </div>
+    <div class="pillar">
+      <div class="pillar-key">Principle 04</div>
+      <div class="pillar-val">Decisions are recorded</div>
+      <div class="pillar-desc">When you act, Distila logs the full evidence state. What you knew, what was contested, what was missing. Immutable. Audit-ready.</div>
+    </div>
   </div>
 </section>
+
+<!-- Compliance strip -->
+<div class="compliance-strip" aria-label="Regulatory compliance">
+  <span class="compliance-label">Maps to</span>
+  <div class="compliance-items">
+    <span class="compliance-item">EU AI Act 2026</span>
+    <span class="compliance-item">Colorado AI Act</span>
+    <span class="compliance-item">NAIC Model Bulletin</span>
+    <span class="compliance-item">SOX IT General Controls</span>
+    <span class="compliance-item">ISO 42001</span>
+  </div>
+</div>
 
 <!-- Coming soon -->
 <section class="coming-soon" id="contact">
@@ -1017,7 +1066,7 @@
 <!-- Footer -->
 <footer>
   <a href="#" class="footer-logo">Distil<span>a</span></a>
-  <div class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface</div>
+  <div class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</div>
   <div class="footer-links"><a href="/cdn-cgi/l/email-protection#8eefecfde7e0e6efece2fccee1fbfae2e1e1e5a0ede1e3">Contact</a></div>
 </footer>
 
