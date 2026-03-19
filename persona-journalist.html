@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distilapp for Investigative Journalists</title>
+<meta name="description" content="How Distilapp serves investigative journalists — source confidentiality, evidence that compounds across months-long investigations, and an immutable record of what was known when.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="distilapp.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav>
+  <a href="index.html" class="nav-logo">Distil<span>a</span>pp</a>
+  <div class="nav-links">
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#enterprise">Enterprise</a>
+    <a href="index.html#for-you">Who it's for</a>
+    <a href="index.html" class="nav-back">← All personas</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero-eyebrow">Investigative journalism</div>
+  <h1>Sources conflict.<br><em>Surface it.</em></h1>
+  <p class="hero-kicker">"The contradiction between the official statement and the document was flagged automatically. That was the story."</p>
+  <p class="hero-sub">Long-form investigations span months. Sources contradict each other. Documents conflict with official statements. Evidence needs to compound, not evaporate. And everything you collect needs to stay on your machine — not on a cloud server with opaque data practices.</p>
+  <div class="hero-actions">
+    <a href="index.html#waitlist" class="btn-primary">Request access</a>
+    <a href="index.html" class="btn-ghost">← Back to all personas</a>
+  </div>
+</section>
+
+<section style="background:#161614; padding:80px 48px;">
+  <div class="section-eyebrow">The problem</div>
+  <h2>Investigations that outgrow<br>your <em>note-taking system.</em></h2>
+  <p class="section-intro">A six-month investigation generates hundreds of documents, dozens of sources, and a tangle of claims that confirm, contradict, and complicate each other. Spreadsheets and notebooks don't find contradictions. AI chat tools don't remember last month.</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span class="feature-card-tag">Problem 01</span>
+      <h3>Source confidentiality requires local-only</h3>
+      <p>Sensitive sources, unpublished documents, leaked material — none of it belongs on a remote server. Full stop. Distilapp is a desktop application. Everything stays on your machine. No cloud sync, no vendor access, no data retention policy to worry about.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-card-tag">Problem 02</span>
+      <h3>Contradictions are buried in volume</h3>
+      <p>An official says X. A document from three months earlier shows Y. A source from a different country confirms Z. Connecting these manually across a months-long investigation is the hardest part of the work. Distilapp tracks subject-verb-object triplets across all your sources and flags when they conflict.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-card-tag">Problem 03</span>
+      <h3>The story's evidence needs to be defensible</h3>
+      <p>Publication triggers legal review. Defamation defence requires proving what you knew, from which sources, and when. Distilapp's Decision Log records the exact evidence state at any point in the investigation — the immutable record that demonstrates what was known when the story was filed.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-card-tag">Problem 04</span>
+      <h3>Evidence evaporates between sessions</h3>
+      <p>Pick up an investigation after three weeks and you're re-reading notes, re-finding documents, re-establishing context. Distilapp's knowledge graph persists. The entity constellation from day one is still there on day ninety — with everything new connected to everything old.</p>
+    </div>
+  </div>
+</section>
+
+<section class="workflow">
+  <div class="section-eyebrow">How Distilapp works for you</div>
+  <h2>From documents<br>to <em>story graph.</em></h2>
+  <p class="section-intro">Ingest documents, official statements, source interviews, public records. Contradictions surface structurally. The knowledge graph shows you how entities connect across your entire body of evidence.</p>
+
+  <div class="workflow-steps">
+    <div class="workflow-step">
+      <div class="workflow-num">01</div>
+      <div>
+        <h3>Ingest everything — documents, URLs, PDFs, filings</h3>
+        <p>Drop in government filings, corporate reports, leaked documents, official statements, court records, academic research. Distilapp's stratified chunking handles 300-page PDFs — always indexing the start, structural sections, and tail, so nothing important gets missed regardless of where it sits in a long document.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="workflow-num">02</div>
+      <div>
+        <h3>Story graph — entities, relationships, conflicts</h3>
+        <p>Every entity in your evidence base — person, organisation, document, event — appears as a node in the knowledge graph. Edges connect them by subject-verb-object relationships extracted from every source. Click any entity to see everything Distilapp knows about it across your entire investigation. Contradictions between sources on the same entity are highlighted structurally.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="workflow-num">03</div>
+      <div>
+        <h3>Contradiction detection — when sources conflict</h3>
+        <p>When an official statement claims entity A did X, and a document in your KB shows entity A did the opposite, Distilapp flags it as a contested claim with both sources named. Not keyword matching — triplet-based: same subject, opposing predicate object. The kind of contradiction that's the story gets surfaced automatically.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="workflow-num">04</div>
+      <div>
+        <h3>Source conflict highlighting</h3>
+        <p>Which sources agree? Which sources are sole-source claims? Which findings only have a single document behind them versus multiple independent corroborations? The Claims tab shows you the evidence architecture of your investigation — not just the claims, but the reliability structure underneath them.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="workflow-num">05</div>
+      <div>
+        <h3>Decision Log — the defamation defence record</h3>
+        <p>Before filing the story, log the decision. Distilapp records every verified finding, every contested claim, every source, every gap that remained — timestamped, immutable, exportable. If legal challenge follows publication, you have the complete record of what you knew, what was contested, and what you were transparent about not knowing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 48px;">
+  <div class="section-eyebrow">Sample findings</div>
+  <h2>Evidence as<br><em>structured claims</em> — not notes.</h2>
+  <p class="section-intro">Corporate governance investigation — financial irregularities in a listed entity. Each claim traceable to source, with contradictions surfaced automatically.</p>
+
+  <div class="claim-card-grid">
+    <div class="claim-card-item verified-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-verified">Verified</span>
+        <span class="claim-conf conf-high">88%</span>
+      </div>
+      <p class="claim-card-text">Board meeting minutes from March 2024 record approval of a related-party transaction with Meridian Holdings Ltd, valued at £4.2M, without disclosure in the 2024 annual report.</p>
+      <p class="claim-card-source">Companies House filing (obtained) · Board minutes (leaked) · 2024 Annual Report (omission confirmed)</p>
+    </div>
+    <div class="claim-card-item contested-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-contested">Contested</span>
+        <span class="claim-conf conf-mid">49%</span>
+      </div>
+      <p class="claim-card-text">The CEO had a personal financial interest in Meridian Holdings at the time of the board vote.</p>
+      <p class="claim-card-source">Source A (direct, named) confirms interest · Company spokesperson denies via email. Sole-source positive claim. Needs corroboration before publication.</p>
+    </div>
+    <div class="claim-card-item verified-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-verified">Verified</span>
+        <span class="claim-conf conf-high">94%</span>
+      </div>
+      <p class="claim-card-text">FCA Listing Rules Rule 11 requires disclosure of material related-party transactions in annual reports. The £4.2M threshold exceeds the materiality trigger.</p>
+      <p class="claim-card-source">FCA Listing Rules (Primary) · FCA Technical Note 801 · Legal counsel confirmation · Tier 1</p>
+    </div>
+    <div class="claim-card-item verified-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-verified">Verified</span>
+        <span class="claim-conf conf-high">82%</span>
+      </div>
+      <p class="claim-card-text">Meridian Holdings Ltd was incorporated in December 2023 — three months before the board vote — with registered address matching the CFO's home address.</p>
+      <p class="claim-card-source">Companies House registration (public) · Land Registry (public) · corroborated by source B</p>
+    </div>
+    <div class="claim-card-item weak-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-weak">Weak</span>
+        <span class="claim-conf conf-low">32%</span>
+      </div>
+      <p class="claim-card-text">The FCA was alerted to the omission by a whistleblower in early 2025 and has opened a preliminary inquiry.</p>
+      <p class="claim-card-source">Single source, unverified. FCA does not confirm or deny investigations. Do not publish without corroboration.</p>
+    </div>
+    <div class="claim-card-item contested-card">
+      <div class="claim-card-top">
+        <span class="claim-badge badge-contested">Contested</span>
+        <span class="claim-conf conf-mid">55%</span>
+      </div>
+      <p class="claim-card-text">The audit committee reviewed the Meridian Holdings transaction and concluded no disclosure obligation arose under the applicable rules.</p>
+      <p class="claim-card-source">Company statement vs legal analysis — FCA rule interpretation disputed. Company's legal position not publicly substantiated.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding:40px 48px 80px;">
+  <div class="persona-quote">
+    <blockquote>"Six months of documents, sources, and official statements — all in one place, with the contradictions flagged. That's the investigation, not the note-taking system."</blockquote>
+    <cite>— Investigative journalist using Distilapp beta, financial investigations</cite>
+  </div>
+</section>
+
+<section class="persona-cta">
+  <div class="responsible-badge">Local-first · Source confidentiality</div>
+  <h2>Investigation evidence<br>that <em>compounds.</em></h2>
+  <p class="section-intro">Fully local — nothing leaves your machine. Contradiction detection across all sources. Story graph showing entity relationships. Decision Log for defamation defence. The investigation infrastructure that scales with the story.</p>
+  <div class="cta-links">
+    <a href="index.html#waitlist" class="btn-primary">Request access</a>
+    <a href="index.html" class="btn-ghost">← All personas</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">Distil<span>a</span>pp</a>
+  <span class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</span>
+  <div class="footer-links">
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#enterprise">Enterprise</a>
+    <a href="mailto:founders@distilapp.ai">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -319,6 +319,16 @@
     padding: 4px 10px; border-radius: 99px;
     background: rgba(74,222,128,0.1); color: var(--accent);
   }
+  .btn-persona {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500; padding: 9px 18px; border-radius: 99px;
+    background: rgba(74,222,128,0.08); color: var(--accent);
+    border: 1px solid rgba(74,222,128,0.25); text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 12px; display: block;
+  }
+  .btn-persona:hover { background: rgba(74,222,128,0.15); transform: translateY(-1px); }
+  .btn-persona::after { content: ' →'; }
 
   /* ── Claim anatomy ── */
   .claims-section { background: #0f0f0e; overflow: hidden; }
@@ -994,51 +1004,51 @@
   <div class="audience-grid">
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="#4ade80" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11" x2="15" y2="11" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="14" x2="11" y2="14" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      <h3>Students & researchers</h3>
-      <p>Build a private knowledge base around your thesis topic. Every paper, claim, and contradiction tracked. Ask the research rather than re-reading everything.</p>
-      <span class="audience-pill">Essay to thesis</span>
+      <h3>Policy & think tank research</h3>
+      <p>Multi-year inquiries need evidence that compounds — not a tool that resets every session. Pre-publication material that can't go to the cloud. Policy brief output in your institution's format.</p>
+      <span class="audience-pill">Evidence to brief</span>
+      <a href="persona-policy.html" class="btn-persona">How it works for you</a>
     </div>
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#4ade80" stroke-width="1.5"/><line x1="11" y1="7" x2="11" y2="11" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="14" r="1" fill="#4ade80"/></svg></span>
       <h3>Analysts & consultants</h3>
-      <p>Run structured research across multiple topics with full evidence chains. Deliver briefs your clients can actually challenge — because every claim is traceable.</p>
+      <p>Deliver findings your clients can challenge — because every claim is traceable to source, tier, and confidence score. Sector knowledge that compounds across engagements, not just within them.</p>
       <span class="audience-pill">Research to brief</span>
+      <a href="persona-consultant.html" class="btn-persona">How it works for you</a>
     </div>
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polyline points="3,16 8,10 12,13 19,6" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15,6 19,6 19,10" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <h3>Executives & decision-makers</h3>
-      <p>The same evidence base synthesised for how you actually work — bottom line first, risk flagged, assumptions explicit. When you act, log the decision. Distilapp records the full evidence state at that moment. Six months later, you have the receipts.</p>
+      <p>Bottom line first, risk flagged, uncertainty named. When you act, log the decision. Six months later, when the board asks what you knew — you have the exact answer.</p>
       <span class="audience-pill">Brief to decision</span>
+      <a href="persona-executive.html" class="btn-persona">How it works for you</a>
     </div>
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="3" width="14" height="16" rx="2" stroke="#4ade80" stroke-width="1.5"/><line x1="8" y1="8" x2="14" y2="8" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="11" x2="14" y2="11" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="14" x2="11" y2="14" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      <h3>Legal & compliance teams</h3>
-      <p>Build a structured knowledge base around regulatory changes, case law, and precedent. Claims linked to sources, dated, and marked when they age. Decision log captures the full evidence state at the moment advice was given. The audit trail regulators expect.</p>
-      <span class="audience-pill">Research to position</span>
-    </div>
-    <div class="audience-card">
-      <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3C7.134 3 4 6.134 4 10c0 2.5 1.25 4.7 3.15 6.05L7 19h8l-.15-2.95C16.75 14.7 18 12.5 18 10c0-3.866-3.134-7-7-7z" stroke="#4ade80" stroke-width="1.5"/><line x1="9" y1="19" x2="13" y2="19" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-      <h3>Healthcare & clinical</h3>
-      <p>Sensitive research stays on-device. Slot a fine-tuned clinical model into Research Workers alongside frontier models for specialist depth. Evidence trails for clinical decisions. Contradictions surfaced across literature automatically.</p>
-      <span class="audience-pill">Evidence to protocol</span>
+      <h3>Legal & compliance</h3>
+      <p>New guidance contradicts existing positions. Distilapp flags it before you send the memo. Regulatory feeds updated daily. Decision Log for every piece of advice given.</p>
+      <span class="audience-pill">Regulation to position</span>
+      <a href="persona-legal.html" class="btn-persona">How it works for you</a>
     </div>
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#4ade80" stroke-width="1.5"/><line x1="3" y1="9" x2="19" y2="9" stroke="#4ade80" stroke-width="1.5"/><line x1="8" y1="5" x2="8" y2="9" stroke="#4ade80" stroke-width="1.5"/></svg></span>
-      <h3>Journalists & investigators</h3>
-      <p>Track a story across months with a private knowledge graph. Contradictions surface when sources conflict. Every claim persists for the record.</p>
-      <span class="audience-pill">Notes to story</span>
+      <h3>Investigative journalists</h3>
+      <p>Sources conflict. Documents contradict statements. Evidence needs to compound across months — and stay on your machine. Distilapp surfaces contradictions structurally and keeps your investigation's evidence permanently.</p>
+      <span class="audience-pill">Sources to story</span>
+      <a href="persona-journalist.html" class="btn-persona">How it works for you</a>
     </div>
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polygon points="11,3 14,9 20,9.5 15.5,14 17,20 11,17 5,20 6.5,14 2,9.5 8,9" stroke="#4ade80" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
       <h3>Founders & strategists</h3>
-      <p>Market intelligence that grows with your company. Stake a position on a market thesis — Distilapp tracks whether evidence supports or challenges it across every research run.</p>
+      <p>Stake a market thesis. Distilapp tracks whether new evidence supports or challenges it across every research run. Intelligence that grows with your company, not just within a session.</p>
       <span class="audience-pill">Intelligence to strategy</span>
     </div>
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="7" width="18" height="12" rx="2" stroke="#4ade80" stroke-width="1.5"/><path d="M7 7V5a2 2 0 014 0v2" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="12" x2="11" y2="15" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="12" r="1" fill="#4ade80"/></svg></span>
       <h3>Enterprise research teams</h3>
-      <p>Your organisation pays for Gartner, IDC, Northern Lights, and proprietary databases. Distilapp connects those investments to the evidence pipeline — directly, because it runs on your machine inside your network perimeter. Licensed reports flow into the same knowledge graph as web-grounded findings. The intelligence your organisation already owns, finally usable.</p>
+      <p>Gartner, IDC, Northern Lights — your licensed databases, connected to the evidence pipeline. Shared knowledge graphs. Governance export. Runs inside your perimeter.</p>
       <span class="audience-pill">Subscriptions to intelligence</span>
+      <a href="persona-enterprise.html" class="btn-persona">How it works for your team</a>
     </div>
   </div>
 </section>
