@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distila — Research intelligence you can defend.</title>
-<meta name="description" content="Distila is a private decision intelligence platform built for Responsible AI in practice. Evidence-weighted confidence scoring, persistent knowledge graph, and the only AI research tool that generates an audit-ready Decision Log. EU AI Act compliant by design.">
+<title>Distilapp — Research intelligence you can defend.</title>
+<meta name="description" content="Distilapp is a private decision intelligence platform built for Responsible AI in practice. Evidence-weighted confidence scoring, persistent knowledge graph, and the only AI research tool that generates an audit-ready Decision Log. EU AI Act compliant by design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -416,6 +416,45 @@
     white-space: nowrap;
   }
 
+  /* ── Enterprise ── */
+  .enterprise { background: #0f0f0e; padding: 100px 48px; }
+  .enterprise h2 { max-width: 680px; }
+  .enterprise h2 em { color: var(--accent); }
+  .enterprise-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; margin-top: 48px; margin-bottom: 28px;
+  }
+  .enterprise-card {
+    background: #161614; border-radius: 16px; padding: 28px 24px;
+    border: 1px solid rgba(240,237,232,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .enterprise-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+  .enterprise-icon-wrap {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .enterprise-card h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+  .enterprise-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+  .enterprise-note {
+    background: #161614; border-radius: 10px; padding: 16px 20px;
+    border: 1px solid rgba(240,237,232,0.08);
+    display: flex; gap: 14px; align-items: flex-start;
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+  }
+  .enterprise-note-label {
+    font-family: var(--mono); font-size: 9px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap; padding-top: 2px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) { .enterprise-grid { grid-template-columns: 1fr; } }
+
   /* ── Coming soon ── */
   .coming-soon { padding: 80px 48px; text-align: center; background: #0f0f0e; }
   .coming-soon-inner {
@@ -648,9 +687,10 @@
 <!-- Nav -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav aria-label="Main navigation" role="navigation">
-  <a href="#" class="nav-logo" aria-label="Distila home">Distil<span>a</span></a>
+  <a href="#" class="nav-logo" aria-label="Distilapp home">Distil<span>a</span>pp</a>
   <div class="nav-links">
     <a href="#how">How it works</a>
+    <a href="#enterprise">Enterprise</a>
     <a href="#for-you">Who it's for</a>
     <a href="#vision">Governance</a>
     <span class="nav-badge">Sprint 9 shipped</span>
@@ -664,7 +704,7 @@
   <h1>More information.<br>Less <em>certainty.</em><br>AI made it worse.</h1>
   <p class="hero-sub">
     AI just made it worse — faster answers, higher volume, no way to know what's actually true.
-    Distila is a <strong>decision intelligence platform</strong> built differently.
+    Distilapp is a <strong>decision intelligence platform</strong> built differently.
     Every claim sourced, scored, and verified against evidence — not self-reported by the model.
     Contradictions surfaced, not hidden. A private knowledge graph that compounds with every session.
     And a Decision Log that records what you knew, how confident you were, and what you chose to do — the audit trail every other AI tool skips.
@@ -694,8 +734,8 @@
     <span class="stat-label">Claims processed across beta sessions and growing</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">0</span>
-    <span class="stat-label">Competitors with an audit-ready Decision Log. Distila is the only one.</span>
+    <span class="stat-num">15+</span>
+    <span class="stat-label">Pre-configured Tier 1 sources — RAND, IMF, NBER, Brookings, arXiv. Fresh daily, free.</span>
   </div>
 </div>
 
@@ -710,7 +750,7 @@
     <div class="problem-card">
       <span class="problem-card-num">01</span>
       <h3>No audit trail — and now that's a liability</h3>
-      <p>The EU AI Act entered full enforcement in 2026. High-risk AI use in finance, legal, healthcare, and strategy now requires documented evidence of what your AI knew and how confident it was. Every other research tool generates none of this. Distila does.</p>
+      <p>The EU AI Act entered full enforcement in 2026. High-risk AI use in finance, legal, healthcare, and strategy now requires documented evidence of what your AI knew and how confident it was. Every other research tool generates none of this. Distilapp does.</p>
     </div>
     <div class="problem-card">
       <span class="problem-card-num">02</span>
@@ -736,15 +776,15 @@
 </section>
 
 <!-- How it works -->
-<section class="how" id="how" aria-label="How Distila works">
-  <div class="section-eyebrow">How Distila works</div>
+<section class="how" id="how" aria-label="How Distilapp works">
+  <div class="section-eyebrow">How Distilapp works</div>
   <h2>Four phases. One growing <em>intelligence layer.</em></h2>
-  <p class="section-intro">Every research run goes through the same rigorous pipeline — then adds to a private knowledge graph that compounds over time. When coverage is thin, the pipeline detects it and reformulates the query automatically before moving forward.</p>
+  <p class="section-intro">Every research run goes through the same rigorous pipeline — then adds to a private knowledge graph that compounds over time. A curated source library keeps that graph fresh between sessions, filtered and indexed locally at zero API cost. When coverage is thin, the pipeline detects it and reformulates the query automatically before moving forward.</p>
   <div class="how-grid">
     <div class="how-step">
       <div class="how-step-tag">Phase 1</div>
       <h3>Discovery scan</h3>
-      <p>Distila quickly maps the terrain — themes, initial claims, and knowledge gaps — using your own LLM providers in parallel. Web grounding optional, always transparent.</p>
+      <p>Distilapp quickly maps the terrain — themes, initial claims, and knowledge gaps — using your own LLM providers in parallel. Web grounding optional, always transparent.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Phase 2</div>
@@ -764,7 +804,7 @@
     <div class="how-step">
       <div class="how-step-tag">Decision log</div>
       <h3>Record what you knew</h3>
-      <p>When you act on research, log the decision. Distila captures the full evidence state at that moment — every claim, its confidence score, the contradictions you were aware of, and the gaps that remained. Immutable, timestamped, audit-ready. The record regulators and boards now require.</p>
+      <p>When you act on research, log the decision. Distilapp captures the full evidence state at that moment — every claim, its confidence score, the contradictions you were aware of, and the gaps that remained. Immutable, timestamped, audit-ready. The record regulators and boards now require.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Decision lenses</div>
@@ -774,17 +814,17 @@
     <div class="how-step">
       <div class="how-step-tag">Research further</div>
       <h3>Targeted iteration</h3>
-      <p>When confidence is low, hit Research Further. Distila targets contested claims, known gaps, and low-confidence findings — only those — then merges new claims back into your graph without resetting. Each run compounds on the last. Choose ×1, ×2, or ×3 passes.</p>
+      <p>When confidence is low, hit Research Further. Distilapp targets contested claims, known gaps, and low-confidence findings — only those — then merges new claims back into your graph without resetting. Each run compounds on the last. Choose ×1, ×2, or ×3 passes.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Always on</div>
       <h3>Knowledge graph</h3>
-      <p>Every claim, entity, and document persists in a private local database. The Graph tab renders a live constellation — nodes sized by mention frequency, edges from subject–verb–object triplets. Click any entity to see everything Distila knows about it across all your research. Contradictions surface structurally, not by keyword matching.</p>
+      <p>Every claim, entity, and document persists in a private local database. The Graph tab renders a live constellation — nodes sized by mention frequency, edges from subject–verb–object triplets. Click any entity to see everything Distilapp knows about it across all your research. Contradictions surface structurally, not by keyword matching.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Evidence weighted</div>
       <h3>Confidence you can trust</h3>
-      <p>Confidence is computed from evidence — source tier, P(True)-weighted provider consensus, Socratic challenge survival, document corroboration, and recency decay. The contested penalty is tier-aware: a Tier 1 source challenged by another Tier 1 source is penalised more heavily than a Tier 3 challenge. LLM verbalized confidence is fundamentally broken. Distila doesn't use it.</p>
+      <p>Confidence is computed from evidence — source tier, P(True)-weighted provider consensus, Socratic challenge survival, document corroboration, and recency decay. The contested penalty is tier-aware: a Tier 1 source challenged by another Tier 1 source is penalised more heavily than a Tier 3 challenge. LLM verbalized confidence is fundamentally broken. Distilapp doesn't use it.</p>
     </div>
     <div class="how-step">
       <div class="how-step-tag">Positions</div>
@@ -799,7 +839,22 @@
     <div class="how-step">
       <div class="how-step-tag">Your data</div>
       <h3>Fully private — fully yours</h3>
-      <p>Distila runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Fine-tune a domain specialist, add it as a worker, run fully airgapped. Your models, your data, your pipeline.</p>
+      <p>Distilapp runs on your machine. The knowledge graph lives in a local database. AI providers process queries but never store your research. Fine-tune a domain specialist, add it as a worker, run fully airgapped. Your models, your data, your pipeline.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Behind the firewall</div>
+      <h3>Access what you already have access to</h3>
+      <p>Cloud research tools run on remote servers that cannot reach your VPN, your intranet, or your licensed portals. Distilapp runs on your machine — inside your network perimeter. Any URL your browser can open, Distilapp can read. Gartner, IDC, Northern Lights, internal SharePoint research libraries, proprietary analyst databases. If your network allows it, Distilapp sees it. No IT infrastructure changes. No data leaving the perimeter.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Authenticated portals</div>
+      <h3>Your subscriptions, connected</h3>
+      <p>Enterprise research portals authenticate via your browser session. Distilapp can use those sessions to fetch content you're entitled to access — licensed reports, contract databases, intranet research hubs. Configure a portal once in Settings. Distilapp uses your existing authentication, not a separate login. Your Gartner subscription, your IDC contract library, your internal knowledge base — all become sources in the same evidence pipeline, claims extracted, confidence scored, contradictions surfaced.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-tag">Source library</div>
+      <h3>Always-fresh, always curated</h3>
+      <p>Distilapp ships pre-configured with high-credibility public sources — RAND, IMF, BIS, NBER working papers, Brookings, arXiv, UN research feeds. A local model running on your machine filters, summarises, and indexes each item as it arrives, at zero API cost. Only relevant content enters your knowledge base. Sources are pre-tagged with credibility tier, so an NBER working paper that corroborates a claim is weighted correctly — automatically. Add your own feeds and authenticated APIs in Settings. Your knowledge base stays fresh without growing without bound.</p>
     </div>
   </div>
 </section>
@@ -810,7 +865,7 @@
   <div class="section-eyebrow">The configurable pipeline</div>
   <h2>Your models. Your roles.<br><em>Different models for different jobs.</em></h2>
   <p class="section-intro">
-    Distila assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination of cloud, local, and fine-tuned models. Deep Research mode runs each worker through the full pipeline independently and calibrates across N independent reasoning chains for the highest-confidence output.
+    Distilapp assigns a specific role to each model — so the best model for research isn't forced to write, and the best model for writing isn't wasted on verification. Mix any combination of cloud, local, and fine-tuned models. Deep Research mode runs each worker through the full pipeline independently and calibrates across N independent reasoning chains for the highest-confidence output.
   </p>
 
   <div class="pipeline-roles-grid">
@@ -868,7 +923,7 @@
 <section class="claims-section">
   <div class="section-eyebrow">Claim intelligence</div>
   <h2>Not summaries. <em>Evidence.</em></h2>
-  <p class="section-intro">Every finding in Distila is a structured claim — individually scored with evidence-weighted confidence, sourced, and traceable. Confidence is computed from source tier, provider consensus, verification outcome, and recency — never self-reported by the model.</p>
+  <p class="section-intro">Every finding in Distilapp is a structured claim — individually scored with evidence-weighted confidence, sourced, and traceable. Confidence is computed from source tier, provider consensus, verification outcome, and recency — never self-reported by the model.</p>
 
   <div class="claims-topic-header">
     <span class="claims-topic-title">AI productivity impact on knowledge workers</span>
@@ -935,7 +990,7 @@
 <section class="audience" id="for-you">
   <div class="section-eyebrow">Who it's for</div>
   <h2>For anyone who needs to <em>act on research</em> — not just read it.</h2>
-  <p class="section-intro">Distila is built for teams where research quality has real consequences — the analyst briefing a board, the compliance officer building an audit trail, the executive making a call on incomplete information. And for anyone who needs their research to compound rather than evaporate.</p>
+  <p class="section-intro">Distilapp is built for teams where research quality has real consequences — the analyst briefing a board, the compliance officer building an audit trail, the executive making a call on incomplete information. And for anyone who needs their research to compound rather than evaporate.</p>
   <div class="audience-grid">
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="#4ade80" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="11" x2="15" y2="11" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="14" x2="11" y2="14" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg></span>
@@ -952,7 +1007,7 @@
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polyline points="3,16 8,10 12,13 19,6" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15,6 19,6 19,10" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <h3>Executives & decision-makers</h3>
-      <p>The same evidence base synthesised for how you actually work — bottom line first, risk flagged, assumptions explicit. When you act, log the decision. Distila records the full evidence state at that moment. Six months later, you have the receipts.</p>
+      <p>The same evidence base synthesised for how you actually work — bottom line first, risk flagged, assumptions explicit. When you act, log the decision. Distilapp records the full evidence state at that moment. Six months later, you have the receipts.</p>
       <span class="audience-pill">Brief to decision</span>
     </div>
     <div class="audience-card">
@@ -976,9 +1031,63 @@
     <div class="audience-card">
       <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polygon points="11,3 14,9 20,9.5 15.5,14 17,20 11,17 5,20 6.5,14 2,9.5 8,9" stroke="#4ade80" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
       <h3>Founders & strategists</h3>
-      <p>Market intelligence that grows with your company. Stake a position on a market thesis — Distila tracks whether evidence supports or challenges it across every research run.</p>
+      <p>Market intelligence that grows with your company. Stake a position on a market thesis — Distilapp tracks whether evidence supports or challenges it across every research run.</p>
       <span class="audience-pill">Intelligence to strategy</span>
     </div>
+    <div class="audience-card">
+      <span class="audience-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="7" width="18" height="12" rx="2" stroke="#4ade80" stroke-width="1.5"/><path d="M7 7V5a2 2 0 014 0v2" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="12" x2="11" y2="15" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="12" r="1" fill="#4ade80"/></svg></span>
+      <h3>Enterprise research teams</h3>
+      <p>Your organisation pays for Gartner, IDC, Northern Lights, and proprietary databases. Distilapp connects those investments to the evidence pipeline — directly, because it runs on your machine inside your network perimeter. Licensed reports flow into the same knowledge graph as web-grounded findings. The intelligence your organisation already owns, finally usable.</p>
+      <span class="audience-pill">Subscriptions to intelligence</span>
+    </div>
+  </div>
+</section>
+
+<!-- Enterprise section -->
+<section class="enterprise" id="enterprise" aria-label="Enterprise access">
+  <div class="section-eyebrow">Enterprise access</div>
+  <h2>Runs inside your perimeter.<br><em>Reaches what cloud tools can't.</em></h2>
+  <p class="section-intro">Cloud research tools run on servers that cannot reach your VPN, your intranet, or your licensed portals. Distilapp runs on your machine — the same network access as your browser, inside your firewall.</p>
+  <div class="enterprise-grid">
+    <div class="enterprise-card">
+      <div class="enterprise-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="4" stroke="#4ade80" stroke-width="1.5"/><path d="M9 14h10M14 9v10" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Licensed research databases</h3>
+      <p>Gartner, IDC, Northern Lights, Bloomberg, Forrester — if your organisation subscribes and your machine can reach it, Distilapp can ingest it. Paste the URL. The report becomes claims, scored and persisted in your knowledge graph.</p>
+    </div>
+    <div class="enterprise-card">
+      <div class="enterprise-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="14" rx="11" ry="7" stroke="#4ade80" stroke-width="1.5"/><ellipse cx="14" cy="14" rx="5" ry="7" stroke="#4ade80" stroke-width="1.5"/><line x1="3" y1="14" x2="25" y2="14" stroke="#4ade80" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Intranet and VPN resources</h3>
+      <p>Internal wikis, SharePoint research libraries, internal databases with web interfaces — any URL your browser can reach on your corporate network, Distilapp can read. No IT ticket. No infrastructure change. Just paste the URL.</p>
+    </div>
+    <div class="enterprise-card">
+      <div class="enterprise-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3l2 5h5l-4 3 1.5 5L14 13l-4.5 3L11 11 7 8h5z" stroke="#4ade80" stroke-width="1.5" stroke-linejoin="round"/><circle cx="14" cy="22" r="2" stroke="#4ade80" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Authenticated portal access</h3>
+      <p>Research portals that require login authenticate via your browser session. Configure a portal once in Settings — Distilapp uses your existing credentials, not a separate login. Your subscription entitlements become Distilapp's source library.</p>
+    </div>
+    <div class="enterprise-card">
+      <div class="enterprise-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="8" r="4" stroke="#4ade80" stroke-width="1.5"/><circle cx="6" cy="21" r="3" stroke="#4ade80" stroke-width="1.5"/><circle cx="22" cy="21" r="3" stroke="#4ade80" stroke-width="1.5"/><line x1="14" y1="12" x2="14" y2="17" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="17" x2="8" y2="20" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="17" x2="20" y2="20" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Authenticated data feeds &amp; APIs</h3>
+      <p>Connect proprietary data APIs — NewsAPI, Refinitiv, Semantic Scholar, PubMed, GDELT — with your own key. Distilapp polls on your schedule, filters with a local model at zero API cost, and indexes only what's relevant. Your feed subscriptions become a continuously refreshed, tier-tagged knowledge base.</p>
+    </div>
+    <div class="enterprise-card">
+      <div class="enterprise-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="3" stroke="#4ade80" stroke-width="1.5"/><path d="M9 14l3 3 7-7" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Zero data egress</h3>
+      <p>Proprietary research never leaves your device. The knowledge graph built from your licensed sources, your intranet documents, and your internal databases stays on your machine. AI providers process queries — they never see your accumulated intelligence.</p>
+    </div>
+  </div>
+  <div class="enterprise-note">
+    <span class="enterprise-note-label">Terms note</span>
+    Use of Distilapp with licensed research databases is subject to the terms of your individual subscriptions. Distilapp facilitates personal research workflows — the same as a researcher copying findings into their notes.
   </div>
 </section>
 
@@ -990,7 +1099,7 @@
     AI should do the <em>heavy lifting.</em><br>Humans should own every conclusion.
   </div>
   <p class="philosophy-body">
-    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distila is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025–2026 confirms LLM verbalized confidence is fundamentally broken. Distila computes confidence from evidence: source tier, P(True)-weighted provider consensus, verification outcome, Socratic challenge survival, and recency decay. When two Tier 1 sources directly contradict each other, the penalty is steeper than when a low-credibility source challenges a high-credibility one. The EU AI Act's full enforcement in 2026 validated what we built from day one: high-stakes AI decisions require documented evidence of what the system knew and how calibrated its confidence was. Distila has had these foundations since sprint one.
+    Responsible AI isn't a compliance checkbox. It's an architecture decision. Distilapp is built ground-up with the human governance layer that almost every AI tool skips. The confidence score on each claim isn't the model's self-assessment — research from 2025–2026 confirms LLM verbalized confidence is fundamentally broken. Distilapp computes confidence from evidence: source tier, P(True)-weighted provider consensus, verification outcome, Socratic challenge survival, and recency decay. When two Tier 1 sources directly contradict each other, the penalty is steeper than when a low-credibility source challenges a high-credibility one. The EU AI Act's full enforcement in 2026 validated what we built from day one: high-stakes AI decisions require documented evidence of what the system knew and how calibrated its confidence was. Distilapp has had these foundations since sprint one.
   </p>
   <div class="philosophy-pillars">
     <div class="pillar">
@@ -1011,7 +1120,7 @@
     <div class="pillar">
       <div class="pillar-key">Principle 04</div>
       <div class="pillar-val">Decisions are recorded</div>
-      <div class="pillar-desc">When you act, Distila logs the full evidence state. What you knew, what was contested, what was missing. Immutable. Audit-ready.</div>
+      <div class="pillar-desc">When you act, Distilapp logs the full evidence state. What you knew, what was contested, what was missing. Immutable. Audit-ready.</div>
     </div>
   </div>
 </section>
@@ -1050,7 +1159,8 @@
     <div class="cs-next-label">Sprint 10 — in design</div>
     <div class="cs-next" aria-label="What's next">
       <div class="cs-next-item">Graph delta view — visualise what changed between research runs: claims added, confidence shifts, contradictions resolved</div>
-      <div class="cs-next-item">Supervised agentic loop — Distila proposes a Research Plan before running; approve, modify, or cancel before execution</div>
+      <div class="cs-next-item">Supervised agentic loop — Distilapp proposes a Research Plan before running; approve, modify, or cancel before execution</div>
+      <div class="cs-next-item">Source library — 15+ pre-configured Tier 1 feeds (RAND, IMF, NBER, arXiv, Brookings); local model filters and indexes at zero API cost; user-configurable feeds and authenticated APIs</div>
       <div class="cs-next-item">Session confidence timeline — track SNR and breadth across every iteration of a topic over time</div>
       <div class="cs-next-item">Source credibility model — structured scoring for primary vs. secondary sources, recency decay, and methodology transparency</div>
     </div>
@@ -1065,7 +1175,7 @@
 
 <!-- Footer -->
 <footer>
-  <a href="#" class="footer-logo">Distil<span>a</span></a>
+  <a href="#" class="footer-logo">Distil<span>a</span>pp</a>
   <div class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</div>
   <div class="footer-links"><a href="/cdn-cgi/l/email-protection#8eefecfde7e0e6efece2fccee1fbfae2e1e1e5a0ede1e3">Contact</a></div>
 </footer>
