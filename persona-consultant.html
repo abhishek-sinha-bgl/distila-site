@@ -4,192 +4,214 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Distilapp for Analysts & Consultants — Findings that survive the partner review</title>
-<meta name="description" content="How Distilapp serves analysts and consultants — defensible client deliverables, evidence-weighted confidence, and research that compounds across engagements.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="distilapp.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-base:#08101c;--bg-surface:#0d1829;--bg-card:#111f33;
+  --bg-input:rgba(255,255,255,0.05);
+  --accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--accent-glow:rgba(249,115,22,0.22);
+  --accent2:#38bdf8;
+  --verified:#22c55e;--contested:#f59e0b;--weak:#ef4444;
+  --text-primary:#dde8f5;--text-secondary:#7a90b0;--text-label:#4a5e78;
+  --border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.13);
+  --font-sans:"DM Sans",sans-serif;--font-serif:"DM Serif Display",serif;
+  --font-mono:"DM Mono",monospace;
+  --radius:14px;--radius-sm:8px;--shadow:0 24px 64px rgba(0,0,0,0.5);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::selection{background:var(--accent-dim);color:var(--accent)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:4px}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(8,16,28,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-icon{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#000;font-family:var(--font-sans)}
+.nav-name{font-size:14.5px;font-weight:700;color:var(--text-primary)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-back{font-size:13px;color:var(--text-label);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:5px}
+.nav-back:hover{color:var(--text-secondary)}
+.nav-touch{background:var(--accent);color:#000;font-weight:700;font-size:12.5px;padding:7px 18px;border-radius:7px;text-decoration:none;transition:all .2s}
+.nav-touch:hover{background:#fb923c}
+@media(max-width:700px){.nav-links{display:none}.site-nav{padding:0 18px}}
+
+/* HERO */
+.persona-hero{padding:120px 24px 70px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.persona-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(249,115,22,0.055),transparent);pointer-events:none}
+.persona-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(249,115,22,0.25);border-radius:99px;padding:4px 14px;margin-bottom:22px}
+.persona-hero h1{font-family:var(--font-serif);font-size:clamp(34px,5.5vw,72px);line-height:1.07;max-width:820px;margin:0 auto 22px}
+.persona-hero h1 em{font-style:italic;color:var(--accent)}
+.persona-hero blockquote{font-size:16px;color:var(--text-secondary);max-width:580px;margin:0 auto 28px;line-height:1.65;font-style:italic;border-left:3px solid rgba(249,115,22,0.3);padding-left:18px;text-align:left}
+.cta-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn-main{background:var(--accent);color:#000;font-weight:700;font-size:14px;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:7px}
+.btn-main:hover{background:#fb923c;transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-ghost{background:transparent;color:var(--text-secondary);font-weight:600;font-size:13.5px;padding:12px 22px;border-radius:10px;text-decoration:none;border:1px solid var(--border-strong);transition:all .2s}
+.btn-ghost:hover{border-color:var(--text-secondary);color:var(--text-primary)}
+
+/* SECTIONS */
+section{padding:72px 24px}
+.section-inner{max-width:1060px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.section-h{font-family:var(--font-serif);font-size:clamp(26px,4vw,48px);line-height:1.1;margin-bottom:16px}
+.section-h em{font-style:italic;color:var(--accent)}
+.section-sub{font-size:17px;color:var(--text-secondary);line-height:1.65;max-width:600px}
+
+/* PROBLEMS */
+.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+@media(max-width:700px){.problem-grid{grid-template-columns:1fr}}
+.prob{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:26px;position:relative;overflow:hidden}
+.prob::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.prob-n{font-family:var(--font-mono);font-size:10px;color:var(--text-label);margin-bottom:10px;letter-spacing:.5px}
+.prob-h{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.3}
+.prob-body{font-size:13.5px;color:var(--text-secondary);line-height:1.6}
+
+/* HOW IT WORKS */
+.how-grid{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.how-item{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid var(--border)}
+.how-item:last-child{border-bottom:none}
+.how-num{font-family:var(--font-mono);font-size:11px;color:var(--text-label);width:28px;flex-shrink:0;padding-top:3px}
+.how-content h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+.how-content p{font-size:14px;color:var(--text-secondary);line-height:1.65}
+
+/* CLAIMS DEMO */
+.claims-demo{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:40px}
+.claims-hdr{padding:15px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.claims-hdr-title{font-size:12px;font-weight:600;color:var(--text-secondary);font-family:var(--font-mono)}
+.claims-list{padding:14px;display:flex;flex-direction:column;gap:9px}
+.cc{background:var(--bg-surface);border-radius:10px;padding:14px 16px;border-left:3px solid transparent;transition:transform .2s}
+.cc:hover{transform:translateX(3px)}
+.cc.v{border-left-color:var(--verified)}.cc.c{border-left-color:var(--contested)}.cc.w{border-left-color:var(--weak)}
+.cc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.cc-status{font-size:11px;font-weight:700;letter-spacing:.3px}
+.cc-status.v{color:var(--verified)}.cc-status.c{color:var(--contested)}.cc-status.w{color:var(--weak)}
+.cc-conf{font-family:var(--font-mono);font-size:12px;font-weight:600}
+.cc-conf.h{color:var(--verified)}.cc-conf.m{color:var(--contested)}.cc-conf.l{color:var(--weak)}
+.cc-text{font-size:13.5px;color:var(--text-primary);line-height:1.5;margin-bottom:6px}
+.cc-srcs{display:flex;gap:5px;flex-wrap:wrap}
+.cc-src{font-size:11px;background:var(--bg-input);border:1px solid var(--border);border-radius:5px;padding:2px 8px;color:var(--text-label)}
+.cc-note{font-size:11.5px;color:var(--text-label);font-style:italic;margin-top:5px}
+
+/* TEAM TILE (for enterprise page) */
+.team-tile{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:26px;margin-top:16px}
+.team-tile-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:8px}
+.team-tile-h{font-size:16px;font-weight:700;margin-bottom:6px}
+.team-tile-body{font-size:13.5px;color:var(--text-secondary);line-height:1.6}
+.team-tile-price{font-family:var(--font-mono);font-size:12px;color:var(--text-label);margin-top:10px}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--bg-surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:24px 28px;margin:36px 0;font-size:16px;font-style:italic;color:var(--text-secondary);line-height:1.65}
+.pull-quote cite{display:block;margin-top:12px;font-size:12.5px;font-style:normal;color:var(--text-label)}
+
+/* BOTTOM CTA */
+.bottom-cta{background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(56,189,248,0.03));border:1px solid rgba(249,115,22,0.14);border-radius:18px;padding:48px 40px;text-align:center;margin-top:20px}
+@media(max-width:600px){.bottom-cta{padding:36px 22px}}
+.bottom-cta-label{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+.bottom-cta h2{font-family:var(--font-serif);font-size:clamp(24px,3.5vw,40px);line-height:1.1;margin-bottom:12px}
+.bottom-cta h2 em{font-style:italic;color:var(--accent)}
+.bottom-cta p{font-size:15px;color:var(--text-secondary);max-width:440px;margin:0 auto 28px;line-height:1.6}
+.bottom-cta-tags{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.btag{font-size:12px;color:var(--text-secondary);background:var(--bg-card);border:1px solid var(--border);border-radius:99px;padding:4px 12px}
+
+/* ALT SECTION BG */
+.bg-alt{background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-logo{font-size:13px;font-weight:700;color:var(--text-secondary)}
+.footer-tagline{font-size:12px;color:var(--text-label);font-style:italic}
+.footer-links{display:flex;gap:18px}
+.footer-links a{font-size:12px;color:var(--text-label);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--text-secondary)}
+
+/* FADE ANIMATION */
+.fade{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fade.in{opacity:1;transform:none}
+</style>
 </head>
 <body>
-
-<a href="#main" class="skip-link">Skip to content</a>
-
-<nav>
-  <a href="index.html" class="nav-logo">Distil<span>a</span>pp</a>
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-icon">D</div>
+    <span class="nav-name">Distilapp</span>
+  </a>
   <div class="nav-links">
-    <a href="index.html#how">How it works</a>
-    <a href="index.html#enterprise">Enterprise</a>
+    <a href="index.html#product">The product</a>
     <a href="index.html#for-you">Who it's for</a>
+    <a href="index.html#teams">Teams</a>
+    <a href="index.html#governance">Governance</a>
     <a href="index.html" class="nav-back">← All personas</a>
   </div>
+  <a href="index.html#contact" class="nav-touch">Get in touch</a>
 </nav>
-
-<main id="main">
-
-<section class="hero">
-  <div class="hero-eyebrow">Analysts &amp; consultants</div>
-  <h1>Every number<br>in the deck<br>needs a <em>source it can cite.</em></h1>
-  <p class="hero-kicker">"The client asked where the 74% came from. I showed them the full evidence breakdown — tier, consensus, confidence. That's a different kind of conversation."</p>
-  <p class="hero-sub">You're building toward a deliverable — a briefing, a strategy deck, an investment memo — that will be challenged in the room. Distilapp makes every finding traceable before it gets there: source tier, provider consensus, verification outcome, confidence score. You don't just know the answer. You know exactly why you know it.</p>
-  <div class="hero-actions">
-    <a href="index.html#waitlist" class="btn-primary">Request access</a>
-    <a href="index.html" class="btn-ghost">← Back to all personas</a>
-  </div>
-</section>
-
-<section style="background:#161614; padding:80px 48px;">
-  <div class="section-eyebrow">The problem</div>
-  <h2>Fast research that<br>can't survive a <em>challenge.</em></h2>
-  <p class="section-intro">Generic AI tools produce fluent, confident answers. They don't tell you which sources conflict, which findings are contested, or whether the confidence is real. That's fine for a draft. It's a liability in client delivery.</p>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <span class="feature-card-tag">Problem 01</span>
-      <h3>Confidence with no basis</h3>
-      <p>An AI says "revenue growth is accelerating." At what confidence? From which sources? Contested by whom? Without answers, you're relaying the model's opinion, not evidence. Partners and clients find out — often at the worst moment.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-card-tag">Problem 02</span>
-      <h3>Every engagement starts from scratch</h3>
-      <p>Your firm has done three engagements in the same sector. Every time, the research starts over. Institutional knowledge evaporates between projects. Distilapp's knowledge graph persists — sector intelligence compounds engagement by engagement.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-card-tag">Problem 03</span>
-      <h3>Client confidentiality on cloud tools</h3>
-      <p>NDA'd materials, client data, sensitive financials — none of it should be processed on a remote server with opaque data retention policies. Distilapp runs locally. Nothing leaves the machine.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-card-tag">Problem 04</span>
-      <h3>No audit trail when scope is questioned</h3>
-      <p>Six months after delivery, the client asks: what did you know when you made that recommendation? Generic tools have nothing. Distilapp's Decision Log has everything — timestamped, immutable, exportable.</p>
-    </div>
-  </div>
-</section>
-
-<section class="workflow">
-  <div class="section-eyebrow">How Distilapp works for you</div>
-  <h2>From brief to<br><em>billable deliverable.</em></h2>
-  <p class="section-intro">Faster research with traceable findings. Every engagement adds to a private knowledge graph your firm keeps — sector by sector, client by client.</p>
-
-  <div class="workflow-steps">
-    <div class="workflow-step">
-      <div class="workflow-num">01</div>
-      <div>
-        <h3>Stake the research question — not just a topic</h3>
-        <p>Distilapp works from specific research questions, not vague topics. "What is the regulatory risk profile for fintech lending in the EU in 2026?" produces targeted, scoped findings — not a general summary of fintech. The pipeline phases focus on what's actually relevant to the engagement question.</p>
-      </div>
-    </div>
-    <div class="workflow-step">
-      <div class="workflow-num">02</div>
-      <div>
-        <h3>Every finding is a structured claim with a score</h3>
-        <p>Not a paragraph. A typed object: status (Verified / Contested / Weak), confidence percentage, source tier, provider consensus count, citations. When a partner asks "how confident are we in this?" you have a precise, defensible answer — not "the AI seemed pretty sure."</p>
-      </div>
-    </div>
-    <div class="workflow-step">
-      <div class="workflow-num">03</div>
-      <div>
-        <h3>Contested findings are flagged — not hidden</h3>
-        <p>Conflicting analyst forecasts, divergent regulatory interpretations, competing market size estimates — Distilapp surfaces them as contested claims with both sides documented. You decide how to handle the conflict in the deliverable. You're not blindsided by it in the client meeting.</p>
-      </div>
-    </div>
-    <div class="workflow-step">
-      <div class="workflow-num">04</div>
-      <div>
-        <h3>Sector knowledge compounds across engagements</h3>
-        <p>The knowledge graph from a fintech regulatory engagement persists. Three months later, on a related payments engagement, Distilapp's vec0 search retrieves relevant previous findings as grounding context. You're not researching from zero — you're building on what the firm already knows.</p>
-      </div>
-    </div>
-    <div class="workflow-step">
-      <div class="workflow-num">05</div>
-      <div>
-        <h3>Deliverable formats — board paper, investment memo, briefing note</h3>
-        <p>The Publish flow generates the right format for the client context. Board paper: bottom line first, risk flagged, assumptions explicit. Investment memo: thesis, evidence, counterargument, confidence. Briefing note: findings, gaps, recommendations. Paste your firm's template and Distilapp adapts the output to your house style.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="padding:80px 48px;">
-  <div class="section-eyebrow">Sample findings</div>
-  <h2>What the claims tab<br>looks like for a <em>fintech engagement.</em></h2>
-  <p class="section-intro">EU fintech regulatory landscape — Q1 2026. Every finding sourced, scored, and ready to cite.</p>
-
-  <div class="claim-card-grid">
-    <div class="claim-card-item verified-card">
-      <div class="claim-card-top">
-        <span class="claim-badge badge-verified">Verified</span>
-        <span class="claim-conf conf-high">93%</span>
-      </div>
-      <p class="claim-card-text">MiCA (Markets in Crypto-Assets) entered full application in December 2024, establishing a unified EU licensing framework for crypto-asset service providers.</p>
-      <p class="claim-card-source">EUR-Lex · EBA Official Statement · Financial Times · Tier 1 · 3 providers agree</p>
-    </div>
-    <div class="claim-card-item contested-card">
-      <div class="claim-card-top">
-        <span class="claim-badge badge-contested">Contested</span>
-        <span class="claim-conf conf-mid">51%</span>
-      </div>
-      <p class="claim-card-text">EU fintech lending volumes will contract 15–25% by end of 2026 due to MiCA compliance costs for smaller operators.</p>
-      <p class="claim-card-source">Deloitte forecast vs EBA stress test baseline — range diverges significantly. Both Tier 2.</p>
-    </div>
-    <div class="claim-card-item verified-card">
-      <div class="claim-card-top">
-        <span class="claim-badge badge-verified">Verified</span>
-        <span class="claim-conf conf-high">87%</span>
-      </div>
-      <p class="claim-card-text">The EBA published final DORA technical standards in January 2026, with full compliance required by January 2027 for all financial entities in scope.</p>
-      <p class="claim-card-source">EBA Technical Standards · ECB Supervisory Bulletin · Reuters · Tier 1</p>
-    </div>
-    <div class="claim-card-item verified-card">
-      <div class="claim-card-top">
-        <span class="claim-badge badge-verified">Verified</span>
-        <span class="claim-conf conf-high">82%</span>
-      </div>
-      <p class="claim-card-text">Cross-border payment settlement times in the EU improved by an average of 34% following PSD2 full implementation, per ECB Q4 2025 data.</p>
-      <p class="claim-card-source">ECB Payment Statistics · BIS Quarterly Review · Tier 1 · corroborated in doc KB</p>
-    </div>
-    <div class="claim-card-item weak-card">
-      <div class="claim-card-top">
-        <span class="claim-badge badge-weak">Weak</span>
-        <span class="claim-conf conf-low">31%</span>
-      </div>
-      <p class="claim-card-text">Germany will introduce additional national fintech licensing requirements above MiCA minimums by Q3 2026.</p>
-      <p class="claim-card-source">Single analyst note — not corroborated by BaFin communications or legislative tracker.</p>
-    </div>
-    <div class="claim-card-item contested-card">
-      <div class="claim-card-top">
-        <span class="claim-badge badge-contested">Contested</span>
-        <span class="claim-conf conf-mid">57%</span>
-      </div>
-      <p class="claim-card-text">Open banking API standardisation under PSD2 has materially reduced incumbent bank advantage in retail payment processing.</p>
-      <p class="claim-card-source">McKinsey vs Oliver Wyman — conflicting assessments of incumbent response capability.</p>
-    </div>
-  </div>
-</section>
-
-<section style="padding:40px 48px 80px;">
-  <div class="persona-quote">
-    <blockquote>"I can hand a partner the full evidence breakdown for any number in the deck. That's not something I could do before."</blockquote>
-    <cite>— Strategy consultant using Distilapp beta, financial services practice</cite>
-  </div>
-</section>
-
-<section class="persona-cta">
-  <div class="responsible-badge">Evidence-weighted · Audit-ready</div>
-  <h2>Deliver the brief.<br>Win the <em>challenge.</em></h2>
-  <p class="section-intro">Traceable confidence scores. Contested findings flagged before delivery. Sector knowledge that compounds across engagements. Deliverables in your firm's format, grounded in verifiable evidence.</p>
-  <div class="cta-links">
-    <a href="index.html#waitlist" class="btn-primary">Request access</a>
+<div class="persona-hero" id="main">
+  <div class="persona-tag">Analysts &amp; Consultants</div>
+  <h1>Every number in the deck needs<br>a <em>source it can cite.</em></h1>
+  <blockquote>"The client asked where the 74% came from. I showed them the full evidence breakdown — tier, consensus, confidence. That's a different kind of conversation."</blockquote>
+  <div class="cta-group">
+    <a href="index.html#contact" class="btn-main">Get in touch →</a>
     <a href="index.html" class="btn-ghost">← All personas</a>
   </div>
+</div>
+
+<section class="bg-alt">
+  <div class="section-inner">
+    <div class="section-eyebrow fade">The problem</div>
+    <h2 class="section-h fade">Fast research that can't survive <em>a challenge.</em></h2>
+    <p class="section-sub fade">Generic AI tools produce fluent, confident answers. They don't tell you which sources conflict, which findings are contested, or whether the confidence is real. That's fine for a draft. It's a liability in client delivery.</p>
+    <div class="problem-grid">
+      <div class="prob fade"><div class="prob-n">Problem 01</div><div class="prob-h">Confidence with no basis</div><div class="prob-body">An AI says "revenue growth is accelerating." At what confidence? From which sources? Contested by whom? Without answers, you're relaying the model's opinion, not evidence.</div></div>
+      <div class="prob fade"><div class="prob-n">Problem 02</div><div class="prob-h">Every engagement starts from scratch</div><div class="prob-body">Your firm has done three engagements in the same sector. Every time, research starts over. Institutional knowledge evaporates. Distilapp's knowledge graph persists — sector intelligence compounds engagement by engagement.</div></div>
+      <div class="prob fade"><div class="prob-n">Problem 03</div><div class="prob-h">Client confidentiality on cloud tools</div><div class="prob-body">NDA'd materials, client data, sensitive financials — none of it should be processed on a remote server with opaque data retention policies. Distilapp runs locally. Nothing leaves the machine.</div></div>
+      <div class="prob fade"><div class="prob-n">Problem 04</div><div class="prob-h">No audit trail when scope is questioned</div><div class="prob-body">Six months after delivery, the client asks what you knew when you made that recommendation. Generic tools have nothing. Distilapp's Decision Log has everything — timestamped, immutable, exportable.</div></div>
+    </div>
+  </div>
 </section>
 
-</main>
+<section>
+  <div class="section-inner">
+    <div class="section-eyebrow fade">How it works for you</div>
+    <h2 class="section-h fade">From brief to <em>billable deliverable.</em></h2>
+    <div class="how-grid fade">
+      <div class="how-item"><div class="how-num">01</div><div class="how-content"><h3>Stake the research question — not just a topic</h3><p>Distilapp works from specific research questions, not vague topics. "What is the regulatory risk profile for fintech lending in the EU in 2026?" produces targeted, scoped findings. The pipeline phases focus on what's actually relevant to the engagement question.</p></div></div>
+      <div class="how-item"><div class="how-num">02</div><div class="how-content"><h3>Every finding is a structured claim with a score</h3><p>Not a paragraph. A typed object: status (Verified / Contested / Weak), confidence percentage, source tier, provider consensus count, citations. When a partner asks "how confident are we in this?" you have a precise, defensible answer.</p></div></div>
+      <div class="how-item"><div class="how-num">03</div><div class="how-content"><h3>Contested findings are flagged — not hidden</h3><p>Conflicting analyst forecasts, divergent regulatory interpretations, competing market size estimates — Distilapp surfaces them as contested claims with both sides documented. You decide how to handle the conflict in the deliverable. You're not blindsided by it in the client meeting.</p></div></div>
+      <div class="how-item"><div class="how-num">04</div><div class="how-content"><h3>Sector knowledge compounds across engagements</h3><p>The knowledge graph from a fintech regulatory engagement persists. Three months later, on a related payments engagement, semantic retrieval surfaces relevant previous findings as grounding context. You're not researching from zero — you're building on what you already know.</p></div></div>
+      <div class="how-item"><div class="how-num">05</div><div class="how-content"><h3>Decision Log — evidence basis at delivery</h3><p>When a deliverable is finalised, log the decision. Distilapp captures the full evidence state — every claim, its confidence score, every active contradiction, every known gap. The record you need when the client asks questions months later.</p></div></div>
+    </div>
+    <div class="pull-quote fade">"The client asked where the 74% came from. I had the source, the tier, the consensus score, and three providers that agreed. That's the difference between a number and intelligence."<cite>— Strategy consultant using Distilapp beta</cite></div>
+  </div>
+</section>
 
+<section>
+  <div class="section-inner">
+    <div class="bottom-cta fade">
+      <div class="bottom-cta-label">Analysts &amp; Consultants</div>
+      <h2>Findings that survive <em>the partner review.</em></h2>
+      <p>Every finding traceable to source and tier. Sector knowledge that compounds across engagements. The Decision Log your clients will eventually ask for.</p>
+      <div class="bottom-cta-tags"><span class="btag">🔒 Fully local</span><span class="btag">Source-traceable findings</span><span class="btag">Sector knowledge compounds</span><span class="btag">Decision Log</span></div>
+      <a href="index.html#contact" class="btn-main">Get in touch →</a>
+    </div>
+  </div>
+</section>
 <footer>
-  <a href="index.html" class="footer-logo">Distil<span>a</span>pp</a>
+  <span class="footer-logo">Distilapp</span>
   <span class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</span>
   <div class="footer-links">
-    <a href="index.html#how">How it works</a>
-    <a href="index.html#enterprise">Enterprise</a>
-    <a href="/cdn-cgi/l/email-protection#73151c061d1716010033171a00071a1f1203035d121a">Cont
+    <a href="persona-policy.html">Policy</a>
+    <a href="persona-consultant.html">Analysts</a>
+    <a href="persona-enterprise.html">Enterprise</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+<script>
+const obs = new IntersectionObserver(entries => {{
+  entries.forEach(e => {{ if(e.isIntersecting) e.target.classList.add("in"); }});
+}}, {{ threshold: 0.1 }});
+document.querySelectorAll(".fade").forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
