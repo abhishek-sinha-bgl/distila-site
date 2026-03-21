@@ -7,6 +7,17 @@ It does **not** include source code.
 
 ---
 
+## Download (Current: Preview 3)
+
+### Windows
+- [Distilapp_preview3_latest_x64_en-US.msi](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest_x64_en-US.msi)
+- [Distilapp_preview3_latest_x64-setup.exe](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest_x64-setup.exe)
+
+### macOS
+- [Distilapp_preview3_latest.dmg](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest.dmg)
+
+---
+
 ## What Distilapp Is
 
 Distilapp is a local-first desktop research intelligence app.
@@ -44,17 +55,6 @@ Distilapp is not meant to replace human judgment. It is meant to make judgment a
 - Teams expecting guaranteed factual correctness without human review.
 - Users needing full offline web search without any configured web/search provider.
 - Production-critical enterprise deployments without internal validation/pilot.
-
----
-
-## Download (Current: Preview 3)
-
-### Windows
-- [Distilapp_preview3_latest_x64_en-US.msi](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest_x64_en-US.msi)
-- [Distilapp_preview3_latest_x64-setup.exe](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest_x64-setup.exe)
-
-### macOS
-- [Distilapp_preview3_latest.dmg](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest.dmg)
 
 ---
 
