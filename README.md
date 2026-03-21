@@ -1,6 +1,6 @@
 # Distila Desktop · Preview Builds
 
-> A structured research environment for analysts, founders, policy teams, and operators who need evidence quality—not just faster text generation.
+> A structured research environment for analysts, founders, policy teams, and operators who need evidence quality-not just faster text generation.
 
 This public repository is **installer-only** for preview builds.
 It does **not** include source code.
@@ -31,6 +31,22 @@ Distila is not meant to replace human judgment. It is meant to make judgment aud
 
 ---
 
+## Who It Is For
+
+- Research analysts and strategy teams building evidence-backed briefs.
+- Founders and operators evaluating fast-moving market/technology claims.
+- Policy, legal, and risk teams that need explicit claim traceability.
+- Independent researchers who want repeatable workflows, not ad-hoc chat logs.
+
+## Who It Is Not For
+
+- One-click "final answer" users who do not plan to review claims.
+- Teams expecting guaranteed factual correctness without human review.
+- Users needing full offline web search without any configured web/search provider.
+- Production-critical enterprise deployments without internal validation/pilot.
+
+---
+
 ## Download (Current: Preview 3)
 
 ### Windows
@@ -45,8 +61,8 @@ Distila is not meant to replace human judgment. It is meant to make judgment aud
 ## Quick Start
 
 1. Install Distila and launch.
-2. Add at least one LLM provider in `Settings ? Providers`.
-3. (Optional) Add web search key in `Settings ? Web & Search`.
+2. Add at least one LLM provider in `Settings -> Providers`.
+3. (Optional) Add web search key in `Settings -> Web & Search`.
 4. Create a topic with:
    - title
    - thesis (persistent anchor)
@@ -69,7 +85,7 @@ Local-only runs are supported for lighter workflows and fallback.
 
 ---
 
-## What’s New
+## What's New
 
 ### Preview 3 (v0.11.1-1)
 - Research quality hardening for iterative runs.
@@ -95,10 +111,10 @@ Local-only runs are supported for lighter workflows and fallback.
 
 ## Release Notes Pattern (for future previews)
 
-For each new preview (Preview 4, 5, …):
+For each new preview (Preview 4, 5, ...):
 
 - installers go in `downloads/previewN/`
-- this README gets a new section under **What’s New**
+- this README gets a new section under **What's New**
 - links above are updated to point to latest default preview
 
 ---
@@ -108,6 +124,16 @@ For each new preview (Preview 4, 5, …):
 - Preview builds are for test/evaluation; behavior can change between drops.
 - Existing local data should persist across normal upgrades unless manually reset.
 - If a provider is rate-limited, fallback behavior depends on configured providers and availability.
+
+---
+
+## Known Limitations (Preview 3)
+
+- Output quality still depends heavily on model tier and provider health (rate limits/quotas).
+- Local small models can support lightweight tasks, but full research quality is better with stronger cloud models.
+- Citation quality is improved but still not perfect; reviewers should verify key claims before publication.
+- Some long or script-heavy URLs may return thin content even with fallback extraction.
+- Multi-provider runs may produce partial results if one or more providers fail mid-run.
 
 ---
 
