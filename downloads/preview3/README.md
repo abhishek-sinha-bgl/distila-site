@@ -1,6 +1,8 @@
-# Distilapp Preview 3 Installers
+# Preview 3 Installers
 
-- Windows MSI: `Distilapp_0.11.1-1_x64_en-US.msi`
-- Windows EXE setup: `Distilapp_0.11.1-1_x64-setup.exe`
+Use the repository root README for latest download links and "What's New" notes:
+- [README](https://github.com/abhishek-sinha-bgl/distila-site/blob/main/README.md)
 
-This public repository contains installers only.
+Files in this folder:
+- Distilapp_0.11.1-1_x64_en-US.msi
+- Distilapp_0.11.1-1_x64-setup.exe
