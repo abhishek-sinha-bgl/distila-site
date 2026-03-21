@@ -1,4 +1,4 @@
-# Distilapp Desktop � Preview Builds
+﻿# Distilapp Desktop · Preview Builds
 
 > A structured research environment for analysts, founders, policy teams, and operators who need evidence quality-not just faster text generation.
 
@@ -50,11 +50,11 @@ Distilapp is not meant to replace human judgment. It is meant to make judgment a
 ## Download (Current: Preview 3)
 
 ### Windows
-- [Distilapp_0.11.1-1_x64_en-US.msi](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_0.11.1-1_x64_en-US.msi)
-- [Distilapp_0.11.1-1_x64-setup.exe](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_0.11.1-1_x64-setup.exe)
+- [Distilapp_preview3_latest_x64_en-US.msi](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest_x64_en-US.msi)
+- [Distilapp_preview3_latest_x64-setup.exe](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest_x64-setup.exe)
 
 ### macOS
-- Preview 3 macOS installer will be linked here once CI artifact publishing completes.
+- [Distilapp_preview3_latest.dmg](https://github.com/abhishek-sinha-bgl/distila-site/raw/main/downloads/preview3/Distilapp_preview3_latest.dmg)
 
 ---
 
@@ -116,6 +116,7 @@ For each new preview (Preview 4, 5, ...):
 - installers go in `downloads/previewN/`
 - this README gets a new section under **What's New**
 - links above are updated to point to latest default preview
+- installers are mirrored automatically from the desktop release workflow
 
 ---
 
@@ -143,3 +144,4 @@ This repository is a binary distribution channel only.
 No source code is published here.
 
 If you are testing inside an organization and need a private distribution path, contact the project maintainer.
+
