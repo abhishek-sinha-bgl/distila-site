@@ -641,4 +641,14 @@ const ssData=[
 ];
 function ssSwitch(i){
   document.querySelectorAll(".ss-tab").forEach((t,j)=>t.classList.toggle("on",i===j));
-  const img=document.getElementById(
+  const img=document.getElementById("ssImg");
+  img.style.opacity="0";
+  setTimeout(()=>{img.src=ssData[i].src;img.style.opacity="1";},200);
+  document.getElementById("ssCap").textContent=ssData[i].cap;
+  img.style.transition="opacity .2s";
+}
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("in");}),{threshold:0.08});
+document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
