@@ -1,4 +1,4 @@
-# Distila Desktop · Preview Builds
+# Distilapp Desktop · Preview Builds
 
 > A structured research environment for analysts, founders, policy teams, and operators who need evidence quality-not just faster text generation.
 
@@ -7,9 +7,9 @@ It does **not** include source code.
 
 ---
 
-## What Distila Is
+## What Distilapp Is
 
-Distila is a local-first desktop research intelligence app.
+Distilapp is a local-first desktop research intelligence app.
 It turns raw prompts, documents, and URLs into a structured evidence workflow:
 
 - extract claims with provenance and confidence
@@ -18,7 +18,7 @@ It turns raw prompts, documents, and URLs into a structured evidence workflow:
 - synthesize decision-ready briefs (short and detailed)
 - track knowledge quality over time (SNR, breadth, deltas, token usage)
 
-Distila is not meant to replace human judgment. It is meant to make judgment auditable and faster.
+Distilapp is not meant to replace human judgment. It is meant to make judgment auditable and faster.
 
 ---
 
@@ -60,7 +60,7 @@ Distila is not meant to replace human judgment. It is meant to make judgment aud
 
 ## Quick Start
 
-1. Install Distila and launch.
+1. Install Distilapp and launch.
 2. Add at least one LLM provider in `Settings -> Providers`.
 3. (Optional) Add web search key in `Settings -> Web & Search`.
 4. Create a topic with:
