@@ -96,6 +96,17 @@ Local-only runs are supported for lighter workflows and fallback.
 - Better orchestrator/provider fallback under rate limits/network failures.
 - Added detailed brief option and quality cues in workflow.
 
+### Preview 3 Patch (2026-03-24)
+- Engine upgrades shared across Distilapp and Verideck:
+  - source-quality weighting and stale-citation recency penalties in confidence scoring
+  - stricter confidence/status normalization for VERIFIED / CONTESTED / WEAK / UNVERIFIED claims
+  - synthesis citation integrity cleanup for unresolved placeholder markers
+- Connector-context groundwork:
+  - enterprise connector snippets can be injected as additional research context
+  - SEC and Companies House connector templates added in Settings
+- UI additions:
+  - source diversity and citation coverage indicators in right-pane quality telemetry
+
 ### Preview 2
 - First-run sample topic walkthrough.
 - Topic intent model: thesis + scope as research anchors.
