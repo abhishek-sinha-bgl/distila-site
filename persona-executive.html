@@ -1,221 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distilapp for Executives — Decisions with a permanent evidence record</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-base:#08101c;--bg-surface:#0d1829;--bg-card:#111f33;
-  --bg-input:rgba(255,255,255,0.05);
-  --accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--accent-glow:rgba(249,115,22,0.22);
-  --accent2:#38bdf8;
-  --verified:#22c55e;--contested:#f59e0b;--weak:#ef4444;
-  --text-primary:#dde8f5;--text-secondary:#7a90b0;--text-label:#4a5e78;
-  --border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.13);
-  --font-sans:"DM Sans",sans-serif;--font-serif:"DM Serif Display",serif;
-  --font-mono:"DM Mono",monospace;
-  --radius:14px;--radius-sm:8px;--shadow:0 24px 64px rgba(0,0,0,0.5);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:15px}
-body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
-::selection{background:var(--accent-dim);color:var(--accent)}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:4px}
-
-/* NAV */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(8,16,28,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-icon{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#000;font-family:var(--font-sans)}
-.nav-name{font-size:14.5px;font-weight:700;color:var(--text-primary)}
-.nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--text-primary)}
-.nav-back{font-size:13px;color:var(--text-label);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:5px}
-.nav-back:hover{color:var(--text-secondary)}
-.nav-touch{background:var(--accent);color:#000;font-weight:700;font-size:12.5px;padding:7px 18px;border-radius:7px;text-decoration:none;transition:all .2s}
-.nav-touch:hover{background:#fb923c}
-@media(max-width:700px){.nav-links{display:none}.site-nav{padding:0 18px}}
-
-/* HERO */
-.persona-hero{padding:120px 24px 70px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-.persona-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(249,115,22,0.055),transparent);pointer-events:none}
-.persona-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(249,115,22,0.25);border-radius:99px;padding:4px 14px;margin-bottom:22px}
-.persona-hero h1{font-family:var(--font-serif);font-size:clamp(34px,5.5vw,72px);line-height:1.07;max-width:820px;margin:0 auto 22px}
-.persona-hero h1 em{font-style:italic;color:var(--accent)}
-.persona-hero blockquote{font-size:16px;color:var(--text-secondary);max-width:580px;margin:0 auto 28px;line-height:1.65;font-style:italic;border-left:3px solid rgba(249,115,22,0.3);padding-left:18px;text-align:left}
-.cta-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn-main{background:var(--accent);color:#000;font-weight:700;font-size:14px;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:7px}
-.btn-main:hover{background:#fb923c;transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
-.btn-ghost{background:transparent;color:var(--text-secondary);font-weight:600;font-size:13.5px;padding:12px 22px;border-radius:10px;text-decoration:none;border:1px solid var(--border-strong);transition:all .2s}
-.btn-ghost:hover{border-color:var(--text-secondary);color:var(--text-primary)}
-
-/* SECTIONS */
-section{padding:72px 24px}
-.section-inner{max-width:1060px;margin:0 auto}
-.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.section-h{font-family:var(--font-serif);font-size:clamp(26px,4vw,48px);line-height:1.1;margin-bottom:16px}
-.section-h em{font-style:italic;color:var(--accent)}
-.section-sub{font-size:17px;color:var(--text-secondary);line-height:1.65;max-width:600px}
-
-/* PROBLEMS */
-.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
-@media(max-width:700px){.problem-grid{grid-template-columns:1fr}}
-.prob{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:26px;position:relative;overflow:hidden}
-.prob::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
-.prob-n{font-family:var(--font-mono);font-size:10px;color:var(--text-label);margin-bottom:10px;letter-spacing:.5px}
-.prob-h{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.3}
-.prob-body{font-size:13.5px;color:var(--text-secondary);line-height:1.6}
-
-/* HOW IT WORKS */
-.how-grid{display:flex;flex-direction:column;gap:0;margin-top:40px}
-.how-item{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid var(--border)}
-.how-item:last-child{border-bottom:none}
-.how-num{font-family:var(--font-mono);font-size:11px;color:var(--text-label);width:28px;flex-shrink:0;padding-top:3px}
-.how-content h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
-.how-content p{font-size:14px;color:var(--text-secondary);line-height:1.65}
-
-/* CLAIMS DEMO */
-.claims-demo{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:40px}
-.claims-hdr{padding:15px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.claims-hdr-title{font-size:12px;font-weight:600;color:var(--text-secondary);font-family:var(--font-mono)}
-.claims-list{padding:14px;display:flex;flex-direction:column;gap:9px}
-.cc{background:var(--bg-surface);border-radius:10px;padding:14px 16px;border-left:3px solid transparent;transition:transform .2s}
-.cc:hover{transform:translateX(3px)}
-.cc.v{border-left-color:var(--verified)}.cc.c{border-left-color:var(--contested)}.cc.w{border-left-color:var(--weak)}
-.cc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.cc-status{font-size:11px;font-weight:700;letter-spacing:.3px}
-.cc-status.v{color:var(--verified)}.cc-status.c{color:var(--contested)}.cc-status.w{color:var(--weak)}
-.cc-conf{font-family:var(--font-mono);font-size:12px;font-weight:600}
-.cc-conf.h{color:var(--verified)}.cc-conf.m{color:var(--contested)}.cc-conf.l{color:var(--weak)}
-.cc-text{font-size:13.5px;color:var(--text-primary);line-height:1.5;margin-bottom:6px}
-.cc-srcs{display:flex;gap:5px;flex-wrap:wrap}
-.cc-src{font-size:11px;background:var(--bg-input);border:1px solid var(--border);border-radius:5px;padding:2px 8px;color:var(--text-label)}
-.cc-note{font-size:11.5px;color:var(--text-label);font-style:italic;margin-top:5px}
-
-/* TEAM TILE (for enterprise page) */
-.team-tile{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:26px;margin-top:16px}
-.team-tile-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:8px}
-.team-tile-h{font-size:16px;font-weight:700;margin-bottom:6px}
-.team-tile-body{font-size:13.5px;color:var(--text-secondary);line-height:1.6}
-.team-tile-price{font-family:var(--font-mono);font-size:12px;color:var(--text-label);margin-top:10px}
-
-/* PULL QUOTE */
-.pull-quote{background:var(--bg-surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:24px 28px;margin:36px 0;font-size:16px;font-style:italic;color:var(--text-secondary);line-height:1.65}
-.pull-quote cite{display:block;margin-top:12px;font-size:12.5px;font-style:normal;color:var(--text-label)}
-
-/* BOTTOM CTA */
-.bottom-cta{background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(56,189,248,0.03));border:1px solid rgba(249,115,22,0.14);border-radius:18px;padding:48px 40px;text-align:center;margin-top:20px}
-@media(max-width:600px){.bottom-cta{padding:36px 22px}}
-.bottom-cta-label{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
-.bottom-cta h2{font-family:var(--font-serif);font-size:clamp(24px,3.5vw,40px);line-height:1.1;margin-bottom:12px}
-.bottom-cta h2 em{font-style:italic;color:var(--accent)}
-.bottom-cta p{font-size:15px;color:var(--text-secondary);max-width:440px;margin:0 auto 28px;line-height:1.6}
-.bottom-cta-tags{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:24px}
-.btag{font-size:12px;color:var(--text-secondary);background:var(--bg-card);border:1px solid var(--border);border-radius:99px;padding:4px 12px}
-
-/* ALT SECTION BG */
-.bg-alt{background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.footer-logo{font-size:13px;font-weight:700;color:var(--text-secondary)}
-.footer-tagline{font-size:12px;color:var(--text-label);font-style:italic}
-.footer-links{display:flex;gap:18px}
-.footer-links a{font-size:12px;color:var(--text-label);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--text-secondary)}
-
-/* FADE ANIMATION */
-.fade{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.fade.in{opacity:1;transform:none}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research &amp; Investigation — Distilapp</title>
+  <meta name="description" content="Distilapp for researchers and investigators. Evidence-quality scoring that distinguishes corroboration from amplification. Compounding knowledge, adversarial challenge, and a structured record of what was known when.">
+  <meta name="keywords" content="AI research tool, investigative research AI, evidence quality research, fact checking AI tool, AI disinformation research, structured research AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="distilapp.css">
 </head>
 <body>
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-icon">D</div>
-    <span class="nav-name">Distilapp</span>
-  </a>
-  <div class="nav-links">
-    <a href="index.html#product">The product</a>
-    <a href="index.html#personas">Who it's for</a>
-    <a href="engine.html">The Engine</a>
-    <a href="index.html#teams">Teams</a>
-    <a href="index.html#status">Get in touch</a>
-    <a href="index.html" class="nav-back">← All personas</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">D <span>Distilapp</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="engine.html">The Engine</a>
+      <a href="distila_demo.html">Demo</a>
+      <a href="index.html#contact">Get in touch</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
-  <a href="index.html#status" class="nav-touch">Get in touch</a>
 </nav>
-<div class="persona-hero" id="main">
-  <div class="persona-tag">Executives &amp; Decision-makers</div>
-  <h1>You make the call. Distilapp records<br>exactly <em>what you knew.</em></h1>
-  <blockquote>"Six months later the board asked what we knew when we made the call. I had the exact answer — 21 verified findings, 4 contested, the gaps we were aware of. That's governance."</blockquote>
-  <div class="cta-group">
-    <a href="index.html#status" class="btn-main">Get in touch →</a>
-    <a href="index.html" class="btn-ghost">← All personas</a>
-  </div>
-</div>
 
-<section class="bg-alt">
-  <div class="section-inner">
-    <div class="section-eyebrow fade">The problem</div>
-    <h2 class="section-h fade">Confident briefings with <em>unknown foundations.</em></h2>
-    <p class="section-sub fade">An AI-generated briefing can sound authoritative and be entirely wrong. You have no way to know which findings are solid, which are contested, and which are one source repeating another. That's a governance problem, not just an accuracy problem.</p>
-    <div class="problem-grid">
-      <div class="prob fade"><div class="prob-n">Problem 01</div><div class="prob-h">No way to know what's solid</div><div class="prob-body">The briefing says "market growth is projected at 18%." One analyst's estimate? Consensus across five Tier 1 sources? Contested by a more recent dataset? Without knowing, the number is decoration, not intelligence.</div></div>
-      <div class="prob fade"><div class="prob-n">Problem 02</div><div class="prob-h">Decisions made on snapshots that evaporate</div><div class="prob-body">The research that informed a strategic decision in Q1 is gone by Q3. When a board, regulator, or acquirer asks "what did you know?" — there's no answer. The EU AI Act and corporate governance trends are making this a legal exposure.</div></div>
-      <div class="prob fade"><div class="prob-n">Problem 03</div><div class="prob-h">Uncertainty is hidden, not reported</div><div class="prob-body">The AI delivers a confident briefing. The uncertainty is buried. You make the decision not knowing that two of the five key findings are contested and one has no corroborating source. Distilapp shows you what it doesn't know.</div></div>
-      <div class="prob fade"><div class="prob-n">Problem 04</div><div class="prob-h">No governance record for the AI's role</div><div class="prob-body">EU AI Act enforcement, regulatory scrutiny, and board governance expectations all point in the same direction: document what the AI contributed, how confident it was, and what you knew when you decided. No other tool provides this.</div></div>
-    </div>
+<section class="hero" style="opacity:1;transform:none;">
+  <div class="hero-eyebrow">For · Research &amp; Investigation</div>
+  <h1 class="hero-h1">
+    Forty sources citing the same claim<br>
+    is not corroboration.<br>
+    <em>It is amplification.</em>
+  </h1>
+  <div class="stakes-block">
+    <p>A researcher finds that a specific claim appears in 40 separate documents. Standard tools report high consensus. Every one of the 40 traces back to a single original source — a working paper that was never peer reviewed. The claim has been amplified, not corroborated. Nothing in a standard research workflow catches this. The claim makes it into the report with high apparent confidence.</p>
+    <p class="stakes-kicker">The difference between corroboration and amplification is the most consequential thing you cannot see in a conventional evidence review.</p>
+  </div>
+  <div class="hero-ctas">
+    <a href="distila_demo.html" class="btn-primary">See the pipeline in action →</a>
+    <a href="index.html#contact" class="btn-secondary">Request early access</a>
   </div>
 </section>
 
-<section>
+<!-- THE CORE PROBLEM -->
+<section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-eyebrow fade">How it works for you</div>
-    <h2 class="section-h fade">Briefing in. <em>Decision on record.</em></h2>
-    <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.14);border-radius:10px;padding:16px 20px;margin-bottom:24px;font-size:13.5px;color:var(--text-secondary);line-height:1.6">
-        <strong style="color:var(--text-primary);display:block;margin-bottom:4px">On confidence and quality</strong>
-        The brief is ready immediately. Below it, a clear signal: how many findings are weak, where sources conflict, whether the confidence is based on pipeline output alone or human-reviewed evidence. You decide how much to dig in. When you log the decision, the record captures exactly what had been reviewed and what was acknowledged as uncertain.
+    <div class="section-tag">The structural problems in research</div>
+    <h2>What conventional research workflows<br><em>cannot see.</em></h2>
+
+    <div class="hallucination-grid">
+      <div class="hal-card">
+        <div class="hal-icon">📢</div>
+        <h3>Amplification vs corroboration</h3>
+        <p>The confidence formula's diversity weighting scores independent providers separately. A claim corroborated by three independent Tier 1 sources scores materially higher than the same claim cited by 40 papers tracing to one. This distinction is structural — it cannot be done by reading; it requires tracking source lineage.</p>
       </div>
-<div class="how-grid fade">
-      <div class="how-item"><div class="how-num">01</div><div class="how-content"><h3>Bottom line first — uncertainty named</h3><p>The Executive lens puts the verdict at the top: what the evidence says, the confidence level, the three things that matter, and the biggest risk to the assessment. Contested findings are flagged explicitly — not buried in footnotes.</p></div></div>
-      <div class="how-item"><div class="how-num">02</div><div class="how-content"><h3>You see what's solid and what's contested</h3><p>Every finding carries its status: Verified (multiple independent sources agree), Contested (credible sources conflict), or Weak (insufficient evidence). The confidence score is evidence-weighted — not the model's self-assessment. You know the difference before you decide.</p></div></div>
-      <div class="how-item"><div class="how-num">03</div><div class="how-content"><h3>Decision Log — the governance record</h3><p>When you act on a briefing, log the decision. Distilapp records every verified finding, every contested claim, every gap — timestamped and immutable. Six months later, when the board asks, you have the exact answer: what you knew, how confident you were, and what you acknowledged not knowing.</p></div></div>
-      <div class="how-item"><div class="how-num">04</div><div class="how-content"><h3>Same intelligence, different frames</h3><p>Switch between Executive, Analyst, Financial, and other lenses to reframe the same evidence base for different audiences — board paper, investment committee, regulatory submission — without re-running research. The evidence is the same; the output format is your call.</p></div></div>
+      <div class="hal-card">
+        <div class="hal-icon">🤫</div>
+        <h3>The gap that needs naming</h3>
+        <p>Research reports what is known. Professional incentives push against explicitly naming what is not known — gaps look like incompleteness. But in investigative and accountability work, the gap is often the finding. "There is no reliable evidence on X" is a result, not a failure. Distilapp makes gaps first-class outputs with importance ratings.</p>
+      </div>
+      <div class="hal-card">
+        <div class="hal-icon">📅</div>
+        <h3>Evidence age and current validity</h3>
+        <p>A 2018 study supporting a claim about AI capability is materially different from a 2024 study on the same question. The confidence formula applies a recency decay to older evidence — not because old evidence is wrong, but because its current applicability requires explicit acknowledgment, not silent inclusion.</p>
+      </div>
+      <div class="hal-card">
+        <div class="hal-icon">🏗️</div>
+        <h3>The rebuild across investigations</h3>
+        <p>An investigation team working on related stories rebuilds the same factual base repeatedly. What was verified in story A is relevant to story C — but it is in a notes document nobody has systematically organised. The knowledge graph preserves verified findings across sessions without requiring a separate documentation system.</p>
+      </div>
     </div>
-    <div class="pull-quote fade">"The board asked what the evidence basis was for the market entry decision. I opened the Decision Log and showed them 18 verified findings, 3 contested, and 2 gaps we were aware of at the time. That conversation went very differently."<cite>— Chief Strategy Officer using Distilapp beta</cite></div>
   </div>
 </section>
 
-<section>
+<!-- WHAT IT DOES -->
+<section class="diff-section">
   <div class="section-inner">
-    <div class="bottom-cta fade">
-      <div class="bottom-cta-label">Executives &amp; Decision-makers</div>
-      <h2>The receipts. <em>When you need them.</em></h2>
-      <p>Bottom line first. Uncertainty named, not hidden. The Decision Log that records what you knew at the exact moment you decided.</p>
-      <div class="bottom-cta-tags"><span class="btag">🔒 Fully private</span><span class="btag">Executive lens</span><span class="btag">Immutable Decision Log</span><span class="btag">EU AI Act ready</span></div>
-      <a href="index.html#status" class="btn-main">Get in touch →</a>
+    <div class="section-tag">What Distilapp does for research work</div>
+    <h2>Evidence quality that can be<br><em>shown, not just asserted.</em></h2>
+
+    <div class="diff-items">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <div class="diff-content">
+          <h3>Every claim is a structured object</h3>
+          <p>Not a sentence in a summary — a typed assertion with a status (VERIFIED / CONTESTED / WEAK / UNVERIFIED), a confidence score, a source tier, a provider count, and a citation list. Each is individually addressable. A WEAK claim is shown as WEAK. A CONTESTED claim is shown with the challenge that contested it.</p>
+          <div class="diff-callout"><strong>For accountability research:</strong> The claim vault is a publishable evidence record. Not just the conclusions — the full structured basis for them, with confidence gradations visible.</div>
+        </div>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <div class="diff-content">
+          <h3>Adversarial challenge is mandatory</h3>
+          <p>Before the brief is synthesised, Phase 3 challenges every claim. The counterargument, the alternative interpretation, the weakening evidence — all run as a structured phase. Claims that don't survive lose their socratic bonus and are flagged. The reader sees what survived scrutiny, not what the model produced unchallenged.</p>
+          <div class="diff-callout"><strong>For disinformation research:</strong> The adversarial mechanism is the structural equivalent of cross-checking. It runs on every session, every claim — not just the ones an analyst had time to scrutinise manually.</div>
+        </div>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-num">03</div>
+        <div class="diff-content">
+          <h3>Ingest your own documents — they affect the scores</h3>
+          <p>Documents you ingest are assigned a source tier and participate in the confidence formula directly. An authoritative primary document from a Tier 1 institution raises the confidence score of claims it corroborates. This is not just context passed to the LLM — it is evidence that changes the number.</p>
+          <div class="diff-callout"><strong>Bidirectional operation:</strong> You can run the engine in Document → Decision Record direction — giving it a document to verify against existing evidence rather than a question to research. Same formula, same adversarial challenge, same gap tracking.</div>
+        </div>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-num">04</div>
+        <div class="diff-content">
+          <h3>What was known when — preserved</h3>
+          <p>The Decision Log records the full evidence state at the moment of logging — not what is currently known, but what was known and acknowledged at that specific moment. For investigations with long timelines, this matters: the question of what was knowable at the time of a decision is answerable from the log.</p>
+          <div class="diff-callout"><strong>For collaborative research:</strong> Multiple researchers working on related questions contribute to the same knowledge graph. Contradictions between their findings are visible and typed — not buried in separate document sets.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<footer>
-  <span class="footer-logo">Distilapp</span>
-  <span class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</span>
-  <div class="footer-links">
-    <a href="persona-policy.html">Policy</a>
-    <a href="persona-consultant.html">Analysts</a>
-    <a href="persona-enterprise.html">Enterprise</a>
-    <a href="index.html#status">Contact</a>
+
+<!-- CTA -->
+<section style="background:var(--ink);color:var(--paper);">
+  <div class="section-inner" style="max-width:640px;">
+    <div class="section-tag" style="color:var(--accent-2);">Get in touch</div>
+    <h2 style="color:var(--paper);">If your research needs to hold up to scrutiny —</h2>
+    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We're talking to research teams, investigative units, and accountability organisations in active development. We'd like to understand the specific evidence problem before describing the solution.</p>
+    <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
+      <a href="mailto:distilapp@proton.me" class="btn-primary">Start a conversation →</a>
+      <a href="distila_demo.html" class="btn-secondary">See the demo first</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Distilapp</strong>
+      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="engine.html">The Engine</a>
+      <a href="distila_demo.html">Demo</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
+    </div>
   </div>
 </footer>
+
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("in"); });
-}, { threshold: 0.1 });
-document.querySelectorAll(".fade").forEach(el => obs.observe(el));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
 </script>
 </body>
 </html>

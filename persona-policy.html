@@ -1,292 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distilapp for Policy & Think Tanks — Publish briefs you can defend</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-base:#08101c;--bg-surface:#0d1829;--bg-card:#111f33;
-  --bg-input:rgba(255,255,255,0.05);
-  --accent:#f97316;--accent-dim:rgba(249,115,22,0.1);--accent-glow:rgba(249,115,22,0.22);
-  --accent2:#38bdf8;
-  --verified:#22c55e;--contested:#f59e0b;--weak:#ef4444;
-  --text-primary:#dde8f5;--text-secondary:#7a90b0;--text-label:#4a5e78;
-  --border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.13);
-  --font-sans:"DM Sans",sans-serif;--font-serif:"DM Serif Display",serif;
-  --font-mono:"DM Mono",monospace;
-  --radius:14px;--radius-sm:8px;--shadow:0 24px 64px rgba(0,0,0,0.5);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:15px}
-body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
-::selection{background:var(--accent-dim);color:var(--accent)}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:4px}
-
-/* NAV */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(8,16,28,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-icon{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#000;font-family:var(--font-sans)}
-.nav-name{font-size:14.5px;font-weight:700;color:var(--text-primary)}
-.nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--text-primary)}
-.nav-back{font-size:13px;color:var(--text-label);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:5px}
-.nav-back:hover{color:var(--text-secondary)}
-.nav-touch{background:var(--accent);color:#000;font-weight:700;font-size:12.5px;padding:7px 18px;border-radius:7px;text-decoration:none;transition:all .2s}
-.nav-touch:hover{background:#fb923c}
-@media(max-width:700px){.nav-links{display:none}.site-nav{padding:0 18px}}
-
-/* HERO */
-.persona-hero{padding:120px 24px 70px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-.persona-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(249,115,22,0.055),transparent);pointer-events:none}
-.persona-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(249,115,22,0.25);border-radius:99px;padding:4px 14px;margin-bottom:22px}
-.persona-hero h1{font-family:var(--font-serif);font-size:clamp(34px,5.5vw,72px);line-height:1.07;max-width:820px;margin:0 auto 22px}
-.persona-hero h1 em{font-style:italic;color:var(--accent)}
-.persona-hero blockquote{font-size:16px;color:var(--text-secondary);max-width:580px;margin:0 auto 28px;line-height:1.65;font-style:italic;border-left:3px solid rgba(249,115,22,0.3);padding-left:18px;text-align:left}
-.cta-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn-main{background:var(--accent);color:#000;font-weight:700;font-size:14px;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:7px}
-.btn-main:hover{background:#fb923c;transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
-.btn-ghost{background:transparent;color:var(--text-secondary);font-weight:600;font-size:13.5px;padding:12px 22px;border-radius:10px;text-decoration:none;border:1px solid var(--border-strong);transition:all .2s}
-.btn-ghost:hover{border-color:var(--text-secondary);color:var(--text-primary)}
-
-/* SECTIONS */
-section{padding:72px 24px}
-.section-inner{max-width:1060px;margin:0 auto}
-.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.section-h{font-family:var(--font-serif);font-size:clamp(26px,4vw,48px);line-height:1.1;margin-bottom:16px}
-.section-h em{font-style:italic;color:var(--accent)}
-.section-sub{font-size:17px;color:var(--text-secondary);line-height:1.65;max-width:600px}
-
-/* PROBLEMS */
-.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
-@media(max-width:700px){.problem-grid{grid-template-columns:1fr}}
-.prob{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:26px;position:relative;overflow:hidden}
-.prob::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
-.prob-n{font-family:var(--font-mono);font-size:10px;color:var(--text-label);margin-bottom:10px;letter-spacing:.5px}
-.prob-h{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.3}
-.prob-body{font-size:13.5px;color:var(--text-secondary);line-height:1.6}
-
-/* HOW IT WORKS */
-.how-grid{display:flex;flex-direction:column;gap:0;margin-top:40px}
-.how-item{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid var(--border)}
-.how-item:last-child{border-bottom:none}
-.how-num{font-family:var(--font-mono);font-size:11px;color:var(--text-label);width:28px;flex-shrink:0;padding-top:3px}
-.how-content h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
-.how-content p{font-size:14px;color:var(--text-secondary);line-height:1.65}
-
-/* CLAIMS DEMO */
-.claims-demo{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:40px}
-.claims-hdr{padding:15px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.claims-hdr-title{font-size:12px;font-weight:600;color:var(--text-secondary);font-family:var(--font-mono)}
-.claims-list{padding:14px;display:flex;flex-direction:column;gap:9px}
-.cc{background:var(--bg-surface);border-radius:10px;padding:14px 16px;border-left:3px solid transparent;transition:transform .2s}
-.cc:hover{transform:translateX(3px)}
-.cc.v{border-left-color:var(--verified)}.cc.c{border-left-color:var(--contested)}.cc.w{border-left-color:var(--weak)}
-.cc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.cc-status{font-size:11px;font-weight:700;letter-spacing:.3px}
-.cc-status.v{color:var(--verified)}.cc-status.c{color:var(--contested)}.cc-status.w{color:var(--weak)}
-.cc-conf{font-family:var(--font-mono);font-size:12px;font-weight:600}
-.cc-conf.h{color:var(--verified)}.cc-conf.m{color:var(--contested)}.cc-conf.l{color:var(--weak)}
-.cc-text{font-size:13.5px;color:var(--text-primary);line-height:1.5;margin-bottom:6px}
-.cc-srcs{display:flex;gap:5px;flex-wrap:wrap}
-.cc-src{font-size:11px;background:var(--bg-input);border:1px solid var(--border);border-radius:5px;padding:2px 8px;color:var(--text-label)}
-.cc-note{font-size:11.5px;color:var(--text-label);font-style:italic;margin-top:5px}
-
-/* TEAM TILE (for enterprise page) */
-.team-tile{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:26px;margin-top:16px}
-.team-tile-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:8px}
-.team-tile-h{font-size:16px;font-weight:700;margin-bottom:6px}
-.team-tile-body{font-size:13.5px;color:var(--text-secondary);line-height:1.6}
-.team-tile-price{font-family:var(--font-mono);font-size:12px;color:var(--text-label);margin-top:10px}
-
-/* PULL QUOTE */
-.pull-quote{background:var(--bg-surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:24px 28px;margin:36px 0;font-size:16px;font-style:italic;color:var(--text-secondary);line-height:1.65}
-.pull-quote cite{display:block;margin-top:12px;font-size:12.5px;font-style:normal;color:var(--text-label)}
-
-/* BOTTOM CTA */
-.bottom-cta{background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(56,189,248,0.03));border:1px solid rgba(249,115,22,0.14);border-radius:18px;padding:48px 40px;text-align:center;margin-top:20px}
-@media(max-width:600px){.bottom-cta{padding:36px 22px}}
-.bottom-cta-label{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
-.bottom-cta h2{font-family:var(--font-serif);font-size:clamp(24px,3.5vw,40px);line-height:1.1;margin-bottom:12px}
-.bottom-cta h2 em{font-style:italic;color:var(--accent)}
-.bottom-cta p{font-size:15px;color:var(--text-secondary);max-width:440px;margin:0 auto 28px;line-height:1.6}
-.bottom-cta-tags{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:24px}
-.btag{font-size:12px;color:var(--text-secondary);background:var(--bg-card);border:1px solid var(--border);border-radius:99px;padding:4px 12px}
-
-/* ALT SECTION BG */
-.bg-alt{background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.footer-logo{font-size:13px;font-weight:700;color:var(--text-secondary)}
-.footer-tagline{font-size:12px;color:var(--text-label);font-style:italic}
-.footer-links{display:flex;gap:18px}
-.footer-links a{font-size:12px;color:var(--text-label);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--text-secondary)}
-
-/* FADE ANIMATION */
-.fade{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.fade.in{opacity:1;transform:none}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Research &amp; Think Tanks — Distilapp</title>
+  <meta name="description" content="Distilapp for policy research and think tanks. Evidence synthesis under time pressure, contradiction detection, gap tracking, and an immutable decision log. EU AI Act Article 12 compatible.">
+  <meta name="keywords" content="AI policy research tool, think tank AI, evidence synthesis policy, AI hallucination policy research, structured policy brief AI, EU AI Act compliance tool">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="distilapp.css">
 </head>
 <body>
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-icon">D</div>
-    <span class="nav-name">Distilapp</span>
-  </a>
-  <div class="nav-links">
-    <a href="index.html#product">The product</a>
-    <a href="index.html#personas">Who it's for</a>
-    <a href="engine.html">The Engine</a>
-    <a href="index.html#teams">Teams</a>
-    <a href="index.html#status">Get in touch</a>
-    <a href="index.html" class="nav-back">← All personas</a>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">D <span>Distilapp</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="engine.html">The Engine</a>
+      <a href="distila_demo.html">Demo</a>
+      <a href="index.html#contact">Get in touch</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
-  <a href="index.html#status" class="nav-touch">Get in touch</a>
 </nav>
-<div class="persona-hero" id="main">
-  <div class="persona-tag">Policy &amp; Think Tanks</div>
-  <h1>You have a position to publish.<br>Distilapp makes it <em>defensible.</em></h1>
-  <blockquote>"The committee asked for our evidence basis. We showed them 27 verified findings, 4 contested, and exactly what we didn't know. That's a different kind of credibility."</blockquote>
-  <div class="cta-group">
-    <a href="index.html#status" class="btn-main">Get in touch →</a>
-    <a href="index.html" class="btn-ghost">← All personas</a>
-  </div>
-</div>
 
-<section class="bg-alt">
+<section class="hero" style="opacity:1;transform:none;">
+  <div class="hero-eyebrow">For · Think Tanks &amp; Policy Research</div>
+  <h1 class="hero-h1">
+    Policy is built on evidence.<br>
+    <em>That evidence needs to hold up.</em>
+  </h1>
+  <div class="stakes-block">
+    <p>A policy brief reaches a minister's desk. Two of its four key claims trace back to a single working paper — not three independent sources. The third claim was contested in a 2021 OECD report nobody cross-checked. The brief sounds authoritative. Nobody in the chain had the infrastructure to know it wasn't.</p>
+    <p class="stakes-kicker">This is not an analyst failure. It is a structural failure of how evidence-based policy work is done.</p>
+  </div>
+  <div class="hero-ctas">
+    <a href="distila_demo.html" class="btn-primary">See the pipeline in action →</a>
+    <a href="index.html#contact" class="btn-secondary">Request early access</a>
+  </div>
+</section>
+
+<!-- WHAT IT SOLVES -->
+<section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-eyebrow fade">The problem</div>
-    <h2 class="section-h fade">Research that resets is research that <em>wastes.</em></h2>
-    <p class="section-sub fade">Every policy inquiry spans months. Every session with a generic AI tool starts from zero. By the time you're writing the final brief, half your early findings are buried in folders, stale in chat histories, or simply forgotten.</p>
-    <div class="problem-grid">
-      <div class="prob fade">
-        <div class="prob-n">Problem 01</div>
-        <div class="prob-h">Pre-publication material can't go to the cloud</div>
-        <div class="prob-body">Embargoed findings, unpublished datasets, working drafts — none of it should leave your institution's perimeter. Cloud-first tools create a compliance problem before you've written a word.</div>
+    <div class="section-tag">The structural problems</div>
+    <h2>Five things that go wrong in<br><em>policy evidence synthesis — every time.</em></h2>
+
+    <div class="hallucination-grid">
+      <div class="hal-card">
+        <div class="hal-icon">🔁</div>
+        <h3>The rebuild problem</h3>
+        <p>Every major policy review begins by reconstructing evidence that was gathered for the last one. Six months of institutional knowledge evaporates when the project ends. The analyst who built the previous brief has moved on. The literature they curated is in a folder nobody can find.</p>
       </div>
-      <div class="prob fade">
-        <div class="prob-n">Problem 02</div>
-        <div class="prob-h">LLM confidence scores are meaningless</div>
-        <div class="prob-body">Research confirms that model-verbalized confidence is fundamentally broken — 90% stated confidence can mean 24% actual accuracy. Policy briefs built on uncalibrated confidence are liability, not intelligence.</div>
+      <div class="hal-card">
+        <div class="hal-icon">🎭</div>
+        <h3>The amplification problem</h3>
+        <p>A single working paper gets cited by 12 subsequent papers — all of which cite each other. Standard tools see 13 sources and report high consensus. Distilapp's diversity weighting detects the cascade. Claims that trace to one original source are flagged, not amplified.</p>
       </div>
-      <div class="prob fade">
-        <div class="prob-n">Problem 03</div>
-        <div class="prob-h">Contradictions get smoothed, not surfaced</div>
-        <div class="prob-body">When two Tier 1 sources directly disagree, generic tools produce a paragraph that averages them. Distilapp flags the contradiction structurally — it's a first-class finding, not a footnote.</div>
+      <div class="hal-card">
+        <div class="hal-icon">🕳️</div>
+        <h3>The gap invisibility problem</h3>
+        <p>Policy briefs report what is known. They are professionally reluctant to name what is not known — because gaps read as incompleteness. But the gaps are often the most consequential part of the brief. Distilapp makes gaps first-class outputs, with importance ratings.</p>
       </div>
-      <div class="prob fade">
-        <div class="prob-n">Problem 04</div>
-        <div class="prob-h">No audit trail for what the AI knew</div>
-        <div class="prob-body">A parliamentary committee or peer reviewer asks: what was the evidence basis for this recommendation? Generic tools have no answer. Distilapp's Decision Log records the full evidence state at the moment of every decision.</div>
+      <div class="hal-card">
+        <div class="hal-icon">⚡</div>
+        <h3>The time pressure problem</h3>
+        <p>A parliamentary question lands. A committee wants a brief in 48 hours. Existing knowledge cannot be rapidly queried for what has already been established. Everything restarts. The second time this topic comes around, the same work is done again — at crisis speed.</p>
+      </div>
+      <div class="hal-card">
+        <div class="hal-icon">📋</div>
+        <h3>The accountability problem</h3>
+        <p>When a policy recommendation is scrutinised months later, the original evidence basis is often unrecoverable. What was known, what was contested, what gaps were acknowledged at the time of decision — none of it is in the brief. It was in the analyst's working notes, which are gone.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- HOW IT HELPS -->
+<section class="diff-section">
   <div class="section-inner">
-    <div class="section-eyebrow fade">How it works for you</div>
-    <h2 class="section-h fade">From inquiry to <em>defensible brief.</em></h2>
-    <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.14);border-radius:10px;padding:16px 20px;margin-bottom:24px;font-size:13.5px;color:var(--text-secondary);line-height:1.6">
-        <strong style="color:var(--text-primary);display:block;margin-bottom:4px">On confidence and quality</strong>
-        The brief appears immediately after each run. The app then tells you specifically what to review — which claims are too weak to include, where sources conflict. Ingest your institution's reports and mark them Tier 1: they contribute directly to confidence scores, outweighing LLM guesses. Pre-publication documents never leave your machine.
-      </div>
-<div class="how-grid fade">
-      <div class="how-item">
-        <div class="how-num">01</div>
-        <div class="how-content">
-          <h3>Pre-loaded with Tier 1 policy sources</h3>
-          <p>Distilapp ships pre-configured with RAND, Brookings, IMF working papers, UN research feeds, OECD data, and arXiv policy papers — refreshed daily by a local model at zero API cost. When you start an inquiry, you're starting from a curated corpus of institutional research, already scored by credibility tier.</p>
+    <div class="section-tag">What Distilapp does for policy work</div>
+    <h2>The same five problems,<br><em>with structural answers.</em></h2>
+
+    <div class="diff-items">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <div class="diff-content">
+          <h3>Compounding knowledge — not restarting</h3>
+          <p>Session N+1 retrieves verified claims from session N. A policy analyst running a brief on carbon pricing in Q4 has access to the verified findings from the Q2 session — without rebuilding them. Contradictions between sessions are preserved as typed objects, not silently resolved. The knowledge base grows with each session.</p>
+          <div class="diff-callout"><strong>Practical impact:</strong> The second brief on the same topic takes significantly less time. The fifth brief has a verified claim base the first didn't. Institutional knowledge stops evaporating at project end.</div>
         </div>
       </div>
-      <div class="how-item">
-        <div class="how-num">02</div>
-        <div class="how-content">
-          <h3>Evidence-weighted confidence — not model opinion</h3>
-          <p>Every finding is scored from source tier, multi-provider consensus, Socratic challenge survival, document corroboration, and recency decay. An OECD report corroborating a claim is weighted more heavily than a news article. The scoring is deterministic and fully transparent.</p>
+
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <div class="diff-content">
+          <h3>Consensus vs amplification — distinguished</h3>
+          <p>The confidence formula's diversity weighting scores cross-provider consensus differently from single-source amplification. A claim corroborated by three independent Tier 1 sources scores higher than a claim cited by 15 papers all tracing to one original. This distinction is structurally invisible to any tool that counts citations rather than sources.</p>
+          <div class="diff-callout"><strong>For parliamentary work:</strong> When a minister asks "how confident are we in this?", the answer is a formula-computed score with a breakdown — not a paragraph of hedging.</div>
         </div>
       </div>
-      <div class="how-item">
-        <div class="how-num">03</div>
-        <div class="how-content">
-          <h3>Contradictions surface — they don't disappear</h3>
-          <p>When the IMF and World Bank disagree on a structural reform finding, Distilapp doesn't average them. It flags the contradiction with both sources named, the specific disagreement described, and a contested confidence penalty applied. Your brief can address the disagreement explicitly — which is what peer reviewers actually need.</p>
+
+      <div class="diff-item">
+        <div class="diff-num">03</div>
+        <div class="diff-content">
+          <h3>Gaps as first-class outputs</h3>
+          <p>Every research session produces a typed gap list alongside the claim vault. Gaps have importance ratings. They accumulate across sessions and narrow as evidence arrives. A briefing that says "we do not yet have reliable evidence on X — importance: HIGH" is more trustworthy than one that elides the uncertainty.</p>
+          <div class="diff-callout"><strong>For accountability:</strong> The gap list is part of the brief. What was not known when the recommendation was made is a structural part of the record.</div>
         </div>
       </div>
-      <div class="how-item">
-        <div class="how-num">04</div>
-        <div class="how-content">
-          <h3>Policy brief — in your institution's structure</h3>
-          <p>The Publish flow generates a structured policy brief from your evidence base. Paste your institution's template — Distilapp infers the section structure, heading style, and citation conventions and replicates them. Chatham House format, Brookings format, parliamentary brief, or your own structure.</p>
+
+      <div class="diff-item">
+        <div class="diff-num">04</div>
+        <div class="diff-content">
+          <h3>48-hour brief from verified prior knowledge</h3>
+          <p>When the parliamentary question arrives, the quick scan retrieves what is already verified. Phase 2 deepens on what has changed or is new. The adversarial challenge phase runs regardless — but it runs faster when the base is already established. The brief ships with confidence scores visible to the reader.</p>
+          <div class="diff-callout"><strong>Time pressure is not an excuse for lower epistemic standards.</strong> The structure enforces the same quality floor regardless of deadline.</div>
         </div>
       </div>
-      <div class="how-item">
-        <div class="how-num">05</div>
-        <div class="how-content">
-          <h3>Research Further — without resetting</h3>
-          <p>When SNR or breadth is low, hit Research Further. Distilapp targets only the contested claims, unfilled gaps, and low-confidence findings. New findings merge into the existing graph. The brief you write in month three is built on everything you learned in months one and two.</p>
-        </div>
-      </div>
-      <div class="how-item">
-        <div class="how-num">06</div>
-        <div class="how-content">
-          <h3>Decision Log — the audit trail reviewers and committees now expect</h3>
-          <p>When you finalise a policy position, log the decision. Distilapp captures every claim, its confidence score, the active contradictions, and the knowledge gaps at that moment. Timestamped, immutable, exportable. If a reviewer asks six months later, you have the exact answer.</p>
+
+      <div class="diff-item">
+        <div class="diff-num">05</div>
+        <div class="diff-content">
+          <h3>Immutable decision record</h3>
+          <p>When a decision is logged, the full evidence state is preserved at that moment — verified claims, contested claims, acknowledged gaps, source tiers, confidence scores. This is not a compliance feature added afterward. It is the output of how the engine works by default.</p>
+          <div class="diff-callout"><strong>EU AI Act Article 12 aligned:</strong> The Decision Log satisfies the epistemic accountability requirement of high-risk AI system deployments. Qualified legal counsel must assess applicability.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-alt">
+<!-- DOMAIN REFS -->
+<section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-eyebrow fade">Sample findings</div>
-    <h2 class="section-h fade">Claims — not summaries. <em>Evidence — not confidence theatre.</em></h2>
-    <p class="section-sub fade">Policy inquiry on AI governance in the Global South. Each finding individually scored, sourced, and contradiction-flagged.</p>
-    <div class="claims-demo fade">
-      <div class="claims-hdr"><div class="claims-hdr-title">AI governance in the Global South · Policy inquiry · 3 providers</div></div>
-      <div class="claims-list">
-        <div class="cc v"><div class="cc-top"><span class="cc-status v">✓ Verified</span><span class="cc-conf h">91%</span></div><div class="cc-text">The EU AI Act entered full enforcement in August 2026, requiring documented evidence of human oversight for high-risk AI systems across all EU member states.</div><div class="cc-srcs"><span class="cc-src">EUR-Lex Official Journal</span><span class="cc-src">CAIDP Policy Monitor</span><span class="cc-src">Tier 1 · 3 providers agree</span></div></div>
-        <div class="cc c"><div class="cc-top"><span class="cc-status c">⚑ Contested</span><span class="cc-conf m">54%</span></div><div class="cc-text">Global South nations are expected to adopt EU-equivalent AI frameworks within 24 months of full EU enforcement.</div><div class="cc-srcs"><span class="cc-src">ITU forecast</span><span class="cc-src">NASSCOM position</span></div><div class="cc-note">Methodological disagreement on adoption timelines. Penalty applied.</div></div>
-        <div class="cc v"><div class="cc-top"><span class="cc-status v">✓ Verified</span><span class="cc-conf h">88%</span></div><div class="cc-text">India's AI policy framework as of Q1 2026 does not include mandatory conformity assessment for high-risk AI — a structural gap relative to EU standards.</div><div class="cc-srcs"><span class="cc-src">MeitY 2025 AI Policy</span><span class="cc-src">ORF AI Governance Report</span><span class="cc-src">Tier 1 + Tier 2</span></div></div>
-        <div class="cc w"><div class="cc-top"><span class="cc-status w">⚠ Weak</span><span class="cc-conf l">29%</span></div><div class="cc-text">Unilateral AI regulation by Global South nations will accelerate AI market fragmentation by 2028.</div><div class="cc-note">Single think tank forecast — insufficient corroboration. Flagged for Research Further.</div></div>
+    <div class="section-tag">Domain alignment</div>
+    <h2>Built for the institutional context<br><em>policy research actually operates in.</em></h2>
+    <div class="hallucination-grid">
+      <div class="hal-card">
+        <div class="hal-icon">🌍</div>
+        <h3>Humanitarian &amp; development policy</h3>
+        <p>UN agency situation reports, OCHA Humanitarian Needs Overviews, UNDP policy assessments — evidence synthesis under time pressure, across conflicting organisational sources, with accountability to funding bodies. Gap tracking and contradiction detection are exactly what's missing from these workflows.</p>
+      </div>
+      <div class="hal-card">
+        <div class="hal-icon">🇪🇺</div>
+        <h3>EU regulatory policy</h3>
+        <p>Impact assessments, comitology documents, parliamentary questions, and committee briefs all require evidence that is traceable, contestable, and auditable. The engine's Article 12 compatible Decision Log is not a bolt-on — it is the structural output of the pipeline.</p>
+      </div>
+      <div class="hal-card">
+        <div class="hal-icon">🏛️</div>
+        <h3>Parliamentary &amp; legislative research</h3>
+        <p>Library of Parliament units, congressional research services, and independent legislative advisory bodies do structured evidence work under deadline pressure with no institutional memory between legislative cycles. The knowledge graph is precisely what's missing.</p>
       </div>
     </div>
-    <div class="pull-quote fade">"The brief writes itself from the claims. The claims are traceable. The contradictions are named. That's what a reviewer actually needs to see."<cite>— Policy researcher using Distilapp beta, energy governance inquiry</cite></div>
   </div>
 </section>
 
-<section>
-  <div class="section-inner">
-    <div class="bottom-cta fade">
-      <div class="bottom-cta-label">Policy &amp; Think Tanks</div>
-      <h2>The brief you publish needs to <em>hold up.</em></h2>
-      <p>Pre-publication confidentiality. Evidence-weighted confidence. Policy brief output in your institution's format. The Decision Log your peer reviewers and parliamentary committees now expect.</p>
-      <div class="bottom-cta-tags"><span class="btag">🔒 Fully local</span><span class="btag">Tier 1 policy sources</span><span class="btag">Contradiction detection</span><span class="btag">Decision Log</span></div>
-      <a href="index.html#status" class="btn-main">Get in touch →</a>
+<!-- CTA -->
+<section style="background:var(--ink);color:var(--paper);">
+  <div class="section-inner" style="max-width:640px;">
+    <div class="section-tag" style="color:var(--accent-2);">Get in touch</div>
+    <h2 style="color:var(--paper);">If your organisation does policy research that needs to hold up —</h2>
+    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We are talking to policy organisations, think tanks, and legislative research bodies in active development. If you recognise your workflow in this page, we would like to understand the specific problem before describing the solution.</p>
+    <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
+      <a href="mailto:distilapp@proton.me" class="btn-primary">Start a conversation →</a>
+      <a href="distila_demo.html" class="btn-secondary">See the demo first</a>
     </div>
   </div>
 </section>
-<footer>
-  <span class="footer-logo">Distilapp</span>
-  <span class="footer-tagline">Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</span>
-  <div class="footer-links">
-    <a href="persona-policy.html">Policy</a>
-    <a href="persona-consultant.html">Analysts</a>
-    <a href="persona-enterprise.html">Enterprise</a>
-    <a href="index.html#status">Contact</a>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Distilapp</strong>
+      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="engine.html">The Engine</a>
+      <a href="distila_demo.html">Demo</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
+      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch · Zenodo</a>
+    </div>
   </div>
 </footer>
+
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("in"); });
-}, { threshold: 0.1 });
-document.querySelectorAll(".fade").forEach(el => obs.observe(el));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
 </script>
 </body>
 </html>
