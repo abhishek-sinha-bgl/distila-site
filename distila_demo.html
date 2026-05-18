@@ -12,301 +12,91 @@
   <style>
     body { background: var(--paper); }
     .demo-page { max-width: 860px; margin: 0 auto; padding: var(--space-xl) var(--space-l); }
-
     .demo-header { margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border); padding-bottom: var(--space-l); }
-    .demo-header .eyebrow {
-      font-family: var(--font-mono); font-size: 0.78rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: var(--space-s);
-    }
+    .demo-header .eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-s); }
     .demo-header h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: var(--space-s); }
     .demo-header p { color: var(--ink-3); max-width: 600px; }
-
     .input-section { margin-bottom: var(--space-l); }
-    .input-label {
-      font-family: var(--font-mono); font-size: 0.78rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--ink-4); margin-bottom: 8px; display: block;
-    }
-    .question-input {
-      width: 100%;
-      padding: 14px 16px;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-m);
-      background: var(--paper);
-      color: var(--ink);
-      resize: vertical;
-      min-height: 72px;
-      transition: border-color 0.2s;
-      line-height: 1.5;
-    }
+    .input-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 8px; display: block; }
+    .question-input { width: 100%; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 2px solid var(--border); border-radius: var(--radius-m); background: var(--paper); color: var(--ink); resize: vertical; min-height: 72px; transition: border-color 0.2s; line-height: 1.5; }
     .question-input:focus { outline: none; border-color: var(--accent); }
-
-    .domain-select {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-s);
-    }
-    .domain-pill {
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 0.82rem;
-      cursor: pointer;
-      background: var(--paper-2);
-      color: var(--ink-3);
-      transition: all 0.15s;
-    }
-    .domain-pill:hover, .domain-pill.active {
-      border-color: var(--accent);
-      background: rgba(200,67,47,0.06);
-      color: var(--accent);
-    }
-
-    .run-btn {
-      margin-top: var(--space-m);
-      padding: 14px 32px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: var(--radius-m);
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      font-family: var(--font-body);
-    }
-    .run-btn:hover { background: var(--accent-2); transform: translateY(-1px); }
+    .domain-select { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-s); }
+    .domain-pill { padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.82rem; cursor: pointer; background: var(--paper-2); color: var(--ink-3); transition: all 0.15s; }
+    .domain-pill:hover, .domain-pill.active { border-color: var(--accent); background: rgba(200,67,47,0.06); color: var(--accent); }
+    .run-btn { margin-top: var(--space-m); padding: 14px 32px; background: var(--accent); color: #fff; font-size: 1rem; font-weight: 600; border: none; border-radius: var(--radius-m); cursor: pointer; transition: background 0.15s, transform 0.1s; font-family: var(--font-body); }
+    .run-btn:hover:not(:disabled) { background: var(--accent-2); transform: translateY(-1px); }
     .run-btn:disabled { background: var(--ink-4); cursor: not-allowed; transform: none; }
-
     .results-area { margin-top: var(--space-xl); }
-
-    .phase-header {
-      display: flex; align-items: center; gap: var(--space-s);
-      margin: var(--space-xl) 0 var(--space-m);
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .phase-badge {
-      font-family: var(--font-mono); font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 3px 10px; border-radius: var(--radius);
-      background: var(--ink); color: var(--paper);
-    }
+    .phase-header { display: flex; align-items: center; gap: var(--space-s); margin: var(--space-xl) 0 var(--space-m); padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .phase-badge { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: var(--radius); background: var(--ink); color: var(--paper); }
     .phase-title { font-weight: 600; font-size: 0.9rem; color: var(--ink-3); }
-
-    .claim-card {
-      margin-bottom: var(--space-m);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-      overflow: hidden;
-      background: var(--paper);
-    }
-    .claim-header {
-      display: grid;
-      grid-template-columns: 58px 1fr auto;
-      gap: var(--space-m);
-      padding: var(--space-m);
-      background: var(--paper-2);
-      border-bottom: 1px solid var(--border);
-      align-items: center;
-    }
-    .claim-score {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-mono); font-weight: 500; font-size: 1rem;
-    }
+    .claim-card { margin-bottom: var(--space-m); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; background: var(--paper); }
+    .claim-header { display: grid; grid-template-columns: 58px 1fr auto; gap: var(--space-m); padding: var(--space-m); background: var(--paper-2); border-bottom: 1px solid var(--border); align-items: center; }
+    .claim-score { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 1rem; }
     .score-high { background: rgba(26,110,58,0.1); color: var(--verified); border: 2px solid rgba(26,110,58,0.35); }
     .score-mid  { background: rgba(200,67,47,0.08); color: var(--contested); border: 2px solid rgba(200,67,47,0.3); }
     .score-low  { background: rgba(136,136,136,0.1); color: var(--weak); border: 2px solid rgba(136,136,136,0.3); }
-
     .claim-text-block h4 { font-size: 0.95rem; margin-bottom: 4px; }
-    .claim-type-tag {
-      font-family: var(--font-mono); font-size: 0.7rem;
-      color: var(--ink-4); letter-spacing: 0.04em;
-    }
-    .claim-status-badge {
-      font-family: var(--font-mono); font-size: 0.68rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 4px 10px; border-radius: var(--radius);
-      white-space: nowrap; align-self: flex-start;
-    }
-    .badge-verified  { background: rgba(26,110,58,0.1); color: var(--verified); }
-    .badge-contested { background: rgba(200,67,47,0.1); color: var(--contested); }
-    .badge-weak      { background: rgba(136,136,136,0.1); color: var(--weak); }
+    .claim-type-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-4); letter-spacing: 0.04em; }
+    .claim-status-badge { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--radius); white-space: nowrap; align-self: flex-start; }
+    .badge-verified   { background: rgba(26,110,58,0.1); color: var(--verified); }
+    .badge-contested  { background: rgba(200,67,47,0.1); color: var(--contested); }
+    .badge-weak       { background: rgba(136,136,136,0.1); color: var(--weak); }
     .badge-unverified { background: rgba(136,136,136,0.06); color: var(--ink-4); border: 1px solid var(--border); }
-
     .claim-body { padding: var(--space-m); }
     .claim-evidence { font-size: 0.925rem; color: var(--ink-2); margin-bottom: var(--space-s); line-height: 1.6; }
-
-    .meta-row {
-      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-s);
-    }
-    .meta-chip {
-      font-family: var(--font-mono); font-size: 0.7rem;
-      padding: 3px 8px; border-radius: var(--radius);
-      background: var(--paper-2); border: 1px solid var(--border);
-      color: var(--ink-4);
-    }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-s); }
+    .meta-chip { font-family: var(--font-mono); font-size: 0.7rem; padding: 3px 8px; border-radius: var(--radius); background: var(--paper-2); border: 1px solid var(--border); color: var(--ink-4); }
     .meta-chip.pos { color: var(--verified); background: rgba(26,110,58,0.05); border-color: rgba(26,110,58,0.2); }
     .meta-chip.neg { color: var(--contested); background: rgba(200,67,47,0.05); border-color: rgba(200,67,47,0.2); }
-
-    .score-formula {
-      padding: var(--space-s) var(--space-m);
-      background: var(--paper-2);
-      border-radius: var(--radius);
-      font-family: var(--font-mono); font-size: 0.75rem;
-      color: var(--ink-3); line-height: 1.8;
-      margin-bottom: var(--space-s);
-    }
-    .score-formula .label { color: var(--ink-4); }
+    .score-formula { padding: var(--space-s) var(--space-m); background: var(--paper-2); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-3); line-height: 1.8; margin-bottom: var(--space-s); }
     .score-formula .val-pos { color: var(--verified); }
     .score-formula .val-neg { color: var(--contested); }
     .score-formula .val-total { color: var(--ink); font-weight: 500; font-size: 0.85rem; }
-
-    .challenge-block {
-      padding: var(--space-s) var(--space-m);
-      background: rgba(200,67,47,0.04);
-      border: 1px solid rgba(200,67,47,0.18);
-      border-radius: var(--radius);
-      margin-bottom: var(--space-s);
-    }
-    .challenge-label {
-      font-family: var(--font-mono); font-size: 0.68rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--contested); margin-bottom: 6px;
-    }
+    .challenge-block { padding: var(--space-s) var(--space-m); background: rgba(200,67,47,0.04); border: 1px solid rgba(200,67,47,0.18); border-radius: var(--radius); margin-bottom: var(--space-s); }
+    .challenge-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--contested); margin-bottom: 6px; }
     .challenge-text { font-size: 0.875rem; color: var(--ink-3); }
-    .challenge-outcome {
-      margin-top: 8px; font-size: 0.78rem;
-      font-family: var(--font-mono); color: var(--ink-4);
-    }
-
-    .gap-card {
-      margin-bottom: var(--space-s);
-      padding: var(--space-m);
-      border: 1px dashed var(--border-2);
-      border-radius: var(--radius-m);
-      background: var(--paper-2);
-    }
-    .gap-importance {
-      font-family: var(--font-mono); font-size: 0.68rem;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--gold); margin-bottom: 6px;
-    }
+    .challenge-outcome { margin-top: 8px; font-size: 0.78rem; font-family: var(--font-mono); color: var(--ink-4); }
+    .gap-card { margin-bottom: var(--space-s); padding: var(--space-m); border: 1px dashed var(--border-2); border-radius: var(--radius-m); background: var(--paper-2); }
+    .gap-importance { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
     .gap-card h4 { font-size: 0.925rem; margin-bottom: 4px; }
     .gap-card p { font-size: 0.875rem; color: var(--ink-3); }
-
-    .brief-block {
-      padding: var(--space-l);
-      background: var(--ink);
-      color: var(--paper);
-      border-radius: var(--radius-m);
-      margin-bottom: var(--space-m);
-    }
+    .brief-block { padding: var(--space-l); background: var(--ink); color: var(--paper); border-radius: var(--radius-m); margin-bottom: var(--space-m); }
     .brief-block h3 { color: var(--paper); font-size: 1.2rem; margin-bottom: var(--space-m); }
     .brief-block p { color: #ccc; font-size: 0.925rem; line-height: 1.7; margin-bottom: var(--space-s); }
     .brief-block .key-findings { margin-top: var(--space-m); }
-    .brief-block .key-findings h4 {
-      color: var(--accent-2); font-family: var(--font-mono);
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
-      margin-bottom: var(--space-s);
-    }
-    .brief-finding {
-      display: grid; grid-template-columns: 48px 1fr;
-      gap: var(--space-s); margin-bottom: var(--space-s);
-      align-items: start;
-    }
-    .brief-finding-score {
-      font-family: var(--font-mono); font-size: 0.875rem;
-      color: var(--accent-2); text-align: right;
-    }
+    .brief-block .key-findings h4 { color: var(--accent-2); font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-s); }
+    .brief-finding { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-s); margin-bottom: var(--space-s); align-items: start; }
+    .brief-finding-score { font-family: var(--font-mono); font-size: 0.875rem; color: var(--accent-2); text-align: right; }
     .brief-finding-text { font-size: 0.9rem; color: #bbb; }
-
-    .decision-log {
-      padding: var(--space-m);
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius-m);
-      background: var(--paper-2);
-    }
-    .decision-log-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: var(--space-m); flex-wrap: wrap; gap: 8px;
-    }
-    .decision-log-title {
-      font-family: var(--font-mono); font-size: 0.78rem;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4);
-    }
-    .decision-log-id {
-      font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-4);
-    }
-    .log-stats {
-      display: flex; flex-wrap: wrap; gap: var(--space-s);
-    }
+    .decision-log { padding: var(--space-m); border: 1px solid var(--border-2); border-radius: var(--radius-m); background: var(--paper-2); }
+    .decision-log-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-m); flex-wrap: wrap; gap: 8px; }
+    .decision-log-title { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); }
+    .decision-log-id { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-4); }
+    .log-stats { display: flex; flex-wrap: wrap; gap: var(--space-s); }
     .log-stat { text-align: center; }
-    .log-stat .val {
-      font-family: var(--font-mono); font-size: 1.3rem; display: block;
-    }
+    .log-stat .val { font-family: var(--font-mono); font-size: 1.3rem; display: block; }
     .log-stat .lbl { font-size: 0.72rem; color: var(--ink-4); }
     .val-v { color: var(--verified); }
     .val-c { color: var(--contested); }
     .val-w { color: var(--weak); }
-
-    .loading-wrap {
-      padding: var(--space-xl) 0;
-      display: flex; flex-direction: column; gap: var(--space-m);
-    }
-    .phase-progress {
-      display: flex; align-items: center; gap: var(--space-m);
-      padding: var(--space-m);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-      background: var(--paper-2);
-    }
-    .phase-progress .spinner {
-      width: 18px; height: 18px;
-      border: 2px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      flex-shrink: 0;
-    }
-    .phase-progress .done-icon { color: var(--verified); font-size: 1.1rem; flex-shrink: 0; }
+    .loading-wrap { padding: var(--space-xl) 0; display: flex; flex-direction: column; gap: var(--space-m); }
+    .phase-progress { display: flex; align-items: center; gap: var(--space-m); padding: var(--space-m); border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--paper-2); transition: background 0.3s, border-color 0.3s; }
+    .phase-progress .spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
+    .phase-progress .done-icon { color: var(--verified); font-size: 1.1rem; flex-shrink: 0; width: 18px; text-align: center; }
+    .phase-progress .idle-icon { color: var(--border-2); font-size: 1rem; flex-shrink: 0; width: 18px; text-align: center; }
     .phase-progress-text { font-size: 0.9rem; color: var(--ink-3); }
-    .phase-progress-label {
-      font-family: var(--font-mono); font-size: 0.72rem;
-      text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
-    }
+    .phase-progress-label { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .disclaimer {
-      margin-top: var(--space-xl);
-      padding: var(--space-m);
-      background: var(--paper-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-      font-size: 0.8rem;
-      color: var(--ink-4);
-      line-height: 1.6;
-    }
-
-    .suggested-questions {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-s);
-    }
-    .suggested-q {
-      padding: 7px 14px; font-size: 0.82rem;
-      border: 1px solid var(--border); border-radius: var(--radius);
-      background: var(--paper-2); color: var(--ink-3);
-      cursor: pointer; transition: all 0.15s;
-    }
+    .error-block { padding: var(--space-l); border: 1px solid rgba(200,67,47,0.3); border-radius: var(--radius-m); background: rgba(200,67,47,0.04); }
+    .error-block h4 { color: var(--contested); margin-bottom: var(--space-s); }
+    .error-block p { font-size: 0.9rem; color: var(--ink-3); }
+    .error-block .error-code { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-4); margin-top: var(--space-s); }
+    .suggested-questions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-s); }
+    .suggested-q { padding: 7px 14px; font-size: 0.82rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--paper-2); color: var(--ink-3); cursor: pointer; transition: all 0.15s; }
     .suggested-q:hover { border-color: var(--accent); color: var(--accent); }
-
-    @media (max-width: 600px) {
-      .claim-header { grid-template-columns: 48px 1fr; }
-      .claim-status-badge { display: none; }
-      .demo-page { padding: var(--space-l) var(--space-m); }
-    }
+    .disclaimer { margin-top: var(--space-xl); padding: var(--space-m); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.8rem; color: var(--ink-4); line-height: 1.6; }
+    @media (max-width: 600px) { .claim-header { grid-template-columns: 48px 1fr; } .claim-status-badge { display: none; } .demo-page { padding: var(--space-l) var(--space-m); } }
   </style>
 </head>
 <body>
@@ -324,11 +114,10 @@
 </nav>
 
 <div class="demo-page">
-
   <div class="demo-header">
     <div class="eyebrow">Interactive demo · DCBR Pipeline</div>
     <h1>See how Distilapp <em>scores a claim.</em></h1>
-    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief. This is a live demonstration using the Distilapp architecture — not a summariser.</p>
+    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief — not a summary.</p>
   </div>
 
   <div class="input-section">
@@ -336,10 +125,10 @@
     <textarea class="question-input" id="researchQ" placeholder="e.g. What is the evidence base for carbon border adjustment mechanisms as a climate policy instrument?"></textarea>
 
     <div style="margin-top:var(--space-s);">
-      <span class="input-label" style="display:inline;margin-right:8px;">Try a suggested question →</span>
-      <div class="suggested-questions" id="suggestedQuestions">
+      <span class="input-label" style="display:inline;margin-right:8px;">Suggested questions →</span>
+      <div class="suggested-questions">
         <div class="suggested-q">Carbon border adjustment mechanisms</div>
-        <div class="suggested-q">AI regulation effectiveness in EU vs US</div>
+        <div class="suggested-q">AI regulation effectiveness EU vs US</div>
         <div class="suggested-q">Evidence base for four-day work week policies</div>
         <div class="suggested-q">Generative AI impact on knowledge worker productivity</div>
       </div>
@@ -355,25 +144,22 @@
       </div>
     </div>
 
-    <button class="run-btn" id="runBtn" onclick="runPipeline()">
-      Run DCBR Pipeline →
-    </button>
+    <button class="run-btn" id="runBtn" onclick="runPipeline()">Run DCBR Pipeline →</button>
   </div>
 
   <div id="resultsArea" class="results-area" style="display:none;"></div>
 
   <div class="disclaimer">
-    <strong>About this demo:</strong> This demonstration uses the Anthropic API to simulate the Distilapp DCBR pipeline — showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores shown reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
+    <strong>About this demo:</strong> This demonstration simulates the Distilapp DCBR pipeline — showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
   </div>
-
 </div>
 
 <script>
 const PHASES = [
-  { id: 'scan',       label: 'Phase 1 — Quick Scan',       desc: 'Topic mapping, initial claim stubs, prior knowledge retrieval' },
-  { id: 'research',   label: 'Phase 2 — Deep Research',     desc: 'Multi-provider retrieval, claim extraction, confidence scoring' },
-  { id: 'adversarial',label: 'Phase 3 — Adversarial Challenge', desc: 'Challenging assumptions, reassessing claim survival' },
-  { id: 'synthesis',  label: 'Phase 4 — Synthesis',         desc: 'Structured brief, Decision Log entry, knowledge graph update' },
+  { id: 'scan',        label: 'Phase 1 — Quick Scan',           desc: 'Topic mapping, initial claim stubs, prior knowledge retrieval' },
+  { id: 'research',    label: 'Phase 2 — Deep Research',         desc: 'Multi-provider retrieval, claim extraction, confidence scoring' },
+  { id: 'adversarial', label: 'Phase 3 — Adversarial Challenge',  desc: 'Challenging assumptions, reassessing claim survival' },
+  { id: 'synthesis',   label: 'Phase 4 — Synthesis',             desc: 'Structured brief, Decision Log entry, knowledge graph update' },
 ];
 
 let activeDomain = 'general';
@@ -388,115 +174,50 @@ document.querySelectorAll('.domain-pill').forEach(pill => {
 
 document.querySelectorAll('.suggested-q').forEach(q => {
   q.addEventListener('click', () => {
-    document.getElementById('researchQ').value = q.textContent;
+    document.getElementById('researchQ').value = q.textContent.trim();
+    document.getElementById('researchQ').focus();
   });
 });
 
 async function runPipeline() {
   const question = document.getElementById('researchQ').value.trim();
-  if (!question) {
-    document.getElementById('researchQ').focus();
-    return;
-  }
+  if (!question) { document.getElementById('researchQ').focus(); return; }
 
   const btn = document.getElementById('runBtn');
   btn.disabled = true;
-  btn.textContent = 'Running pipeline...';
+  btn.textContent = 'Running pipeline…';
 
   const resultsArea = document.getElementById('resultsArea');
   resultsArea.style.display = 'block';
   resultsArea.innerHTML = renderLoading();
 
-  const domainLabels = {
-    general: 'general professional research',
-    policy: 'policy and think tank research',
-    consulting: 'strategy consulting',
-    regulatory: 'regulatory and compliance research',
-  };
-
-  const prompt = `You are simulating the Distilapp DCBR (Domain-Configurable Bidirectional Reasoning) Engine. 
-
-Research question: "${question}"
-Domain context: ${domainLabels[activeDomain]}
-
-Run the full DCBR pipeline and return a JSON object ONLY — no preamble, no markdown fences. Structure:
-
-{
-  "scan_summary": "2-3 sentence topic map and initial framing",
-  "claims": [
-    {
-      "id": "C1",
-      "text": "The claim as a concise declarative statement",
-      "type": "empirical|mechanistic|normative|predictive",
-      "status": "VERIFIED|CONTESTED|WEAK|UNVERIFIED",
-      "confidence_score": <integer 5-95>,
-      "source_tier": "Tier 1|Tier 2|Tier 3",
-      "provider_count": <1-4>,
-      "evidence_age_months": <integer>,
-      "survived_challenge": <true|false>,
-      "score_breakdown": {
-        "base": 40,
-        "source_tier_bonus": <integer>,
-        "consensus_bonus": <integer>,
-        "socratic_bonus": <0 or 10>,
-        "status_adjustment": <integer, can be negative>,
-        "recency_decay": <integer, 0 or negative>,
-        "sufficiency_penalty": <0 or -8>
-      },
-      "evidence_summary": "2-3 sentences on the evidence supporting or undermining this claim",
-      "adversarial_challenge": "The main challenge or counterargument to this claim",
-      "challenge_outcome": "How the claim fared against the challenge — survived/weakened/contested"
-    }
-  ],
-  "gaps": [
-    {
-      "id": "G1",
-      "question": "What is not known that matters",
-      "importance": "HIGH|MEDIUM|LOW",
-      "why_it_matters": "1-2 sentences"
-    }
-  ],
-  "brief_summary": "2-3 paragraph synthesis of verified findings only. Honest about uncertainty. Written as a structured analytical brief, not a summary.",
-  "key_findings": [
-    { "claim_id": "C1", "finding": "One-sentence finding", "confidence": <integer> }
-  ],
-  "decision_log": {
-    "verified_count": <integer>,
-    "contested_count": <integer>,
-    "weak_count": <integer>,
-    "gap_count": <integer>,
-    "snr": <0.0-1.0, signal-to-noise ratio>,
-    "session_note": "Brief note on evidential quality of this session"
-  }
-}
-
-Generate 4-6 claims. Make the confidence scores realistic — they should range from about 18 to 72, reflecting genuine variation in source quality. Never have all claims score similarly. Include at least one CONTESTED or WEAK claim. Include 2-3 gaps. The adversarial challenge should be substantive, not trivial.`;
+  const animPromise = animatePhases();
 
   try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('/api/research', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      body: JSON.stringify({ question, domain: activeDomain })
     });
 
-    const data = await resp.json();
-    const raw = data.content?.find(b => b.type === 'text')?.text || '';
-    const clean = raw.replace(/```json|```/g, '').trim();
-    const result = JSON.parse(clean);
+    const data = await response.json();
 
-    // Animate phases then show results
-    await animatePhases();
-    resultsArea.innerHTML = renderResults(question, result);
+    if (!response.ok) {
+      await animPromise.catch(() => {});
+      resultsArea.innerHTML = renderError(data, response.status);
+      btn.disabled = false;
+      btn.textContent = 'Run DCBR Pipeline →';
+      return;
+    }
+
+    await animPromise;
+    resultsArea.innerHTML = renderResults(question, data);
 
   } catch (err) {
-    resultsArea.innerHTML = `<div style="padding:var(--space-l);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);">
-      <p style="color:var(--ink-3);">The demo requires API connectivity. If you're viewing this locally, please check your network. The interactive demo is fully functional on distila-site.vercel.app.</p>
-      <p style="margin-top:8px;font-size:0.875rem;color:var(--ink-4);">Error: ${err.message}</p>
-    </div>`;
+    resultsArea.innerHTML = renderError({
+      error: 'Could not reach the research engine. Please check your connection and try again.',
+      code: 'NETWORK_ERROR'
+    }, 0);
   }
 
   btn.disabled = false;
@@ -507,7 +228,7 @@ function renderLoading() {
   return `<div class="loading-wrap">
     ${PHASES.map((p, i) => `
       <div class="phase-progress" id="phase-${p.id}">
-        <div class="${i === 0 ? 'spinner' : ''}" id="spinner-${p.id}" style="${i > 0 ? 'width:18px;height:18px;' : ''}"></div>
+        <div class="${i === 0 ? 'spinner' : 'idle-icon'}" id="icon-${p.id}">${i === 0 ? '' : '○'}</div>
         <div>
           <div class="phase-progress-label">${p.label}</div>
           <div class="phase-progress-text">${p.desc}</div>
@@ -517,47 +238,55 @@ function renderLoading() {
 }
 
 async function animatePhases() {
-  for (const p of PHASES) {
-    const el = document.getElementById(`phase-${p.id}`);
-    const sp = document.getElementById(`spinner-${p.id}`);
-    if (el) el.style.background = 'rgba(200,67,47,0.04)';
-    if (sp) sp.className = 'spinner';
-    await delay(600 + Math.random() * 400);
-    if (sp) { sp.className = 'done-icon'; sp.textContent = '✓'; }
-    if (el) { el.style.background = 'rgba(26,110,58,0.04)'; el.style.borderColor = 'rgba(26,110,58,0.2)'; }
+  for (let i = 0; i < PHASES.length; i++) {
+    const p   = PHASES[i];
+    const el  = document.getElementById(`phase-${p.id}`);
+    const ico = document.getElementById(`icon-${p.id}`);
+    if (!el) continue;
+    if (ico) { ico.className = 'spinner'; ico.textContent = ''; }
+    el.style.background   = 'rgba(200,67,47,0.04)';
+    el.style.borderColor  = 'rgba(200,67,47,0.2)';
+    await delay(700 + Math.random() * 500);
+    if (ico) { ico.className = 'done-icon'; ico.textContent = '✓'; }
+    el.style.background  = 'rgba(26,110,58,0.04)';
+    el.style.borderColor = 'rgba(26,110,58,0.2)';
   }
-  await delay(300);
+  await delay(200);
 }
 
 function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-function scoreClass(score) {
-  if (score >= 55) return 'score-high';
-  if (score >= 35) return 'score-mid';
-  return 'score-low';
+function scoreClass(s) { return s >= 55 ? 'score-high' : s >= 35 ? 'score-mid' : 'score-low'; }
+function statusClass(s) {
+  return { VERIFIED:'badge-verified', CONTESTED:'badge-contested', WEAK:'badge-weak', UNVERIFIED:'badge-unverified' }[(s||'').toUpperCase()] || 'badge-unverified';
 }
-function statusClass(status) {
-  const map = { VERIFIED: 'badge-verified', CONTESTED: 'badge-contested', WEAK: 'badge-weak', UNVERIFIED: 'badge-unverified' };
-  return map[status] || 'badge-unverified';
+
+function renderError(data, status) {
+  const title = (data.code === 'RATE_LIMITED' || status === 429) ? 'Too many requests'
+              : (data.code === 'UPSTREAM_RATE_LIMITED')          ? 'High demand — please retry in a moment'
+              : 'Something went wrong';
+  return `<div class="error-block">
+    <h4>${title}</h4>
+    <p>${esc(data.error || 'An unexpected error occurred.')}</p>
+    ${data.code ? `<div class="error-code">code: ${esc(data.code)}</div>` : ''}
+    <div style="margin-top:var(--space-m);">
+      <button class="run-btn" style="margin-top:0;" onclick="document.getElementById('resultsArea').style.display='none';">← Try again</button>
+    </div>
+  </div>`;
 }
 
 function renderResults(question, r) {
-  const llmConfidence = Math.floor(87 + Math.random() * 5);
-  const avgFormula = r.claims.length
-    ? Math.round(r.claims.reduce((a, c) => a + c.confidence_score, 0) / r.claims.length)
-    : 0;
+  const llmConf    = Math.floor(87 + Math.random() * 5);
+  const avgFormula = r.claims.length ? Math.round(r.claims.reduce((a,c) => a + (c.confidence_score||0), 0) / r.claims.length) : 0;
 
   return `
-    <!-- SCAN SUMMARY -->
     <div style="padding:var(--space-m) var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);margin-bottom:var(--space-l);">
       <div class="phase-badge" style="display:inline-block;margin-bottom:8px;">Phase 1 — Scan</div>
-      <p style="font-size:0.925rem;color:var(--ink-3);">${escHtml(r.scan_summary)}</p>
+      <p style="font-size:0.925rem;color:var(--ink-3);">${esc(r.scan_summary||'')}</p>
     </div>
 
-    <!-- CONFIDENCE GAP CALLOUT -->
     <div style="display:flex;align-items:center;gap:var(--space-l);padding:var(--space-m) var(--space-l);background:var(--ink);border-radius:var(--radius-m);margin-bottom:var(--space-l);flex-wrap:wrap;">
       <div style="text-align:center;">
-        <div style="font-family:var(--font-mono);font-size:1.8rem;color:#aaa;">${llmConfidence}%</div>
+        <div style="font-family:var(--font-mono);font-size:1.8rem;color:#aaa;">${llmConf}%</div>
         <div style="font-size:0.75rem;color:#666;margin-top:4px;">LLM self-reported<br>confidence</div>
       </div>
       <div style="font-family:var(--font-mono);color:#444;font-size:1.2rem;">vs</div>
@@ -565,136 +294,121 @@ function renderResults(question, r) {
         <div style="font-family:var(--font-mono);font-size:1.8rem;color:var(--accent-2);">${avgFormula}%</div>
         <div style="font-size:0.75rem;color:#888;margin-top:4px;">Formula-computed<br>average (this session)</div>
       </div>
-      <div style="flex:1;min-width:200px;">
-        <p style="font-size:0.82rem;color:#999;">The gap between these numbers is what Distilapp measures. LLM confidence is recorded in audit metadata but never used in scoring.</p>
-      </div>
+      <p style="flex:1;min-width:200px;font-size:0.82rem;color:#999;margin:0;">The gap between these numbers is what Distilapp measures. LLM confidence is recorded in audit metadata but never used in scoring.</p>
     </div>
 
-    <!-- CLAIMS -->
     <div class="phase-header">
       <span class="phase-badge">Phase 2 — Claims</span>
       <span class="phase-title">${r.claims.length} claims extracted · scored against evidence formula</span>
     </div>
 
-    ${r.claims.map(c => `
-      <div class="claim-card">
+    ${r.claims.map(c => {
+      const sb = c.score_breakdown || {};
+      return `<div class="claim-card">
         <div class="claim-header">
-          <div class="claim-score ${scoreClass(c.confidence_score)}">${c.confidence_score}</div>
+          <div class="claim-score ${scoreClass(c.confidence_score||0)}">${c.confidence_score||'—'}</div>
           <div class="claim-text-block">
-            <h4>${escHtml(c.text)}</h4>
-            <span class="claim-type-tag">${c.type} · ${escHtml(c.source_tier)} · ${c.provider_count} provider${c.provider_count !== 1 ? 's' : ''}</span>
+            <h4>${esc(c.text||'')}</h4>
+            <span class="claim-type-tag">${esc(c.type||'')} · ${esc(c.source_tier||'')} · ${c.provider_count||1} provider${(c.provider_count||1)!==1?'s':''}</span>
           </div>
-          <span class="claim-status-badge ${statusClass(c.status)}">${c.status}</span>
+          <span class="claim-status-badge ${statusClass(c.status)}">${esc(c.status||'')}</span>
         </div>
         <div class="claim-body">
-          <p class="claim-evidence">${escHtml(c.evidence_summary)}</p>
-
+          <p class="claim-evidence">${esc(c.evidence_summary||'')}</p>
           <div class="meta-row">
-            <span class="meta-chip ${c.score_breakdown.source_tier_bonus > 0 ? 'pos' : ''}">tier bonus: +${c.score_breakdown.source_tier_bonus}</span>
-            <span class="meta-chip ${c.score_breakdown.consensus_bonus > 0 ? 'pos' : ''}">consensus: +${c.score_breakdown.consensus_bonus}</span>
-            <span class="meta-chip ${c.score_breakdown.socratic_bonus > 0 ? 'pos' : 'neg'}">socratic: ${c.score_breakdown.socratic_bonus > 0 ? '+' : ''}${c.score_breakdown.socratic_bonus}</span>
-            ${c.score_breakdown.recency_decay < 0 ? `<span class="meta-chip neg">recency: ${c.score_breakdown.recency_decay}</span>` : ''}
-            ${c.score_breakdown.sufficiency_penalty < 0 ? `<span class="meta-chip neg">sufficiency: ${c.score_breakdown.sufficiency_penalty}</span>` : ''}
-            ${c.score_breakdown.status_adjustment ? `<span class="meta-chip ${c.score_breakdown.status_adjustment > 0 ? 'pos' : 'neg'}">status adj: ${c.score_breakdown.status_adjustment > 0 ? '+' : ''}${c.score_breakdown.status_adjustment}</span>` : ''}
+            <span class="meta-chip ${(sb.source_tier_bonus||0)>0?'pos':''}">tier: +${sb.source_tier_bonus||0}</span>
+            <span class="meta-chip ${(sb.consensus_bonus||0)>0?'pos':''}">consensus: +${sb.consensus_bonus||0}</span>
+            <span class="meta-chip ${(sb.socratic_bonus||0)>0?'pos':'neg'}">socratic: ${(sb.socratic_bonus||0)>=0?'+':''}${sb.socratic_bonus||0}</span>
+            ${(sb.recency_decay||0)<0?`<span class="meta-chip neg">recency: ${sb.recency_decay}</span>`:''}
+            ${(sb.sufficiency_penalty||0)<0?`<span class="meta-chip neg">sufficiency: ${sb.sufficiency_penalty}</span>`:''}
+            ${sb.status_adjustment?`<span class="meta-chip ${(sb.status_adjustment||0)>0?'pos':'neg'}">status: ${(sb.status_adjustment||0)>0?'+':''}${sb.status_adjustment}</span>`:''}
           </div>
-
           <div class="score-formula">
-            <span class="label">C_raw = </span>
-            <span>40</span>
-            <span class="val-pos"> +${c.score_breakdown.source_tier_bonus} (tier)</span>
-            <span class="val-pos"> +${c.score_breakdown.consensus_bonus} (consensus)</span>
-            <span class="${c.score_breakdown.socratic_bonus > 0 ? 'val-pos' : 'val-neg'}"> ${c.score_breakdown.socratic_bonus >= 0 ? '+' : ''}${c.score_breakdown.socratic_bonus} (socratic)</span>
-            ${c.score_breakdown.recency_decay < 0 ? `<span class="val-neg"> ${c.score_breakdown.recency_decay} (recency)</span>` : ''}
-            ${c.score_breakdown.sufficiency_penalty < 0 ? `<span class="val-neg"> ${c.score_breakdown.sufficiency_penalty} (sufficiency)</span>` : ''}
-            ${c.score_breakdown.status_adjustment ? `<span class="${c.score_breakdown.status_adjustment > 0 ? 'val-pos' : 'val-neg'}"> ${c.score_breakdown.status_adjustment > 0 ? '+' : ''}${c.score_breakdown.status_adjustment} (status)</span>` : ''}
+            C_raw = 40
+            <span class="val-pos"> +${sb.source_tier_bonus||0} (tier)</span>
+            <span class="val-pos"> +${sb.consensus_bonus||0} (consensus)</span>
+            <span class="${(sb.socratic_bonus||0)>=0?'val-pos':'val-neg'}"> ${(sb.socratic_bonus||0)>=0?'+':''}${sb.socratic_bonus||0} (socratic)</span>
+            ${(sb.recency_decay||0)<0?`<span class="val-neg"> ${sb.recency_decay} (recency)</span>`:''}
+            ${(sb.sufficiency_penalty||0)<0?`<span class="val-neg"> ${sb.sufficiency_penalty} (sufficiency)</span>`:''}
+            ${sb.status_adjustment?`<span class="${(sb.status_adjustment||0)>0?'val-pos':'val-neg'}"> ${(sb.status_adjustment||0)>0?'+':''}${sb.status_adjustment} (status)</span>`:''}
             <br/><span class="val-total">= ${c.confidence_score} (bounded [5,95])</span>
           </div>
-
           <div class="challenge-block">
             <div class="challenge-label">Adversarial challenge · Phase 3</div>
-            <div class="challenge-text">${escHtml(c.adversarial_challenge)}</div>
-            <div class="challenge-outcome">Outcome: ${escHtml(c.challenge_outcome)} · survived: ${c.survived_challenge ? '<span style="color:var(--verified)">yes</span>' : '<span style="color:var(--contested)">no — socratic bonus removed</span>'}</div>
+            <div class="challenge-text">${esc(c.adversarial_challenge||'')}</div>
+            <div class="challenge-outcome">Outcome: ${esc(c.challenge_outcome||'')} · survived: ${c.survived_challenge?'<span style="color:var(--verified)">yes</span>':'<span style="color:var(--contested)">no — socratic bonus removed</span>'}</div>
           </div>
         </div>
-      </div>
-    `).join('')}
+      </div>`;
+    }).join('')}
 
-    <!-- GAPS -->
     <div class="phase-header">
       <span class="phase-badge">Phase 2 — Gaps</span>
-      <span class="phase-title">${r.gaps.length} knowledge gaps identified</span>
+      <span class="phase-title">${(r.gaps||[]).length} knowledge gaps identified</span>
     </div>
-    ${r.gaps.map(g => `
-      <div class="gap-card">
-        <div class="gap-importance">${g.importance} importance</div>
-        <h4>${escHtml(g.question)}</h4>
-        <p>${escHtml(g.why_it_matters)}</p>
-      </div>
-    `).join('')}
+    ${(r.gaps||[]).map(g=>`<div class="gap-card">
+      <div class="gap-importance">${esc(g.importance||'')} importance</div>
+      <h4>${esc(g.question||'')}</h4>
+      <p>${esc(g.why_it_matters||'')}</p>
+    </div>`).join('')}
 
-    <!-- BRIEF -->
     <div class="phase-header">
       <span class="phase-badge">Phase 4 — Structured Brief</span>
       <span class="phase-title">WEAK / UNVERIFIED claims excluded from key findings</span>
     </div>
     <div class="brief-block">
       <h3>Analytical Brief</h3>
-      ${r.brief_summary.split('\n').filter(p => p.trim()).map(p => `<p>${escHtml(p)}</p>`).join('')}
+      ${(r.brief_summary||'').split('\n').filter(p=>p.trim()).map(p=>`<p>${esc(p)}</p>`).join('')}
       <div class="key-findings">
-        <h4>Key findings (verified claims only)</h4>
-        ${r.key_findings.filter(f => {
-          const cl = r.claims.find(c => c.id === f.claim_id);
-          return cl && (cl.status === 'VERIFIED' || cl.status === 'CONTESTED');
-        }).map(f => `
-          <div class="brief-finding">
-            <div class="brief-finding-score">${f.confidence}%</div>
-            <div class="brief-finding-text">${escHtml(f.finding)}</div>
-          </div>
-        `).join('')}
+        <h4>Key findings (verified &amp; contested claims)</h4>
+        ${(r.key_findings||[]).map(f=>{
+          const cl=(r.claims||[]).find(c=>c.id===f.claim_id);
+          if(cl&&(cl.status==='WEAK'||cl.status==='UNVERIFIED')) return '';
+          return `<div class="brief-finding">
+            <div class="brief-finding-score">${f.confidence||'—'}%</div>
+            <div class="brief-finding-text">${esc(f.finding||'')}</div>
+          </div>`;
+        }).join('')}
       </div>
     </div>
 
-    <!-- DECISION LOG -->
     <div class="decision-log">
       <div class="decision-log-header">
         <span class="decision-log-title">Decision Log entry · immutable snapshot</span>
         <span class="decision-log-id">session_${Date.now().toString(36).toUpperCase()} · ${new Date().toISOString().split('T')[0]}</span>
       </div>
       <div class="log-stats">
-        <div class="log-stat"><span class="val val-v">${r.decision_log.verified_count}</span><span class="lbl">verified</span></div>
-        <div class="log-stat"><span class="val val-c">${r.decision_log.contested_count}</span><span class="lbl">contested</span></div>
-        <div class="log-stat"><span class="val val-w">${r.decision_log.weak_count}</span><span class="lbl">weak</span></div>
-        <div class="log-stat"><span class="val" style="color:var(--gold)">${r.decision_log.gap_count}</span><span class="lbl">gaps tracked</span></div>
-        <div class="log-stat"><span class="val" style="color:var(--ink-4)">${(r.decision_log.snr * 100).toFixed(0)}%</span><span class="lbl">SNR</span></div>
+        <div class="log-stat"><span class="val val-v">${(r.decision_log||{}).verified_count||0}</span><span class="lbl">verified</span></div>
+        <div class="log-stat"><span class="val val-c">${(r.decision_log||{}).contested_count||0}</span><span class="lbl">contested</span></div>
+        <div class="log-stat"><span class="val val-w">${(r.decision_log||{}).weak_count||0}</span><span class="lbl">weak</span></div>
+        <div class="log-stat"><span class="val" style="color:var(--gold)">${(r.decision_log||{}).gap_count||0}</span><span class="lbl">gaps</span></div>
+        <div class="log-stat"><span class="val" style="color:var(--ink-4)">${(((r.decision_log||{}).snr||0)*100).toFixed(0)}%</span><span class="lbl">SNR</span></div>
       </div>
-      <p style="margin-top:var(--space-m);font-size:0.875rem;color:var(--ink-3);">${escHtml(r.decision_log.session_note)}</p>
+      <p style="margin-top:var(--space-m);font-size:0.875rem;color:var(--ink-3);">${esc((r.decision_log||{}).session_note||'')}</p>
       <p style="margin-top:8px;font-size:0.78rem;color:var(--ink-4);font-family:var(--font-mono);">In the full application, this entry is immutable — the full evidence state at this moment is preserved. Article 12 compatible.</p>
     </div>
 
-    <!-- NEXT STEPS -->
     <div style="margin-top:var(--space-xl);padding:var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);">
       <h4 style="margin-bottom:var(--space-s);">What happens next in the full application</h4>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span> Verified claims are written to the persistent knowledge graph — they reduce re-verification burden in the next session</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span> Gaps accumulate — future sessions that resolve them link back to this entry</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span> You can ingest your own authoritative documents — they enter the source tier system and shift confidence scores directly</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span> Human grounding — marking a claim as evidence-grounded adds +8 to its score</li>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:var(--space-l);">
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Verified claims write to the persistent knowledge graph — next session on this topic starts ahead</li>
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Gaps accumulate and narrow as evidence arrives across sessions</li>
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Ingest your own documents — they enter the source tier system and shift confidence scores</li>
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Human grounding (+8) — mark a claim as evidence-grounded to raise its score</li>
       </ul>
-      <div style="margin-top:var(--space-l);display:flex;gap:var(--space-s);flex-wrap:wrap;">
+      <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
         <a href="index.html#contact" class="btn-primary">Request early access →</a>
-        <button class="btn-secondary" onclick="document.getElementById('resultsArea').style.display='none';document.getElementById('researchQ').value='';document.getElementById('researchQ').focus();" style="border:2px solid var(--ink);padding:14px 24px;background:transparent;font-weight:600;font-size:1rem;border-radius:var(--radius-m);cursor:pointer;">Try another question</button>
+        <button class="btn-secondary"
+          onclick="document.getElementById('resultsArea').style.display='none';document.getElementById('researchQ').value='';document.getElementById('researchQ').focus();"
+          style="border:2px solid var(--ink);padding:14px 24px;background:transparent;font-weight:600;font-size:1rem;border-radius:var(--radius-m);cursor:pointer;font-family:var(--font-body);">
+          Try another question
+        </button>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-function escHtml(str) {
-  if (!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
 </body>
