@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Research Landscape — Distilapp</title>
+  <meta name="description" content="Where Distilapp sits in the AI research and evidence synthesis landscape. An honest account of prior art, what existing approaches get right, where the gaps are, and what Distilapp claims on what basis.">
+  <meta name="keywords" content="AI evidence synthesis research, FActScore GraphRAG comparison, AI hallucination research tools, claim verification landscape, DCBR prior art, evidence quality AI research 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="distilapp.css">
+  <style>
+    .landscape-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-l);
+    }
+
+    .lp-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-m);
+    }
+
+    .lp-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-m);
+    }
+
+    .lp-standfirst {
+      font-size: 1.1rem;
+      color: var(--ink-3);
+      line-height: 1.7;
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--border);
+      max-width: 640px;
+    }
+
+    .lp-section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .lp-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-m);
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+    }
+
+    .lp-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .lp-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      margin-bottom: var(--space-m);
+    }
+
+    .lp-h2 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .lp-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-2);
+    }
+
+    .lp-body p {
+      margin-bottom: var(--space-m);
+      color: var(--ink-2);
+    }
+
+    .lp-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Pull quotes */
+    .lp-pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-l) var(--space-xl);
+      border-left: 3px solid var(--accent);
+      background: var(--paper-2);
+    }
+
+    .lp-pull p {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--ink);
+      margin: 0;
+      font-style: italic;
+    }
+
+    .lp-pull cite {
+      display: block;
+      margin-top: var(--space-s);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-4);
+      font-style: normal;
+      letter-spacing: 0.04em;
+    }
+
+    /* System cards for each prior approach */
+    .system-card {
+      margin: var(--space-l) 0;
+      padding: var(--space-l);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      background: var(--paper-2);
+    }
+
+    .system-card-name {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .system-card-type {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-s);
+    }
+
+    .system-card p {
+      font-size: 0.925rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin-bottom: var(--space-s);
+    }
+
+    .system-card p:last-child { margin-bottom: 0; }
+
+    .system-card .gap-note {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      padding: var(--space-s) var(--space-m);
+      border-left: 2px solid var(--border-2);
+      margin-top: var(--space-s);
+    }
+
+    /* Comparison table */
+    .comp-wrapper {
+      overflow-x: auto;
+      margin: var(--space-xl) 0;
+    }
+
+    .lp-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      font-size: 0.825rem;
+    }
+
+    .lp-table th {
+      padding: 10px 12px;
+      text-align: left;
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: var(--ink-3);
+      white-space: nowrap;
+    }
+
+    .lp-table th.ours {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .lp-table td {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      color: var(--ink-4);
+      font-size: 0.8rem;
+      vertical-align: top;
+    }
+
+    .lp-table td:first-child {
+      color: var(--ink-2);
+      font-weight: 500;
+      font-size: 0.825rem;
+    }
+
+    .lp-table td.ours {
+      background: rgba(200,67,47,0.05);
+      color: var(--accent);
+      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    .lp-table tr:nth-child(even) td { background: var(--paper-2); }
+    .lp-table tr:nth-child(even) td.ours { background: rgba(200,67,47,0.08); }
+
+    /* Timestamp note */
+    .field-note {
+      margin-top: var(--space-2xl);
+      padding: var(--space-m) var(--space-l);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      background: var(--paper-2);
+    }
+
+    .field-note-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-4);
+      margin-bottom: 8px;
+    }
+
+    .field-note p {
+      font-size: 0.875rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* References */
+    .lp-refs {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-l);
+      border-top: 1px solid var(--border);
+    }
+
+    .lp-refs-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-4);
+      margin-bottom: var(--space-m);
+    }
+
+    .lp-refs ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .lp-refs li {
+      font-size: 0.825rem;
+      color: var(--ink-4);
+      line-height: 1.5;
+      padding-left: var(--space-m);
+      position: relative;
+    }
+
+    .lp-refs li::before {
+      content: attr(data-n);
+      position: absolute;
+      left: 0;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .lp-refs a {
+      color: var(--ink-3);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .lp-refs a:hover {
+      color: var(--ink);
+      border-color: var(--ink-3);
+    }
+
+    @media (max-width: 680px) {
+      .landscape-page { padding: var(--space-l) var(--space-m); }
+      .lp-pull { padding: var(--space-m); }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">D <span>Distilapp</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="engine.html">The Engine</a>
+      <a href="distila_demo.html">Demo</a>
+      <a href="index.html#contact">Get in touch</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="landscape-page">
+
+  <div class="lp-eyebrow">Prior art and open problems</div>
+
+  <h1 class="lp-title">The research landscape</h1>
+
+  <p class="lp-standfirst">This field is moving fast. The account below reflects what we know as of May 2026 and will become incomplete. We think that is a reason to be precise about what we claim and what we don't, not a reason to avoid the question.</p>
+
+
+  <!-- SECTION 1 -->
+  <div class="lp-section">
+    <div class="lp-section-label">The unsolved problem</div>
+    <h2 class="lp-h2">Why the problem is <em>structural</em>, not technical</h2>
+
+    <div class="lp-body">
+      <p>The core difficulty in AI-assisted research is not that language models make things up. It is that they do not know when they are making things up, and they report high confidence regardless. A 2025 study in Memory and Cognition found that LLM confidence judgments are systematically miscalibrated. A separate analysis found that tool-using agents show higher calibration errors than standalone models, not lower, meaning that adding retrieval to a language model often makes the confidence problem worse rather than better.</p>
+
+      <p>This creates a specific problem for professional research. A research brief that sounds authoritative and a research brief that is authoritative look identical in the output. The gap is only visible if you can trace each claim back to its source, assess the quality of that source, and check whether the claim survived scrutiny. Most AI research tools produce neither the trace nor the assessment.</p>
+
+      <p>The medical evidence synthesis community has documented this clearly. A 2026 scoping review in the Journal of Medical Internet Research covering 222 AI evidence synthesis tools concluded that current evidence does not support generative AI use in evidence synthesis without human involvement. Cochrane launched a formal platform study in 2026 to evaluate AI tools against traditional methods precisely because no tool has yet demonstrated sufficient reliability for systematic reviews.</p>
+
+      <p>The gap in that literature is significant. All serious work on AI evidence quality is happening in health and medical research. Policy research, regulatory intelligence, investment due diligence, and general professional research have no equivalent framework and no equivalent scrutiny. That is the domain Distilapp works in.</p>
+    </div>
+  </div>
+
+
+  <!-- SECTION 2 -->
+  <div class="lp-section">
+    <div class="lp-section-label">What exists and what it gets right</div>
+    <h2 class="lp-h2">Prior approaches worth <em>understanding honestly</em></h2>
+
+    <div class="lp-body">
+      <p>Several systems address parts of the problem. None addresses the combination that matters for professional research. The following is not a dismissal of these systems. They are serious work and some are more rigorous than Distilapp on the components they focus on.</p>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">FActScore / VeriScore</div>
+      <div class="system-card-type">Academic · Factuality evaluation</div>
+      <p>FActScore decomposes generated text into atomic claims and verifies each claim against a knowledge source. It is rigorous on the NLP side and has been influential in establishing claim-level evaluation as the correct unit of analysis. VeriScore extends this with better handling of complex claims.</p>
+      <div class="gap-note">These are evaluation systems, not research tools. They measure factuality after the fact; they do not support a research workflow. They have no cross-session memory, no gap tracking, no adversarial challenge stage, and they are designed for academic benchmarks rather than practitioner use. The confidence measures are retrieval-based, not formula-computed from source credibility tiers.</div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">GraphRAG (Microsoft Research)</div>
+      <div class="system-card-type">Open source · Knowledge graph retrieval</div>
+      <p>GraphRAG is the most technically serious system in the adjacent space. It builds a knowledge graph from ingested documents and uses that graph for retrieval rather than raw vector search. This produces better multi-hop reasoning and some degree of cross-session persistence. The engineering behind it is substantial and it is actively developed.</p>
+      <div class="gap-note">GraphRAG does not have an adversarial challenge stage, typed gap tracking, a source credibility tier system, or a formula-computed confidence score that is decoupled from model self-report. It also does not produce a decision log. The gap between GraphRAG and Distilapp is real but it is narrowing, and Microsoft has significantly more engineering capacity. This is the competitive system to watch.</div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">Elicit</div>
+      <div class="system-card-type">Product · Academic literature synthesis</div>
+      <p>Elicit is the most direct product competitor for the research workflow. It does structured extraction from academic papers, claim-level analysis, and some degree of evidence quality assessment. For researchers working primarily with peer-reviewed literature it is a serious tool.</p>
+      <div class="gap-note">Elicit is locked to academic literature. It does not work well with grey literature, proprietary documents, regulatory sources, or the mix of source types that characterise professional research outside academia. It has no cross-session compounding, no adversarial challenge, and no typed gap tracking.</div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">DebateCV</div>
+      <div class="system-card-type">Academic · Multi-agent adversarial verification</div>
+      <p>DebateCV (2025) is the closest academic parallel to Distilapp's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
+      <div class="gap-note">DebateCV is a claim verification framework, not a research workflow system. It addresses the adversarial challenge component in isolation. There is no knowledge graph, no cross-session memory, no gap tracking, and no practitioner deployment. The existence of this work is validation that mandatory adversarial challenge is the right architectural choice. It is not a competing product.</div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">MACI (Multi-Agent Collaborative Intelligence)</div>
+      <div class="system-card-type">Academic · Calibration-aware multi-agent debate</div>
+      <p>MACI introduces what it calls dual-dial control: an information quality gate that filters evidence by credibility, and a behaviour dial that adjusts adversarial intensity across debate rounds. It achieves better confidence calibration than fixed-stance debate systems and uses fewer tokens. The calibration improvement is the relevant finding: a system that modulates how hard it challenges a claim based on evidence quality produces better-calibrated outputs than one that challenges everything equally.</p>
+      <div class="gap-note">This is recent academic work without practitioner deployment. The dual-dial insight is relevant to how Distilapp's adversarial challenge stage could be developed: varying challenge intensity based on source tier rather than applying a uniform challenge to every claim.</div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">MemGPT / long-context memory systems</div>
+      <div class="system-card-type">Open source · Persistent memory</div>
+      <p>MemGPT and similar systems solve the session persistence problem. They maintain memory across conversations and can retrieve prior context. This is real and useful.</p>
+      <div class="gap-note">Memory without epistemic structure is not the same as a compounding knowledge graph. MemGPT remembers what was said. It does not track whether claims were verified, what confidence they were assigned, or what gaps remain. Storing a claim and storing a verified, scored, challenged claim with source provenance are different operations.</div>
+    </div>
+
+    <div class="lp-pull">
+      <p>A useful confidence scoring system uses evidence confidence, not model confidence. The score should tell you: we found three statutory provisions, two rulings, and a circular that directly address your question, and they agree, not: the model is 87% sure about its word choices.</p>
+      <cite>Auryth, December 2025. Independent convergent framing of the same distinction Distilapp's formula is built on.</cite>
+    </div>
+  </div>
+
+
+  <!-- SECTION 3 -->
+  <div class="lp-section">
+    <div class="lp-section-label">The convergent evidence</div>
+    <h2 class="lp-h2">Independent work pointing <em>in the same direction</em></h2>
+
+    <div class="lp-body">
+      <p>Three pieces of independent work, from different research groups with no connection to Distilapp, have reached conclusions that validate the core architectural choices.</p>
+
+      <p>WebTrust (Tsinghua University / Chandigarh University, 2025) built an automated source credibility scoring system trained on 140,000 articles across 21 domains, using 35 reliability labels. It achieved a Mean Absolute Error of 0.09 on credibility prediction. The finding relevant to Distilapp: automated source credibility scoring at the tier level is tractable and accurate. Distilapp's source tier system is currently a structured heuristic. Anchoring it to a system like WebTrust would make the tier assignments more defensible empirically.</p>
+
+      <p>The Confidence Dichotomy paper (2025) found that tool-using agents exhibit systematically higher calibration errors than standalone LLMs. The relevant finding: adding retrieval to a language model does not fix confidence miscalibration; it often makes it worse. This is exactly the failure mode Distilapp's formula is designed to address. A formula-computed score based on source tiers, consensus counts, and adversarial outcomes is structurally different from retrieval-augmented model confidence.</p>
+
+      <p>MACI's calibration results show that information quality gating, combined with scheduled adversarial intensity, reduces calibration error (ECE 0.081 vs 0.103) compared to fixed-stance debate. This is the strongest academic evidence so far that the architectural pattern Distilapp uses for its adversarial challenge stage is the right one.</p>
+
+      <p>None of these papers know about Distilapp. They are working on adjacent problems in academic settings. The convergence is the point. When independent groups reach similar conclusions about what the architecture needs to look like, it suggests the architecture is pointed in the right direction.</p>
+    </div>
+  </div>
+
+
+  <!-- SECTION 4 -->
+  <div class="lp-section">
+    <div class="lp-section-label">What Distilapp claims</div>
+    <h2 class="lp-h2">The claim is the <em>co-presence</em>, not any component</h2>
+
+    <div class="lp-body">
+      <p>Distilapp does not claim to have invented claim extraction, knowledge graphs, adversarial verification, confidence scoring, or session persistence. All of these exist, some of them in more rigorous forms than what Distilapp implements.</p>
+
+      <p>The claim is that no existing system, academic or commercial, combines all six properties in a single practitioner-facing deployment for general professional research. Typed claim extraction, formula-computed evidence-quality confidence, mandatory adversarial challenge, typed gap tracking as a first-class output, cross-session compounding of evidential state, and bidirectional operation. Removing any one of these degrades the system to something existing tools already do.</p>
+
+      <p>The second claim is that the confidence formula, which computes a score from source credibility tier, cross-provider consensus, adversarial challenge outcome, evidence recency, and sufficiency, is decoupled from LLM self-report. This is not a technical novelty in itself. It is a design choice that has practical consequences. A claim sourced from a single trade blog scores differently from a claim corroborated by three Tier 1 documents, regardless of how confident the model sounds about either one.</p>
+
+      <p>The third claim is that the decision log, which records the full evidence state at the moment a decision is logged, satisfies the epistemic accountability requirement of the EU AI Act Article 12 by construction rather than by bolt-on. This is an architectural claim, not a legal one. Qualified legal counsel must assess applicability to specific deployments.</p>
+
+      <p>These claims are published and citable. The architecture paper is available at Zenodo (10.5281/zenodo.19204972). The RegWatch domain configuration paper, which includes a direct live comparison against a frontier LLM and a structured prior art analysis, is at Zenodo (10.5281/zenodo.19301680). The system is defensively disclosed at IP.com (IPCOM/000277741).</p>
+    </div>
+
+    <!-- Comparison table -->
+    <div class="comp-wrapper">
+      <table class="lp-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>FActScore</th>
+            <th>GraphRAG</th>
+            <th>Elicit</th>
+            <th>DebateCV</th>
+            <th>MemGPT</th>
+            <th class="ours">Distilapp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Typed claim extraction</td>
+            <td>Yes, atomic</td>
+            <td>Partial</td>
+            <td>Partial</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td class="ours">Yes</td>
+          </tr>
+          <tr>
+            <td>Formula-computed confidence</td>
+            <td>Retrieval-based</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td class="ours">Yes, decoupled from model</td>
+          </tr>
+          <tr>
+            <td>Source credibility tier</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td class="ours">Yes</td>
+          </tr>
+          <tr>
+            <td>Adversarial challenge stage</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes, core</td>
+            <td>No</td>
+            <td class="ours">Yes, mandatory</td>
+          </tr>
+          <tr>
+            <td>Typed gap tracking</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td class="ours">Yes, first-class output</td>
+          </tr>
+          <tr>
+            <td>Cross-session compounding</td>
+            <td>No</td>
+            <td>Partial</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Partial</td>
+            <td class="ours">Yes</td>
+          </tr>
+          <tr>
+            <td>Bidirectional operation</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td class="ours">Yes</td>
+          </tr>
+          <tr>
+            <td>Decision log / audit trail</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td class="ours">Yes, immutable</td>
+          </tr>
+          <tr>
+            <td>Practitioner deployment</td>
+            <td>No</td>
+            <td>Developer</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Developer</td>
+            <td class="ours">Yes, desktop</td>
+          </tr>
+          <tr>
+            <td>Non-academic source types</td>
+            <td>Limited</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Limited</td>
+            <td>Yes</td>
+            <td class="ours">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- SECTION 5 -->
+  <div class="lp-section">
+    <div class="lp-section-label">The honest assessment</div>
+    <h2 class="lp-h2">What could close the gap <em>and when</em></h2>
+
+    <div class="lp-body">
+      <p>GraphRAG is the system most likely to close the gap. Microsoft is actively developing it and has the engineering capacity to add adversarial challenge, source tier scoring, and typed gap tracking. The question is not whether they will eventually build these features. It is whether they will build them for the practitioner research workflow specifically, or whether they will continue to develop GraphRAG as a developer infrastructure layer that organisations have to configure themselves.</p>
+
+      <p>The agentic AI space is moving toward what people are calling verification layers and epistemic harnesses: supervision systems that sit above research agents and check their outputs. This is the architectural role Distilapp occupies. As more organisations deploy AI research agents, the demand for a system that scores, challenges, and audits what those agents produce will grow. Whether Distilapp or a larger platform fills that role depends partly on whether Distilapp can establish domain presence and user relationships before the larger platforms catch up.</p>
+
+      <p>The components Distilapp uses are not all SOTA individually. The source tier system is a structured heuristic where a WebTrust-class automated scoring system would be more rigorous. The adversarial challenge stage is a single-pass mechanism where MACI's dual-dial approach would produce better-calibrated outputs. The knowledge graph is SQLite-backed where a production graph database would scale better. These are known gaps and the relevant comparison is not against the academic frontier on each component. It is against what exists in practitioner-facing deployment for general professional research, where the gap is wider.</p>
+
+      <p>The architecture paper documents what the system is and what it claims. The RegWatch paper includes a structured self-critique and a proposed evaluation methodology for systems of this class. If you are assessing Distilapp seriously, both papers are the right starting point.</p>
+    </div>
+  </div>
+
+
+  <!-- FIELD NOTE -->
+  <div class="field-note">
+    <div class="field-note-label">A note on pace</div>
+    <p>This page was written in May 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework, the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Distilapp architecture paper. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
+  </div>
+
+
+  <!-- REFERENCES -->
+  <div class="lp-refs">
+    <div class="lp-refs-label">References and further reading</div>
+    <ul>
+      <li data-n="1">Sinha, A. (2026). A Domain-Configurable Bidirectional Reasoning Engine for Evidence-Grounded Decision Making: Architecture and Design. Zenodo. <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">doi:10.5281/zenodo.19204972</a></li>
+      <li data-n="2">Sinha, A. (2026). RegWatch: Domain-Configurable Bidirectional Reasoning as Epistemic Infrastructure for Regulatory Intelligence. Zenodo. <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">doi:10.5281/zenodo.19301680</a></li>
+      <li data-n="3">Min, S. et al. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. EMNLP 2023.</li>
+      <li data-n="4">Edge, D. et al. (2024). From Local to Global: A Graph RAG Approach to Query-Focused Summarization. Microsoft Research.</li>
+      <li data-n="5">DebateCV: Debate-driven Claim Verification with Multiple Large Language Model Agents. arXiv:2507.19090.</li>
+      <li data-n="6">MACI: Multi-Agent Collaborative Intelligence: Dual-Dial Control for Reliable LLM Reasoning. arXiv:2510.04488.</li>
+      <li data-n="7">Cash, T.N. et al. (2025). Quantifying uncert-AI-nty: Testing the accuracy of LLMs confidence judgments. Memory and Cognition.</li>
+      <li data-n="8">The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents. arXiv:2601.07264.</li>
+      <li data-n="9">Clark J. et al. (2026). Artificial Intelligence Tools for Automating Evidence Synthesis: Scoping Review. Journal of Medical Internet Research. <a href="https://doi.org/10.2196/81597" target="_blank">doi:10.2196/81597</a></li>
+      <li data-n="10">Cochrane (2026). Cochrane launches innovative study to assess AI tools for evidence synthesis. <a href="https://www.cochrane.org/about-us/news/cochrane-launches-innovative-study-assess-ai-tools-evidence-synthesis" target="_blank">cochrane.org</a></li>
+      <li data-n="11">Auryth (2025). What is confidence scoring and why it is more honest than a confident answer. <a href="https://auryth.ai/en/blog/confidence-scoring-explained/" target="_blank">auryth.ai</a></li>
+      <li data-n="12">Defensive disclosure: IPCOM/000277741. <a href="https://ip.com/IPCOM/000277741" target="_blank">ip.com</a></li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:var(--space-2xl);padding-top:var(--space-xl);border-top:1px solid var(--border);display:flex;gap:var(--space-s);flex-wrap:wrap;align-items:center;">
+    <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+    <a href="distila_demo.html" class="btn-secondary">See the demo</a>
+    <a href="engine.html" class="btn-ghost">The Engine →</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Distilapp</strong>
+      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="engine.html">The Engine</a>
+      <a href="landscape.html">Research landscape</a>
+      <a href="distila_demo.html">Demo</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
+      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch · Zenodo</a>
+      <a href="https://ip.com/IPCOM/000277741" target="_blank">Defensive disclosure · IP.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.lp-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
