@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Distilapp — Interactive Demo</title>
-  <meta name="description" content="See how Distilapp extracts, scores, and challenges claims from a research question. Real pipeline, real scores — evidence quality not model confidence.">
+  <title>Epistamate — Interactive Demo</title>
+  <meta name="description" content="See how Epistamate extracts, scores, and challenges claims from a research question. Real pipeline, real scores — evidence quality not model confidence.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="distilapp.css">
+  <link rel="stylesheet" href="epistamate.css">
   <style>
     body { background: var(--paper); }
     .demo-page { max-width: 860px; margin: 0 auto; padding: var(--space-xl) var(--space-l); }
@@ -103,7 +103,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">D <span>Distilapp</span></a>
+    <a href="index.html" class="nav-logo">E <span>Epistamate</span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="engine.html">The Engine</a>
@@ -116,7 +116,7 @@
 <div class="demo-page">
   <div class="demo-header">
     <div class="eyebrow">Interactive demo · DCBR Pipeline</div>
-    <h1>See how Distilapp <em>scores a claim.</em></h1>
+    <h1>See how Epistamate <em>scores a claim.</em></h1>
     <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief — not a summary.</p>
   </div>
 
@@ -150,7 +150,7 @@
   <div id="resultsArea" class="results-area" style="display:none;"></div>
 
   <div class="disclaimer">
-    <strong>About this demo:</strong> This demonstration simulates the Distilapp DCBR pipeline — showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
+    <strong>About this demo:</strong> This demonstration simulates the Epistamate DCBR pipeline — showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
   </div>
 </div>
 
@@ -294,7 +294,7 @@ function renderResults(question, r) {
         <div style="font-family:var(--font-mono);font-size:1.8rem;color:var(--accent-2);">${avgFormula}%</div>
         <div style="font-size:0.75rem;color:#888;margin-top:4px;">Formula-computed<br>average (this session)</div>
       </div>
-      <p style="flex:1;min-width:200px;font-size:0.82rem;color:#999;margin:0;">The gap between these numbers is what Distilapp measures. LLM confidence is recorded in audit metadata but never used in scoring.</p>
+      <p style="flex:1;min-width:200px;font-size:0.82rem;color:#999;margin:0;">The gap between these numbers is what Epistamate measures. LLM confidence is recorded in audit metadata but never used in scoring.</p>
     </div>
 
     <div class="phase-header">

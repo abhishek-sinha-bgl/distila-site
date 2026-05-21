@@ -78,6 +78,8 @@ export default async function handler(req, res) {
   // CORS
   const origin = req.headers.origin || '';
   const allowed = [
+    'https://epistamate.com',
+    'https://www.epistamate.com',
     'https://distila-site.vercel.app',
     'http://localhost:3000',
     'http://localhost:5500',

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Research Landscape — Distilapp</title>
-  <meta name="description" content="Where Distilapp sits in the AI research and evidence synthesis landscape. An honest account of prior art, what existing approaches get right, where the gaps are, and what Distilapp claims on what basis.">
+  <title>The Research Landscape — Epistamate</title>
+  <meta name="description" content="Where Epistamate sits in the AI research and evidence synthesis landscape. An honest account of prior art, what existing approaches get right, where the gaps are, and what Epistamate claims on what basis.">
   <meta name="keywords" content="AI evidence synthesis research, FActScore GraphRAG comparison, AI hallucination research tools, claim verification landscape, DCBR prior art, evidence quality AI research 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="distilapp.css">
+  <link rel="stylesheet" href="epistamate.css">
   <style>
     .landscape-page {
       max-width: 760px;
@@ -306,7 +306,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">D <span>Distilapp</span></a>
+    <a href="index.html" class="nav-logo">E <span>Epistamate</span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="engine.html">The Engine</a>
@@ -338,7 +338,7 @@
 
       <p>The medical evidence synthesis community has documented this clearly. A 2026 scoping review in the Journal of Medical Internet Research covering 222 AI evidence synthesis tools concluded that current evidence does not support generative AI use in evidence synthesis without human involvement. Cochrane launched a formal platform study in 2026 to evaluate AI tools against traditional methods precisely because no tool has yet demonstrated sufficient reliability for systematic reviews.</p>
 
-      <p>The gap in that literature is significant. All serious work on AI evidence quality is happening in health and medical research. Policy research, regulatory intelligence, investment due diligence, and general professional research have no equivalent framework and no equivalent scrutiny. That is the domain Distilapp works in.</p>
+      <p>The gap in that literature is significant. All serious work on AI evidence quality is happening in health and medical research. Policy research, regulatory intelligence, investment due diligence, and general professional research have no equivalent framework and no equivalent scrutiny. That is the domain Epistamate works in.</p>
     </div>
   </div>
 
@@ -349,7 +349,7 @@
     <h2 class="lp-h2">Prior approaches worth <em>understanding honestly</em></h2>
 
     <div class="lp-body">
-      <p>Several systems address parts of the problem. None addresses the combination that matters for professional research. The following is not a dismissal of these systems. They are serious work and some are more rigorous than Distilapp on the components they focus on.</p>
+      <p>Several systems address parts of the problem. None addresses the combination that matters for professional research. The following is not a dismissal of these systems. They are serious work and some are more rigorous than Epistamate on the components they focus on.</p>
     </div>
 
     <div class="system-card">
@@ -363,7 +363,7 @@
       <div class="system-card-name">GraphRAG (Microsoft Research)</div>
       <div class="system-card-type">Open source · Knowledge graph retrieval</div>
       <p>GraphRAG is the most technically serious system in the adjacent space. It builds a knowledge graph from ingested documents and uses that graph for retrieval rather than raw vector search. This produces better multi-hop reasoning and some degree of cross-session persistence. The engineering behind it is substantial and it is actively developed.</p>
-      <div class="gap-note">GraphRAG does not have an adversarial challenge stage, typed gap tracking, a source credibility tier system, or a formula-computed confidence score that is decoupled from model self-report. It also does not produce a decision log. The gap between GraphRAG and Distilapp is real but it is narrowing, and Microsoft has significantly more engineering capacity. This is the competitive system to watch.</div>
+      <div class="gap-note">GraphRAG does not have an adversarial challenge stage, typed gap tracking, a source credibility tier system, or a formula-computed confidence score that is decoupled from model self-report. It also does not produce a decision log. The gap between GraphRAG and Epistamate is real but it is narrowing, and Microsoft has significantly more engineering capacity. This is the competitive system to watch.</div>
     </div>
 
     <div class="system-card">
@@ -376,7 +376,7 @@
     <div class="system-card">
       <div class="system-card-name">DebateCV</div>
       <div class="system-card-type">Academic · Multi-agent adversarial verification</div>
-      <p>DebateCV (2025) is the closest academic parallel to Distilapp's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
+      <p>DebateCV (2025) is the closest academic parallel to Epistamate's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
       <div class="gap-note">DebateCV is a claim verification framework, not a research workflow system. It addresses the adversarial challenge component in isolation. There is no knowledge graph, no cross-session memory, no gap tracking, and no practitioner deployment. The existence of this work is validation that mandatory adversarial challenge is the right architectural choice. It is not a competing product.</div>
     </div>
 
@@ -384,7 +384,7 @@
       <div class="system-card-name">MACI (Multi-Agent Collaborative Intelligence)</div>
       <div class="system-card-type">Academic · Calibration-aware multi-agent debate</div>
       <p>MACI introduces what it calls dual-dial control: an information quality gate that filters evidence by credibility, and a behaviour dial that adjusts adversarial intensity across debate rounds. It achieves better confidence calibration than fixed-stance debate systems and uses fewer tokens. The calibration improvement is the relevant finding: a system that modulates how hard it challenges a claim based on evidence quality produces better-calibrated outputs than one that challenges everything equally.</p>
-      <div class="gap-note">This is recent academic work without practitioner deployment. The dual-dial insight is relevant to how Distilapp's adversarial challenge stage could be developed: varying challenge intensity based on source tier rather than applying a uniform challenge to every claim.</div>
+      <div class="gap-note">This is recent academic work without practitioner deployment. The dual-dial insight is relevant to how Epistamate's adversarial challenge stage could be developed: varying challenge intensity based on source tier rather than applying a uniform challenge to every claim.</div>
     </div>
 
     <div class="system-card">
@@ -396,7 +396,7 @@
 
     <div class="lp-pull">
       <p>A useful confidence scoring system uses evidence confidence, not model confidence. The score should tell you: we found three statutory provisions, two rulings, and a circular that directly address your question, and they agree, not: the model is 87% sure about its word choices.</p>
-      <cite>Auryth, December 2025. Independent convergent framing of the same distinction Distilapp's formula is built on.</cite>
+      <cite>Auryth, December 2025. Independent convergent framing of the same distinction Epistamate's formula is built on.</cite>
     </div>
   </div>
 
@@ -407,26 +407,26 @@
     <h2 class="lp-h2">Independent work pointing <em>in the same direction</em></h2>
 
     <div class="lp-body">
-      <p>Three pieces of independent work, from different research groups with no connection to Distilapp, have reached conclusions that validate the core architectural choices.</p>
+      <p>Three pieces of independent work, from different research groups with no connection to Epistamate, have reached conclusions that validate the core architectural choices.</p>
 
-      <p>WebTrust (Tsinghua University / Chandigarh University, 2025) built an automated source credibility scoring system trained on 140,000 articles across 21 domains, using 35 reliability labels. It achieved a Mean Absolute Error of 0.09 on credibility prediction. The finding relevant to Distilapp: automated source credibility scoring at the tier level is tractable and accurate. Distilapp's source tier system is currently a structured heuristic. Anchoring it to a system like WebTrust would make the tier assignments more defensible empirically.</p>
+      <p>WebTrust (Tsinghua University / Chandigarh University, 2025) built an automated source credibility scoring system trained on 140,000 articles across 21 domains, using 35 reliability labels. It achieved a Mean Absolute Error of 0.09 on credibility prediction. The finding relevant to Epistamate: automated source credibility scoring at the tier level is tractable and accurate. Epistamate's source tier system is currently a structured heuristic. Anchoring it to a system like WebTrust would make the tier assignments more defensible empirically.</p>
 
-      <p>The Confidence Dichotomy paper (2025) found that tool-using agents exhibit systematically higher calibration errors than standalone LLMs. The relevant finding: adding retrieval to a language model does not fix confidence miscalibration; it often makes it worse. This is exactly the failure mode Distilapp's formula is designed to address. A formula-computed score based on source tiers, consensus counts, and adversarial outcomes is structurally different from retrieval-augmented model confidence.</p>
+      <p>The Confidence Dichotomy paper (2025) found that tool-using agents exhibit systematically higher calibration errors than standalone LLMs. The relevant finding: adding retrieval to a language model does not fix confidence miscalibration; it often makes it worse. This is exactly the failure mode Epistamate's formula is designed to address. A formula-computed score based on source tiers, consensus counts, and adversarial outcomes is structurally different from retrieval-augmented model confidence.</p>
 
-      <p>MACI's calibration results show that information quality gating, combined with scheduled adversarial intensity, reduces calibration error (ECE 0.081 vs 0.103) compared to fixed-stance debate. This is the strongest academic evidence so far that the architectural pattern Distilapp uses for its adversarial challenge stage is the right one.</p>
+      <p>MACI's calibration results show that information quality gating, combined with scheduled adversarial intensity, reduces calibration error (ECE 0.081 vs 0.103) compared to fixed-stance debate. This is the strongest academic evidence so far that the architectural pattern Epistamate uses for its adversarial challenge stage is the right one.</p>
 
-      <p>None of these papers know about Distilapp. They are working on adjacent problems in academic settings. The convergence is the point. When independent groups reach similar conclusions about what the architecture needs to look like, it suggests the architecture is pointed in the right direction.</p>
+      <p>None of these papers know about Epistamate. They are working on adjacent problems in academic settings. The convergence is the point. When independent groups reach similar conclusions about what the architecture needs to look like, it suggests the architecture is pointed in the right direction.</p>
     </div>
   </div>
 
 
   <!-- SECTION 4 -->
   <div class="lp-section">
-    <div class="lp-section-label">What Distilapp claims</div>
+    <div class="lp-section-label">What Epistamate claims</div>
     <h2 class="lp-h2">The claim is the <em>co-presence</em>, not any component</h2>
 
     <div class="lp-body">
-      <p>Distilapp does not claim to have invented claim extraction, knowledge graphs, adversarial verification, confidence scoring, or session persistence. All of these exist, some of them in more rigorous forms than what Distilapp implements.</p>
+      <p>Epistamate does not claim to have invented claim extraction, knowledge graphs, adversarial verification, confidence scoring, or session persistence. All of these exist, some of them in more rigorous forms than what Epistamate implements.</p>
 
       <p>The claim is that no existing system, academic or commercial, combines all six properties in a single practitioner-facing deployment for general professional research. Typed claim extraction, formula-computed evidence-quality confidence, mandatory adversarial challenge, typed gap tracking as a first-class output, cross-session compounding of evidential state, and bidirectional operation. Removing any one of these degrades the system to something existing tools already do.</p>
 
@@ -448,7 +448,7 @@
             <th>Elicit</th>
             <th>DebateCV</th>
             <th>MemGPT</th>
-            <th class="ours">Distilapp</th>
+            <th class="ours">Epistamate</th>
           </tr>
         </thead>
         <tbody>
@@ -556,11 +556,11 @@
     <div class="lp-body">
       <p>GraphRAG is the system most likely to close the gap. Microsoft is actively developing it and has the engineering capacity to add adversarial challenge, source tier scoring, and typed gap tracking. The question is not whether they will eventually build these features. It is whether they will build them for the practitioner research workflow specifically, or whether they will continue to develop GraphRAG as a developer infrastructure layer that organisations have to configure themselves.</p>
 
-      <p>The agentic AI space is moving toward what people are calling verification layers and epistemic harnesses: supervision systems that sit above research agents and check their outputs. This is the architectural role Distilapp occupies. As more organisations deploy AI research agents, the demand for a system that scores, challenges, and audits what those agents produce will grow. Whether Distilapp or a larger platform fills that role depends partly on whether Distilapp can establish domain presence and user relationships before the larger platforms catch up.</p>
+      <p>The agentic AI space is moving toward what people are calling verification layers and epistemic harnesses: supervision systems that sit above research agents and check their outputs. This is the architectural role Epistamate occupies. As more organisations deploy AI research agents, the demand for a system that scores, challenges, and audits what those agents produce will grow. Whether Epistamate or a larger platform fills that role depends partly on whether Epistamate can establish domain presence and user relationships before the larger platforms catch up.</p>
 
-      <p>The components Distilapp uses are not all SOTA individually. The source tier system is a structured heuristic where a WebTrust-class automated scoring system would be more rigorous. The adversarial challenge stage is a single-pass mechanism where MACI's dual-dial approach would produce better-calibrated outputs. The knowledge graph is SQLite-backed where a production graph database would scale better. These are known gaps and the relevant comparison is not against the academic frontier on each component. It is against what exists in practitioner-facing deployment for general professional research, where the gap is wider.</p>
+      <p>The components Epistamate uses are not all SOTA individually. The source tier system is a structured heuristic where a WebTrust-class automated scoring system would be more rigorous. The adversarial challenge stage is a single-pass mechanism where MACI's dual-dial approach would produce better-calibrated outputs. The knowledge graph is SQLite-backed where a production graph database would scale better. These are known gaps and the relevant comparison is not against the academic frontier on each component. It is against what exists in practitioner-facing deployment for general professional research, where the gap is wider.</p>
 
-      <p>The architecture paper documents what the system is and what it claims. The RegWatch paper includes a structured self-critique and a proposed evaluation methodology for systems of this class. If you are assessing Distilapp seriously, both papers are the right starting point.</p>
+      <p>The architecture paper documents what the system is and what it claims. The RegWatch paper includes a structured self-critique and a proposed evaluation methodology for systems of this class. If you are assessing Epistamate seriously, both papers are the right starting point.</p>
     </div>
   </div>
 
@@ -568,7 +568,7 @@
   <!-- FIELD NOTE -->
   <div class="field-note">
     <div class="field-note-label">A note on pace</div>
-    <p>This page was written in May 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework, the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Distilapp architecture paper. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
+    <p>This page was written in May 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework, the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Epistamate architecture paper. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
   </div>
 
 
@@ -603,7 +603,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <strong>Distilapp</strong>
+      <strong>Epistamate</strong>
       <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
     </div>
     <div class="footer-links">
