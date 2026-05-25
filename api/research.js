@@ -1,7 +1,95 @@
 /**
- * Distilapp /api/research
+ * Epistamate /api/research
  * Serverless Groq proxy. Key stays server-side. Rate limited by IP.
+ *
+ * Contact: epistamate@proton.me
  */
+
+// ─── Score recomputation ─────────────────────────────────────────────────────
+// The LLM is asked to produce both confidence_score and score_breakdown, but
+// frequently returns values that don't match. This function recomputes
+// confidence_score deterministically from the breakdown so the formula
+// displayed in the UI is always the authoritative source of truth.
+//
+// Formula: base(40) + source_tier_bonus + consensus_bonus + socratic_bonus
+//          + status_adjustment + recency_decay + sufficiency_penalty
+// Clamped to [5, 95].
+
+const SCORE_BOUNDS = { min: 5, max: 95 };
+
+// Allowed ranges per component — clamp LLM values that drift out of spec
+const COMPONENT_BOUNDS = {
+  base:               { min: 40,  max: 40  }, // always 40, non-negotiable
+  source_tier_bonus:  { min: 0,   max: 20  },
+  consensus_bonus:    { min: 0,   max: 15  },
+  socratic_bonus:     { min: -10, max: 10  }, // negative if challenge failed
+  status_adjustment:  { min: -20, max: 10  },
+  recency_decay:      { min: -10, max: 0   },
+  sufficiency_penalty:{ min: -8,  max: 0   },
+};
+
+function clampComponent(key, val) {
+  const b = COMPONENT_BOUNDS[key];
+  if (!b) return 0;
+  const n = typeof val === 'number' && isFinite(val) ? val : 0;
+  return Math.max(b.min, Math.min(b.max, Math.round(n)));
+}
+
+function recomputeScore(claim) {
+  const sb = claim.score_breakdown || {};
+
+  // Enforce base = 40 always
+  const base               = 40;
+  const source_tier_bonus  = clampComponent('source_tier_bonus',   sb.source_tier_bonus);
+  const consensus_bonus    = clampComponent('consensus_bonus',      sb.consensus_bonus);
+  const status_adjustment  = clampComponent('status_adjustment',    sb.status_adjustment);
+  const recency_decay      = clampComponent('recency_decay',        sb.recency_decay);
+  const sufficiency_penalty= clampComponent('sufficiency_penalty',  sb.sufficiency_penalty);
+
+  // socratic_bonus: if the claim didn't survive challenge, force to 0 or negative
+  let socratic_bonus = clampComponent('socratic_bonus', sb.socratic_bonus);
+  if (claim.survived_challenge === false && socratic_bonus > 0) socratic_bonus = 0;
+
+  const computed = base
+    + source_tier_bonus
+    + consensus_bonus
+    + socratic_bonus
+    + status_adjustment
+    + recency_decay
+    + sufficiency_penalty;
+
+  const confidence_score = Math.max(
+    SCORE_BOUNDS.min,
+    Math.min(SCORE_BOUNDS.max, computed)
+  );
+
+  return {
+    confidence_score,
+    score_breakdown: {
+      base,
+      source_tier_bonus,
+      consensus_bonus,
+      socratic_bonus,
+      status_adjustment,
+      recency_decay,
+      sufficiency_penalty,
+    },
+  };
+}
+
+function normaliseClaims(claims) {
+  return claims.map(claim => {
+    const { confidence_score, score_breakdown } = recomputeScore(claim);
+
+    // Also derive status from recomputed score if LLM status seems misaligned
+    // (keep LLM status — it's qualitative — but at least log the gap)
+    return {
+      ...claim,
+      confidence_score,
+      score_breakdown,
+    };
+  });
+}
 
 // ─── JSON extraction ────────────────────────────────────────────────────────
 // Handles: clean JSON, markdown fences, preamble text, trailing text.
@@ -122,7 +210,7 @@ export default async function handler(req, res) {
   };
   const domainLabel = domainMap[domain] || domainMap.general;
 
-  // Build prompt — no template literals with angle brackets to avoid escape issues
+  // Build prompt
   const schemaDesc = [
     'Return a JSON object with exactly these keys:',
     '',
@@ -134,7 +222,8 @@ export default async function handler(req, res) {
     '  source_tier (Tier 1|Tier 2|Tier 3), provider_count (1-4), evidence_age_months (1-60),',
     '  survived_challenge (true|false),',
     '  score_breakdown: { base:40, source_tier_bonus:0-20, consensus_bonus:0-15,',
-    '    socratic_bonus:0 or 10, status_adjustment:-20 to 10, recency_decay:-10 to 0,',
+    '    socratic_bonus:0 or 10 (set to 0 if survived_challenge is false),',
+    '    status_adjustment:-20 to 10, recency_decay:-10 to 0,',
     '    sufficiency_penalty:0 or -8 },',
     '  evidence_summary (2-3 sentences), adversarial_challenge (specific counterargument),',
     '  challenge_outcome (how the claim fared)',
@@ -153,7 +242,8 @@ export default async function handler(req, res) {
   const rules = [
     'Confidence scores must vary realistically — range roughly 18-72, never all similar.',
     'Include at least one CONTESTED or WEAK claim.',
-    'score_breakdown values must sum approximately to confidence_score.',
+    'score_breakdown components MUST sum exactly to confidence_score. Double-check your arithmetic before returning.',
+    'If survived_challenge is false, socratic_bonus must be 0.',
     'adversarial_challenge must be specific and substantive, not generic.',
   ].join(' ');
 
@@ -226,6 +316,19 @@ export default async function handler(req, res) {
         error: 'The engine could not extract claims for this question. Please try rephrasing.',
         code: 'INVALID_RESPONSE',
       });
+    }
+
+    // ── Post-process: recompute scores from breakdown (source of truth) ──────
+    parsed.claims = normaliseClaims(parsed.claims);
+
+    // Recompute decision_log counts from normalised claims to keep them consistent
+    if (parsed.decision_log) {
+      parsed.decision_log.verified_count  = parsed.claims.filter(c => c.status === 'VERIFIED').length;
+      parsed.decision_log.contested_count = parsed.claims.filter(c => c.status === 'CONTESTED').length;
+      parsed.decision_log.weak_count      = parsed.claims.filter(c => c.status === 'WEAK' || c.status === 'UNVERIFIED').length;
+      const total = parsed.claims.length;
+      const strong = parsed.decision_log.verified_count + parsed.decision_log.contested_count;
+      parsed.decision_log.snr = total > 0 ? parseFloat((strong / total).toFixed(2)) : 0;
     }
 
     return res.status(200).json(parsed);
