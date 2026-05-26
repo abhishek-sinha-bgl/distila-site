@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forty sources, one claim: corroboration vs amplification — Epistamate</title>
+  <meta name="description" content="When forty papers cite the same finding, that looks like consensus. It often isn't. Source diversity — not source count — is what makes evidence reliable, and most research tools can't tell the difference.">
+  <meta name="keywords" content="AI evidence quality, corroboration vs amplification, research methodology, citation analysis, evidence-based policy, AI hallucination research, source credibility">
+  <link rel="canonical" href="https://epistamate.com/blog/ai-amplification-vs-corroboration.html">
+  <meta property="og:title" content="Forty sources, one claim: the difference between corroboration and amplification">
+  <meta property="og:description" content="When forty papers cite the same finding, that looks like consensus. Often it isn't. Here's why source diversity — not source count — is what makes evidence reliable.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-05-26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-l);
+    }
+    .article-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-m);
+      display: flex;
+      gap: var(--space-s);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .article-eyebrow a {
+      color: var(--ink-4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag {
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2px 8px;
+      font-size: 0.67rem;
+    }
+    .article-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: var(--space-m);
+    }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede {
+      font-size: 1.15rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: var(--space-l);
+      padding-bottom: var(--space-l);
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+    .article-body {
+      font-size: 1.02rem;
+      line-height: 1.78;
+      color: var(--ink-2);
+    }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      color: var(--ink);
+      margin: var(--space-xl) 0 var(--space-s);
+      line-height: 1.2;
+    }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: var(--space-l) 0 var(--space-xs);
+    }
+    .article-body strong { color: var(--ink); }
+    .article-body em { color: var(--ink-2); }
+    .callout {
+      background: var(--paper-2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-m) var(--radius-m) 0;
+      padding: var(--space-m) var(--space-l);
+      margin: var(--space-l) 0;
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .example-box {
+      background: var(--paper-3);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-m);
+      padding: var(--space-m) var(--space-l);
+      margin: var(--space-l) 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .example-box .example-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-xs);
+    }
+    .example-box p { margin-bottom: var(--space-s); }
+    .example-box p:last-child { margin-bottom: 0; }
+    .score-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-m);
+      margin: var(--space-l) 0;
+    }
+    @media (max-width: 560px) { .score-compare { grid-template-columns: 1fr; } }
+    .score-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      text-align: center;
+    }
+    .score-box .score-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-xs);
+    }
+    .score-box .score-num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .score-box .score-num.high { color: var(--verified); }
+    .score-box .score-num.low  { color: var(--accent); }
+    .score-box .score-desc {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+    .article-footer-nav {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-l);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+    }
+    .article-footer-nav a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .article-about {
+      margin-top: var(--space-l);
+      padding: var(--space-m) var(--space-l);
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      font-size: 0.88rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+    }
+    .article-about strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">E <span>Epistamate</span></a>
+    <div class="nav-links">
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+    </div>
+    <a href="../index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">← Blog</a>
+    <span class="sep">·</span>
+    <span>26 May 2026</span>
+    <span class="sep">·</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Research methodology</span>
+  </div>
+
+  <h1 class="article-h1">Forty sources, one claim:<br><em>corroboration vs amplification</em></h1>
+
+  <p class="article-lede">When forty papers all cite the same finding, AI tools report high consensus. But if all forty trace back to a single original study, that's not corroboration — it's amplification. The distinction matters enormously, and most research tools are structurally blind to it.</p>
+
+  <div class="article-body">
+
+    <p>Imagine you're researching a claim about AI adoption in the public sector. Your research tool returns forty sources, all supporting the same finding. The consensus signal is strong. Confidence is high. The claim makes it into the brief.</p>
+
+    <p>Now imagine that thirty-eight of those forty sources are policy papers, news articles, and blog posts that all cite one 2021 working paper as their basis. The working paper itself was never peer-reviewed. Its methodology section is four paragraphs. Its sample size was thirty-two organisations, in one country, over six months.</p>
+
+    <p>The finding hasn't been independently confirmed by forty organisations studying the problem. It's been copied and cited by forty organisations who trusted the first one that cited it. That's amplification. And it looks identical to corroboration in any system that counts sources rather than traces them.</p>
+
+    <h2>Why this distinction is hard to see</h2>
+
+    <p>The problem is structural. Most research tools — including AI-powered ones — treat a source as a unit of support. More sources equals stronger support. But that model only holds if each source represents an independent line of evidence. When sources share a common ancestor, they're not independent — they're echoes of each other.</p>
+
+    <p>This is not a new problem in research methodology. The term "citation cascade" describes it well: a claim gets made, gets cited, gets cited again, and eventually the volume of citation becomes its own form of credibility. Nobody checks the original. Nobody needs to, because everyone else seems to have checked it already.</p>
+
+    <p>What's new is that AI research tools accelerate this dynamic. A large language model trained on a corpus where Claim X appears in forty documents will encode that claim as highly supported — not because the underlying evidence is strong, but because the training data reflects the cascade rather than the original evidence base.</p>
+
+    <div class="callout">
+      <strong>The key distinction</strong>
+      Corroboration requires independent sources arriving at the same conclusion through separate research paths. Amplification is the same source propagating through a citation network. Source count is not a proxy for source independence.
+    </div>
+
+    <h2>A concrete example</h2>
+
+    <div class="example-box">
+      <div class="example-label">Scenario</div>
+      <p><strong>Claim:</strong> "AI adoption in government procurement reduces processing time by 40%."</p>
+      <p><strong>What the tool reports:</strong> 38 supporting sources. High consensus. Confidence: 91%.</p>
+      <p><strong>What's actually there:</strong> One 2022 pilot study from a single ministry in one country. Thirty-seven subsequent publications cite it — including policy papers, reports, news coverage, and several AI-generated summaries that have themselves been cited. No independent replication study exists. The original finding hasn't been tested at scale.</p>
+      <p><strong>What should happen:</strong> The claim should be flagged as weakly corroborated despite high citation volume. The single original source should be identified, its methodology assessed, and the confidence score should reflect the absence of independent replication — not the presence of thirty-seven echoes.</p>
+    </div>
+
+    <h2>The <em>provider diversity</em> question</h2>
+
+    <p>The right question to ask about any research claim isn't "how many sources support this?" It's "how many <em>independent</em> sources — with separate research teams, separate methodologies, and separate data — have arrived at the same conclusion?"</p>
+
+    <p>This is what researchers mean by provider diversity. A claim supported by a peer-reviewed study, an independent replication, and a systematic review from a third institution is far stronger than a claim cited by forty publications that all trace back to one of them. The number three is stronger evidence than the number forty, in this case.</p>
+
+    <p>Getting this right requires tracking source lineage, not just source count. It means knowing whether Source B cites Source A, and whether Source C cites Source A through Source B. It means distinguishing between a claim that has been independently tested multiple times and a claim that has been repeated many times. These are different things, and the difference is often the difference between evidence you can defend and evidence that will be challenged the moment someone looks closely.</p>
+
+    <div class="score-compare">
+      <div class="score-box">
+        <div class="score-label">Amplification scenario</div>
+        <div class="score-num low">34%</div>
+        <div class="score-desc">1 original source · 39 downstream citations · No independent replication · Tier 3 origin</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">Corroboration scenario</div>
+        <div class="score-num high">81%</div>
+        <div class="score-desc">3 independent Tier 1 sources · Separate methodologies · Cross-jurisdictional · Replicated</div>
+      </div>
+    </div>
+
+    <p>The numbers above aren't hypothetical — they reflect the kind of spread you see when evidence quality is scored structurally rather than by citation volume. The amplification scenario produces a number that's less than half the corroboration scenario, even though it has fourteen times as many citations. That gap is what matters.</p>
+
+    <h2>Why policy and regulatory research is especially exposed</h2>
+
+    <p>The amplification problem is worse in domains where primary research is slow and expensive, and where secondary analysis proliferates quickly. Policy research is one of these domains. A rigorous study of a specific regulatory intervention might take two years to conduct and produce one working paper. In the same period, dozens of briefings, reports, and articles can be written that reference that study, extrapolate from it, and cite each other's extrapolations.</p>
+
+    <p>By the time the finding reaches a ministerial brief, the evidence chain is invisible. The brief cites a think tank report. The think tank report cites an academic review. The academic review cites the original study. Nobody in the chain checked whether the original study's methodology supports the use that's being made of it. Nobody had a way to check — the system doesn't preserve the chain.</p>
+
+    <p>This matters particularly in fast-moving areas like AI regulation, where the policy debate often runs ahead of the empirical research. Regulatory positions get established on the basis of limited evidence, which then gets amplified through the citation network until it resembles a much stronger evidence base than actually exists. That's not bad faith on anyone's part — it's the structural failure mode of how research propagates.</p>
+
+    <h2>What good evidence architecture looks like</h2>
+
+    <p>The solution isn't to distrust research with many citations. It's to build systems that can distinguish between citation volume and source independence. A few principles:</p>
+
+    <h3>Track source lineage, not just source identity</h3>
+    <p>Knowing that Source B exists is less useful than knowing that Source B cites Source A. If you can see the citation graph, you can identify cascades. If you can only see a list of sources, you can't.</p>
+
+    <h3>Weight independent providers separately</h3>
+    <p>A confidence calculation that gives equal weight to each source will be gamed by citation cascades. One that counts independent providers — organisations that arrived at the finding through separate research paths — is much more resistant to amplification.</p>
+
+    <h3>Make the original source visible</h3>
+    <p>For any claim that's heavily cited, the most important question is: what is the original study, and what did it actually establish? That's often not the same as what downstream citations say it established. Retrieval systems that surface the original source alongside its descendants allow users to check the chain.</p>
+
+    <h3>Treat absence of replication as a gap, not a minor note</h3>
+    <p>If a claim has no independent replication — regardless of how often it's been cited — that's a significant gap in the evidence base. It should be named as such, not quietly averaged into a high confidence score.</p>
+
+    <div class="callout">
+      <strong>The practical test</strong>
+      When reviewing any high-confidence finding from an AI research tool, ask: if I removed all sources that cite another source in this list, how many independent lines of evidence remain? If the answer is one, the confidence score should reflect that — whatever the citation count says.
+    </div>
+
+    <h2>Where this leads</h2>
+
+    <p>The amplification problem isn't going away. If anything, it's getting harder to manage as AI-generated content enters the citation network at scale. AI tools that summarise research can themselves become sources that are cited. The cascade can now include nodes that were never primary research at all.</p>
+
+    <p>That's a longer-term problem worth its own treatment. For now, the practical implication is straightforward: any research workflow that treats citation count as a proxy for evidence quality is going to produce findings that look stronger than they are. The correction isn't to use fewer sources — it's to track what those sources actually represent.</p>
+
+    <p>Corroboration is hard to achieve. It requires multiple independent teams studying the same question and arriving at compatible conclusions. Amplification is easy — one good finding and a functional citation network. The gap between how these two things feel when you encounter them in a research brief, and how different they actually are, is most of the problem.</p>
+
+  </div>
+
+  <div class="article-about">
+    <strong>About this article</strong> This piece is part of a series on evidence quality in AI-assisted research. The amplification problem is one of several structural issues with how research confidence is assessed — alongside recency decay, source tier distinctions, and the difference between adversarial challenge and uncritical synthesis. If you're working on evidence-intensive research in policy, regulatory, or consulting contexts and want to discuss these problems, <a href="mailto:epistamate@proton.me">get in touch</a>.
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">← All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate →</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+      <a href="../distila_demo.html">Demo</a>
+      <a href="mailto:epistamate@proton.me">Contact</a>
+    </div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
+      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch · Zenodo</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
