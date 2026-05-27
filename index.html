@@ -60,7 +60,7 @@
       <span class="conf-number accent">11–70%</span>
       <span class="conf-label">Formula-computed per-claim score<br><small>(based on actual source tier quality)</small></span>
     </div>
-    <p class="conf-note">Epistamate never uses LLM self-reported confidence in its scores. It computes confidence from the evidence underneath — source credibility tier, cross-source agreement, adversarial challenge outcome, evidence recency.</p>
+    <p class="conf-note">Epistamate never uses LLM self-reported confidence in its scores. It computes confidence from the evidence underneath — source credibility tier, cross-source agreement, adversarial challenge outcome, evidence recency. <em>Range observed across internal development sessions on policy and regulatory research questions; sample is illustrative, not a controlled study.</em></p>
   </div>
 
   <!-- WHAT IT IS NOT — reposition fast -->
@@ -83,7 +83,7 @@
     </a>
     <div class="badge">
       <span class="badge-icon">⚖️</span>
-      <span>EU AI Act<br><small>Article 12 aligned</small></span>
+      <span>EU AI Act<br><small>Article 12 compatible*</small></span>
     </div>
     <div class="badge">
       <span class="badge-icon">🔒</span>
@@ -121,7 +121,7 @@
       <div class="hal-card">
         <div class="hal-icon">📊</div>
         <h3>The gap is larger than you think</h3>
-        <p>In live sessions, LLM-reported aggregate confidence typically runs 87–92%. Formula-computed per-claim scores, reflecting actual source tier quality, range 11–70%. That gap is not a rounding error. It is the difference between research you can defend and research that sounds authoritative.</p>
+        <p>In internal development sessions on policy and regulatory research questions, LLM-reported aggregate confidence typically runs 87–92%. Formula-computed per-claim scores, reflecting actual source tier quality, range 11–70%. This is illustrative — not a controlled study — but the pattern is consistent: the gap between what a model asserts and what the evidence supports is not a rounding error. It is the difference between research you can defend and research that sounds authoritative.</p>
       </div>
     </div>
   </div>
@@ -274,7 +274,7 @@
           <tr>
             <td>Typed claim extraction</td>
             <td>✓ atomic</td>
-            <td>—</td>
+            <td>partial</td>
             <td>—</td>
             <td>partial</td>
             <td>—</td>
@@ -285,7 +285,7 @@
             <td>retrieval-based</td>
             <td>—</td>
             <td>—</td>
-            <td>—</td>
+            <td>partial</td>
             <td>—</td>
             <td class="ours">✓ formula</td>
           </tr>
@@ -294,13 +294,13 @@
             <td>—</td>
             <td>—</td>
             <td>—</td>
-            <td>—</td>
+            <td>partial</td>
             <td>—</td>
             <td class="ours">✓</td>
           </tr>
           <tr>
             <td>Adversarial challenge (pre-synthesis)</td>
-            <td>—</td>
+            <td>partial</td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -310,7 +310,7 @@
           <tr>
             <td>Gap tracking (typed, persistent)</td>
             <td>—</td>
-            <td>—</td>
+            <td>partial</td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -338,8 +338,8 @@
             <td>Domain configurability (runtime)</td>
             <td>—</td>
             <td>partial</td>
-            <td>—</td>
-            <td>—</td>
+            <td>partial</td>
+            <td>partial</td>
             <td>—</td>
             <td class="ours">✓</td>
           </tr>
@@ -364,6 +364,7 @@
         </tbody>
       </table>
     </div>
+    <p style="font-family:var(--font-mono);font-size:0.68rem;color:var(--ink-4);margin-top:var(--space-s);line-height:1.5;">✓ = full implementation · partial = related capability, different scope or approach · — = not a design goal of that system. Assessments based on published documentation; capabilities evolve. FActScore/VeriScore are research systems; GraphRAG and MemGPT are architectural patterns, not direct competitors.</p>
   </div>
 </section>
 
@@ -419,6 +420,32 @@
         <summary>What research domains does it work for?</summary>
         <p>Epistamate's validated pipeline covers general professional research. The engine is domain-configurable at runtime — source trust hierarchies, claim type vocabularies, scoring weights, and output formats are parameters, not hardcoded logic. Gov/Policy and RegWatch vertical slices are in active development. The same binary can run policy research, investment due diligence, and regulatory compliance with no architectural change.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="hallucination-section" id="blog">
+  <div class="section-inner">
+    <div class="section-tag">From the blog</div>
+    <h2>On evidence quality,<br><em>AI research, and what tools get wrong.</em></h2>
+    <p class="section-sub" style="margin-bottom:var(--space-l);">Thought leadership on the structural problems in AI-assisted research — written for people who do serious evidence work.</p>
+
+    <div style="border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;">
+      <a href="blog/ai-amplification-vs-corroboration.html" style="display:block;padding:var(--space-l);text-decoration:none;color:inherit;transition:background 0.2s;" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='transparent'">
+        <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:var(--space-xs);display:flex;gap:var(--space-s);flex-wrap:wrap;">
+          <span>May 2026</span>
+          <span style="color:var(--border-2);">·</span>
+          <span style="background:var(--paper-3);border:1px solid var(--border);border-radius:var(--radius);padding:2px 8px;font-size:0.67rem;">Evidence quality</span>
+          <span style="background:var(--paper-3);border:1px solid var(--border);border-radius:var(--radius);padding:2px 8px;font-size:0.67rem;">Research methodology</span>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.55rem);line-height:1.2;margin-bottom:var(--space-xs);color:var(--ink);">Forty sources, one claim: the difference between corroboration and amplification</h3>
+        <p style="font-size:0.95rem;color:var(--ink-3);line-height:1.65;max-width:620px;margin-bottom:0;">When forty papers cite the same finding, AI tools report high consensus. But if all forty trace back to a single original study, that's not corroboration — it's amplification. Here's why source diversity matters more than source count, and why most research tools can't tell the difference.</p>
+      </a>
+    </div>
+
+    <div style="margin-top:var(--space-m);">
+      <a href="blog/index.html" class="btn-ghost">All articles →</a>
     </div>
   </div>
 </section>
