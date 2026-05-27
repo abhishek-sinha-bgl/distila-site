@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img">
+  <title>Epistamate</title>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="32" height="32" rx="6" fill="#0d1829"/>
+
+  <!-- E shape — solid, no stroke detail at this size -->
+  <!-- Vertical bar -->
+  <rect x="7" y="6" width="5" height="20" fill="#f97316"/>
+  <!-- Top arm -->
+  <rect x="12" y="6" width="13" height="5" fill="#f97316"/>
+  <!-- Mid arm -->
+  <rect x="12" y="13.5" width="10" height="5" fill="#f97316" opacity="0.75"/>
+  <!-- Bottom arm -->
+  <rect x="12" y="21" width="13" height="5" fill="#f97316"/>
+
+  <!-- Verified dot — top right corner -->
+  <circle cx="26" cy="7" r="3.5" fill="#f97316"/>
+</svg>

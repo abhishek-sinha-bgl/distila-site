@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img">
+  <title>Epistamate</title>
+  <desc>E-shaped prism icon — muted input ray enters left, verified orange signal exits top right</desc>
+
+  <style>
+    .bg       { fill: #0d1829; }
+    .pf       { fill: #1a2e4a; stroke: #f97316; stroke-width: 2.5; stroke-linejoin: round; }
+    .pm       { fill: #152438; stroke: #f97316; stroke-width: 2; stroke-linejoin: round; }
+    .ri       { stroke: #7a90b0; stroke-width: 11; stroke-linecap: round; }
+    .ro       { stroke: #f97316; stroke-width: 14; stroke-linecap: round; }
+    .rs1      { stroke: #f97316; stroke-width: 5; stroke-linecap: round; opacity: 0.32; }
+    .rs2      { stroke: #f97316; stroke-width: 3.5; stroke-linecap: round; opacity: 0.18; }
+  </style>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="512" height="512" rx="80" class="bg"/>
+
+  <!-- E vertical bar -->
+  <rect x="148" y="108" width="68" height="296" class="pf"/>
+
+  <!-- E top arm -->
+  <rect x="216" y="108" width="170" height="68" class="pf"/>
+
+  <!-- E mid arm -->
+  <rect x="216" y="222" width="138" height="60" class="pm"/>
+
+  <!-- E bottom arm -->
+  <rect x="216" y="336" width="170" height="68" class="pf"/>
+
+  <!-- Input ray -->
+  <line x1="58" y1="252" x2="148" y2="252" class="ri"/>
+  <circle cx="148" cy="252" r="8" fill="#7a90b0"/>
+
+  <!-- Scatter rays (challenged/weak) -->
+  <line x1="354" y1="252" x2="440" y2="308" class="rs1"/>
+  <line x1="354" y1="252" x2="454" y2="252" class="rs2"/>
+
+  <!-- Verified signal ray -->
+  <line x1="386" y1="142" x2="454" y2="90" class="ro"/>
+  <circle cx="386" cy="142" r="9" fill="#f97316"/>
+  <circle cx="386" cy="142" r="16" fill="none" stroke="#f97316" stroke-width="2.5" opacity="0.35"/>
+</svg>
