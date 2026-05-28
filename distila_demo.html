@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Epistamate — Interactive Demo</title>
-  <meta name="description" content="See how Epistamate extracts, scores, and challenges claims from a research question. Real pipeline, real scores — evidence quality not model confidence.">
+  <title>Epistamate, Interactive Demo</title>
+  <meta name="description" content="See how Epistamate extracts, scores, and challenges claims from a research question. Real pipeline, real scores, evidence quality not model confidence.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@
   <div class="demo-header">
     <div class="eyebrow">Interactive demo · DCBR Pipeline</div>
     <h1>See how Epistamate <em>scores a claim.</em></h1>
-    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief — not a summary.</p>
+    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief, not a summary.</p>
   </div>
 
   <div class="input-section">
@@ -153,16 +153,16 @@
   <div id="resultsArea" class="results-area" style="display:none;"></div>
 
   <div class="disclaimer">
-    <strong>About this demo:</strong> This demonstration simulates the Epistamate DCBR pipeline — showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
+    <strong>About this demo:</strong> This demonstration simulates the Epistamate DCBR pipeline, showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
   </div>
 </div>
 
 <script>
 const PHASES = [
-  { id: 'scan',        label: 'Phase 1 — Quick Scan',           desc: 'Topic mapping, initial claim stubs, prior knowledge retrieval' },
-  { id: 'research',    label: 'Phase 2 — Deep Research',         desc: 'Multi-provider retrieval, claim extraction, confidence scoring' },
-  { id: 'adversarial', label: 'Phase 3 — Adversarial Challenge',  desc: 'Challenging assumptions, reassessing claim survival' },
-  { id: 'synthesis',   label: 'Phase 4 — Synthesis',             desc: 'Structured brief, Decision Log entry, knowledge graph update' },
+  { id: 'scan',        label: 'Phase 1, Quick Scan',           desc: 'Topic mapping, initial claim stubs, prior knowledge retrieval' },
+  { id: 'research',    label: 'Phase 2, Deep Research',         desc: 'Multi-provider retrieval, claim extraction, confidence scoring' },
+  { id: 'adversarial', label: 'Phase 3, Adversarial Challenge',  desc: 'Challenging assumptions, reassessing claim survival' },
+  { id: 'synthesis',   label: 'Phase 4, Synthesis',             desc: 'Structured brief, Decision Log entry, knowledge graph update' },
 ];
 
 let activeDomain = 'general';
@@ -265,7 +265,7 @@ function statusClass(s) {
 
 function renderError(data, status) {
   const title = (data.code === 'RATE_LIMITED' || status === 429) ? 'Too many requests'
-              : (data.code === 'UPSTREAM_RATE_LIMITED')          ? 'High demand — please retry in a moment'
+              : (data.code === 'UPSTREAM_RATE_LIMITED')          ? 'High demand, please retry in a moment'
               : 'Something went wrong';
   return `<div class="error-block">
     <h4>${title}</h4>
@@ -283,7 +283,7 @@ function renderResults(question, r) {
 
   return `
     <div style="padding:var(--space-m) var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);margin-bottom:var(--space-l);">
-      <div class="phase-badge" style="display:inline-block;margin-bottom:8px;">Phase 1 — Scan</div>
+      <div class="phase-badge" style="display:inline-block;margin-bottom:8px;">Phase 1, Scan</div>
       <p style="font-size:0.925rem;color:var(--ink-3);">${esc(r.scan_summary||'')}</p>
     </div>
 
@@ -301,7 +301,7 @@ function renderResults(question, r) {
     </div>
 
     <div class="phase-header">
-      <span class="phase-badge">Phase 2 — Claims</span>
+      <span class="phase-badge">Phase 2, Claims</span>
       <span class="phase-title">${r.claims.length} claims extracted · scored against evidence formula</span>
     </div>
 
@@ -339,14 +339,14 @@ function renderResults(question, r) {
           <div class="challenge-block">
             <div class="challenge-label">Adversarial challenge · Phase 3</div>
             <div class="challenge-text">${esc(c.adversarial_challenge||'')}</div>
-            <div class="challenge-outcome">Outcome: ${esc(c.challenge_outcome||'')} · survived: ${c.survived_challenge?'<span style="color:var(--verified)">yes</span>':'<span style="color:var(--contested)">no — socratic bonus removed</span>'}</div>
+            <div class="challenge-outcome">Outcome: ${esc(c.challenge_outcome||'')} · survived: ${c.survived_challenge?'<span style="color:var(--verified)">yes</span>':'<span style="color:var(--contested)">no, socratic bonus removed</span>'}</div>
           </div>
         </div>
       </div>`;
     }).join('')}
 
     <div class="phase-header">
-      <span class="phase-badge">Phase 2 — Gaps</span>
+      <span class="phase-badge">Phase 2, Gaps</span>
       <span class="phase-title">${(r.gaps||[]).length} knowledge gaps identified</span>
     </div>
     ${(r.gaps||[]).map(g=>`<div class="gap-card">
@@ -356,7 +356,7 @@ function renderResults(question, r) {
     </div>`).join('')}
 
     <div class="phase-header">
-      <span class="phase-badge">Phase 4 — Structured Brief</span>
+      <span class="phase-badge">Phase 4, Structured Brief</span>
       <span class="phase-title">WEAK / UNVERIFIED claims excluded from key findings</span>
     </div>
     <div class="brief-block">
@@ -388,16 +388,16 @@ function renderResults(question, r) {
         <div class="log-stat"><span class="val" style="color:var(--ink-4)">${(((r.decision_log||{}).snr||0)*100).toFixed(0)}%</span><span class="lbl">SNR</span></div>
       </div>
       <p style="margin-top:var(--space-m);font-size:0.875rem;color:var(--ink-3);">${esc((r.decision_log||{}).session_note||'')}</p>
-      <p style="margin-top:8px;font-size:0.78rem;color:var(--ink-4);font-family:var(--font-mono);">In the full application, this entry is immutable — the full evidence state at this moment is preserved. Article 12 compatible.</p>
+      <p style="margin-top:8px;font-size:0.78rem;color:var(--ink-4);font-family:var(--font-mono);">In the full application, this entry is immutable, the full evidence state at this moment is preserved. Article 12 compatible.</p>
     </div>
 
     <div style="margin-top:var(--space-xl);padding:var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);">
       <h4 style="margin-bottom:var(--space-s);">What happens next in the full application</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:var(--space-l);">
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Verified claims write to the persistent knowledge graph — next session on this topic starts ahead</li>
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Verified claims write to the persistent knowledge graph, next session on this topic starts ahead</li>
         <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Gaps accumulate and narrow as evidence arrives across sessions</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Ingest your own documents — they enter the source tier system and shift confidence scores</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Human grounding (+8) — mark a claim as evidence-grounded to raise its score</li>
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Ingest your own documents, they enter the source tier system and shift confidence scores</li>
+        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Human grounding (+8) mark a claim as evidence-grounded to raise its score</li>
       </ul>
       <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
         <a href="index.html#contact" class="btn-primary">Request early access →</a>
