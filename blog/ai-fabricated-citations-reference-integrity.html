@@ -5,11 +5,11 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A citation used to be evidence. It isn't anymore, Epistamate</title>
-  <meta name="description" content="A Lancet audit of 2.5 million biomedical papers found fabricated citations rising 14x in three years. What this means for anyone doing evidence-dependent research, and what reference integrity checking actually requires.">
+  <meta name="description" content="A Lancet audit of 2.5 million biomedical papers found fabricated citations rising 12x in three years. What this means for anyone doing evidence-dependent research, and what reference integrity checking actually requires.">
   <meta name="keywords" content="AI hallucinated citations, fabricated references, reference integrity, evidence quality research, AI in academic publishing, citation verification, research methodology">
   <link rel="canonical" href="https://epistamate.com/blog/ai-fabricated-citations-reference-integrity.html">
   <meta property="og:title" content="A citation used to be evidence. It isn't anymore.">
-  <meta property="og:description" content="A Lancet audit found fabricated AI-generated citations rising 14x in three years across 2.5 million biomedical papers. What this means for evidence-dependent research.">
+  <meta property="og:description" content="A Lancet audit found fabricated AI-generated citations rising 12x in three years across 2.5 million biomedical papers. What this means for evidence-dependent research.">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-05-29">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,13 +238,13 @@
 
   <h1 class="article-h1">A citation used to be evidence.<br><em>It isn't anymore.</em></h1>
 
-  <p class="article-lede">A Lancet audit scanned 2.5 million biomedical papers and found fabricated citations rising 14x in three years. The fake references look real, correct formatting, genuine author names, plausible titles. Peer review isn't catching them. Neither are most AI research tools. Here's what reference integrity checking actually requires.</p>
+  <p class="article-lede">A Lancet audit scanned 2.5 million biomedical papers and found fabricated citations rising 12x in three years. The fake references look real, correct formatting, genuine author names, plausible titles. Peer review isn't catching them. Neither are most AI research tools. Here's what reference integrity checking actually requires.</p>
 
   <div class="article-body">
 
     <p>For most of the history of academic publishing, a citation carried a basic implicit guarantee. It meant someone had read a source, engaged with it, and was directing the reader to a real thing. That guarantee has eroded quietly. A new audit makes the scale of the erosion visible.</p>
 
-    <p>The audit, published in The Lancet and summarised in Nature, scanned approximately 2.47 million biomedical papers and 97 million references from PubMed Central between January 2023 and February 2026. It found 4,046 fabricated references across 2,810 papers. The rate climbed from around 4 per 10,000 papers in early 2023 to 56.9 per 10,000 by early 2026, a fourteenfold increase in three years.</p>
+    <p>The audit, published in The Lancet and summarised in Nature, scanned approximately 2.47 million biomedical papers and 97 million references from PubMed Central between January 2023 and February 2026. It found 4,046 fabricated references across 2,810 papers. The rate climbed from around 4 per 10,000 papers in early 2023 to 56.9 per 10,000 by early 2026, a twelvefold increase in three years.</p>
 
     <div class="stat-row">
       <div class="stat-box">
@@ -252,7 +252,7 @@
         <div class="stat-label">biomedical papers scanned across PubMed Central</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">14×</div>
+        <div class="stat-num">12×</div>
         <div class="stat-label">rise in fabricated citation rate, 2023 to early 2026</div>
       </div>
       <div class="stat-box">
@@ -335,6 +335,21 @@
     <p>This isn't a problem that more powerful language models solve. A more capable model that fabricates citations less often is still fabricating at some rate, and one fabricated citation in a clinical guideline context is one too many. The solution isn't a better model. It's a verification step that sits outside the model and checks its outputs against authoritative bibliographic sources.</p>
 
     <p>The audit's detection method, cross-checking titles against PubMed, Crossref, OpenAlex, and Google Scholar, is exactly this kind of external verification step. It works because it doesn't trust the model's output; it checks it. That's the architectural posture that matters: treat model-generated citations as candidates to be verified, not facts to be accepted.</p>
+
+    <h2>How the community is responding, and why it's not enough yet</h2>
+
+    <p>The audit found that at the time of scanning, 98.4% of the affected papers had received no response from their publishers. The fabrications were present, documented in many cases by the researchers, and largely ignored by the publishing infrastructure meant to catch them.</p>
+
+    <p>Some platforms are moving. arXiv tightened its sanctions for unchecked LLM output in manuscripts, including hallucinated sources, threatening offending authors with a one-year ban. An analysis of accepted NeurIPS 2025 papers found that even top AI conferences struggle to catch fabricated citations reliably — the problem isn't confined to lower-tier publications or less rigorous fields.</p>
+
+    <p>CiteAudit, an open-source tool for automated citation checking, offers one practical countermeasure. It also illustrates the underlying difficulty: commercial language models are poor at catching their own reference problems. The tool that generates fabricated citations is structurally ill-placed to verify them. External checking, against authoritative bibliographic databases rather than model memory, is what the task requires.</p>
+
+    <p>The researchers themselves recommend four steps: automated reference checks before peer review, integrity metadata embedded in article datasets, retroactive screening of already-published papers, and a dedicated "fabricated references" category in research integrity databases. It's worth noting that the researchers used Claude for code development and grammar checking during the study — a distinction that matters. AI assistance for well-defined tasks with verifiable outputs is not the same as AI generation of citations, which have no intrinsic verification mechanism.</p>
+
+    <div class="callout">
+      <strong>The response gap</strong>
+      98.4% of papers with fabricated citations had received no publisher response at the time of audit. The detection methods exist. The institutional response infrastructure does not yet match the scale of the problem.
+    </div>
 
     <h2>The broader pattern</h2>
 
