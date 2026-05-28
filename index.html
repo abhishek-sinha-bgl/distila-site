@@ -551,13 +551,18 @@
               });
               const w3fData = await w3fRes.json();
 
-              // 2 — Log to Google Sheet via Apps Script (fire and forget)
-              // No Content-Type header: avoids CORS preflight that Apps Script can't handle
+              // 2 — Log to Google Sheet via Apps Script
+              // Awaited with timeout so the request completes before redirect
               if (SHEET_URL && SHEET_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
-                fetch(SHEET_URL, {
-                  method: 'POST',
-                  body: JSON.stringify(payload),
-                }).catch(() => {});
+                try {
+                  await Promise.race([
+                    fetch(SHEET_URL, {
+                      method: 'POST',
+                      body: JSON.stringify(payload),
+                    }),
+                    new Promise(r => setTimeout(r, 3000)) // 3s max wait
+                  ]);
+                } catch (_) {}
               }
 
               if (w3fData.success) {
