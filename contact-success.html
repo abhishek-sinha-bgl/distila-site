@@ -10,6 +10,73 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
+  <style>
+    .success-wrap {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+    .success-inner {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+    .success-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .success-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .success-p {
+      font-size: 1.05rem;
+      color: var(--ink-3);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .success-p a { color: var(--accent); }
+    .success-links {
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .success-links-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 14px;
+    }
+    .success-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .success-links a {
+      color: var(--ink-2);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .success-links a:hover { color: var(--accent); }
+  </style>
 </head>
 <body>
 
@@ -25,32 +92,26 @@
   </div>
 </nav>
 
-<section style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:var(--space-2xl) var(--space-l);">
-  <div style="max-width:560px;text-align:center;">
-
-    <div style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-m);">Message received</div>
-
-    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin-bottom:var(--space-m);">
-      Thanks for reaching out.
-    </h1>
-
-    <p style="font-size:1.05rem;color:var(--ink-3);line-height:1.7;margin-bottom:var(--space-l);">
-      We've received your message. We're travelling for part of June but will be in touch personally within a week. If anything is time-sensitive, you can reach us directly at <a href="mailto:epistamate@proton.me" style="color:var(--accent);">epistamate@proton.me</a>.
+<div class="success-wrap">
+  <div class="success-inner">
+    <div class="success-tag">Message received</div>
+    <h1 class="success-h1">Thanks for reaching out.</h1>
+    <p class="success-p">
+      We've received your message. We're travelling for part of June but will be in touch personally within a week.
+      If anything is time-sensitive, email us directly at
+      <a href="mailto:epistamate@proton.me">epistamate@proton.me</a>.
     </p>
-
-    <div style="background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-m) var(--space-l);margin-bottom:var(--space-l);text-align:left;">
-      <div style="font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:var(--space-s);">While you wait</div>
-      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
-        <li><a href="engine.html" style="color:var(--ink-2);text-decoration:none;font-size:0.95rem;">Read how the confidence scoring engine works →</a></li>
-        <li><a href="distila_demo.html" style="color:var(--ink-2);text-decoration:none;font-size:0.95rem;">Try the interactive demo →</a></li>
-        <li><a href="blog/index.html" style="color:var(--ink-2);text-decoration:none;font-size:0.95rem;">Read the blog on AI evidence quality →</a></li>
+    <div class="success-links">
+      <div class="success-links-label">While you wait</div>
+      <ul>
+        <li><a href="engine.html">Read how the confidence scoring engine works →</a></li>
+        <li><a href="distila_demo.html">Try the interactive demo →</a></li>
+        <li><a href="blog/index.html">Read the blog on AI evidence quality →</a></li>
       </ul>
     </div>
-
     <a href="index.html" class="btn-ghost">Back to Epistamate</a>
-
   </div>
-</section>
+</div>
 
 <footer class="footer">
   <div class="footer-inner">

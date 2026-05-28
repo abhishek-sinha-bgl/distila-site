@@ -552,10 +552,10 @@
               const w3fData = await w3fRes.json();
 
               // 2 — Log to Google Sheet via Apps Script (fire and forget)
+              // No Content-Type header: avoids CORS preflight that Apps Script can't handle
               if (SHEET_URL && SHEET_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
                 fetch(SHEET_URL, {
                   method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify(payload),
                 }).catch(() => {}); // silent fail — sheet logging is best-effort
               }
