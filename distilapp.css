@@ -937,3 +937,55 @@ section.visible {
 }
 .score-item.positive { color: var(--verified); background: rgba(26,110,58,0.06); border-color: rgba(26,110,58,0.2); }
 .score-item.negative { color: var(--contested); background: rgba(200,67,47,0.06); border-color: rgba(200,67,47,0.2); }
+
+/* ── Contact form ───────────────────────────────────────── */
+.contact-form-block {
+  flex: 1;
+  min-width: 300px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s);
+}
+@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: var(--space-s);
+}
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--paper-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-m);
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  outline: none;
+  appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--ink-4); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb, 178,60,18), 0.08);
+}
+.form-group textarea { resize: vertical; min-height: 90px; line-height: 1.55; }
+.form-group select { cursor: pointer; }
+#submit-btn { margin-top: var(--space-s); width: 100%; justify-content: center; }
+#submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
