@@ -1,0 +1,55 @@
+EPISTAMATE — ENQUIRY REPLY TEMPLATE
+Use this as a starting point. Personalise the first paragraph based on what they said in the form.
+────────────────────────────────────────────────────────────────
+
+SUBJECT: Re: Epistamate — your enquiry
+
+Hi [First name],
+
+Thanks for reaching out. [One sentence acknowledging their specific domain or problem if they mentioned one — e.g. "Policy research under time pressure is exactly the kind of workflow we've been building for." If they left the problem blank, skip this line.]
+
+I'm travelling for part of June, but I wanted to acknowledge your message and confirm I'll be in touch personally within a week to set up a short conversation.
+
+A few things that might be useful in the meantime:
+
+- The engine page explains how confidence scoring works and what the pipeline actually does: https://epistamate.com/engine.html
+- The interactive demo gives a feel for the output on a real research question: https://epistamate.com/distila_demo.html
+- If you're interested in the evidence quality problem more broadly, I've been writing about it here: https://epistamate.com/blog/
+
+The first release is a single-domain Windows desktop application for General Research — a few weeks out. I'd like to understand your specific workflow before the conversation so we can make the most of the time.
+
+Looking forward to speaking.
+
+Abhishek
+Epistamate | hello@epistamate.com | https://epistamate.com
+
+
+────────────────────────────────────────────────────────────────
+VARIANTS FOR SPECIFIC DOMAINS
+
+POLICY / THINK TANK:
+"Policy research under deadline pressure, with evidence that needs to hold up to scrutiny, is exactly the gap we've been building for."
+
+REGULATORY / COMPLIANCE:
+"The distinction between binding law, guidance, and draft regulation is something most tools don't enforce structurally. That's one of the things we've built in from the start."
+
+CONSULTING / ADVISORY:
+"The problem of engagement knowledge evaporating at project end — and the next engagement starting from zero — is one of the core things the compounding knowledge graph is designed to address."
+
+RESEARCH / INVESTIGATION:
+"The difference between corroboration and amplification is something most research tools are structurally blind to. That's a good starting point for our conversation."
+
+ENTERPRISE:
+"Licensed databases that sit in a shared drive rather than an evidence pipeline is exactly the problem the enterprise configuration is designed to solve."
+
+
+────────────────────────────────────────────────────────────────
+SHEET STATUS VALUES — update as you work through enquiries
+
+New             → just received, not yet replied
+Ack sent        → acknowledgement email sent
+Call scheduled  → conversation booked
+Demo given      → shown the product
+Waitlist        → interested, waiting for release
+Not a fit       → wrong domain, wrong stage, or declined
+Closed          → conversation complete, outcome logged
