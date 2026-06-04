@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confident and wrong: why AI can't tell you when it doesn't know — Epistamate</title>
+  <meta name="description" content="AI tools can be simultaneously confident and wrong. The deeper problem isn't hallucination — it's that most models have no honest mechanism for representing what they don't know.">
+  <meta name="keywords" content="AI epistemic calibration, LLM overconfidence, AI uncertainty quantification, AI research reliability, evidence intelligence, AI hallucination research">
+  <link rel="canonical" href="https://epistamate.com/blog/confident-and-wrong.html">
+  <meta property="og:title" content="Confident and wrong: why AI can't tell you when it doesn't know">
+  <meta property="og:description" content="AI tools can be simultaneously confident and wrong. The deeper problem isn't hallucination — it's that most models have no honest mechanism for representing what they don't know.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-l);
+    }
+    .article-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-m);
+      display: flex;
+      gap: var(--space-s);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag {
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2px 8px;
+      font-size: 0.67rem;
+    }
+    .article-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: var(--space-m);
+    }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede {
+      font-size: 1.15rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: var(--space-l);
+      padding-bottom: var(--space-l);
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      color: var(--ink);
+      margin: var(--space-xl) 0 var(--space-s);
+      line-height: 1.2;
+    }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout {
+      background: var(--paper-2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-m) var(--radius-m) 0;
+      padding: var(--space-m) var(--space-l);
+      margin: var(--space-l) 0;
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-m);
+      margin: var(--space-l) 0;
+    }
+    @media (max-width: 560px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-box {
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--ink-3); line-height: 1.5; }
+    .ladder {
+      background: var(--paper-3);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-m);
+      padding: var(--space-m) var(--space-l);
+      margin: var(--space-l) 0;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 2;
+      color: var(--ink-2);
+    }
+    .ladder .ladder-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-xs);
+      font-family: var(--font-mono);
+    }
+    .ladder .step { display: flex; align-items: flex-start; gap: var(--space-s); }
+    .ladder .step-num { color: var(--ink-4); min-width: 20px; }
+    .ladder .step-text { color: var(--ink-2); }
+    .ladder .step-note { color: var(--ink-4); font-size: 0.75rem; margin-left: 28px; line-height: 1.4; display: block; }
+    .ladder .neq {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-4);
+      margin: var(--space-s) 0 var(--space-s) 0;
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-s);
+    }
+    .example-box {
+      background: var(--paper-3);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-m);
+      padding: var(--space-m) var(--space-l);
+      margin: var(--space-l) 0;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .example-box .ex-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-s);
+    }
+    .example-box p { margin-bottom: var(--space-s); }
+    .example-box p:last-child { margin-bottom: 0; }
+    .article-about {
+      margin-top: var(--space-l);
+      padding: var(--space-m) var(--space-l);
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      font-size: 0.88rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+    }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next {
+      margin-top: var(--space-l);
+      padding: var(--space-m) var(--space-l);
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .prev-next-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 6px;
+    }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-l);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+    }
+    .article-footer-nav a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article-footer-nav a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <span class="logo-badge">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">← Blog</a>
+    <span class="sep">·</span>
+    <span>10 June 2026</span>
+    <span class="sep">·</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">AI governance</span>
+    <span class="article-tag">Research methodology</span>
+  </div>
+
+  <h1 class="article-h1">Confident and wrong: <em>why AI can't tell you when it doesn't know</em></h1>
+
+  <p class="article-lede">The articles in this series have examined what AI tools do to evidence from the outside: how they miscount sources, fabricate references, overstate fragile findings, and automate peer review. This article turns the question inward. What does an AI tool do with its own uncertainty? Most of the time, the honest answer is: nothing.</p>
+
+  <div class="article-body">
+
+    <p>Ask an AI research assistant something it cannot reliably know and it will almost certainly answer. The response will be fluent, internally consistent, and appropriately specific. There will be no signal indicating that the answer is on thin ground. The confidence is built into the output format, not derived from the quality of the evidence behind it.</p>
+
+    <p>This is a different problem from the ones we've covered in this series. Fabricated citations are a failure of reference integrity: the source doesn't exist. Citation cascades are a failure of independence: forty sources trace to one. Evidential fragility is a failure of sufficiency: the evidence is real but too thin for the weight placed on it. AI peer review is a failure of scrutiny: the review looks thorough without being thorough.</p>
+
+    <p>Epistemic calibration is a failure at a more fundamental level. It describes the gap between how confident a model appears and how confident it should be, given what it actually knows. A well-calibrated system would express high confidence on things it reliably gets right and appropriate uncertainty on things it doesn't. Most language models don't work this way, and the reason is structural rather than incidental.</p>
+
+    <h2>What calibration means, and why models fail at it</h2>
+
+    <p>The standard intuition about AI uncertainty goes something like this: if you ask the same question several times and get the same answer each time, the model is confident. If the answers vary, it's uncertain. This seems reasonable. It's also unreliable in a specific and important way.</p>
+
+    <p>MIT researchers published work in March 2026 identifying exactly this problem. Self-consistency — asking a model the same thing repeatedly and checking whether it agrees with itself — measures what researchers call aleatoric uncertainty, or the model's internal confidence in its own output. But a model can be internally self-consistent while being completely wrong. Two different models asked the same question might both answer consistently and give different answers from each other. When that happens, at least one of them is confident and incorrect.</p>
+
+    <p>The MIT method addresses this by measuring disagreement across models, not just within one. The logic is direct: if multiple distinct models, trained differently and on different data, all arrive at the same answer, that cross-model agreement is better evidence of reliability than any single model's self-consistency. Cross-model disagreement is a flag that the question is in territory where the models don't actually know.</p>
+
+    <p>This is a significant finding for anyone using AI tools in high-stakes research contexts. A tool reporting high confidence because it consistently produces the same answer is not reporting what the word "confidence" implies. It is reporting self-consistency, which is a different thing.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">65%</div>
+        <div class="stat-label">Actual coverage of nominal 99% confidence intervals across major LLMs (Stanford, FermiEval)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">54%</div>
+        <div class="stat-label">Reduction in overconfidence with post-hoc interval correction</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">12×</div>
+        <div class="stat-label">Rise in fabricated citations in biomedical literature, 2023 to early 2026</div>
+      </div>
+    </div>
+
+    <p>Stanford researchers studying LLM confidence intervals found that when major models were asked to construct 99% confidence intervals around their own estimates, those intervals covered the true answer only 65% of the time on average. A 99% confidence interval that is correct 65% of the time is not a confidence interval in any meaningful sense. It is a number that looks like a confidence interval.</p>
+
+    <p>The researchers describe the underlying cause as a perception-tunnel effect: when an LLM reasons under uncertainty, it behaves as though sampling from a truncated region of its inferred distribution, systematically ignoring the tails where the genuine uncertainty lives. In plain terms, the model generates an answer from its best-guess region and then wraps that answer in a confidence interval that is too narrow, because it has already ignored the scenarios where it might be wrong.</p>
+
+    <h2><em>Appearing</em> calibrated versus being calibrated</h2>
+
+    <p>There is a subtler version of the calibration problem that is harder to detect. A model can appear well-calibrated, in the sense that its expressed confidence aligns reasonably well with its accuracy on questions you can check, while being systematically miscalibrated on questions you can't.</p>
+
+    <p>Researchers studying this dynamic identify what they call static knowledge contamination: the fact that most calibration evaluations use questions whose answers existed during training. A model that was trained on data containing both the question and the answer will appear calibrated if it expresses appropriate confidence in that answer, but it isn't demonstrating genuine reasoning about uncertainty. It's demonstrating that training frequency correlates with expressed confidence, which is a different thing.</p>
+
+    <p>The practical implication is that standard calibration benchmarks may not tell you much about how a model handles genuine uncertainty, which is exactly what matters in research contexts where the answer isn't already in the training data. A model that looks well-calibrated on established facts may be significantly overconfident on emerging findings, contested claims, and questions at the boundary of available knowledge.</p>
+
+    <div class="callout">
+      <strong>The calibration gap in research contexts</strong>
+      Epistemic calibration describes the alignment between a model's expressed confidence and its actual accuracy. Most calibration evaluations test models on questions with known answers in training data. Research contexts often involve questions at the boundary of available knowledge, where calibration is hardest and matters most.
+    </div>
+
+    <p>A separate body of work frames this as a distinction between two types of certainty that language models conflate. Internal certainty is the model's actual confidence in its output, measurable through token probabilities and other technical means. Linguistic assertiveness is how the model expresses that certainty in natural language. These diverge. A model can produce high-certainty language around a low-certainty answer, not because it is being deceptive, but because the training process optimises for fluent, confident-sounding output rather than for linguistic confidence that tracks epistemic confidence.</p>
+
+    <p>Researchers studying this divergence find that internal certainty and external certainty have distinct effects on user behaviour. Users tend to update on the linguistic signal, not the underlying technical one, because that is the only signal they have access to. If the model says "research consistently shows" when it should say "some early work suggests," the user is being given a stronger signal than the evidence warrants, and they have no way to detect this from the output alone.</p>
+
+    <h2>Why this is an architecture problem, not a prompting problem</h2>
+
+    <p>The tempting response to the calibration problem is to instruct the model differently. Tell it to hedge. Tell it to flag uncertainty. Tell it to say "I'm not sure" when it doesn't know. This is better than nothing, and prompting strategies do reduce calibration error to some degree. But they address the symptom rather than the cause.</p>
+
+    <p>Standard language models don't have access to their own epistemic state in the way that would be needed to accurately report it. When a model produces a confident-sounding answer, it is doing so because confident-sounding answers were rewarded in training, not because it has evaluated the strength of its evidence and found it sufficient. Asking it to hedge is adding a behavioural instruction on top of a system that has no native mechanism for assessing what it knows versus what it's pattern-matching.</p>
+
+    <p>Some recent work attempts to address this at the training level rather than the inference level. The EpiCaR framework, published in early 2026, proposes training objectives that jointly optimise reasoning performance and calibration, so that a model learns to reason about the reliability of its own outputs as part of the reasoning process itself, rather than as a post-hoc instruction. The approach shows measurable improvements in calibration without sacrificing accuracy. But it represents a fundamental change to how models are trained, not a prompt that can be applied to existing systems.</p>
+
+    <p>The implication is that for any currently deployed AI research tool, calibration is a property of the system architecture, not a dial that users or operators can adjust. A tool built on a standard language model, without explicit uncertainty quantification built into its outputs, will express confidence that is not reliably related to the quality of its evidence. That is a fact about the tool, not a criticism of the people who built it or use it.</p>
+
+    <h2>The extended evidence ladder</h2>
+
+    <p>This series has been building a picture of the evidence quality problem in layers. Each article has added a step to what we have been calling the evidence ladder: the sequence of guarantees that a research claim needs to pass before it can be trusted at the weight being placed on it.</p>
+
+    <div class="ladder">
+      <div class="ladder-label">The full evidence ladder — each step is necessary, none is sufficient</div>
+      <div class="step">
+        <span class="step-num">1</span>
+        <span class="step-text">Reference exists — the cited work is a real document</span>
+      </div>
+      <span class="step-note">The fabrication problem. Fabricated citations collapse here. Most tools don't check this step explicitly.</span>
+      <div class="step">
+        <span class="step-num">2</span>
+        <span class="step-text">Source supports the claim — the document actually contains the cited finding</span>
+      </div>
+      <span class="step-note">A real paper can be misrepresented. Existence doesn't imply relevance or accurate attribution.</span>
+      <div class="step">
+        <span class="step-num">3</span>
+        <span class="step-text">Independent corroboration — separate research paths arrive at the same conclusion</span>
+      </div>
+      <span class="step-note">Citation volume doesn't imply independence. Amplification cascades collapse here.</span>
+      <div class="step">
+        <span class="step-num">4</span>
+        <span class="step-text">Evidence is sufficient for this use — strength matches the weight of the decision being made</span>
+      </div>
+      <span class="step-note">Evidential fragility. Evidence can pass steps 1–3 and still be insufficient for the use being made of it.</span>
+      <div class="step">
+        <span class="step-num">5</span>
+        <span class="step-text">Confidence is proportionate — expressed certainty reflects actual epistemic state</span>
+      </div>
+      <span class="step-note">The calibration problem. A claim can pass all four prior steps and still be presented with more confidence than the evidence warrants.</span>
+      <div class="neq">
+        Reference exists ≠ source supports the claim ≠ independent corroboration ≠ sufficient evidence ≠ proportionate confidence
+      </div>
+    </div>
+
+    <p>Step five is distinct from the others in an important way. Steps one through four concern the quality of the underlying evidence: whether sources exist, whether they say what they claim to say, whether they are independent, whether they are strong enough for the use being made of them. Step five concerns how that evidence is communicated. A claim could, in principle, pass all four prior steps and still be presented with more confidence than even strong evidence warrants.</p>
+
+    <p>In practice, the calibration failure tends to compound the other failures rather than operating independently. A tool that fabricates citations, treats amplification as corroboration, and overstates fragile evidence will present all of these failures with uniform, unwarranted confidence. The user sees a clean, fluent, definitive-sounding answer and has no signal from the tool that anything has gone wrong at any step.</p>
+
+    <h2>What this looks like in practice</h2>
+
+    <p>Consider a policy analyst using an AI research tool to assess the evidence base for a regulatory claim: that AI systems used in credit decisions introduce measurable bias against specific demographic groups. This is a real and contested area of research. The evidence is heterogeneous, context-dependent, and rapidly evolving.</p>
+
+    <div class="example-box">
+      <div class="ex-label">The calibration failure in a realistic scenario</div>
+      <p><strong>What the tool reports:</strong> "Research consistently demonstrates that AI credit scoring systems exhibit significant demographic bias. Multiple studies confirm bias rates of 15–25% against protected groups, with peer-reviewed evidence from US, UK, and EU contexts."</p>
+      <p><strong>What's actually there:</strong> Several studies on specific systems in specific contexts, with varying methodologies and contested definitions of bias. Some find significant effects; others find small or null effects depending on how bias is measured. The 15–25% figure comes from one audit of one system. The EU evidence derives largely from policy documents citing the US findings.</p>
+      <p><strong>What's missing from the output:</strong> Any signal that this is contested territory, that methodological choices significantly affect the results, that "consistent" overstates the state of the evidence, or that the regulatory context of the EU work differs substantially from the US findings it cites.</p>
+    </div>
+
+    <p>The analyst receives a confident summary that looks like settled science. If they are not already expert in the domain, they have no basis for pushing back on the confidence level. The tool has done the work that would normally require significant expertise to evaluate — and it has done it invisibly, without flagging the judgment calls it made.</p>
+
+    <p>This is not an extreme or unusual case. It is a description of how AI research tools routinely operate on questions where the evidence base is genuinely contested. The problem isn't that these tools lie. It's that they don't have a truthful way to express "the evidence on this is mixed and I am not confident."</p>
+
+    <h2>Why the stakes are higher than they appear</h2>
+
+    <p>The practical problem with the calibration gap isn't that researchers will be misled once and then correct themselves. It's that miscalibrated outputs tend to propagate in exactly the way fabricated citations and amplification cascades do.</p>
+
+    <p>A confident-sounding AI summary gets cited in a policy brief. The brief gets cited in a regulatory consultation. The consultation shapes a governance framework that requires evidence of properties that the underlying research only weakly supports. Each step in the chain treats the upstream output as more settled than it is, because the upstream output expressed itself with a confidence it was not entitled to.</p>
+
+    <p>This is the same contamination path we described in the previous article on peer review: AI-generated content at one point in the evidence chain degrades the quality of everything downstream that cites it. The calibration failure makes this worse, because it removes the signals that would ordinarily prompt downstream users to verify rather than accept.</p>
+
+    <p>The arXiv ban on hallucinated citations, announced in May 2026, addresses the fabrication problem at step one of the ladder. It has no mechanism for the calibration problem at step five, which doesn't leave a detectable artifact. A confidently-stated but underwarranted claim looks identical to a confidently-stated well-supported claim. There is no bibliographic check that can catch it.</p>
+
+    <h2>What honest uncertainty communication would require</h2>
+
+    <p>The research community is working on this. The cross-model disagreement method from MIT provides a practical technique for flagging high-uncertainty outputs by checking whether multiple models agree. The EpiCaR training approach attempts to build calibration into reasoning from the ground up. Conformal prediction methods, applied post-hoc, can bring nominal confidence intervals closer to their stated coverage.</p>
+
+    <p>What these approaches share is that they treat calibration as a systems-level property rather than a user behaviour. You cannot reliably instruct your way to calibrated outputs from a system not built to produce them. The fix has to be at the architecture level, in how the system estimates and communicates its own uncertainty, or at the verification level, in how outputs are checked before they are acted on.</p>
+
+    <p>For practitioners who can't wait for the architecture to change, the most honest posture is to treat expressed confidence in AI research outputs as uninformative about evidential quality. High confidence from an AI tool tells you that the tool found a pattern it could answer fluently. It does not tell you that the underlying evidence is strong, that the sources are independent, that the claim is well-established, or that the finding generalises to the context you care about. Those are separate questions that require separate verification.</p>
+
+    <p>The series that began with citation counts and source independence ends, for now, at this point: the confidence an AI tool expresses is not a summary of the evidence it found. It is a property of its output format. The two things are related but not the same, and treating them as the same is the most invisible of all the evidence quality failures we have been trying to make visible.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously</div>
+    <a href="peer-review-loop-breaking.html">The peer review loop is breaking &#8594;</a>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Overconfidence and cross-model epistemic uncertainty: MIT Schwarzman College of Computing, March 2026 (<a href="https://computing.mit.edu/news/a-better-method-for-identifying-overconfident-large-language-models/" target="_blank" rel="noopener">MIT Computing</a>). Confidence interval calibration and the FermiEval benchmark: Epstein et al. (2025), Stanford University, arXiv:2510.26995. Epistemic calibration and linguistic assertiveness divergence: Belem et al. (2024), arXiv:2411.06528 (USC, McGill, Berkeley, UCL). Static knowledge contamination and the KalshiBench benchmark: arXiv:2512.16030. EpiCaR calibrated reasoning training: arXiv:2601.06786. arXiv sanctions for hallucinated references: reported May 2026. Evidence ladder framework developed across this series of articles.
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">← All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &#8594;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
