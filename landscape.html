@@ -365,21 +365,21 @@
     <div class="system-card">
       <div class="system-card-name">GraphRAG (Microsoft Research)</div>
       <div class="system-card-type">Open source · Knowledge graph retrieval</div>
-      <p>GraphRAG is the most technically serious system in the adjacent space. It builds a knowledge graph from ingested documents and uses that graph for retrieval rather than raw vector search. This produces better multi-hop reasoning and some degree of cross-session persistence. The engineering behind it is substantial and it is actively developed.</p>
-      <div class="gap-note">GraphRAG does not have an adversarial challenge stage, typed gap tracking, a source credibility tier system, or a formula-computed confidence score that is decoupled from model self-report. It also does not produce a decision log. The gap between GraphRAG and Epistamate is real but it is narrowing, and Microsoft has significantly more engineering capacity. This is the competitive system to watch.</div>
+      <p>GraphRAG is the most technically serious system in the adjacent space. It builds a knowledge graph from ingested documents and uses that graph for retrieval rather than raw vector search. This produces better multi-hop reasoning and some degree of cross-session persistence. The engineering behind it is substantial and it is actively developed. As of Build 2026, GraphRAG and LazyGraphRAG are the knowledge layer inside Microsoft Discovery, an agentic R&amp;D platform that reached general availability in June 2026. Discovery adds hypothesis generation, experimentation workflows, and reproducible scientific review on top of the GraphRAG retrieval layer.</p>
+      <div class="gap-note">GraphRAG does not have an adversarial challenge stage, typed gap tracking, a source credibility tier system, or a formula-computed confidence score that is decoupled from model self-report. It also does not produce a decision log. Microsoft Discovery moves GraphRAG from a developer library toward a practitioner-facing platform, but the target domain is scientific R&amp;D &mdash; pharmaceuticals, materials science, engineering &mdash; not policy, regulatory, or professional services research. The gap on the developer-to-practitioner axis has narrowed. The gap on domain coverage has not. This remains the competitive system to watch.</div>
     </div>
 
     <div class="system-card">
       <div class="system-card-name">Elicit</div>
       <div class="system-card-type">Product · Academic literature synthesis</div>
-      <p>Elicit is the most direct product competitor for the research workflow. It does structured extraction from academic papers, claim-level analysis, and some degree of evidence quality assessment. For researchers working primarily with peer-reviewed literature it is a serious tool.</p>
-      <div class="gap-note">Elicit is locked to academic literature. It does not work well with grey literature, proprietary documents, regulatory sources, or the mix of source types that characterise professional research outside academia. It has no cross-session compounding, no adversarial challenge, and no typed gap tracking.</div>
+      <p>Elicit is the most direct product competitor for the research workflow. It does structured extraction from academic papers, claim-level analysis, and some degree of evidence quality assessment. For researchers working primarily with peer-reviewed literature it is a serious tool. The 2026 updates added multimodal capabilities and a Research Agent feature (Pro and higher plans) that extends search to clinical trial data, regulatory documents, and press releases.</p>
+      <div class="gap-note">Elicit's source coverage is broader than it was at Pro tier, but core limitations remain. It does not evaluate methodology quality &mdash; all studies get equal weight unless manually filtered. Grey literature, proprietary documents, dissertations, and reports are largely out of scope. It has no cross-session compounding, no adversarial challenge, and no typed gap tracking. The comparison table reflects the Pro tier capability on non-academic sources.</div>
     </div>
 
     <div class="system-card">
       <div class="system-card-name">DebateCV</div>
       <div class="system-card-type">Academic · Multi-agent adversarial verification</div>
-      <p>DebateCV (2025) is the closest academic parallel to Epistamate's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
+      <p>DebateCV (published at ACM Web Conference 2026, WWW '26) is the closest academic parallel to Epistamate's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The peer-reviewed paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
       <div class="gap-note">DebateCV is a claim verification framework, not a research workflow system. It addresses the adversarial challenge component in isolation. There is no knowledge graph, no cross-session memory, no gap tracking, and no practitioner deployment. The existence of this work is validation that mandatory adversarial challenge is the right architectural choice. It is not a competing product.</div>
     </div>
 
@@ -540,7 +540,7 @@
             <td>Non-academic source types</td>
             <td>Limited</td>
             <td>Yes</td>
-            <td>No</td>
+            <td>Partial (Pro)</td>
             <td>Limited</td>
             <td>Yes</td>
             <td class="ours">Yes</td>
@@ -557,7 +557,7 @@
     <h2 class="lp-h2">What could close the gap <em>and when</em></h2>
 
     <div class="lp-body">
-      <p>GraphRAG is the system most likely to close the gap. Microsoft is actively developing it and has the engineering capacity to add adversarial challenge, source tier scoring, and typed gap tracking. The question is not whether they will eventually build these features. It is whether they will build them for the practitioner research workflow specifically, or whether they will continue to develop GraphRAG as a developer infrastructure layer that organisations have to configure themselves.</p>
+      <p>GraphRAG is the system most likely to close the gap. The launch of Microsoft Discovery at Build 2026 partially answers the question of whether Microsoft would build GraphRAG into a practitioner-facing platform: they have, for scientific R&amp;D. The question that remains is whether they will extend that focus to policy, regulatory, and professional services research specifically, or whether those domains continue to require organisations to configure their own workflows on top of the Azure infrastructure. Epistamate's domain advantage is narrowing on the technical side and depends increasingly on whether it can establish user relationships and domain-specific depth before the larger platforms extend their reach.</p>
 
       <p>The agentic AI space is moving toward what people are calling verification layers and epistemic harnesses: supervision systems that sit above research agents and check their outputs. This is the architectural role Epistamate occupies. As more organisations deploy AI research agents, the demand for a system that scores, challenges, and audits what those agents produce will grow. Whether Epistamate or a larger platform fills that role depends partly on whether Epistamate can establish domain presence and user relationships before the larger platforms catch up.</p>
 
@@ -571,7 +571,7 @@
   <!-- FIELD NOTE -->
   <div class="field-note">
     <div class="field-note-label">A note on pace</div>
-    <p>This page was written in May 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework, the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Epistamate architecture paper. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
+    <p>This page was last updated in June 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework (now a peer-reviewed paper published at WWW '26), the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Epistamate architecture paper. Microsoft Discovery reaching general availability at Build 2026 has updated the competitive picture for GraphRAG. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
   </div>
 
 
@@ -583,7 +583,7 @@
       <li data-n="2">Sinha, A. (2026). RegWatch: Domain-Configurable Bidirectional Reasoning as Epistemic Infrastructure for Regulatory Intelligence. Zenodo. <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">doi:10.5281/zenodo.19301680</a></li>
       <li data-n="3">Min, S. et al. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. EMNLP 2023.</li>
       <li data-n="4">Edge, D. et al. (2024). From Local to Global: A Graph RAG Approach to Query-Focused Summarization. Microsoft Research.</li>
-      <li data-n="5">DebateCV: Debate-driven Claim Verification with Multiple Large Language Model Agents. arXiv:2507.19090.</li>
+      <li data-n="5">He, H. et al. (2026). Debating Truth: Debate-driven Claim Verification with Multiple Large Language Model Agents. <em>Proceedings of the ACM Web Conference 2026 (WWW '26)</em>. arXiv:2507.19090.</li>
       <li data-n="6">MACI: Multi-Agent Collaborative Intelligence: Dual-Dial Control for Reliable LLM Reasoning. arXiv:2510.04488.</li>
       <li data-n="7">Cash, T.N. et al. (2025). Quantifying uncert-AI-nty: Testing the accuracy of LLMs confidence judgments. Memory and Cognition.</li>
       <li data-n="8">The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents. arXiv:2601.07264.</li>
