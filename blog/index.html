@@ -120,6 +120,28 @@
       .article-card { grid-template-columns: 1fr; }
       .article-read { display: none; }
     }
+    .blog-also {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--space-l) var(--space-l) var(--space-2xl);
+      border-top: 1px solid var(--border);
+    }
+    .blog-also-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: var(--space-s);
+    }
+    .blog-also p {
+      font-size: 0.92rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .blog-also a { color: var(--ink-2); }
+    .blog-also a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -219,6 +241,11 @@
     <div class="article-read">8 min read →</div>
   </a>
 
+</div>
+
+<div class="blog-also">
+  <div class="blog-also-label">Also writing on</div>
+  <p>Abhishek writes on AI governance, the EU AI Act, GCC strategy in India, and enterprise technology leadership at <a href="https://abhishek-sinha-bgl.github.io" target="_blank" rel="noopener">abhishek-sinha-bgl.github.io</a> — a separate series written for CIOs, boards, and technology executives.</p>
 </div>
 
 <footer class="footer">
