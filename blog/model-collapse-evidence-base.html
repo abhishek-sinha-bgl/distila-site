@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The internet is eating itself: model collapse and what it means for the evidence base — Epistamate</title>
+  <meta name="description" content="AI models are now training on AI-generated content at scale. The contamination is self-reinforcing and the degradation is structural. What this means for anyone who uses AI tools to do research.">
+  <meta name="keywords" content="model collapse, AI training data contamination, synthetic data, AI evidence quality, research integrity, AI reliability 2026">
+  <link rel="canonical" href="https://epistamate.com/blog/model-collapse-evidence-base.html">
+  <meta property="og:title" content="The internet is eating itself: model collapse and the evidence base">
+  <meta property="og:description" content="AI models are now training on AI-generated content at scale. The contamination is self-reinforcing. What this means for anyone who uses AI research tools.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-24">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-m); margin: var(--space-l) 0; }
+    @media (max-width: 560px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-box { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); padding: var(--space-m); text-align: center; }
+    .stat-num { font-family: var(--font-display); font-size: 2.2rem; line-height: 1; color: var(--accent); margin-bottom: 6px; }
+    .stat-label { font-size: 0.82rem; color: var(--ink-3); line-height: 1.5; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <span class="logo-badge">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>24 June 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">AI governance</span>
+    <span class="article-tag">Research methodology</span>
+  </div>
+
+  <h1 class="article-h1">The internet is eating itself: <em>model collapse and the evidence base</em></h1>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">The previous articles in this series traced evidence quality failures at the level of individual claims: fabricated citations, amplification cascades, fragile assurance, AI-generated peer reviews. This article traces a failure at the level of the system that produces the AI tools themselves. The contamination runs deeper than a bad source or a weak study.</p>
+
+  <div class="article-body">
+
+    <p>When researchers talk about the reliability of AI tools, the usual frame is accuracy: does the model get things right? The benchmarks test this. The leaderboards rank it. The sales decks cite it. The frame is correct as far as it goes, but it misses a prior question: what was the model trained on, and how much of that training data was itself generated by an earlier AI model?</p>
+
+    <p>The question matters because of a phenomenon researchers have named model collapse. It refers to the progressive degradation of AI model quality when a significant portion of training data is synthetic — generated by previous model generations rather than produced by human researchers, writers, and knowledge workers. The degradation is not a cliff edge. It is a slow compounding across generations, and it is already underway at internet scale.</p>
+
+    <h2>How the contamination happens</h2>
+
+    <p>The standard approach to training large language models relies on web crawls: automated scraping of text from the internet at massive scale. Common Crawl, the most widely used source, indexes billions of pages continuously. The models trained on it learn from whatever the web contains — academic papers, journalism, forum discussions, government documents, and, increasingly, content generated by AI tools.</p>
+
+    <p>This creates a feedback loop. A model trained in 2023 produces content that appears on the web in 2024. A model trained on a 2024 web crawl ingests that content alongside human-authored material, treating the two as equivalent training signal. The 2024 model produces more content, which enters the 2025 crawl. Each generation of models trains partly on the outputs of its predecessors, amplifying whatever patterns, errors, and distortions those predecessors introduced.</p>
+
+    <p>The scale of synthetic content on the web is no longer speculative. Analysis published in 2025 documented that 74.2% of newly published web pages contain AI-generated material. The proportion is rising faster than human-authored content can dilute it. A paper published in April 2026 (arXiv:2606.05168) modelled this contamination using epidemiological SIR dynamics — the same framework used to model infectious disease spread — and found supercritical dynamics across three scenarios. The R0 value, the average number of new contaminated data points produced by each existing one, exceeds 1 in all cases. The contamination is self-reinforcing rather than self-limiting.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">74%</div>
+        <div class="stat-label">Newly published web pages containing AI-generated material (2025)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">1%</div>
+        <div class="stat-label">Synthetic data fraction sufficient to initiate measurable model collapse</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">R0&gt;1</div>
+        <div class="stat-label">Contamination dynamics across all modelled scenarios — self-reinforcing, not self-limiting</div>
+      </div>
+    </div>
+
+    <p>The threshold finding is the one that should attract the most attention. Research from Stanford and other institutions has established that even moderate levels of synthetic training data — as little as 1% — can initiate measurable model collapse. Scaling the model or the dataset does not reliably prevent it. The contamination cannot be diluted away by adding more data if the additional data is itself synthetic. And at 74% synthetic content on newly published pages, the assumption that web-scale training data is predominantly human-authored is no longer defensible.</p>
+
+    <h2>What collapse actually looks like</h2>
+
+    <p>The term model collapse suggests a sudden failure. The actual phenomenon is more gradual and in some ways more troubling for that reason. Collapse manifests as homogenisation: the model's output distribution narrows over successive training generations, losing the diversity and tail-end richness of human-authored text. The model becomes more confident and less varied. It produces fluent, plausible, internally consistent outputs — but the range of those outputs contracts, edge cases disappear from the distribution, and errors become systematic rather than random.</p>
+
+    <p>The photocopy analogy is accurate. A first-generation photocopy of a document is nearly indistinguishable from the original. A photocopy of that photocopy is slightly degraded. By the tenth generation, fine detail is gone, contrast is blown out, and the text is still readable but no longer faithful to the original. Each generation's errors propagate and compound. With model collapse, the analogous process operates on the distribution of knowledge itself: what the model knows, what it can express, and how confidently it asserts things that may no longer reflect the original human-generated evidence base.</p>
+
+    <p>This matters for the evidence quality problem the series has been tracing. The previous articles documented failures at the level of individual outputs: a specific citation that doesn't exist, a particular claim that overstates its evidence, a review that looks rigorous without being rigorous. Model collapse is a failure at the input level. If the training data for AI research tools is increasingly synthetic — drawn from earlier AI outputs rather than primary human research — then the tools are learning from a progressively distorted picture of what human knowledge actually contains. The outputs they generate reflect that distortion, not the original evidence base.</p>
+
+    <h2>The knowledge field the model learned from is not the knowledge field that exists</h2>
+
+    <p>There is a version of this problem that is subtle enough to deserve its own framing. A model trained on web data from 2024 knows what the web said in 2024. But a significant portion of what the web said in 2024 was a restatement, a paraphrase, or an AI-generated summary of what the web had said previously. The model's representation of any given fact or finding reflects not the original source of that fact, but the web's collective reprocessing of it across multiple generations of summarisation and restatement.</p>
+
+    <p>This is the semantic laundering problem the previous article touched on at the level of individual sources. At the scale of model training data, the same dynamic operates on entire knowledge fields. A model trained on the 2025 web's representation of, say, epidemiological research reflects not the primary literature of epidemiology but a web-scale summarisation of it that has passed through multiple rounds of AI restatement, selective emphasis, and compression. The model can produce confident, fluent answers about epidemiology. The accuracy of those answers depends on how faithfully each summarisation generation preserved the original evidence and its appropriate caveats.</p>
+
+    <p>Research from the University of Passau and Arizona State University, published in February 2026, identified a specific mechanism that makes this worse. It found that organisations relying heavily on AI tools to process and summarise information progressively lose the human expertise needed to evaluate that information independently. The in-house knowledge atrophies because the AI handles the task. When the AI's outputs reflect a distorted training distribution, the organisation no longer has the internal capacity to catch the distortion. The check on AI reliability is the very thing the AI has been substituted for.</p>
+
+    <div class="callout">
+      <strong>The compounding problem</strong>
+      Model collapse degrades the training distribution across generations. Human expertise atrophies as AI tools substitute for the tasks that expertise was exercised on. The two processes reinforce each other: as model outputs become less reliable, the human capacity to detect that unreliability declines in parallel.
+    </div>
+
+    <h2>Why this is different from the problems already documented</h2>
+
+    <p>The fabricated citation problem, the amplification cascade, the fragile assurance failure, the AI peer review — each of these is an identifiable failure in a specific output that a sufficiently attentive researcher could in principle detect. A fabricated citation resolves to nothing when checked. An amplification cascade reveals itself when source lineage is traced. AI-generated reviews have detectable stylistic signatures. These are failures that produce artifacts, and artifacts can be examined.</p>
+
+    <p>Model collapse is different in kind. It is a failure in the prior that shapes all outputs, not a failure in any particular output. A model collapsing across training generations does not produce a detectable error in any given response. It produces responses that are correct on average, according to its training distribution — but the training distribution is drifting away from human knowledge and toward a synthetic reprocessing of human knowledge. The outputs look fine. The drift is in the substrate they are drawn from.</p>
+
+    <p>This means the standard tools for catching AI quality failures — fact-checking outputs, verifying citations, checking source independence — do not directly address model collapse. They remain necessary. They are no longer sufficient. The reliability of an AI research tool is not only a function of what it produces in any given session. It is also a function of what its training data represented, and whether that representation was faithful to primary human research or was itself a synthetic derivative of earlier AI outputs.</p>
+
+    <h2>What this means for AI tools used in research</h2>
+
+    <p>The practical implication for anyone using AI tools to do serious research is uncomfortable. The tools in wide use in 2026 were trained on data that almost certainly includes substantial synthetic content. The specific proportion is unknown because training data composition is not disclosed by most frontier model developers. The Stanford 2026 AI Index found that responsible AI benchmarks, including training data transparency, remain sparse and inconsistently reported even as frontier capability benchmarks proliferate. You can find out how well a model performs on SWE-bench. You cannot find out what fraction of its training data was generated by an earlier model.</p>
+
+    <p>This is not a hypothetical concern about a future risk. The LAION-5B dataset, a cornerstone for training many generative models, has measurable contamination from synthetic sources identified in published research. The web crawls that train frontier text models are ongoing processes that cannot distinguish synthetic content from human-authored content at scale without targeted filtering. Targeted filtering exists but its coverage and effectiveness are not independently audited. The contamination is present in the systems being used now.</p>
+
+    <p>The researchers studying this problem have identified detection-based filtering and source diversity as the highest-leverage interventions — finding and removing synthetic content before training, and ensuring training data draws from genuinely independent primary sources rather than from web pages that all trace back to the same underlying text. These are engineering problems with tractable solutions. They require disclosure, auditing, and standards that do not yet exist in a form that practitioners can rely on.</p>
+
+    <p>Until they do, the series' evidence ladder needs an additional step above the ones already documented. Reference exists. Source supports the claim. Independent corroboration. Evidence is sufficient for this use. Expressed confidence is proportionate. And now: the model producing this output was trained on data that reflects human knowledge rather than a synthetic reprocessing of it. That last step has no standard mechanism for verification. It is the step that makes all the others harder to take seriously.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="confident-and-wrong.html">Confident and wrong: why AI can't tell you when it doesn't know &rarr;</a>
+  </div>
+  <div class="prev-next" style="margin-top:var(--space-s);">
+    <div class="prev-next-label">Next in this series</div>
+    <a href="verification-trap-expertise-atrophy.html">The verification trap: when AI use erodes the capacity to catch AI errors &rarr;</a>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Epidemiology of Model Collapse: arXiv:2606.05168 (April 2026). ForTIFAI — recursive training failure framework: arXiv:2509.08972 (Stanford, 2025). Strong Model Collapse: arXiv:2410.04840 (2025). AI-generated web content prevalence: multiple 2025 analyses. University of Passau / Arizona State University knowledge atrophy study (February 2026). Stanford HAI 2026 AI Index — responsible AI benchmarks and training transparency (April 2026). Foundation Model Transparency Index (2026). LAION-5B synthetic contamination analysis: Alemohammad et al. (2023). Can Generative AI Survive Data Contamination: arXiv:2602.16065.
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
