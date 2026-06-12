@@ -160,7 +160,7 @@
 
     <p>The astrophysics workflow study from April 2026 makes the application to scientific research concrete. Evaluating an agentic system performing multi-stage reasoning across domain-specific data, the researchers found that early errors propagated throughout the pipeline in ways that were not detectable from the final output. The paper's title captures the quality of the failure: "Plausible but Wrong." The outputs looked credible. They read like research. The errors were embedded in the reasoning, not visible in the surface of the text.</p>
 
-    <p>"Plausible but wrong" is a more dangerous failure mode than obvious error. An obviously wrong output gets rejected. A plausible but wrong output gets used.</p>
+    <p>"Plausible but wrong" is a more dangerous failure mode than obvious error in professional research contexts specifically. An obviously wrong output gets rejected at the point of use. A plausible but wrong output gets incorporated into the analysis, the briefing, or the submission. The downstream cost is not the error itself but everything built on top of it before anyone checks.</p>
 
     <h2>Why this is different from what came before</h2>
 
@@ -189,7 +189,7 @@
 
     <p>The structural problem with agentic pipelines is not that they make mistakes. All research systems make mistakes. The problem is that the architecture of a pipeline is specifically designed to hide the intermediate steps where mistakes accumulate, and where the evidence quality judgments that a skilled researcher would apply are most needed.</p>
 
-    <p>The intervention that matches the structure of the problem is one that operates at the level of individual claims rather than final outputs. If each claim in a research document carries a chain of provenance back to the source that generated it, including the intermediate steps that transformed it, then the opacity of the pipeline is reduced without requiring the user to do the research again. The document is still a finished product. The claims in it are still synthesised and readable. But each claim can be interrogated: which source did this come from, what did the source actually say, what happened to it in transit from source to synthesis.</p>
+    <p>The intervention that matches the structure of the problem is one that operates at the level of individual claims rather than final outputs. If each claim in a research document carries a chain of provenance back to the source that generated it, including the intermediate steps that transformed it, then the opacity of the pipeline is reduced without requiring the user to do the research again. This creates a verifiable path from source to output — an audit trail that directly counters what the pipeline's design makes invisible. The document is still a finished product. The claims in it are still synthesised and readable. But each claim can be interrogated: which source did this come from, what did the source actually say, what happened to it in transit from source to synthesis.</p>
 
     <p>This does not solve the corroboration problem automatically. A claim that traces back to five downstream citations of the same study is still a claim with weak evidential support. But it makes the problem visible in a way that the pipeline's output, on its own, does not. A researcher who can see that five apparently independent sources all cite the same 2019 paper can make a judgment about the strength of the convergence. A researcher who sees five sources cited in support of a claim, with no visibility into their ancestry, cannot.</p>
 
