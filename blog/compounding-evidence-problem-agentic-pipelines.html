@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The compounding evidence problem: why agentic research pipelines fail quietly — Epistamate</title>
+  <meta name="description" content="Agentic AI pipelines don't just make errors. They propagate them. Each step in a multi-agent research workflow operates on the corrupted output of the last. Here is the mechanism, and why it matters for evidence quality specifically.">
+  <meta name="keywords" content="agentic AI research, error propagation AI, epistemic error cascading, AI evidence quality, multi-agent research pipelines, AI research reliability 2026">
+  <link rel="canonical" href="https://epistamate.com/blog/compounding-evidence-problem-agentic-pipelines.html">
+  <meta property="og:title" content="The compounding evidence problem: why agentic research pipelines fail quietly">
+  <meta property="og:description" content="Agentic AI pipelines don't just make errors. They propagate them. Each step operates on the corrupted output of the last, and the evidence quality degradation is invisible until a decision fails.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-24">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-m); margin: var(--space-l) 0; }
+    @media (max-width: 560px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-box { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); padding: var(--space-m); text-align: center; }
+    .stat-num { font-family: var(--font-display); font-size: 2.2rem; line-height: 1; color: var(--accent); margin-bottom: 6px; }
+    .stat-label { font-size: 0.82rem; color: var(--ink-3); line-height: 1.5; }
+    .example-box { background: var(--paper-3); border: 1px solid var(--border-2); border-radius: var(--radius-m); padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.92rem; line-height: 1.7; }
+    .example-box .ex-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-s); }
+    .example-box p { margin-bottom: var(--space-s); }
+    .example-box p:last-child { margin-bottom: 0; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <span class="logo-badge">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html" class="active">Blog</a>
+      <a href="../index.html#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>12 July 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">Agentic AI</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Research methodology</span>
+  </div>
+
+  <h1 class="article-h1">The compounding evidence problem: <em>why agentic research pipelines fail quietly</em></h1>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">The previous articles in this series described specific failure modes in research evidence: citation cascades that mimic consensus, peer review captured by AI, training data contaminated by synthetic content, expertise atrophied by delegation. Each is a problem in a static system. This article describes what happens when you put a dynamic system in front of all of them. Agentic AI pipelines do not just produce errors. They inherit, transform, and propagate them.</p>
+
+  <div class="article-body">
+
+    <p>There is a simple piece of mathematics that practitioners building agentic AI systems have started to take seriously. If each step in a multi-step workflow has a 5% probability of producing an error, and those errors are not corrected between steps, then a 10-step pipeline delivers reliable output roughly 60% of the time, even though no individual step appears problematic in isolation. The compounding is multiplicative, not additive. Each subsequent step does not add 5% risk; it inherits the prior step's errors and adds its own on top of them.</p>
+
+    <p>This arithmetic is well-established in reliability engineering, and the agentic AI research community has been formalising it. What has received less attention is a specific application of it: what happens to evidence quality, not just task accuracy, as errors compound across a research workflow. The distinction matters because task errors are often recoverable. Evidence quality errors frequently are not. By the time a degraded claim reaches a decision, its provenance has been overwritten so many times that it cannot be traced back to the source that would reveal it as weak, partial, or simply wrong.</p>
+
+    <h2>What an agentic research pipeline actually does</h2>
+
+    <p>A conventional AI research tool takes a query and returns results. The user sees the sources, evaluates the relevance, and decides what weight to place on each. The pipeline is short, the human is in the loop at every step, and the provenance of each piece of information is visible.</p>
+
+    <p>An agentic research pipeline does something structurally different. It breaks a research task into subtasks, assigns those subtasks to specialised agents, passes the outputs of early agents as inputs to later ones, synthesises across multiple intermediate results, and returns a finished work product to the user. The user sees the output of step ten, not the chain of decisions that produced it. The sources that shaped step two's summary are embedded in the context that shaped step five's synthesis, which shaped step eight's conclusion. They are not gone. They are invisible.</p>
+
+    <div class="example-box">
+      <div class="ex-label">A typical agentic research pipeline</div>
+      <p><strong>Step 1:</strong> Query decomposition agent breaks the research question into sub-questions.</p>
+      <p><strong>Steps 2-4:</strong> Retrieval agents fetch sources for each sub-question. Source selection reflects the agent's retrieval strategy, not the user's judgment about relevance or quality.</p>
+      <p><strong>Steps 5-6:</strong> Summarisation agents compress each retrieved source. Nuance, caveats, and methodological limitations are candidates for compression.</p>
+      <p><strong>Step 7:</strong> Synthesis agent combines summaries into a unified account. Sources that agreed with each other appear as convergent evidence. Sources that are all downstream of the same original study appear as independent corroboration.</p>
+      <p><strong>Steps 8-9:</strong> Drafting and refinement agents produce the final output. The draft reflects step 7's synthesis, not the original sources.</p>
+      <p><strong>Step 10:</strong> The user receives a finished document. The chain from original source to final claim is not visible in the output.</p>
+    </div>
+
+    <p>This is not a flaw in any particular pipeline design. It is the design. The purpose of an agentic pipeline is to absorb complexity so the user does not have to. The question is what gets absorbed along with it.</p>
+
+    <h2>Three evidence problems that pipelines make worse</h2>
+
+    <p>The earlier articles in this series identified specific mechanisms by which evidence quality degrades. Agentic pipelines do not create these mechanisms. They accelerate and compound them, and they make the resulting degradation harder to detect.</p>
+
+    <h3>Source independence collapses invisibly</h3>
+
+    <p>The first article in this series described the corroboration problem: a citation cascade in which many sources all trace back to a single originating study, creating an appearance of independent consensus where none exists. A human researcher who reads five papers in sequence notices when four of them cite the same source. The convergence is visible in the bibliography.</p>
+
+    <p>A retrieval agent processing those same five papers produces a summary of their claims. The summary reflects the claims' convergence, not their common origin. The synthesis agent that processes that summary sees strong agreement and weights it accordingly. By step seven, what was originally a single study with four downstream citations has become convergent evidence from five independent sources. No step was wrong in isolation. The cumulative effect is a false confidence signal that would not have survived a manual literature review.</p>
+
+    <h3>Caveats are the first thing compressed</h3>
+
+    <p>Summarisation under token constraints is not a neutral operation. It preserves the central claim and discards what surrounds it. What surrounds central claims in research papers is frequently the most important content for evidence quality purposes: sample size limitations, confidence intervals, replication status, conflict of interest disclosures, the authors' own caveats about generalisability.</p>
+
+    <p>A paper that reports a significant finding in a sample of 47 participants with a p-value of 0.048 and notes explicitly that the finding has not been replicated in other settings is a paper that calls for caution. Its summary will report the significant finding. The synthesis built on that summary will treat the finding as established. The document produced by the drafting agent will assert it with the confidence appropriate to established findings, because that is what the evidence it was given supports.</p>
+
+    <p>This is not hallucination in the technical sense. The claim in the final document traces to a real paper. The paper does say what the document claims it says. What the document does not say, and cannot say, is that the paper's own authors considered the finding preliminary.</p>
+
+    <h3>Each step resets the provenance clock</h3>
+
+    <p>In a system that tracks claims back to their sources, every intermediate step that produces a new text is an opportunity to lose provenance. A summarisation agent that compresses a source into three sentences produces three sentences, not three sentences plus a link to the methodological context that would qualify them. A synthesis agent that combines three summaries produces a unified account, not three accounts with their independent limitations preserved.</p>
+
+    <p>By the time the final output reaches the user, the chain from claim to source has been interrupted multiple times. The claim exists in the document. The source exists somewhere in the retrieval logs. The connection between them, including everything that would allow a reader to evaluate whether the source actually supports the claim, has been progressively overwritten at each intermediate step.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">~60%</div>
+        <div class="stat-label">Reliable output rate from a 10-step pipeline at 5% per-step error, before any evidence-specific degradation</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">30%+</div>
+        <div class="stat-label">Accuracy degradation in linear multi-agent workflows when a high-error agent appears upstream (COCO benchmark, Huang et al. 2025)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">39-70%</div>
+        <div class="stat-label">Sequential reasoning degradation in multi-agent vs single-agent settings across four benchmarks and three model families (2025 MAST study)</div>
+      </div>
+    </div>
+
+    <h2><em>Epistemic error cascading</em> — what the research calls it</h2>
+
+    <p>Researchers studying multi-agent system reliability have formalised this phenomenon. The COCO paper (2025) uses the term "epistemic error cascading" to describe how errors in early agents propagate through graph-structured workflows, compounding at each interaction. The mechanism is structural rather than incidental: in a pipeline where Agent B's input is Agent A's output, Agent B does not have access to what Agent A's output should have been. It processes what it received. If what it received was wrong, it reasons from wrong premises, and the output it passes to Agent C inherits those premises.</p>
+
+    <p>The astrophysics workflow study from April 2026 makes the application to scientific research concrete. Evaluating an agentic system performing multi-stage reasoning across domain-specific data, the researchers found that early errors propagated throughout the pipeline in ways that were not detectable from the final output. The paper's title captures the quality of the failure: "Plausible but Wrong." The outputs looked credible. They read like research. The errors were embedded in the reasoning, not visible in the surface of the text.</p>
+
+    <p>"Plausible but wrong" is a more dangerous failure mode than obvious error. An obviously wrong output gets rejected. A plausible but wrong output gets used.</p>
+
+    <h2>Why this is different from what came before</h2>
+
+    <p>The problems described in earlier articles — citation cascades, fabricated references, fragile single-study claims, expertise atrophy — all occur in settings where a human researcher is, in principle, interacting with sources directly. The researcher may not catch the citation cascade. They may not notice the missing replication study. But they had the opportunity. The source was in front of them.</p>
+
+    <p>An agentic pipeline removes that opportunity structurally. The user receives a finished document. The intermediate steps are not presented for review because presenting them would defeat the purpose. The sources are not displayed because the pipeline processed them rather than retrieving them for the user. The caveats are not visible because the summarisation step that removed them operated three steps upstream of anything the user saw.</p>
+
+    <p>This matters because the standard advice for responsible AI use — check the citations, verify the claims, maintain human oversight — assumes that the citations are present to check and the claims are traceable to verify. In an agentic pipeline, the design intention is specifically that the user should not have to do this. The pipeline does the research. The user gets the output.</p>
+
+    <div class="callout">
+      <strong>The oversight gap</strong>
+      Most guidance on responsible AI use in research assumes human review happens at the interface between the AI system and the user. In an agentic pipeline, the steps that most need review — source selection, caveat preservation, synthesis across sources with shared ancestry — happen between agents, not between the system and the user. Human-in-the-loop governance that operates only at the final output catches artifact-level errors. It does not catch the evidence quality degradation that accumulated upstream.
+    </div>
+
+    <h2>The scientific workflow is the highest-risk application</h2>
+
+    <p>Agentic pipelines are being deployed across many professional domains. The evidence quality risks described here apply wherever the pipeline is being used to synthesise research, and they are most severe in domains where the stakes of a wrong conclusion are highest and the errors are hardest to detect from outside the workflow.</p>
+
+    <p>In regulatory affairs, an agentic pipeline summarising the evidence base for a product submission compresses the same papers a regulatory reviewer will read in full. The gaps between what the papers say and what the submission claims are exactly the gaps that create compliance risk. The pipeline did not fabricate anything. It produced a plausible summary of the evidence it was given. The summary omits the methodological limitations that the regulator will find when they read the primary source.</p>
+
+    <p>In investment research, an agentic pipeline synthesising analyst reports and market data produces a coherent narrative. If the underlying reports share a common framing bias — a sectoral consensus that has not yet been tested against disconfirming evidence — the pipeline's synthesis will reflect and amplify that bias. Each report appeared to be an independent source. The synthesis treated them as such. The investment thesis that emerges from it looks well-supported because the evidence it rests on looks diverse when it is not.</p>
+
+    <p>In policy research, the problem is the one described in the earlier article on expertise atrophy, operating at a different level. A policy team using an agentic pipeline to survey the evidence on a contentious question receives a synthesis shaped by the distribution of published research. The pipeline retrieved what it could find. What it could find reflects prior publication patterns. Prior publication patterns reflect prior policy debates, dominant methodological schools, and the amplification cascades that determine which papers get cited and which do not. The pipeline's output is internally coherent and well-sourced. It also reflects an existing structure of emphasis that the policy team had no opportunity to interrogate.</p>
+
+    <h2>What claim-level provenance tracking changes</h2>
+
+    <p>The structural problem with agentic pipelines is not that they make mistakes. All research systems make mistakes. The problem is that the architecture of a pipeline is specifically designed to hide the intermediate steps where mistakes accumulate, and where the evidence quality judgments that a skilled researcher would apply are most needed.</p>
+
+    <p>The intervention that matches the structure of the problem is one that operates at the level of individual claims rather than final outputs. If each claim in a research document carries a chain of provenance back to the source that generated it, including the intermediate steps that transformed it, then the opacity of the pipeline is reduced without requiring the user to do the research again. The document is still a finished product. The claims in it are still synthesised and readable. But each claim can be interrogated: which source did this come from, what did the source actually say, what happened to it in transit from source to synthesis.</p>
+
+    <p>This does not solve the corroboration problem automatically. A claim that traces back to five downstream citations of the same study is still a claim with weak evidential support. But it makes the problem visible in a way that the pipeline's output, on its own, does not. A researcher who can see that five apparently independent sources all cite the same 2019 paper can make a judgment about the strength of the convergence. A researcher who sees five sources cited in support of a claim, with no visibility into their ancestry, cannot.</p>
+
+    <p>The earlier articles in this series described what can go wrong with evidence in static research settings. This article has described why those problems are harder to detect and more damaging in the agentic setting that is rapidly becoming the default for research-intensive professional work. The pipeline is not making research worse on purpose. It is doing exactly what it was designed to do: absorbing complexity so the user does not have to. The question is whether the complexity it is absorbing includes the evidence quality judgments that no pipeline should be making alone.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="verification-trap-expertise-atrophy.html">The verification trap: when AI use erodes the capacity to catch AI errors &rarr;</a>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Galileo AI — "How to Evaluate Agentic AI Systems in Production" (April 2026): compound error probability across multi-step workflows; 5%-per-step degradation model. COCO: Cognitive Operating System with Continuous Oversight for Multi-Agent Workflow Reliability — epistemic error cascading, 30%+ accuracy degradation in linear structures (Huang et al., 2025): arXiv. MAST study (2025): multi-agent variants degraded sequential reasoning performance by 39-70% vs single-agent across four benchmarks and three model families. "Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows" (April 2026): arXiv:2604.25345. "Agentic Uncertainty Quantification" (January 2026): forward uncertainty propagation and inverse uncertainty calibration in multi-step agents; arXiv:2601.15703. "AgentCompass: Towards Reliable Evaluation of Agentic Workflows in Production" (2025): error propagation and accountability in multi-agent architectures; arXiv:2509.14647. "The Compounding Errors Problem" — Zartis (March 2026): architecture analysis of unchecked error propagation in peer-to-peer agent networks. "Agentic Collapse: A Time-Delayed Cybernetic Framework for Epistemic Stability in Autonomous AI Systems" (2026): orchestration penalty and agentic drift formalisation.
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
