@@ -380,6 +380,20 @@
     </div>
 
     <div class="system-card">
+      <div class="system-card-name">Scite</div>
+      <div class="system-card-type">Commercial · Citation intelligence</div>
+      <p>Scite's Smart Citations classify each citing statement as supporting, contrasting, or mentioning the cited work, with the exact text snippet from the citing paper included. The Reference Check feature lets users upload manuscripts to see if cited papers have been contradicted by subsequent research. The AI Assistant can answer research questions while explicitly noting where findings conflict. The platform processes over 1.2 billion citation statements from more than 180 million articles.</p>
+      <div class="gap-note">Scite is the only mainstream product doing something architecturally similar to contradiction detection as a core feature. It operates at the paper-citation level, not the claim-span level &mdash; it surfaces whether a citing paper supports or contradicts the cited paper, not whether a specific claim within a paper is well-supported or contested. It has no confidence score decoupled from citation counts, no source independence check, no adversarial challenge, and no Decision Log. Epistamate's independent corroborator logic goes further: it validates independence of source family, not just whether a different paper exists. Scite is the closest conceptual analog in the practitioner market and worth monitoring closely.</div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-card-name">Undermind</div>
+      <div class="system-card-type">Commercial · Agentic academic research</div>
+      <p>Undermind runs autonomously for minutes to tens of minutes per query, performing iterative searching and reading rather than single-pass retrieval. It produces a research report with paper-level citations addressing questions from multiple angles and noting contradictions and methodological variation. GSK has deployed Undermind as the research-evidence layer of its AI Scientist stack, used by both AI agents and human researchers across target discovery and clinical development workflows.</p>
+      <div class="gap-note">Undermind is the closest analog to an evidence chain product among academic research tools. It is enterprise-facing in practice, entirely cloud-based, and has no per-claim scoring, no source independence verification, and no Decision Log. It also shows a capability limitation: it occasionally over-attributes relevance when initial prompts are too vague, because iterative retrieval without claim-level grounding can drift from the original question. The enterprise deployment at GSK confirms that serious research organisations want a system that iterates and challenges rather than single-pass retrieves. The question is whether they want claim-level scoring alongside it &mdash; which Undermind doesn't provide.</div>
+    </div>
+
+    <div class="system-card">
       <div class="system-card-name">DebateCV</div>
       <div class="system-card-type">Academic · Multi-agent adversarial verification</div>
       <p>DebateCV (published at ACM Web Conference 2026, WWW '26) is the closest academic parallel to Epistamate's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The peer-reviewed paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
@@ -452,6 +466,8 @@
             <th>FActScore</th>
             <th>GraphRAG</th>
             <th>Elicit</th>
+            <th>Scite</th>
+            <th>Undermind</th>
             <th>DebateCV</th>
             <th>MemGPT</th>
             <th class="ours">Epistamate</th>
@@ -463,6 +479,8 @@
             <td>Yes, atomic</td>
             <td>Partial</td>
             <td>Partial</td>
+            <td>Partial</td>
+            <td>No</td>
             <td>Yes</td>
             <td>No</td>
             <td class="ours">Yes</td>
@@ -470,6 +488,8 @@
           <tr>
             <td>Formula-computed confidence</td>
             <td>Retrieval-based</td>
+            <td>No</td>
+            <td>No</td>
             <td>No</td>
             <td>No</td>
             <td>No</td>
@@ -483,6 +503,8 @@
             <td>No</td>
             <td>No</td>
             <td>No</td>
+            <td>No</td>
+            <td>No</td>
             <td class="ours">Yes</td>
           </tr>
           <tr>
@@ -490,12 +512,16 @@
             <td>No</td>
             <td>No</td>
             <td>No</td>
+            <td>Partial</td>
+            <td>No</td>
             <td>Yes, core</td>
             <td>No</td>
             <td class="ours">Yes, mandatory</td>
           </tr>
           <tr>
             <td>Typed gap tracking</td>
+            <td>No</td>
+            <td>No</td>
             <td>No</td>
             <td>No</td>
             <td>No</td>
@@ -509,11 +535,15 @@
             <td>Partial</td>
             <td>No</td>
             <td>No</td>
+            <td>No</td>
+            <td>No</td>
             <td>Partial</td>
             <td class="ours">Yes</td>
           </tr>
           <tr>
             <td>Bidirectional operation</td>
+            <td>No</td>
+            <td>No</td>
             <td>No</td>
             <td>No</td>
             <td>No</td>
@@ -528,6 +558,8 @@
             <td>No</td>
             <td>No</td>
             <td>No</td>
+            <td>No</td>
+            <td>No</td>
             <td class="ours">Yes, immutable</td>
           </tr>
           <tr>
@@ -535,6 +567,8 @@
             <td>No</td>
             <td>Developer</td>
             <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes, enterprise</td>
             <td>No</td>
             <td>Developer</td>
             <td class="ours">Yes, desktop</td>
@@ -544,6 +578,8 @@
             <td>Limited</td>
             <td>Yes</td>
             <td>Partial (Pro)</td>
+            <td>No</td>
+            <td>No</td>
             <td>Limited</td>
             <td>Yes</td>
             <td class="ours">Yes</td>
@@ -574,7 +610,7 @@
   <!-- FIELD NOTE -->
   <div class="field-note">
     <div class="field-note-label">A note on pace</div>
-    <p>This page was last updated in June 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework (now a peer-reviewed paper published at WWW '26), the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Epistamate architecture paper. Microsoft Discovery reaching general availability at Build 2026 has updated the competitive picture for GraphRAG. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
+    <p>This page was last updated in July 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework (now a peer-reviewed paper published at WWW '26), the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Epistamate architecture paper. Microsoft Discovery reaching general availability at Build 2026 has updated the competitive picture for GraphRAG, with a desktop preview app now targeting researchers and academic labs directly. Scite and Undermind have been added to this page following a June 2026 landscape review. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
     <p style="margin-top:var(--space-m);font-size:0.92rem;color:var(--ink-3);">The researcher behind Epistamate also writes on AI governance, the EU AI Act, and enterprise AI strategy from a CIO perspective at <a href="https://abhishek-sinha-bgl.github.io" target="_blank" rel="noopener" style="color:var(--accent);">abhishek-sinha-bgl.github.io</a> — a separate series written for technology executives and boards.</p>
   </div>
 
