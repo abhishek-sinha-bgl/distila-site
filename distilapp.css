@@ -99,7 +99,8 @@ p { color: var(--ink-2); }
   flex-shrink: 0;
   text-decoration: none;
 }
-.nav-logo .logo-badge {
+.nav-logo .logo-badge,
+.nav-brand .logo-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +113,7 @@ p { color: var(--ink-2); }
   font-weight: 800;
   line-height: 1;
 }
-.nav-logo span { color: var(--ink); font-weight: 600; }
+.nav-logo span, .nav-brand span { color: var(--ink); font-weight: 600; }
 .nav-links {
   display: flex;
   gap: var(--space-m);
