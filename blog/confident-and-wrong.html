@@ -397,6 +397,21 @@
     <a href="peer-review-loop-breaking.html">The peer review loop is breaking &#8594;</a>
   </div>
 
+
+  <div class="faq-list" style="margin: var(--space-2xl) 0;">
+    <details class="faq-item">
+      <summary>Why does AI sound confident even when it's wrong?</summary>
+      <p>Language models generate text by predicting likely continuations, not by retrieving verified facts. Confident-sounding language is statistically common in their training data -- academic papers, news articles, and reference texts are written in declarative, assertive prose. The model reproduces that register regardless of whether the specific claim it is making is accurate.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can AI tell me how confident it is in an answer?</summary>
+      <p>AI tools can report a confidence level, but self-reported confidence is not a reliable indicator of accuracy. Research has consistently found a poor correlation between how confident a model says it is and how often it is actually correct. In some cases, extended reasoning or chain-of-thought prompting worsens calibration further -- the model becomes more confident and less accurate simultaneously.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What is AI calibration and why does it matter for research?</summary>
+      <p>Calibration refers to how well a model's expressed confidence matches its actual accuracy rate. A well-calibrated model that says it is 70% confident should be right about 70% of the time. Most language models are poorly calibrated -- they express high confidence too often and do not reliably distinguish between claims they have strong evidence for and claims they are effectively guessing. For research use, poor calibration means confidence scores cannot be used as a reliability signal.</p>
+    </details>
+  </div>
   <div class="article-about">
     <strong>Sources</strong> Overconfidence and cross-model epistemic uncertainty: MIT Schwarzman College of Computing, March 2026 (<a href="https://computing.mit.edu/news/a-better-method-for-identifying-overconfident-large-language-models/" target="_blank" rel="noopener">MIT Computing</a>). Confidence interval calibration and the FermiEval benchmark: Epstein et al. (2025), Stanford University, arXiv:2510.26995. Epistemic calibration and linguistic assertiveness divergence: Belem et al. (2024), arXiv:2411.06528 (USC, McGill, Berkeley, UCL). Static knowledge contamination and the KalshiBench benchmark: arXiv:2512.16030. EpiCaR calibrated reasoning training: arXiv:2601.06786. arXiv sanctions for hallucinated references: reported May 2026. Evidence ladder framework developed across this series of articles.
   </div>
