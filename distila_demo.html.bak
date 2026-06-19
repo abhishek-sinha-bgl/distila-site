@@ -98,45 +98,6 @@
     .suggested-q:hover { border-color: var(--accent); color: var(--accent); }
     .disclaimer { margin-top: var(--space-xl); padding: var(--space-m); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.8rem; color: var(--ink-4); line-height: 1.6; }
     @media (max-width: 600px) { .claim-header { grid-template-columns: 48px 1fr; } .claim-status-badge { display: none; } .demo-page { padding: var(--space-l) var(--space-m); } }
-
-    /* ── Cite Explorer ──────────────────────────────────────── */
-    .cite-explorer { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 2px solid var(--border); }
-    .cite-explorer-header { margin-bottom: var(--space-l); }
-    .cite-explorer-header .eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
-    .cite-explorer-header h2 { font-size: 1.4rem; font-family: var(--font-display); font-weight: 400; margin-bottom: 8px; }
-    .cite-explorer-header p { font-size: 0.875rem; color: var(--ink-3); max-width: 580px; line-height: 1.7; }
-    .cite-disclaimer { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-4); background: var(--paper-2); border: 1px solid var(--border); border-left: 3px solid var(--border-2); border-radius: 0 4px 4px 0; padding: 0.45rem 0.75rem; margin-top: 0.6rem; display: inline-block; }
-    .cite-input-row { display: flex; gap: 0.75rem; margin-bottom: var(--space-m); flex-wrap: wrap; align-items: flex-start; }
-    .cite-input-row textarea { flex: 1; min-width: 220px; padding: 12px 14px; font-family: var(--font-body); font-size: 0.9rem; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--paper); color: var(--ink); resize: vertical; min-height: 68px; transition: border-color 0.2s; line-height: 1.5; }
-    .cite-input-row textarea:focus { outline: none; border-color: var(--border-2); }
-    .cite-run-btn { padding: 12px 22px; background: var(--ink); color: #fff; font-size: 0.875rem; font-weight: 600; border: none; border-radius: var(--radius-m); cursor: pointer; transition: background 0.15s; font-family: var(--font-body); white-space: nowrap; }
-    .cite-run-btn:hover:not(:disabled) { background: var(--ink-2); }
-    .cite-run-btn:disabled { background: var(--border-2); cursor: not-allowed; }
-    .cite-status { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-3); background: var(--paper-2); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 0.8rem; margin-bottom: var(--space-m); display: flex; align-items: center; gap: 0.5rem; }
-    .cite-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: spin2 1.2s linear infinite; }
-    @keyframes spin2 { 0%,100%{opacity:1} 50%{opacity:0.2} }
-    .cite-status.done .cite-status-dot { background: var(--verified); animation: none; }
-    .cite-terms { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-m); }
-    .cite-term-chip { font-family: var(--font-mono); font-size: 0.7rem; background: var(--paper-3); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; color: var(--ink-3); }
-    .cite-table-wrap { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; background: #fff; }
-    .cite-table-header { padding: 0.55rem 0.9rem; background: var(--paper-2); border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-4); letter-spacing: 0.04em; display: flex; justify-content: space-between; align-items: center; }
-    .cite-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
-    .cite-table-wrap thead { background: var(--paper-2); border-bottom: 1px solid var(--border); }
-    .cite-table-wrap th { text-align: left; padding: 0.5rem 0.75rem; font-family: var(--font-mono); font-size: 0.67rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-4); font-weight: 500; }
-    .cite-table-wrap td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink-2); line-height: 1.4; }
-    .cite-table-wrap tr:last-child td { border-bottom: none; }
-    .cite-table-wrap tr:hover td { background: var(--paper); }
-    .cite-api-badge { font-family: var(--font-mono); font-size: 0.63rem; padding: 2px 6px; border-radius: 3px; font-weight: 500; letter-spacing: 0.02em; }
-    .cite-api-crossref { background: #e8f0fe; color: #3c5a9a; }
-    .cite-api-semanticscholar { background: #e6f4ea; color: #1a6e3a; }
-    .cite-api-openalex { background: #fef3e2; color: #8b5e0a; }
-    .cite-link { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); text-decoration: none; }
-    .cite-link:hover { text-decoration: underline; }
-    .cite-empty { padding: 2rem; text-align: center; color: var(--ink-4); font-size: 0.875rem; }
-    .cite-footer { margin-top: var(--space-m); font-size: 0.78rem; color: var(--ink-4); line-height: 1.7; }
-    .cite-footer a { color: var(--ink-3); text-decoration: underline; }
-    @media (max-width: 600px) { .cite-table-wrap th:nth-child(3), .cite-table-wrap td:nth-child(3),
-      .cite-table-wrap th:nth-child(4), .cite-table-wrap td:nth-child(4) { display: none; } }
   </style>
   <link rel="canonical" href="https://epistamate.com/distila_demo.html">
   <meta property="og:image" content="https://epistamate.com/og-image.png">
@@ -160,9 +121,9 @@
 
 <div class="demo-page">
   <div class="demo-header">
-    <div class="eyebrow">Interactive demo · DCBR Pipeline + Cite Explorer</div>
+    <div class="eyebrow">Interactive demo · DCBR Pipeline</div>
     <h1>See how Epistamate <em>scores a claim.</em></h1>
-    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief. Then use Cite Explorer below to surface candidate papers from three academic databases for the same question.</p>
+    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief, not a summary.</p>
   </div>
 
   <div class="input-section">
@@ -193,60 +154,6 @@
   </div>
 
   <div id="resultsArea" class="results-area" style="display:none;"></div>
-
-  <!-- ── Cite Explorer ─────────────────────────────────────── -->
-  <div class="cite-explorer" id="citeExplorer">
-    <div class="cite-explorer-header">
-      <div class="eyebrow">Cite Explorer · Open Academic APIs</div>
-      <h2>Find candidate papers</h2>
-      <p>Enter a claim or research question to surface related papers from CrossRef, Semantic Scholar, and OpenAlex. Results are unverified leads, not admitted evidence.</p>
-      <div class="cite-disclaimer">Candidate sources only. Evidence admission requires claim-span matching, source tier validation, and adversarial challenge.</div>
-    </div>
-
-    <div class="cite-input-row">
-      <textarea id="citeInput" placeholder="Enter a claim or research question..." maxlength="1000" rows="2"></textarea>
-      <button class="cite-run-btn" id="citeRunBtn" onclick="runCiteExplorer()">Find candidate papers</button>
-    </div>
-
-    <div class="cite-status" id="citeStatus" style="display:none">
-      <span class="cite-status-dot" id="citeStatusDot"></span>
-      <span id="citeStatusText"></span>
-    </div>
-
-    <div id="citeTermsWrap" style="display:none; margin-bottom:var(--space-m);">
-      <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px;">Search terms derived</div>
-      <div class="cite-terms" id="citeTerms"></div>
-    </div>
-
-    <div id="citeResultsWrap" style="display:none">
-      <div class="cite-table-wrap">
-        <div class="cite-table-header">
-          <span id="citeResultsCount"></span>
-          <span>Click titles or open links to view papers</span>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th style="width:32px">#</th>
-              <th>Title</th>
-              <th style="width:170px">Authors</th>
-              <th style="width:48px">Year</th>
-              <th style="width:80px">Source</th>
-              <th style="width:52px">Open</th>
-            </tr>
-          </thead>
-          <tbody id="citeResultsBody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div id="citeEmpty" class="cite-empty" style="display:none">No candidate papers found for this query. Try rephrasing with more specific terminology.</div>
-
-    <div class="cite-footer">
-      Sources: <a href="https://www.crossref.org" target="_blank" rel="noopener">CrossRef</a> &middot; <a href="https://www.semanticscholar.org" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a>. Queried directly from your browser. Results are deduplicated by DOI and title. <a href="engine.html">How Epistamate's evidence engine works.</a>
-    </div>
-  </div>
-
 
   <div class="disclaimer">
     <strong>About this demo:</strong> This demonstration simulates the Epistamate DCBR pipeline, showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
@@ -321,12 +228,6 @@ async function runPipeline() {
 
   btn.disabled = false;
   btn.textContent = 'Run DCBR Pipeline →';
-
-  // Pre-fill Cite Explorer with the same question
-  const citeInput = document.getElementById('citeInput');
-  if (citeInput && !citeInput.value.trim()) {
-    citeInput.value = question;
-  }
 }
 
 function renderLoading() {
@@ -510,236 +411,6 @@ function renderResults(question, r) {
         </button>
       </div>
     </div>`;
-}
-
-// ── Cite Explorer ────────────────────────────────────────────────
-const CITE_MAILTO = 'hello@epistamate.com';
-const CITE_DELAY = 600;
-let citeRunning = false;
-
-const CITE_STOPWORDS = new Set([
-  'a','an','the','and','or','but','in','on','at','to','for','of','with','by',
-  'from','is','are','was','were','be','been','being','have','has','had','do',
-  'does','did','will','would','could','should','may','might','shall','can',
-  'this','that','these','those','it','its','not','no','nor','so','if','then',
-  'than','too','very','just','about','above','after','again','all','also',
-  'any','because','before','between','both','each','few','more','most','other',
-  'some','such','into','over','own','same','through','under','until','up',
-  'while','only','now','find','here','there','how','what','when','where',
-  'who','whom','which','why','study','paper','research','article','review',
-  'based','using','used','approach','method','results','show','shown','new',
-  'one','two','first','well','however','need','way','make','like','time',
-]);
-
-const CITE_SEEDS = new Set([
-  'language','model','models','llm','llms','gpt','citation','citations',
-  'hallucination','hallucinations','fabricat','fabrication','fabricate',
-  'academic','integrity','scholarly','reference','references',
-  'generative','ai','artificial','intelligence','peer','misinformation',
-  'disinformation','bias','reliability','accuracy','verification',
-  'deep','learning','machine','neural','network','transformer',
-  'plagiarism','misconduct','factuality','source','sources',
-  'evidence','claim','claims','policy','regulatory','compliance','governance',
-  'calibration','confidence','uncertainty','reasoning','knowledge','graph',
-  'epistemic','provenance','traceability','audit','corroboration',
-  'medical','clinical','biomedical','legal','law','regulation','directive',
-  'carbon','climate','border','adjustment','mechanism','productivity',
-  'worker','work','week','impact','effectiveness','evaluation',
-]);
-
-function citeMatchesSeed(word) {
-  if (CITE_SEEDS.has(word)) return true;
-  for (const seed of CITE_SEEDS) {
-    if (seed.length >= 5 && word.length >= 5) {
-      if (word.startsWith(seed) || seed.startsWith(word)) return true;
-    }
-    if (seed.length <= 4 && word === seed) return true;
-  }
-  return false;
-}
-
-function citeExtractTerms(input) {
-  const tokens = input.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, ' ')
-    .split(/\s+/)
-    .filter(w => w.length > 2 && !CITE_STOPWORDS.has(w));
-
-  const matched = [];
-  const seen = new Set();
-  for (let i = 0; i < tokens.length; i++) {
-    if (citeMatchesSeed(tokens[i]) && !seen.has(tokens[i])) {
-      matched.push({ word: tokens[i], index: i });
-      seen.add(tokens[i]);
-    }
-  }
-
-  const phrases = [];
-  let i = 0;
-  while (i < matched.length && phrases.length < 4) {
-    if (i + 1 < matched.length && matched[i+1].index === matched[i].index + 1) {
-      phrases.push(matched[i].word + ' ' + matched[i+1].word);
-      i += 2;
-    } else { i += 1; }
-  }
-  if (matched.length >= 2) {
-    const comp = matched[0].word + ' ' + matched[1].word + ' research';
-    if (!phrases.includes(comp)) phrases.push(comp);
-  }
-  const fallback = phrases.length < 2 ? tokens.filter(w => w.length > 4).slice(0, 4) : phrases;
-  return [...new Set(fallback)].slice(0, 5);
-}
-
-function citeNormDoi(doi) {
-  if (!doi) return null;
-  return doi.replace(/^https?:\/\/doi\.org\//, '').toLowerCase().trim();
-}
-function citeNormTitle(t) {
-  return (t||'').toLowerCase().replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,' ').trim();
-}
-function citeDedup(arr) {
-  const seen = new Set(); const out = [];
-  for (const c of arr) {
-    const k = citeNormDoi(c.doi) || citeNormTitle(c.title);
-    if (!k || seen.has(k)) continue;
-    seen.add(k); out.push(c);
-  }
-  return out;
-}
-
-async function citeFetch(url) {
-  const resp = await fetch(url, { signal: AbortSignal.timeout(14000) });
-  if (!resp.ok) return [];
-  return resp.json();
-}
-
-async function citeCrossRef(term) {
-  try {
-    const d = await citeFetch(`https://api.crossref.org/works?query=${encodeURIComponent(term)}&rows=5&mailto=${CITE_MAILTO}&select=DOI,title,author,published,URL`);
-    return (d.message?.items||[]).map(item => {
-      const authors = (item.author||[]).map(a => ((a.given||'')+' '+(a.family||'')).trim()).filter(Boolean);
-      const year = item.published?.['date-parts']?.[0]?.[0] ?? null;
-      const doi = item.DOI || null;
-      return { title:(item.title||[])[0]||'', authors, year, doi, url: doi?`https://doi.org/${doi}`:(item.URL||null), sourceApi:'crossref' };
-    });
-  } catch { return []; }
-}
-
-async function citeS2(term) {
-  try {
-    const d = await citeFetch(`https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(term)}&limit=5&fields=title,authors,year,externalIds,openAccessPdf,url`);
-    return (d.data||[]).map(item => {
-      const authors = (item.authors||[]).map(a=>a.name||'').filter(Boolean);
-      const doi = item.externalIds?.DOI||null;
-      return { title:item.title||'', authors, year:item.year||null, doi, url:item.openAccessPdf?.url||(doi?`https://doi.org/${doi}`:item.url||null), sourceApi:'semanticscholar' };
-    });
-  } catch { return []; }
-}
-
-async function citeOpenAlex(term) {
-  try {
-    const d = await citeFetch(`https://api.openalex.org/works?search=${encodeURIComponent(term)}&per-page=5&mailto=${CITE_MAILTO}`);
-    return (d.results||[]).map(item => {
-      const authors = (item.authorships||[]).map(a=>a.author?.display_name||'').filter(Boolean);
-      const doi = item.doi ? item.doi.replace(/^https?:\/\/doi\.org\//, '') : null;
-      return { title:item.title||'', authors, year:item.publication_year||null, doi, url:item.open_access?.oa_url||(doi?`https://doi.org/${doi}`:null), sourceApi:'openalex' };
-    });
-  } catch { return []; }
-}
-
-function setCiteStatus(text, done=false) {
-  const b = document.getElementById('citeStatus');
-  const dot = document.getElementById('citeStatusDot');
-  b.style.display = 'flex';
-  b.className = 'cite-status' + (done ? ' done' : '');
-  document.getElementById('citeStatusText').textContent = text;
-}
-
-function citeBadge(api) {
-  const map = { crossref:['cite-api-crossref','CrossRef'], semanticscholar:['cite-api-semanticscholar','S2'], openalex:['cite-api-openalex','OpenAlex'] };
-  const [cls, label] = map[api]||['','?'];
-  return `<span class="cite-api-badge ${cls}">${label}</span>`;
-}
-
-function citeTrunc(s, n) { return s && s.length > n ? s.slice(0,n)+'…' : (s||''); }
-
-async function runCiteExplorer() {
-  const input = document.getElementById('citeInput').value.trim();
-  if (!input || citeRunning) return;
-  citeRunning = true;
-
-  document.getElementById('citeRunBtn').disabled = true;
-  document.getElementById('citeTermsWrap').style.display = 'none';
-  document.getElementById('citeResultsWrap').style.display = 'none';
-  document.getElementById('citeEmpty').style.display = 'none';
-
-  setCiteStatus('Extracting search terms...');
-
-  const terms = citeExtractTerms(input);
-
-  // Show terms
-  document.getElementById('citeTermsWrap').style.display = 'block';
-  document.getElementById('citeTerms').innerHTML = terms.map(t => `<span class="cite-term-chip">${t}</span>`).join('');
-
-  if (terms.length === 0) {
-    setCiteStatus('Could not extract search terms. Try more specific language.', true);
-    citeRunning = false;
-    document.getElementById('citeRunBtn').disabled = false;
-    return;
-  }
-
-  const all = [];
-  for (const term of terms) {
-    setCiteStatus(`Querying CrossRef for "${term}"...`);
-    const cr = await citeCrossRef(term);
-    all.push(...cr);
-    await delay(CITE_DELAY);
-    if (cr.length < 3) {
-      setCiteStatus(`Querying Semantic Scholar for "${term}"...`);
-      const s2 = await citeS2(term);
-      all.push(...s2);
-      await delay(CITE_DELAY);
-    }
-    const hits = all.filter(c => citeNormTitle(c.title).includes(citeNormTitle(term))).length;
-    if (hits < 3) {
-      setCiteStatus(`Querying OpenAlex for "${term}"...`);
-      const oa = await citeOpenAlex(term);
-      all.push(...oa);
-      await delay(CITE_DELAY);
-    }
-  }
-
-  const deduped = citeDedup(all);
-
-  if (deduped.length === 0) {
-    document.getElementById('citeEmpty').style.display = 'block';
-    setCiteStatus('No candidate papers found.', true);
-  } else {
-    document.getElementById('citeResultsCount').textContent = `${deduped.length} candidate papers`;
-    document.getElementById('citeResultsBody').innerHTML = deduped.map((c, i) => {
-      const authors = c.authors.length > 0
-        ? citeTrunc(c.authors.slice(0,2).join(', ') + (c.authors.length > 2 ? ' et al.' : ''), 38)
-        : '—';
-      const titleEl = c.url
-        ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="cite-link" style="font-family:var(--font-body);font-size:0.84rem;color:var(--ink);font-weight:500">${citeTrunc(c.title, 88)||'—'}</a>`
-        : `<span>${citeTrunc(c.title, 88)||'—'}</span>`;
-      const linkEl = c.url
-        ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="cite-link">open</a>`
-        : '<span style="color:var(--ink-4)">—</span>';
-      return `<tr>
-        <td style="font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-4);width:32px">${i+1}</td>
-        <td>${titleEl}</td>
-        <td style="font-size:0.78rem;color:var(--ink-3);max-width:170px">${authors}</td>
-        <td style="font-family:var(--font-mono);font-size:0.75rem;width:48px">${c.year??'—'}</td>
-        <td style="width:80px">${citeBadge(c.sourceApi)}</td>
-        <td style="width:52px">${linkEl}</td>
-      </tr>`;
-    }).join('');
-    document.getElementById('citeResultsWrap').style.display = 'block';
-    setCiteStatus(`Found ${deduped.length} candidate papers across CrossRef, Semantic Scholar, and OpenAlex.`, true);
-  }
-
-  citeRunning = false;
-  document.getElementById('citeRunBtn').disabled = false;
 }
 
 function esc(s) {
