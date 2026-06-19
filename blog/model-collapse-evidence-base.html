@@ -103,6 +103,37 @@
 
     <p>This creates a feedback loop. A model trained in 2023 produces content that appears on the web in 2024. A model trained on a 2024 web crawl ingests that content alongside human-authored material, treating the two as equivalent training signal. The 2024 model produces more content, which enters the 2025 crawl. Each generation of models trains partly on the outputs of its predecessors, amplifying whatever patterns, errors, and distortions those predecessors introduced.</p>
 
+
+  <figure class="article-diagram" style="margin: 3rem 0; text-align: center;">
+    <figcaption style="font-family: 'DM Mono', 'Courier New', monospace; font-size: 0.78rem; color: #888; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1.25rem;">The self-reinforcing contamination loop</figcaption>
+    <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 560px; width: 100%; height: auto; display: inline-block;" role="img" aria-label="Circular diagram showing AI model outputs entering the web, entering training crawls, and shaping the next model generation in a self-reinforcing loop">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#555"/></marker>
+        <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#c8432f"/></marker>
+      </defs>
+      <rect width="560" height="340" fill="#f3f1ee" rx="8"/>
+      <rect x="195" y="24" width="170" height="48" rx="6" fill="#faf9f7" stroke="#dedad4" stroke-width="1.5"/>
+      <text x="280" y="44" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f0f0f" text-anchor="middle">AI Model</text>
+      <text x="280" y="61" font-family="'DM Mono', 'Courier New', monospace" font-size="10" fill="#555" text-anchor="middle">generation N</text>
+      <rect x="390" y="144" width="148" height="48" rx="6" fill="#faf9f7" stroke="#dedad4" stroke-width="1.5"/>
+      <text x="464" y="164" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f0f0f" text-anchor="middle">Web Content</text>
+      <text x="464" y="181" font-family="'DM Mono', 'Courier New', monospace" font-size="10" fill="#555" text-anchor="middle">74% AI-generated</text>
+      <rect x="195" y="268" width="170" height="48" rx="6" fill="#faf9f7" stroke="#dedad4" stroke-width="1.5"/>
+      <text x="280" y="288" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f0f0f" text-anchor="middle">Training Crawl</text>
+      <text x="280" y="305" font-family="'DM Mono', 'Courier New', monospace" font-size="10" fill="#555" text-anchor="middle">cannot distinguish source</text>
+      <rect x="22" y="144" width="148" height="48" rx="6" fill="#faf9f7" stroke="#c8432f" stroke-width="1.5"/>
+      <text x="96" y="164" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f0f0f" text-anchor="middle">AI Model</text>
+      <text x="96" y="181" font-family="'DM Mono', 'Courier New', monospace" font-size="10" fill="#c8432f" text-anchor="middle">generation N+1 &#x2193;</text>
+      <path d="M 365 52 Q 464 52 464 144" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+      <path d="M 464 192 Q 464 292 365 292" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+      <path d="M 195 292 Q 96 292 96 192" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+      <path d="M 96 144 Q 96 48 195 48" stroke="#c8432f" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr-red)"/>
+      <text x="280" y="162" font-family="'DM Mono', 'Courier New', monospace" font-size="11" fill="#888" text-anchor="middle">R&#x2080; &gt; 1</text>
+      <text x="280" y="180" font-family="'DM Mono', 'Courier New', monospace" font-size="10" fill="#888" text-anchor="middle">self-reinforcing</text>
+    </svg>
+    <p style="font-family: 'Figtree', system-ui, sans-serif; font-size: 0.85rem; color: #888; margin-top: 0.75rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6;">Each model generation's outputs enter the web, enter the next training crawl, and shape the next model. The dashed red path marks where quality degrades.</p>
+  </figure>
+
     <p>The scale of synthetic content on the web is no longer speculative. Analysis published in 2025 documented that 74.2% of newly published web pages contain AI-generated material. The proportion is rising faster than human-authored content can dilute it. A paper published in April 2026 (arXiv:2606.05168) modelled this contamination using epidemiological SIR dynamics — the same framework used to model infectious disease spread — and found supercritical dynamics across three scenarios. The R0 value, the average number of new contaminated data points produced by each existing one, exceeds 1 in all cases. The contamination is self-reinforcing rather than self-limiting.</p>
 
     <div class="stat-row">
