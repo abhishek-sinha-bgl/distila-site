@@ -268,14 +268,7 @@
 
     <div id="resultsArea" class="results-area" style="display:none;"></div>
 
-    <!-- After pipeline runs: nudge to Cite Explorer -->
-    <div id="citeNudge" style="display:none;margin-top:var(--space-l);padding:var(--space-m);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-s);">
-      <div>
-        <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px;">Next step</div>
-        <div style="font-size:0.9rem;color:var(--ink-2);">Find candidate papers from CrossRef, Semantic Scholar, and OpenAlex for this question.</div>
-      </div>
-      <button class="btn-cite-jump" onclick="switchTab('cite');setTimeout(function(){if(!citeRunning)runCiteExplorer();},200);">Explore candidate papers →</button>
-    </div>
+
   </div>
 
   <!-- ── Cite Explorer panel ─────────────────────────────────── -->
@@ -418,8 +411,7 @@ async function runPipeline() {
   if (citeInput && !citeInput.value.trim()) {
     citeInput.value = question;
   }
-  const nudge = document.getElementById('citeNudge');
-  if (nudge) nudge.style.display = 'flex';
+
 }
 
 function renderLoading() {
