@@ -99,6 +99,62 @@
     .disclaimer { margin-top: var(--space-xl); padding: var(--space-m); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.8rem; color: var(--ink-4); line-height: 1.6; }
     @media (max-width: 600px) { .claim-header { grid-template-columns: 48px 1fr; } .claim-status-badge { display: none; } .demo-page { padding: var(--space-l) var(--space-m); } }
 
+
+    /* ── Tool tabs ──────────────────────────────────────────── */
+    .tool-tabs {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+      margin-bottom: var(--space-l);
+    }
+    .tool-tab {
+      flex: 1;
+      padding: 1.1rem 1.5rem;
+      background: var(--paper-2);
+      border: none;
+      border-right: 1px solid var(--border);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+      font-family: var(--font-body);
+    }
+    .tool-tab:last-child { border-right: none; }
+    .tool-tab:hover { background: var(--paper-3); }
+    .tool-tab.active {
+      background: var(--ink);
+      color: #fff;
+    }
+    .tool-tab-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+    }
+    .tool-tab-desc {
+      display: block;
+      font-size: 0.78rem;
+      opacity: 0.65;
+      font-family: var(--font-mono);
+    }
+    .tool-tab.active .tool-tab-desc { opacity: 0.7; }
+    .tool-panel { }
+    .btn-cite-jump {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: var(--radius-m);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .btn-cite-jump:hover { background: var(--ink-2); }
     /* ── Cite Explorer ──────────────────────────────────────── */
     .cite-explorer { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 2px solid var(--border); }
     .cite-explorer-header { margin-bottom: var(--space-l); }
@@ -165,64 +221,96 @@
 <div class="demo-page">
   <div class="demo-header">
     <div class="eyebrow">Interactive demo · DCBR Pipeline + Cite Explorer</div>
-    <h1>See how Epistamate <em>scores a claim.</em></h1>
-    <p>Enter a research question. The pipeline extracts claims, computes evidence-quality confidence scores, runs adversarial challenge, tracks gaps, and produces a structured brief. Then use Cite Explorer below to surface candidate papers from three academic databases for the same question.</p>
+    <h1>See how Epistamate <em>works.</em></h1>
+    <p>Two tools, one page. Score a claim against evidence-quality criteria, or surface candidate papers from three academic databases. Use one or both.</p>
   </div>
 
-  <div class="input-section">
-    <label class="input-label" for="researchQ">Research question</label>
-    <textarea class="question-input" id="researchQ" placeholder="e.g. What is the evidence base for carbon border adjustment mechanisms as a climate policy instrument?"></textarea>
+  <!-- ── Tool selector tabs ──────────────────────────────────── -->
+  <div class="tool-tabs" id="toolTabs">
+    <button class="tool-tab active" id="tabPipeline" onclick="switchTab('pipeline')">
+      <span class="tool-tab-label">DCBR Pipeline</span>
+      <span class="tool-tab-desc">Score a claim against evidence</span>
+    </button>
+    <button class="tool-tab" id="tabCite" onclick="switchTab('cite')">
+      <span class="tool-tab-label">Cite Explorer</span>
+      <span class="tool-tab-desc">Find candidate papers</span>
+    </button>
+  </div>
+
+  <!-- ── Pipeline panel ──────────────────────────────────────── -->
+  <div class="tool-panel" id="panelPipeline">
+    <div class="input-section">
+      <label class="input-label" for="researchQ">Research question</label>
+      <textarea class="question-input" id="researchQ" placeholder="e.g. What is the evidence base for carbon border adjustment mechanisms as a climate policy instrument?"></textarea>
+
+      <div style="margin-top:var(--space-s);">
+        <span class="input-label" style="display:inline;margin-right:8px;">Suggested questions →</span>
+        <div class="suggested-questions">
+          <div class="suggested-q">Carbon border adjustment mechanisms</div>
+          <div class="suggested-q">AI regulation effectiveness EU vs US</div>
+          <div class="suggested-q">Evidence base for four-day work week policies</div>
+          <div class="suggested-q">Generative AI impact on knowledge worker productivity</div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-m);">
+        <label class="input-label">Domain context</label>
+        <div class="domain-select" id="domainSelect">
+          <div class="domain-pill active" data-domain="general">General research</div>
+          <div class="domain-pill" data-domain="policy">Policy / Think tank</div>
+          <div class="domain-pill" data-domain="consulting">Consulting</div>
+          <div class="domain-pill" data-domain="regulatory">Regulatory / Compliance</div>
+        </div>
+      </div>
+
+      <button class="run-btn" id="runBtn" onclick="runPipeline()">Run DCBR Pipeline →</button>
+    </div>
+
+    <div id="resultsArea" class="results-area" style="display:none;"></div>
+
+    <!-- After pipeline runs: nudge to Cite Explorer -->
+    <div id="citeNudge" style="display:none;margin-top:var(--space-l);padding:var(--space-m);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-s);">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px;">Next step</div>
+        <div style="font-size:0.9rem;color:var(--ink-2);">Find candidate papers from CrossRef, Semantic Scholar, and OpenAlex for this question.</div>
+      </div>
+      <button class="btn-cite-jump" onclick="switchTab('cite');setTimeout(function(){if(!citeRunning)runCiteExplorer();},200);">Explore candidate papers →</button>
+    </div>
+  </div>
+
+  <!-- ── Cite Explorer panel ─────────────────────────────────── -->
+  <div class="tool-panel" id="panelCite" style="display:none">
+    <div class="cite-explorer-header">
+      <p style="font-size:0.9rem;color:var(--ink-3);line-height:1.7;margin-bottom:0.75rem;">Enter a claim or research question to surface related papers from CrossRef, Semantic Scholar, and OpenAlex. Results are unverified leads, not admitted evidence.</p>
+      <div class="cite-disclaimer">Candidate sources only. Evidence admission requires claim-span matching, source tier validation, and adversarial challenge.</div>
+    </div>
+
+    <div class="cite-input-row" style="margin-top:var(--space-m);">
+      <textarea id="citeInput" placeholder="e.g. Large language models fabricate academic citations at high rates..." maxlength="1000" rows="2"></textarea>
+      <button class="cite-run-btn" id="citeRunBtn" onclick="runCiteExplorer()">Find candidate papers</button>
+    </div>
 
     <div style="margin-top:var(--space-s);">
       <span class="input-label" style="display:inline;margin-right:8px;">Suggested questions →</span>
       <div class="suggested-questions">
-        <div class="suggested-q">Carbon border adjustment mechanisms</div>
-        <div class="suggested-q">AI regulation effectiveness EU vs US</div>
-        <div class="suggested-q">Evidence base for four-day work week policies</div>
-        <div class="suggested-q">Generative AI impact on knowledge worker productivity</div>
+        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">Carbon border adjustment mechanisms</div>
+        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">AI regulation effectiveness EU vs US</div>
+        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">LLM hallucination research integrity</div>
+        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">Generative AI knowledge worker productivity</div>
       </div>
     </div>
 
-    <div style="margin-top:var(--space-m);">
-      <label class="input-label">Domain context</label>
-      <div class="domain-select" id="domainSelect">
-        <div class="domain-pill active" data-domain="general">General research</div>
-        <div class="domain-pill" data-domain="policy">Policy / Think tank</div>
-        <div class="domain-pill" data-domain="consulting">Consulting</div>
-        <div class="domain-pill" data-domain="regulatory">Regulatory / Compliance</div>
-      </div>
-    </div>
-
-    <button class="run-btn" id="runBtn" onclick="runPipeline()">Run DCBR Pipeline →</button>
-  </div>
-
-  <div id="resultsArea" class="results-area" style="display:none;"></div>
-
-  <!-- ── Cite Explorer ─────────────────────────────────────── -->
-  <div class="cite-explorer" id="citeExplorer" style="display:none">
-    <div class="cite-explorer-header">
-      <div class="eyebrow">Cite Explorer · Open Academic APIs</div>
-      <h2>Find candidate papers</h2>
-      <p>Enter a claim or research question to surface related papers from CrossRef, Semantic Scholar, and OpenAlex. Results are unverified leads, not admitted evidence.</p>
-      <div class="cite-disclaimer">Candidate sources only. Evidence admission requires claim-span matching, source tier validation, and adversarial challenge.</div>
-    </div>
-
-    <div class="cite-input-row">
-      <textarea id="citeInput" placeholder="Enter a claim or research question..." maxlength="1000" rows="2"></textarea>
-      <button class="cite-run-btn" id="citeRunBtn" onclick="runCiteExplorer()">Find candidate papers</button>
-    </div>
-
-    <div class="cite-status" id="citeStatus" style="display:none">
+    <div class="cite-status" id="citeStatus" style="display:none;margin-top:var(--space-m);">
       <span class="cite-status-dot" id="citeStatusDot"></span>
       <span id="citeStatusText"></span>
     </div>
 
-    <div id="citeTermsWrap" style="display:none; margin-bottom:var(--space-m);">
+    <div id="citeTermsWrap" style="display:none;margin:var(--space-m) 0 var(--space-s);">
       <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px;">Search terms derived</div>
       <div class="cite-terms" id="citeTerms"></div>
     </div>
 
-    <div id="citeResultsWrap" style="display:none">
+    <div id="citeResultsWrap" style="display:none;margin-top:var(--space-m);">
       <div class="cite-table-wrap">
         <div class="cite-table-header">
           <span id="citeResultsCount"></span>
@@ -246,11 +334,10 @@
 
     <div id="citeEmpty" class="cite-empty" style="display:none">No candidate papers found for this query. Try rephrasing with more specific terminology.</div>
 
-    <div class="cite-footer">
+    <div class="cite-footer" style="margin-top:var(--space-l);">
       Sources: <a href="https://www.crossref.org" target="_blank" rel="noopener">CrossRef</a> &middot; <a href="https://www.semanticscholar.org" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a>. Queried directly from your browser. Results are deduplicated by DOI and title. <a href="engine.html">How Epistamate's evidence engine works.</a>
     </div>
   </div>
-
 
   <div class="disclaimer">
     <strong>About this demo:</strong> This demonstration simulates the Epistamate DCBR pipeline, showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real document ingestion and retrieval.
@@ -326,11 +413,13 @@ async function runPipeline() {
   btn.disabled = false;
   btn.textContent = 'Run DCBR Pipeline →';
 
-  // Pre-fill Cite Explorer (keep hidden until button clicked)
+  // Pre-fill Cite Explorer and show nudge
   const citeInput = document.getElementById('citeInput');
   if (citeInput && !citeInput.value.trim()) {
     citeInput.value = question;
   }
+  const nudge = document.getElementById('citeNudge');
+  if (nudge) nudge.style.display = 'flex';
 }
 
 function renderLoading() {
@@ -672,6 +761,23 @@ function citeBadge(api) {
 }
 
 function citeTrunc(s, n) { return s && s.length > n ? s.slice(0,n)+'…' : (s||''); }
+
+function switchTab(tab) {
+  const isPipeline = tab === 'pipeline';
+  document.getElementById('tabPipeline').className = 'tool-tab' + (isPipeline ? ' active' : '');
+  document.getElementById('tabCite').className = 'tool-tab' + (!isPipeline ? ' active' : '');
+  document.getElementById('panelPipeline').style.display = isPipeline ? 'block' : 'none';
+  document.getElementById('panelCite').style.display = !isPipeline ? 'block' : 'none';
+  // If switching to cite and input is empty but pipeline question exists, pre-fill
+  if (!isPipeline) {
+    const pipelineQ = document.getElementById('researchQ').value.trim();
+    const citeInput = document.getElementById('citeInput');
+    if (pipelineQ && !citeInput.value.trim()) {
+      citeInput.value = pipelineQ;
+    }
+  }
+}
+
 
 async function runCiteExplorer() {
   const input = document.getElementById('citeInput').value.trim();
