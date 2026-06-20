@@ -4,12 +4,6 @@
       "source": "/distila_demo.html",
       "destination": "/epistamate_demo.html",
       "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.epistamate.com" }],
-      "destination": "https://epistamate.com/:path*",
-      "permanent": true
     }
   ]
 }
