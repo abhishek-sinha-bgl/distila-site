@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://epistamate.com/sitemap.xml
+
+# cache-bust
