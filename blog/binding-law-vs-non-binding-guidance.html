@@ -100,9 +100,9 @@
 
   <div class="article-body">
 
-    <p>This is not a retrieval failure. The documents are found. The problem is that the tool has no architecture for distinguishing between them -- and in policy and compliance work, that distinction is where legal risk lives.</p>
+    <p>This is not primarily a retrieval failure. The documents are found. The problem is that the tool has no architecture for distinguishing between them -- and in policy and compliance work, that distinction is where legal risk lives.</p>
 
-    <h2>The distinction is not subtle</h2>
+    <h2>The distinction is fundamental</h2>
 
     <p>A binding legal instrument creates enforceable obligations. Violation carries defined consequences: fines, injunctions, liability, disqualification. It applies to specific actors within a defined scope and does not require agreement or adoption to be effective. It is simply law.</p>
 
@@ -156,9 +156,9 @@
 
     <p>The EU is not unusual here. It is the most developed example of a pattern that repeats across every major AI governance jurisdiction.</p>
 
-    <p>The UK's approach has been explicitly sector-by-sector and principles-based, with no single binding AI law as of mid-2026. The ICO, FCA, and CMA each issue guidance in their domains. That guidance carries weight -- but it is interpretive, not legislative. A researcher treating FCA AI guidance as equivalent in force to a statutory requirement has made an error that will not be visible in the output.</p>
+    <p>The UK's approach has been explicitly sector-by-sector and principles-based, with no single, comprehensive binding AI law as of mid-2026. The ICO, FCA, and CMA each issue guidance in their domains. That guidance carries weight -- but it is interpretive, not legislative. A researcher treating FCA AI guidance as equivalent in force to a statutory requirement has made an error that will not be visible in the output.</p>
 
-    <p>The OECD AI Principles have been adopted by 42 countries. They are not binding on any of them. The G7 Hiroshima AI Process produced a Code of Conduct. It is voluntary. The UNESCO Recommendation on the Ethics of AI is a recommendation -- the word is in the title.</p>
+    <p>The OECD AI Principles have been adopted by 47 countries. They are not binding on any of them. The G7 Hiroshima AI Process produced a Code of Conduct. It is voluntary. The UNESCO Recommendation on the Ethics of AI is a recommendation -- the word is in the title.</p>
 
     <p>Singapore's Model AI Governance Framework is widely cited as an influential document. It is a framework. It describes what responsible practice looks like. It does not create obligations. The distinction between it and Singapore's actual legislative instruments -- the Personal Data Protection Act and sector-specific MAS guidance -- is material for any organisation assessing its legal exposure.</p>
 
@@ -226,6 +226,50 @@
     </table>
 
     <p>Collapsing these into a single pile of "relevant documents" and surfacing them by semantic similarity produces outputs that are confidently wrong about things that matter in practice. The language of a brief built on that output will overstate legal obligations where guidance is voluntary, or understate them where statutory force is strong.</p>
+
+    <h2>A note on the grey zone</h2>
+
+    <p>Non-binding instruments are not without consequence, and the critique here is not that guidance is unimportant. Regulators apply it, courts reference it when interpreting binding rules, and an organisation that systematically ignores widely adopted Codes of Practice exposes itself to reputational and enforcement risk even without a direct legal breach. Voluntary instruments can and do "harden" over time into practical requirements. The GPAI Code of Practice is a clear example: technically optional, but its safe harbour effect means that organisations not following it bear a higher evidential burden in enforcement proceedings.</p>
+
+    <p>The point is not that non-binding guidance is irrelevant. It is that the distinction matters for assessing what an organisation is legally required to do -- and that most AI research tools do not make it.</p>
+
+    <h2>How to identify the instrument you are reading</h2>
+
+    <p>For practitioners navigating AI governance research, a four-step check establishes legal force before relying on any document.</p>
+
+    <table class="instrument-table">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Question</th>
+          <th>Binding signal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Title</strong></td>
+          <td>Is it a Regulation, Directive, or Decision?</td>
+          <td class="force-binding">Yes &rarr; binding under Article 288 TFEU</td>
+        </tr>
+        <tr>
+          <td><strong>2. Legal basis</strong></td>
+          <td>Is it adopted under a provision that confers binding authority?</td>
+          <td class="force-soft">Check the recitals and adoption process</td>
+        </tr>
+        <tr>
+          <td><strong>3. Modal verbs</strong></td>
+          <td>Does the text use "shall" / "must" or "should" / "may"?</td>
+          <td class="force-binding">"Shall" / "must" = binding obligation</td>
+        </tr>
+        <tr>
+          <td><strong>4. Consequences</strong></td>
+          <td>Does the document specify fines, penalties, or sanctions?</td>
+          <td class="force-soft">Absent consequences = likely non-binding</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>This check takes thirty seconds on any document. An AI research tool performing semantic retrieval applies none of it.</p>
 
     <h2>The accountability question</h2>
 
