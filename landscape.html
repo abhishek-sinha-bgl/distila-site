@@ -170,12 +170,15 @@
     /* Comparison table */
     .comp-wrapper {
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       margin: var(--space-xl) 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
     }
 
     .lp-table {
       width: 100%;
-      min-width: 560px;
+      min-width: 900px;
       border-collapse: collapse;
       font-size: 0.825rem;
     }
@@ -191,9 +194,18 @@
       white-space: nowrap;
     }
 
+    .lp-table th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--paper-2);
+      border-right: 2px solid var(--border-2);
+    }
+
     .lp-table th.ours {
       background: var(--ink);
       color: var(--paper);
+      min-width: 160px;
     }
 
     .lp-table td {
@@ -208,6 +220,12 @@
       color: var(--ink-2);
       font-weight: 500;
       font-size: 0.825rem;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: var(--paper);
+      border-right: 2px solid var(--border-2);
+      white-space: nowrap;
     }
 
     .lp-table td.ours {
@@ -219,6 +237,7 @@
     }
 
     .lp-table tr:nth-child(even) td { background: var(--paper-2); }
+    .lp-table tr:nth-child(even) td:first-child { background: var(--paper-2); }
     .lp-table tr:nth-child(even) td.ours { background: rgba(200,67,47,0.08); }
 
     /* Timestamp note */
