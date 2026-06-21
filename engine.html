@@ -99,6 +99,43 @@
   </div>
 </section>
 
+<!-- EVIDENCE POSTURE -->
+<section class="diff-section" id="evidence-posture">
+  <div class="section-inner">
+    <div class="section-tag">Evidence posture</div>
+    <h2>Not every source that supports a query<br><em>supports a finding.</em></h2>
+    <p style="max-width:var(--text-w);margin-top:var(--space-s);color:var(--ink-3);">The hardest problem in evidence-based research is not retrieval. It is the gap between what a source says and what a claim needs it to prove. A topically relevant source is not the same as a supporting source. A supporting source is not the same as an independently corroborating one. Most research tools collapse these distinctions. The engine does not.</p>
+
+    <div class="hallucination-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:var(--space-xl);">
+      <div class="hal-card" style="border-top:3px solid var(--accent);">
+        <div class="hal-icon" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;">Strict / Findings</div>
+        <h3>Established. Reference-eligible.</h3>
+        <p>Claims that have survived adversarial challenge, passed source credibility gates, and achieved independent corroboration from sources with no shared citation lineage. These are the claims the brief can stand behind. The gate is deliberately hard. Zero strict findings is a correct output when the evidence does not warrant them.</p>
+      </div>
+      <div class="hal-card" style="border-top:3px solid var(--ink-3);">
+        <div class="hal-icon" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">Qualified Evidence</div>
+        <h3>Credible. Contextually useful. Not yet strict.</h3>
+        <p>Evidence that is relevant and sourced but does not yet meet the bar for a formal finding. A single high-quality source. A source that partially supports the claim. A finding from a constrained study presented in a broader context. Surfaced explicitly so the analyst knows what it is and is not.</p>
+      </div>
+      <div class="hal-card" style="border-top:3px solid var(--border-2);">
+        <div class="hal-icon" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-4);letter-spacing:0.1em;text-transform:uppercase;">Explore / Leads</div>
+        <h3>Signals. Directions. Not evidence.</h3>
+        <p>Background material, metadata-only records, vendor claims, adjacent literature. Useful for orienting a research direction. Not eligible for the findings layer. The engine labels these explicitly rather than mixing them into the output and letting the analyst mistake noise for signal.</p>
+      </div>
+    </div>
+
+    <div class="hal-card" style="margin-top:var(--space-m);border-left:3px solid var(--accent);border-color:var(--accent);">
+      <h3 style="color:var(--accent);">Fail-closed by design</h3>
+      <p>When evidence does not meet admission standards, the engine fails closed. It does not lower the threshold to produce output. It does not present qualified evidence as a finding. It does not fabricate references to fill a gap. A brief that clearly separates what is established from what is provisional is more useful than one that presents everything with equal confidence. The gaps are typed, rated, and visible. They are part of the output, not an absence of it.</p>
+    </div>
+
+    <div style="margin-top:var(--space-xl);padding:var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);max-width:var(--text-w);">
+      <div class="section-tag" style="margin-bottom:var(--space-s);">Where the field has struggled</div>
+      <p style="color:var(--ink-3);line-height:1.75;">The research community working on automated claim verification has converged on the same diagnosis: the bottleneck is not acquiring sources. It is determining what a fetched source actually says about a specific claim. Academic papers use different terminology from the query. They qualify findings. They describe methods alongside results. A system that treats topical relevance as evidential support will surface plausible-looking material that does not, on close reading, warrant the claim it appears to support. The engine is designed around this bottleneck, not around retrieval volume.</p>
+    </div>
+  </div>
+</section>
+
 <!-- USE CASES -->
 <section class="diff-section" id="domains">
   <div class="section-inner">

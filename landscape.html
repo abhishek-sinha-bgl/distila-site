@@ -331,7 +331,7 @@
 
   <h1 class="lp-title">The research landscape</h1>
 
-  <p class="lp-standfirst">This field is moving fast. The account below reflects what we know as of May 2026 and will become incomplete. We think that is a reason to be precise about what we claim and what we don't, not a reason to avoid the question.</p>
+  <p class="lp-standfirst">This field is moving fast. The account below reflects what we know as of June 2026 and will become incomplete. We think that is a reason to be precise about what we claim and what we don't, not a reason to avoid the question.</p>
 
 
   <!-- SECTION 1 -->
@@ -438,6 +438,22 @@
       <p>MACI's calibration results show that information quality gating, combined with scheduled adversarial intensity, reduces calibration error (ECE 0.081 vs 0.103) compared to fixed-stance debate. This is the strongest academic evidence so far that the architectural pattern Epistamate uses for its adversarial challenge stage is the right one.</p>
 
       <p>None of these papers know about Epistamate. They are working on adjacent problems in academic settings. The convergence is the point. When independent groups reach similar conclusions about what the architecture needs to look like, it suggests the architecture is pointed in the right direction.</p>
+    </div>
+  </div>
+
+  <!-- OPEN PROBLEMS -->
+  <div class="lp-section">
+    <div class="lp-section-label">Open problems in the field</div>
+    <h2 class="lp-h2">The hard problem is at the <em>claim-evidence interface</em></h2>
+
+    <div class="lp-body">
+      <p>Independent research groups working on automated fact verification and claim verification have converged on a specific diagnosis of where the field has struggled. The bottleneck is not retrieval. It is the step between finding a source and determining what that source actually says about a specific claim.</p>
+
+      <p>Several distinct problems cluster at this interface. First, academic and policy sources use different terminology from the claims being researched. A system that matches lexically will miss relevant evidence that paraphrases, qualifies, or uses domain-specific synonyms for the same concept. Second, sources that are topically relevant are not necessarily evidentially relevant. A paper about AI in healthcare is not automatically evidence for a claim about AI diagnostic accuracy in emergency settings. Third, a source that supports part of a compound claim is not the same as a source that supports the whole claim. Fourth, two sources that both cite the same seminal paper are not independent corroborators, even if they reach similar conclusions.</p>
+
+      <p>The research literature addressing these problems has developed a consistent set of architectural recommendations: decompose compound claims into atomic units before attempting to verify them; classify the relationship between a source span and a claim (supports, partially supports, qualifies, contradicts, background only, method context) rather than treating evidence as binary; seek contradicting evidence deliberately rather than only accumulating support; and verify that corroborating sources are genuinely independent rather than tracing back to the same origin.</p>
+
+      <p>These are unsolved problems in the field in the sense that no production research tool has fully addressed them. They are not unsolved in the sense of being intractable. The architectural pattern required is understood. What is missing is its implementation in a practitioner-facing system that maintains the provenance discipline and fail-closed behaviour that professional use requires. This is the problem Epistamate is building toward.</p>
     </div>
   </div>
 
