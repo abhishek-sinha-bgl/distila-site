@@ -124,7 +124,9 @@
 
     <p>None of this produces an obviously wrong output. The citations are real. The papers exist. A reader who does not go back to the source text has no way to know that provenance coverage is high while provenance soundness is low.</p>
 
-    <p>This is not a hypothetical failure mode. It is a consequence of how most AI research tools are architected. The retrieval step finds relevant documents. The synthesis step generates claims grounded in those documents. The citation step attaches document references to claims. What is missing is a step that checks, at the passage level, whether the specific text in the cited document actually entails the specific claim being made. That step is what the AAR paper calls provenance soundness, and it is what most tools omit.</p>
+    <p>This is not a hypothetical. A June 2026 benchmark study by Jeong (arXiv 2606.21959) tested current frontier AI agents -- including Gemini-3-Pro, Opus-4.7, and GPT-5.5 -- against 12,553 unsolved biomedical research questions across twelve domains. The finding: agents resolved over 99% of cited URLs correctly, yet approximately 15.9% of those citations linked to papers that did not support the claim being made. The benchmark was specifically designed to prevent models from reproducing expected sources from answer keys -- every question was open and unsolved, forcing genuine retrieval rather than pattern-matching. URL resolution scored near perfect. Evidence support failed at roughly one in six citations. The domain is biomedical, and the rate may not transfer directly to other fields, but the failure mode is architectural, not domain-specific.</p>
+
+    <p>This is a consequence of how most AI research tools are architected. The retrieval step finds relevant documents. The synthesis step generates claims grounded in those documents. The citation step attaches document references to claims. What is missing is a step that checks, at the passage level, whether the specific text in the cited document actually entails the specific claim being made. That step is what the AAR paper calls provenance soundness, and it is what most tools omit.</p>
 
     <h2>Why fluency makes this harder to catch</h2>
 
@@ -180,13 +182,17 @@
       <p>The term comes from Rasheed et al. (arXiv 2602.13855) and describes the accumulation of AI-generated research outputs that pass surface-level checks -- citation existence, topical relevance, fluent prose -- while the underlying claim-evidence links are fragile or absent. Scientific pollution is harder to detect than outright fabrication because the sources are real and the outputs read like scholarship. The problem is that the citations are not doing the evidentiary work they appear to do.</p>
     </details>
     <details class="faq-item">
+      <summary>What does the 15.9% wrong-paper citation rate actually mean?</summary>
+      <p>A June 2026 benchmark study (Jeong, arXiv 2606.21959) tested frontier AI agents on 12,553 unsolved biomedical research questions and found that while over 99% of cited URLs resolved to real papers, approximately 15.9% of those citations linked to papers that did not support the claim being made. The study used open, unsolved questions specifically to prevent models from reproducing expected sources from answer keys -- forcing genuine retrieval. The domain is biomedical and the rate may differ in other fields, but the failure mode -- citations that resolve but do not support -- is not domain-specific. It is a property of how retrieval-augmented generation works when provenance soundness is not architecturally enforced.</p>
+    </details>
+    <details class="faq-item">
       <summary>What are the four AAR metrics for evaluating AI research tool auditability?</summary>
       <p>The Auditable Autonomous Research (AAR) standard proposed in Rasheed et al. (2026) defines four metrics: provenance coverage (does each claim have a traceable source?), provenance soundness (does the source text actually entail the claim?), contradiction transparency (does the tool surface conflicts between sources rather than suppressing them?), and audit effort (how long does it take a human to verify a claim from the evidence trail?). Together these metrics make auditability measurable rather than aspirational.</p>
     </details>
   </div>
 
   <div class="article-about">
-    <strong>Sources</strong> Rasheed, R. A., Banerjee, S., Mukherjee, A., and Hazra, R. (2026). From Fluent to Verifiable: Claim-Level Auditability for Deep Research Agents. arXiv:2602.13855. Published 14 February 2026.
+    <strong>Sources</strong> Rasheed, R. A., Banerjee, S., Mukherjee, A., and Hazra, R. (2026). From Fluent to Verifiable: Claim-Level Auditability for Deep Research Agents. arXiv:2602.13855. Published 14 February 2026. — Jeong, M. (2026). OpenBioRQ: Unsolved Biomedical Research Questions for Agents. arXiv:2606.21959. Published 20 June 2026.
   </div>
 
   <div class="article-footer-nav">
