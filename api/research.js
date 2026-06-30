@@ -256,8 +256,12 @@ export default async function handler(req, res) {
     'Rules: ' + rules,
   ].join('\n');
 
-  // Call Groq
-  try {
+  // Call Groq — primary model, with a fallback if the upstream call fails
+  // for a non-rate-limit reason (model outage, deprecation, transient error).
+  const PRIMARY_MODEL  = 'openai/gpt-oss-120b'; // officially recommended successor to llama-3.3-70b-versatile (deprecated 2026-06-17)
+  const FALLBACK_MODEL = 'openai/gpt-oss-20b';  // smaller sibling, same family, same JSON-mode handling
+
+  async function callGroq(model) {
     const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -265,10 +269,14 @@ export default async function handler(req, res) {
         'Authorization': 'Bearer ' + process.env.GROQ_API_KEY,
       },
       body: JSON.stringify({
-        model: 'openai/gpt-oss-20b',
+        model,
         temperature: 0.3,
-        max_tokens: 2500,
+        max_completion_tokens: 3000, // gpt-oss models consume some budget on internal reasoning even with include_reasoning:false
         response_format: { type: 'json_object' },
+        // GPT-OSS reasoning models: reasoning_format is NOT supported on these models (Groq docs).
+        // include_reasoning:false is the documented way to keep chain-of-thought out of the response
+        // and avoid the known JSON-mode/reasoning interaction issues with this model family.
+        include_reasoning: false,
         messages: [
           {
             role: 'system',
@@ -281,10 +289,25 @@ export default async function handler(req, res) {
         ],
       }),
     });
+    return groqRes;
+  }
+
+  try {
+    let groqRes = await callGroq(PRIMARY_MODEL);
+    let usedModel = PRIMARY_MODEL;
+
+    // If the primary model fails for a non-rate-limit reason, try the fallback once.
+    if (!groqRes.ok && groqRes.status !== 429) {
+      const firstErrText = await groqRes.text().catch(() => '');
+      console.error('Groq primary model error', PRIMARY_MODEL, groqRes.status, firstErrText.slice(0, 300));
+
+      groqRes = await callGroq(FALLBACK_MODEL);
+      usedModel = FALLBACK_MODEL;
+    }
 
     if (!groqRes.ok) {
       const errText = await groqRes.text().catch(() => '');
-      console.error('Groq error', groqRes.status, errText.slice(0, 200));
+      console.error('Groq error', usedModel, groqRes.status, errText.slice(0, 300));
       if (groqRes.status === 429) {
         return res.status(429).json({
           error: 'The demo is experiencing high demand. Please try again in a moment.',
@@ -330,6 +353,8 @@ export default async function handler(req, res) {
       const strong = parsed.decision_log.verified_count + parsed.decision_log.contested_count;
       parsed.decision_log.snr = total > 0 ? parseFloat((strong / total).toFixed(2)) : 0;
     }
+
+    parsed._engine_model = usedModel; // for debugging only; strip from UI rendering if not wanted user-facing
 
     return res.status(200).json(parsed);
 

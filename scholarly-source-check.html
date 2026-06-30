@@ -80,8 +80,90 @@
     .ssc-hook p { color: #bbb; font-size: 0.92rem; line-height: 1.7; margin-bottom: var(--space-m); max-width: 600px; }
     @media (max-width: 600px) { .ssc-table-wrap th:nth-child(3), .ssc-table-wrap td:nth-child(3),
       .ssc-table-wrap th:nth-child(4), .ssc-table-wrap td:nth-child(4) { display: none; } }
+
+    /* ── Busy-state feedback ─────────────────────────────────────────── */
+    body.ssc-busy { cursor: progress; }
+    body.ssc-busy .ssc-mode-tab,
+    body.ssc-busy .ssc-example-chip { pointer-events: none; opacity: 0.5; }
+    .ssc-btn-spinner { display: inline-block; width: 11px; height: 11px; border: 2px solid rgba(255,255,255,0.32);
+      border-top-color: #fff; border-radius: 50%; animation: sscbtnspin 0.7s linear infinite;
+      margin-right: 7px; vertical-align: -1px; }
+    @keyframes sscbtnspin { to { transform: rotate(360deg); } }
+
+    /* ── Provider status row ─────────────────────────────────────────── */
+    .ssc-provider-status { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .ssc-provider-pill { font-family: var(--font-mono); font-size: 0.68rem; padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--border); color: var(--ink-4); background: var(--paper-2); }
+    .ssc-provider-pill.ok { color: var(--verified, #1a6e3a); border-color: rgba(26,110,58,0.3); }
+    .ssc-provider-pill.error { color: #a33; border-color: rgba(170,51,51,0.3); background: #fdf2f2; }
+    .ssc-provider-pill.skipped { opacity: 0.6; }
+
+    /* ── Verdict check (per-row) ─────────────────────────────────────── */
+    .ssc-verdict-btn { font-family: var(--font-mono); font-size: 0.68rem; padding: 3px 9px; border: 1px solid var(--border);
+      border-radius: 4px; background: var(--paper); color: var(--ink-3); cursor: pointer; white-space: nowrap; }
+    .ssc-verdict-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--ink); }
+    .ssc-verdict-btn:disabled { cursor: progress; opacity: 0.7; }
+    .ssc-verdict-row { display: none; }
+    .ssc-verdict-row.show { display: table-row; }
+    .ssc-verdict-cell { padding: 0.7rem 0.8rem 0.9rem; background: var(--paper-2); border-bottom: 1px solid var(--border); }
+    .ssc-verdict-pill { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+      padding: 3px 9px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px; }
+    .ssc-verdict-pill.supports { background: #e6f4ea; color: #1a6e3a; }
+    .ssc-verdict-pill.partial { background: #fef3e2; color: #8b5e0a; }
+    .ssc-verdict-pill.overstated { background: #fef3e2; color: #8b5e0a; }
+    .ssc-verdict-pill.contradicts { background: #fde8e8; color: #a33; }
+    .ssc-verdict-pill.unverifiable { background: var(--paper-3); color: var(--ink-4); }
+    .ssc-verdict-text { font-size: 0.85rem; color: var(--ink-2); line-height: 1.6; max-width: 600px; }
+    .ssc-verdict-note { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-4); margin-top: 6px; }
   </style>
   <!-- build:2026-06-30T00:00:00Z -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Scholarly Source Check",
+    "url": "https://epistamate.com/scholarly-source-check.html",
+    "description": "Free tool that searches CrossRef, Semantic Scholar, and OpenAlex directly from your browser to find candidate academic papers for a claim, topic, or DOI. No signup, no server-side storage of queries.",
+    "applicationCategory": "ResearchApplication",
+    "operatingSystem": "Any (web browser)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isAccessibleForFree": true,
+    "publisher": { "@type": "Organization", "name": "Epistamate", "url": "https://epistamate.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there a free tool to find academic papers for a claim?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scholarly Source Check is a free, no-signup tool that searches CrossRef, Semantic Scholar, and OpenAlex for candidate academic papers related to a claim, topic, or DOI you provide." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does finding a paper mean it supports my claim?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. A paper appearing as a candidate result means it exists and is topically related — it does not mean the paper's content supports the specific claim it is attached to. Citations that exist but do not support the attached claim are a documented and common problem in published research." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI hallucinate or misuse citations?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI systems and human authors alike can cite real, existing papers in ways that misrepresent, overstate, or contradict what those papers actually say. Verifying that a citation exists is a different and easier problem than verifying that it supports the claim attached to it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this tool free and does it require an account?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Scholarly Source Check is completely free and requires no signup or account. Queries run directly from your browser to each provider's public API; no query text or claim is sent to or stored by Epistamate." }
+      },
+      {
+        "@type": "Question",
+        "name": "What databases does Scholarly Source Check search?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It searches three academic databases: CrossRef (the DOI registration agency, 150M+ records), Semantic Scholar (Allen Institute for AI), and OpenAlex (an open catalogue of the global research system maintained by OurResearch)." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -147,6 +229,7 @@
     <span class="ssc-status-dot" id="sscStatusDot"></span>
     <span id="sscStatusText"></span>
   </div>
+  <div class="ssc-provider-status" id="sscProviderStatus" style="display:none;"></div>
 
   <div id="sscTermsWrap" style="display:none;margin:var(--space-m) 0 var(--space-s);">
     <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px;">Search terms derived</div>
@@ -170,6 +253,7 @@
             <th style="width:48px">Year</th>
             <th style="width:80px">Source</th>
             <th style="width:52px">Open</th>
+            <th style="width:90px" id="sscVerdictColHead"></th>
           </tr>
         </thead>
         <tbody id="sscResultsBody"></tbody>
@@ -204,6 +288,7 @@
     </div>
 
     <p style="font-size:0.85rem;color:var(--ink-4);">Queries run directly from your browser to each provider's public API. No query text, claim, or search term is sent to or stored by Epistamate. Results are deduplicated by DOI and title. Coverage, metadata accuracy, and availability are determined by each provider and may vary by field, publisher, and access status.</p>
+    <p style="font-size:0.85rem;color:var(--ink-4);">The optional "Check claim" button is the one exception: it sends the claim and the paper's abstract to Epistamate's server, which checks it against a language model and returns a verdict. Nothing is stored — the request is processed and discarded — but unlike the search above, this one step does pass through Epistamate's infrastructure rather than going straight to the academic databases.</p>
 
     <div class="ssc-hook">
       <h3>Finding a source is the first step. Knowing whether it supports your claim is the harder one.</h3>
@@ -211,6 +296,32 @@
       <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
         <a href="epistamate_demo.html" class="btn-primary">See the full pipeline →</a>
         <a href="engine.html" class="btn-secondary" style="border-color:#666;color:#eee;">How the engine works</a>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-2xl);">
+      <h2>Frequently asked questions</h2>
+      <div style="display:flex;flex-direction:column;gap:var(--space-m);max-width:720px;">
+        <div>
+          <h4 style="font-size:0.98rem;margin-bottom:4px;">Is there a free tool to find academic papers for a claim?</h4>
+          <p style="font-size:0.88rem;color:var(--ink-3);line-height:1.65;margin:0;">Yes. Scholarly Source Check is free and requires no signup. It searches CrossRef, Semantic Scholar, and OpenAlex for candidate academic papers related to a claim, topic, or DOI you provide.</p>
+        </div>
+        <div>
+          <h4 style="font-size:0.98rem;margin-bottom:4px;">Does finding a paper mean it supports my claim?</h4>
+          <p style="font-size:0.88rem;color:var(--ink-3);line-height:1.65;margin:0;">No. A candidate result means a paper exists and is topically related — not that its content supports the specific claim attached to it. Citations that exist but do not support what they're cited for are a documented, common problem in published research.</p>
+        </div>
+        <div>
+          <h4 style="font-size:0.98rem;margin-bottom:4px;">Can AI hallucinate or misuse citations?</h4>
+          <p style="font-size:0.88rem;color:var(--ink-3);line-height:1.65;margin:0;">Yes. AI systems and human authors alike can cite real, existing papers in ways that misrepresent, overstate, or contradict what those papers actually say. Verifying a citation exists is a different and easier problem than verifying it supports the claim attached to it.</p>
+        </div>
+        <div>
+          <h4 style="font-size:0.98rem;margin-bottom:4px;">Is this tool free and does it require an account?</h4>
+          <p style="font-size:0.88rem;color:var(--ink-3);line-height:1.65;margin:0;">Completely free, no account required. Queries run directly from your browser to each provider's public API — no query text or claim is sent to or stored by Epistamate for the search feature.</p>
+        </div>
+        <div>
+          <h4 style="font-size:0.98rem;margin-bottom:4px;">What databases does Scholarly Source Check search?</h4>
+          <p style="font-size:0.88rem;color:var(--ink-3);line-height:1.65;margin:0;">CrossRef (the DOI registration agency, 150M+ records), Semantic Scholar (Allen Institute for AI), and OpenAlex (an open catalogue of the global research system maintained by OurResearch).</p>
+        </div>
       </div>
     </div>
   </div>
@@ -239,8 +350,23 @@
 <script>
 const SSC_MAILTO = 'hello@epistamate.com';
 const SSC_DELAY = 600;
+// Verdict-check feature, consolidated onto the same Groq-backed Vercel function
+// stack as the demo pipeline (/api/research). Same provider, no separate worker/key.
+const SSC_VERDICT_ENDPOINT = '/api/verdict';
 let sscRunning = false;
 let sscMode = 'claim';
+let sscLastClaim = '';
+
+function sscSetBusy(isBusy) {
+  document.body.classList.toggle('ssc-busy', isBusy);
+}
+function sscSetBtnBusy(btn, isBusy, busyLabel, idleLabel) {
+  if (!btn) return;
+  btn.disabled = isBusy;
+  btn.innerHTML = isBusy
+    ? `<span class="ssc-btn-spinner"></span>${busyLabel}`
+    : idleLabel;
+}
 
 function switchSscMode(mode) {
   sscMode = mode;
@@ -341,41 +467,68 @@ async function sscFetch(url) {
   return resp.json();
 }
 
+function sscStripJats(s) {
+  if (!s) return null;
+  return String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() || null;
+}
+function sscReconstructOaAbstract(invIndex) {
+  if (!invIndex) return null;
+  const positions = [];
+  for (const [word, idxs] of Object.entries(invIndex)) {
+    for (const i of idxs) positions[i] = word;
+  }
+  const text = positions.join(' ').trim();
+  return text || null;
+}
+
 async function sscCrossRef(term) {
   try {
-    const d = await sscFetch(`https://api.crossref.org/works?query=${encodeURIComponent(term)}&rows=5&mailto=${SSC_MAILTO}&select=DOI,title,author,published,URL`);
-    if (!d) return [];
+    const d = await sscFetch(`https://api.crossref.org/works?query=${encodeURIComponent(term)}&rows=5&mailto=${SSC_MAILTO}&select=DOI,title,author,published,URL,abstract`);
+    if (!d) { sscProviderFail.crossref = true; return []; }
     return (d.message?.items||[]).map(item => {
       const authors = (item.author||[]).map(a => ((a.given||'')+' '+(a.family||'')).trim()).filter(Boolean);
       const year = item.published?.['date-parts']?.[0]?.[0] ?? null;
       const doi = item.DOI || null;
-      return { title:(item.title||[])[0]||'', authors, year, doi, url: doi?`https://doi.org/${doi}`:(item.URL||null), sourceApi:'crossref' };
+      return { title:(item.title||[])[0]||'', authors, year, doi, url: doi?`https://doi.org/${doi}`:(item.URL||null), sourceApi:'crossref', abstract: sscStripJats(item.abstract) };
     });
-  } catch { return []; }
+  } catch { sscProviderFail.crossref = true; return []; }
 }
 
 async function sscS2(term) {
   try {
-    const d = await sscFetch(`https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(term)}&limit=5&fields=title,authors,year,externalIds,openAccessPdf,url`);
-    if (!d) return [];
+    const d = await sscFetch(`https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(term)}&limit=5&fields=title,authors,year,externalIds,openAccessPdf,url,abstract`);
+    if (!d) { sscProviderFail.semanticscholar = true; return []; }
     return (d.data||[]).map(item => {
       const authors = (item.authors||[]).map(a=>a.name||'').filter(Boolean);
       const doi = item.externalIds?.DOI||null;
-      return { title:item.title||'', authors, year:item.year||null, doi, url:item.openAccessPdf?.url||(doi?`https://doi.org/${doi}`:item.url||null), sourceApi:'semanticscholar' };
+      return { title:item.title||'', authors, year:item.year||null, doi, url:item.openAccessPdf?.url||(doi?`https://doi.org/${doi}`:item.url||null), sourceApi:'semanticscholar', abstract: item.abstract||null };
     });
-  } catch { return []; }
+  } catch { sscProviderFail.semanticscholar = true; return []; }
 }
 
 async function sscOpenAlex(term) {
   try {
     const d = await sscFetch(`https://api.openalex.org/works?search=${encodeURIComponent(term)}&per-page=5&mailto=${SSC_MAILTO}`);
-    if (!d) return [];
+    if (!d) { sscProviderFail.openalex = true; return []; }
     return (d.results||[]).map(item => {
       const authors = (item.authorships||[]).map(a=>a.author?.display_name||'').filter(Boolean);
       const doi = item.doi ? item.doi.replace(/^https?:\/\/doi\.org\//, '') : null;
-      return { title:item.title||'', authors, year:item.publication_year||null, doi, url:item.open_access?.oa_url||(doi?`https://doi.org/${doi}`:null), sourceApi:'openalex' };
+      return { title:item.title||'', authors, year:item.publication_year||null, doi, url:item.open_access?.oa_url||(doi?`https://doi.org/${doi}`:null), sourceApi:'openalex', abstract: sscReconstructOaAbstract(item.abstract_inverted_index) };
     });
-  } catch { return []; }
+  } catch { sscProviderFail.openalex = true; return []; }
+}
+
+function sscRenderProviderStatus(attempted) {
+  const wrap = document.getElementById('sscProviderStatus');
+  if (!wrap) return;
+  const labels = { crossref: 'CrossRef', semanticscholar: 'Semantic Scholar', openalex: 'OpenAlex' };
+  const html = Object.keys(labels).map(key => {
+    if (!attempted.has(key)) return `<span class="ssc-provider-pill skipped">${labels[key]} · not queried</span>`;
+    if (sscProviderFail[key]) return `<span class="ssc-provider-pill error">${labels[key]} · unavailable</span>`;
+    return `<span class="ssc-provider-pill ok">${labels[key]} · ok</span>`;
+  }).join('');
+  wrap.innerHTML = html;
+  wrap.style.display = 'flex';
 }
 
 function setSscStatus(text, done=false) {
@@ -403,6 +556,7 @@ function sscRenderTable(deduped) {
     document.getElementById('sscResultsWrap').style.display = 'none';
     return;
   }
+  const showVerdict = !!SSC_VERDICT_ENDPOINT;
   document.getElementById('sscResultsCount').textContent = `${deduped.length} candidate papers`;
   document.getElementById('sscResultsBody').innerHTML = deduped.map((c, i) => {
     const authors = c.authors.length > 0
@@ -414,6 +568,13 @@ function sscRenderTable(deduped) {
     const linkEl = c.url
       ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="ssc-link">open</a>`
       : '<span style="color:var(--ink-4)">—</span>';
+    const rowId = `sscRow${i}`;
+    const verdictCell = showVerdict
+      ? (c.abstract
+          ? `<button class="ssc-verdict-btn" id="${rowId}-btn" onclick="sscRunVerdict(${i})">Check claim</button>`
+          : `<span style="font-family:var(--font-mono);font-size:0.68rem;color:var(--ink-4)" title="No abstract available from this provider">no abstract</span>`)
+      : '';
+    sscCandidateCache[i] = c;
     return `<tr>
       <td style="font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-4);width:32px">${i+1}</td>
       <td>${titleEl}</td>
@@ -421,22 +582,84 @@ function sscRenderTable(deduped) {
       <td style="font-family:var(--font-mono);font-size:0.78rem;width:48px">${c.year??'—'}</td>
       <td style="width:80px">${sscBadge(c.sourceApi)}</td>
       <td style="width:52px">${linkEl}</td>
+      <td style="width:90px" class="ssc-verdict-col">${verdictCell}</td>
+    </tr>
+    <tr class="ssc-verdict-row" id="${rowId}-panel">
+      <td class="ssc-verdict-cell" colspan="7"></td>
     </tr>`;
   }).join('');
+  document.getElementById('sscVerdictColHead').textContent = showVerdict ? 'Verdict' : '';
+  document.querySelectorAll('.ssc-verdict-col, #sscVerdictColHead').forEach(el => {
+    el.style.display = showVerdict ? '' : 'none';
+  });
   document.getElementById('sscEmpty').style.display = 'none';
   document.getElementById('sscResultsWrap').style.display = 'block';
 }
+
+let sscCandidateCache = {};
+
+const SSC_VERDICT_LABELS = {
+  supports:      { cls: 'supports',     label: 'Supports' },
+  partial:       { cls: 'partial',      label: 'Partially Supports' },
+  overstated:    { cls: 'overstated',   label: 'Overstated' },
+  contradicts:   { cls: 'contradicts',  label: 'Contradicts' },
+  misrepresented:{ cls: 'contradicts',  label: 'Misrepresented' },
+  unverifiable:  { cls: 'unverifiable', label: 'Unverifiable' },
+};
+
+async function sscRunVerdict(i) {
+  if (!SSC_VERDICT_ENDPOINT) return;
+  const c = sscCandidateCache[i];
+  if (!c || !c.abstract) return;
+  const btn = document.getElementById(`sscRow${i}-btn`);
+  const panel = document.getElementById(`sscRow${i}-panel`);
+  const cell = panel.querySelector('.ssc-verdict-cell');
+
+  sscSetBtnBusy(btn, true, 'Checking…', 'Check claim');
+  panel.classList.add('show');
+  cell.innerHTML = `<span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--ink-4)">Checking claim against abstract…</span>`;
+
+  try {
+    const resp = await fetch(SSC_VERDICT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: AbortSignal.timeout(20000),
+      body: JSON.stringify({
+        claim: sscLastClaim,
+        source: { title: c.title, abstract: c.abstract, year: c.year, doi: c.doi }
+      })
+    });
+    if (!resp.ok) throw new Error('bad status');
+    const v = await resp.json();
+    const meta = SSC_VERDICT_LABELS[v.verdict] || SSC_VERDICT_LABELS.unverifiable;
+    cell.innerHTML = `
+      <span class="ssc-verdict-pill ${meta.cls}">${meta.label}</span>
+      <div class="ssc-verdict-text">${sscEsc(v.reasoning || '')}</div>
+      <div class="ssc-verdict-note">Based on the abstract only — not the full text. Read the source before citing it.</div>
+    `;
+  } catch (e) {
+    cell.innerHTML = `<span style="font-family:var(--font-mono);font-size:0.78rem;color:#a33">Verdict check failed — try again in a moment.</span>`;
+  }
+  sscSetBtnBusy(btn, false, '', 'Re-check');
+}
+
+let sscProviderFail = { crossref: false, semanticscholar: false, openalex: false };
 
 async function runSscSearch() {
   const input = document.getElementById('sscClaimInput').value.trim();
   if (!input || sscRunning) return;
   sscRunning = true;
+  sscLastClaim = input;
+  sscProviderFail = { crossref: false, semanticscholar: false, openalex: false };
+  const attempted = new Set();
 
-  document.getElementById('sscClaimBtn').disabled = true;
+  sscSetBusy(true);
+  sscSetBtnBusy(document.getElementById('sscClaimBtn'), true, 'Searching…', 'Find sources');
   document.getElementById('sscTermsWrap').style.display = 'none';
   document.getElementById('sscResultsWrap').style.display = 'none';
   document.getElementById('sscDoiRecordWrap').style.display = 'none';
   document.getElementById('sscEmpty').style.display = 'none';
+  document.getElementById('sscProviderStatus').style.display = 'none';
 
   setSscStatus('Extracting search terms...');
 
@@ -447,19 +670,22 @@ async function runSscSearch() {
   if (terms.length === 0) {
     setSscStatus('Could not extract search terms. Try more specific language.', true);
     sscRunning = false;
-    document.getElementById('sscClaimBtn').disabled = false;
+    sscSetBusy(false);
+    sscSetBtnBusy(document.getElementById('sscClaimBtn'), false, '', 'Find sources');
     return;
   }
 
   const all = [];
   for (const term of terms) {
     setSscStatus(`Querying CrossRef for "${term}"...`);
+    attempted.add('crossref');
     const cr = await sscCrossRef(term);
     all.push(...cr);
     await new Promise(r => setTimeout(r, SSC_DELAY));
 
     if (cr.length < 3) {
       setSscStatus(`Querying Semantic Scholar for "${term}"...`);
+      attempted.add('semanticscholar');
       const s2 = await sscS2(term);
       all.push(...s2);
       await new Promise(r => setTimeout(r, SSC_DELAY));
@@ -468,6 +694,7 @@ async function runSscSearch() {
     const hits = all.filter(c => sscNormTitle(c.title).includes(sscNormTitle(term))).length;
     if (hits < 3) {
       setSscStatus(`Querying OpenAlex for "${term}"...`);
+      attempted.add('openalex');
       const oa = await sscOpenAlex(term);
       all.push(...oa);
       await new Promise(r => setTimeout(r, SSC_DELAY));
@@ -476,12 +703,20 @@ async function runSscSearch() {
 
   const deduped = sscDedup(all);
   sscRenderTable(deduped);
-  setSscStatus(deduped.length > 0
-    ? `Found ${deduped.length} candidate papers across CrossRef, Semantic Scholar, and OpenAlex.`
-    : 'No candidate papers found.', true);
+  sscRenderProviderStatus(attempted);
+
+  const anyFail = Object.values(sscProviderFail).some(Boolean);
+  if (deduped.length > 0) {
+    setSscStatus(`Found ${deduped.length} candidate papers across CrossRef, Semantic Scholar, and OpenAlex.${anyFail ? ' One or more providers were unavailable — see status below.' : ''}`, true);
+  } else if (anyFail) {
+    setSscStatus('No candidate papers found, and one or more providers were unavailable. Try again in a moment.', true);
+  } else {
+    setSscStatus('No candidate papers found.', true);
+  }
 
   sscRunning = false;
-  document.getElementById('sscClaimBtn').disabled = false;
+  sscSetBusy(false);
+  sscSetBtnBusy(document.getElementById('sscClaimBtn'), false, '', 'Find sources');
 }
 
 // ── DOI lookup + related works ────────────────────────────────────────
@@ -493,7 +728,8 @@ async function runSscDoiLookup() {
 
   const doi = sscNormDoi(raw);
 
-  document.getElementById('sscDoiBtn').disabled = true;
+  sscSetBusy(true);
+  sscSetBtnBusy(document.getElementById('sscDoiBtn'), true, 'Looking up…', 'Look up DOI');
   document.getElementById('sscTermsWrap').style.display = 'none';
   document.getElementById('sscResultsWrap').style.display = 'none';
   document.getElementById('sscDoiRecordWrap').style.display = 'none';
@@ -502,7 +738,8 @@ async function runSscDoiLookup() {
   if (!doi || !/^10\.\d{4,9}\/\S+$/.test(doi)) {
     setSscStatus('That does not look like a valid DOI. A DOI looks like 10.xxxx/xxxxx.', true);
     sscRunning = false;
-    document.getElementById('sscDoiBtn').disabled = false;
+    sscSetBusy(false);
+    sscSetBtnBusy(document.getElementById('sscDoiBtn'), false, '', 'Look up DOI');
     return;
   }
 
@@ -518,7 +755,7 @@ async function runSscDoiLookup() {
         document.getElementById('sscEmpty').style.display = 'block';
         setSscStatus('DOI not found in OpenAlex or CrossRef. Check the DOI is correct.', true);
         sscRunning = false;
-        document.getElementById('sscDoiBtn').disabled = false;
+        sscSetBtnBusy(document.getElementById('sscDoiBtn'), false, '', 'Look up DOI'); sscSetBusy(false);
         return;
       }
       const item = crRec.message;
@@ -533,7 +770,7 @@ async function runSscDoiLookup() {
       });
       setSscStatus('Found via CrossRef. No related-works data available from this source.', true);
       sscRunning = false;
-      document.getElementById('sscDoiBtn').disabled = false;
+      sscSetBtnBusy(document.getElementById('sscDoiBtn'), false, '', 'Look up DOI'); sscSetBusy(false);
       return;
     }
 
@@ -551,7 +788,7 @@ async function runSscDoiLookup() {
     if (relatedIds.length === 0) {
       setSscStatus('Found the paper. No related works listed by OpenAlex for this record.', true);
       sscRunning = false;
-      document.getElementById('sscDoiBtn').disabled = false;
+      sscSetBtnBusy(document.getElementById('sscDoiBtn'), false, '', 'Look up DOI'); sscSetBusy(false);
       return;
     }
 
@@ -583,7 +820,7 @@ async function runSscDoiLookup() {
   }
 
   sscRunning = false;
-  document.getElementById('sscDoiBtn').disabled = false;
+  sscSetBtnBusy(document.getElementById('sscDoiBtn'), false, '', 'Look up DOI'); sscSetBusy(false);
 }
 
 function renderDoiRecord(rec) {
