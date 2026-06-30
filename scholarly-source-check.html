@@ -78,6 +78,10 @@
     .ssc-hook { margin-top: var(--space-xl); padding: var(--space-l); background: var(--ink); color: var(--paper); border-radius: var(--radius-m); }
     .ssc-hook h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; color: var(--paper); margin-bottom: var(--space-s); }
     .ssc-hook p { color: #bbb; font-size: 0.92rem; line-height: 1.7; margin-bottom: var(--space-m); max-width: 600px; }
+    .ssc-hook .btn-secondary-dark { display: inline-flex; align-items: center; padding: 14px 28px; background: transparent;
+      color: #eee !important; font-weight: 600; font-size: 1rem; border: 2px solid #666; border-radius: var(--radius);
+      transition: background 0.15s, color 0.15s; }
+    .ssc-hook .btn-secondary-dark:hover { background: #eee; color: var(--ink) !important; border-color: #eee; }
     @media (max-width: 600px) { .ssc-table-wrap th:nth-child(3), .ssc-table-wrap td:nth-child(3),
       .ssc-table-wrap th:nth-child(4), .ssc-table-wrap td:nth-child(4) { display: none; } }
 
@@ -177,7 +181,6 @@
       <a href="scholarly-source-check.html">Scholarly Source Check</a>
       <a href="landscape.html">Research landscape</a>
       <a href="blog/index.html">Blog</a>
-      <a href="index.html#contact">Get in touch</a>
     </div>
         <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
@@ -295,7 +298,7 @@
       <p>The gap between a citation existing and a citation actually entailing the claim it is attached to is the core problem Epistamate's evidence engine is built to address — at the claim level, across academic, regulatory, and policy sources, with contradictions surfaced and gaps named rather than papered over.</p>
       <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
         <a href="epistamate_demo.html" class="btn-primary">See the full pipeline →</a>
-        <a href="engine.html" class="btn-secondary" style="border-color:#666;color:#eee;">How the engine works</a>
+        <a href="engine.html" class="btn-secondary-dark">How the engine works</a>
       </div>
     </div>
 
@@ -662,6 +665,7 @@ async function runSscSearch() {
   document.getElementById('sscProviderStatus').style.display = 'none';
 
   setSscStatus('Extracting search terms...');
+  document.getElementById('sscStatus').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   const terms = sscExtractTerms(input);
   document.getElementById('sscTermsWrap').style.display = 'block';
@@ -734,6 +738,7 @@ async function runSscDoiLookup() {
   document.getElementById('sscResultsWrap').style.display = 'none';
   document.getElementById('sscDoiRecordWrap').style.display = 'none';
   document.getElementById('sscEmpty').style.display = 'none';
+  document.getElementById('sscStatus').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   if (!doi || !/^10\.\d{4,9}\/\S+$/.test(doi)) {
     setSscStatus('That does not look like a valid DOI. A DOI looks like 10.xxxx/xxxxx.', true);

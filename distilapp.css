@@ -85,7 +85,7 @@ p { color: var(--ink-2); }
   height: 60px;
   display: flex;
   align-items: center;
-  gap: var(--space-l);
+  gap: var(--space-m);
 }
 .nav-logo {
   font-family: var(--font-mono);
@@ -116,11 +116,12 @@ p { color: var(--ink-2); }
 .nav-logo span, .nav-brand span { color: var(--ink); font-weight: 600; }
 .nav-links {
   display: flex;
-  gap: var(--space-m);
+  gap: clamp(0.9rem, 1.8vw, 1.5rem);
   flex: 1;
+  white-space: nowrap;
 }
 .nav-links a {
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   color: var(--ink-3);
   transition: color 0.15s;
 }
@@ -706,6 +707,10 @@ section.visible {
 .footer-links a:hover, .footer-refs a:hover { color: var(--ink); }
 
 /* ---- RESPONSIVE ---- */
+@media (max-width: 980px) {
+  .nav-links a[href*="scholarly-source-check"] { font-size: 0; }
+  .nav-links a[href*="scholarly-source-check"]::after { content: "Source Check"; font-size: 0.84rem; }
+}
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-inner { padding: 0 var(--space-m); }
