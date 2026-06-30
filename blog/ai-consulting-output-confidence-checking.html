@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In AI-assisted consulting work, the output that looks most confident is sometimes the work that most needs checking — Epistamate</title>
+  <meta name="description" content="A BCG study of 758 consultants found that AI made them 19 percentage points less likely to produce correct answers on tasks outside the AI capability boundary -- with no signal in the output to indicate which tasks those were.">
+  <meta name="keywords" content="AI consulting quality, jagged technological frontier, BCG AI study, consulting deliverable risk, partner review AI, AI evidence quality consulting, professional services AI risk">
+  <link rel="canonical" href="https://epistamate.com/blog/ai-consulting-output-confidence-checking.html">
+  <meta property="og:title" content="In AI-assisted consulting work, the output that looks most confident is sometimes the work that most needs checking">
+  <meta property="og:description" content="A BCG study of 758 consultants found that AI made them 19 percentage points less likely to produce correct answers on tasks outside the AI capability boundary -- with no signal in the output to indicate which tasks those were.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="article:published_time" content="2026-06-30">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+  </style>
+  <!-- build:2026-06-30T00:00:00Z -->
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand" aria-label="Epistamate">
+      <span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../epistamate_demo.html">Demo</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>June 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">Professional services</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Research methodology</span>
+  </div>
+
+  <h1 class="article-h1">In AI-assisted consulting work, the output that looks most confident is sometimes <em>the work that most needs checking.</em></h1>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">The partner review is the quality gate the consulting model has always relied on. AI has introduced a failure mode it cannot see -- not because the output looks wrong, but because nothing in the output says which parts of it are.</p>
+
+  <div class="article-body">
+
+    <p>Before a deliverable reaches a client, someone senior reads it and decides whether it holds up -- whether the analysis is sound, whether the claims are defensible, whether the evidence supports what the engagement team is asserting. That review is the quality gate the consulting model has always relied on.</p>
+
+    <p>The problem is that AI has introduced a failure mode the partner review cannot see.</p>
+
+    <h2>The study that changed how this should be understood</h2>
+
+    <p>A 2023 study conducted with Boston Consulting Group -- now formally published in Organisation Science -- ran a pre-registered experiment with 758 BCG consultants to measure what actually happens when skilled knowledge workers use AI on realistic consulting tasks. The results on the positive side have been widely cited: consultants using GPT-4 completed 12.2% more tasks, worked 25.1% faster, and produced output rated more than 40% higher in quality by independent evaluators. Those are striking numbers and they have driven a significant portion of the AI adoption narrative in professional services.</p>
+
+    <p>The finding that received less attention is the one that matters more for how this plays out in practice.</p>
+
+    <p>For a task deliberately placed outside the boundary of what current AI handles well, consultants who used AI were 19 percentage points less likely to produce correct solutions than those who worked without it. The AI made them worse, not better. This is not an argument against AI use in consulting -- the positive findings are real and the productivity gains are substantial. The argument is more specific: a 40% quality uplift on tasks AI handles well, combined with a 19-percentage-point penalty on tasks it handles poorly, is only a good trade-off if the engagement team can tell which tasks sit where. The study's authors are specific about why that is the problem. The boundary between tasks AI handles well and tasks it handles poorly is not predictable in advance. It does not correspond to task difficulty. Tasks that appear similar in complexity can sit on opposite sides of the capability boundary, and the AI's output does not signal which side it is on.</p>
+
+    <p>The researchers named this the "jagged technological frontier." The frontier is not a smooth line between easy and hard. It is irregular, counterintuitive, and opaque. A consultant working across a typical engagement workflow will have tasks on both sides of it without knowing which is which.</p>
+
+    <h2>What this means for the deliverable</h2>
+
+    <p>A thorough partner review does more than read a synthesis for plausibility. It interrogates the analysis -- challenging the numbers, testing logical coherence against domain knowledge, questioning assumptions, and applying experience to spot conclusions that do not fit known market dynamics. This is real and important quality assurance, and it catches a significant class of errors.</p>
+
+    <p>The failure mode the BCG study describes is different from the ones partner review is calibrated to catch. The study found that consultants using AI on outside-frontier tasks produced analyses that were substantively wrong -- not stylistically implausible, not obviously thin, but analytically incorrect in ways that a reviewer without deep specialist knowledge of that specific sub-task would not necessarily detect. The failure is not that the output sounds confident. It is that the output is substantively plausible while being wrong, and there is no signal in the work product that flags which parts of the analysis crossed the capability boundary.</p>
+
+    <p>This matters most in cross-disciplinary or highly specialised work -- a due diligence report covering a technical domain the reviewing partner is not expert in, a regulatory impact assessment spanning multiple jurisdictions, a market sizing that combines macroeconomic modelling with sector-specific dynamics. In these cases, the partner's domain expertise cannot fully substitute for knowing where the AI's capability boundary fell within the specific analytical tasks the team performed.</p>
+
+    <p>This is distinct from the hallucinated citation problem that has attracted most of the attention around AI in consulting -- the Deloitte Australia government report, the EY Canada loyalty fraud paper, the fabricated court quotes. Those failures are detectable by checking whether sources exist. The failure mode the BCG study describes is more subtle: a synthesis that is analytically wrong rather than referentially fabricated, produced on a task the AI handled poorly, with no indicator in the output that it belongs to that category.</p>
+
+    <h2>The evidence quality problem underneath the output</h2>
+
+    <p>There is a related structural problem that sits beneath the visible output of consulting work.</p>
+
+    <p>When a consulting team produces a regulatory impact assessment, a market sizing analysis, or a due diligence report, the claims in that document rest on an evidence base that is mostly invisible to the person reading the final deliverable. The client sees the synthesis. The partner review sees a layer below that. But which claims are supported by what evidence, at what level of confidence, whether contradictions between sources were acknowledged or suppressed -- these typically exist only in working documents that do not travel with the deliverable.</p>
+
+    <p>AI-assisted research compounds this problem. The retrieval and synthesis work happens inside the tool, and the output is a confident narrative rather than a structured record of what was found, what was contested, and what was not answerable. Even when citations are present and real, a provenance gap opens between a citation existing and a citation actually supporting the claim it is attached to.</p>
+
+    <p>This is the provenance soundness problem that research published earlier this year has started to name precisely. A June 2026 benchmark study of frontier AI agents on biomedical research questions -- a domain where source matching is particularly demanding -- found that agents resolved over 99% of cited URLs correctly, yet approximately 15.9% of those citations linked to papers that did not support the claim being made. The domain is specific and the rate may differ in commercial consulting contexts, but the failure mode is architectural rather than domain-dependent: retrieval finds relevant documents, synthesis generates claims, citation attaches document references to claims, and no step checks whether the specific passage in the cited document actually entails the specific claim.</p>
+
+    <div class="callout">
+      <strong>The gap that matters</strong>
+      A citation existing confirms a source is real. It says nothing about whether the specific passage in that source supports the specific claim attached to it. In consulting deliverables, this distinction is rarely visible to the partner review.
+    </div>
+
+    <h2>The capability boundary and the review process</h2>
+
+    <p>The BCG study's finding about the 19-percentage-point penalty deserves to be read alongside a separate finding about how consultants interact with AI on tasks where it struggles.</p>
+
+    <p>The study found that consultants could not reliably identify in advance which tasks fell outside the AI's capability boundary. This is not primarily a story about being misled by tone or presentation -- the BCG experiment did not measure whether output style influenced trust. It is a story about the absence of a reliable signal. The work product produced on outside-frontier tasks was substantively indistinguishable, at the point of review, from work product produced on inside-frontier tasks. Consultants who relied most heavily on AI for the outside-frontier task were the most likely to produce wrong answers -- not because they were naive about AI limitations, but because there was nothing in the output that told them this particular task was one where those limitations applied.</p>
+
+    <p>This is the failure mode that sits beneath the partner review's visibility. Not because partners are insufficiently sceptical, but because the signal they would need -- some indicator that this specific piece of analysis crossed the capability boundary -- is not present in what the engagement team submits.</p>
+
+    <p>The conventional response to AI quality risk in consulting has been to tell practitioners to check the outputs. The BCG study suggests this framing misunderstands the problem. The checking requires knowing which outputs need to be checked, and the AI provides no reliable signal of that. A checking process applied uniformly to all AI output is expensive and defeats most of the speed benefit. A checking process applied selectively -- to the sections that seem most reliable -- will systematically miss the sections that most need scrutiny.</p>
+
+    <h2>What the review process actually needs</h2>
+
+    <p>The alternative is not less AI use. It is a different architecture for what the AI-assisted workflow produces before the synthesis is written.</p>
+
+    <p>Consider a regulatory impact assessment covering three jurisdictions. The engagement team uses AI to research the applicable obligations in each. The AI produces a synthesis. What travels to the partner review is that synthesis -- a structured narrative with citations attached. What does not travel is anything that would let the review process do three specific things.</p>
+
+    <p>The first is claim-level validation: for each material assertion in the document, which specific passage in which specific source supports it, and does that passage actually entail the claim or merely discuss the same topic. This is different from citation existence checking, which confirms a paper exists but says nothing about whether it supports the claim attached to it.</p>
+
+    <p>The second is contradiction surfacing: where two or more sources in the evidence base disagree on a material point, was that disagreement acknowledged in the synthesis or resolved invisibly. An AI synthesis that encounters two sources with conflicting positions on the scope of a regulatory obligation will typically produce a confident unified statement. The contradiction disappears. The partner review sees the unified statement, not the disagreement underneath it.</p>
+
+    <p>The third is gap identification: where the evidence was insufficient to support a claim at a defensible standard, was that gap named or papered over. A synthesis that fills every evidentiary gap with confident prose is not more rigorous than one that names the gaps -- it is less honest and more dangerous, because it presents an absence of evidence as if it were evidence.</p>
+
+    <p>One clarification is worth making explicit: this structured review layer cannot be built by the same generative models used for synthesis. Asking the AI that produced a wrong synthesis on an outside-frontier task to accurately audit its own claim-evidence links is the same problem restated. The verification step requires a dedicated process -- whether a specialised non-generative tool, a structured human review at the claim level, or a hybrid -- that is architecturally separate from the generation step. The instinctive response to an AI quality problem is often to add more AI, which does not resolve the underlying issue when the problem is that the AI cannot signal its own failures.</p>
+
+    <p>These three functions -- claim validation, contradiction surfacing, gap identification -- are what the partner review would need to catch the failure mode the BCG study describes. Not an additional reading of the synthesis, but a different input to the review entirely. The consulting model has always relied on human judgment to perform these functions informally. The BCG study's finding suggests that AI-assisted work makes the informal version increasingly inadequate -- not because AI makes consultants less capable, but because the capability boundary is invisible and the output gives the reviewer nothing to work with except the synthesis itself.</p>
+
+    <p>The output that looks most confident is sometimes the work that most needs checking. The question for professional services firms is whether the review process can see that -- and at the moment, the answer is that it cannot, not without a structured record of the evidence underneath the work.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="cited-source-vs-supporting-source.html">A cited source and a supporting source are not the same thing. AI research tools treat them as if they are. &rarr;</a>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>What is the jagged technological frontier in consulting?</summary>
+      <p>The jagged technological frontier is a concept from Dell'Acqua et al. (2026), a field experiment with 758 BCG consultants. It describes the irregular and unpredictable boundary between tasks that AI handles well and tasks it handles poorly. Unlike a smooth line between easy and hard, the frontier is counterintuitive -- tasks that appear similar in complexity can sit on opposite sides of it. The critical finding is that consultants cannot reliably identify in advance which tasks fall outside the AI's capability zone, and the AI's output provides no reliable signal of which side a given task sits on.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Why did AI-assisted consultants perform worse on some tasks?</summary>
+      <p>The BCG study found that consultants using AI on tasks placed outside the AI capability boundary were 19 percentage points less likely to produce correct solutions than consultants working without AI. The study did not find that this was caused by stylistic overconfidence -- the AI's tone did not appear to be the mechanism. The more likely explanation is that the AI produced substantively plausible but analytically wrong output, and consultants had no signal indicating that this specific task was one where the AI's limitations applied. They therefore accepted output they would otherwise have scrutinised more carefully.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What is the difference between claim validation and citation existence checking?</summary>
+      <p>Citation existence checking confirms that a cited source is real and accessible. It is the check that catches fabricated references -- papers that do not exist, URLs that resolve to nothing. Claim validation goes further: it asks whether the specific passage in the cited source actually entails the specific claim attached to it. A source can exist and be accessible while containing no passage that supports the claim it is cited for. A June 2026 benchmark study found this gap in approximately 15.9% of citations produced by frontier AI agents on biomedical research questions.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Why can't AI audit its own claim-evidence links?</summary>
+      <p>Asking an AI to verify the provenance of its own synthesis output is a circular problem. If the AI produced a wrong synthesis on an outside-frontier task -- which the BCG study shows it can do without any output signal indicating the failure -- the same model is unlikely to reliably identify that the synthesis is wrong when asked to review it. The verification layer needs to be architecturally separate from the generation layer: a non-generative process, a structured human review at the claim level, or a dedicated verification tool, not the same model that produced the output being checked.</p>
+    </details>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Dell'Acqua, F., McFowland III, E., Mollick, E., Lifshitz-Assaf, H., Kellogg, K. C., Rajendran, S., Krayer, L., Candelon, F., and Lakhani, K. R. (2026). Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality. Organisation Science, March 2026. DOI: 10.1287/orsc.2025.21838. (Original working paper: Harvard Business School Working Paper 24-013, 2023.) &mdash; Jeong, M. (2026). OpenBioRQ: Unsolved Biomedical Research Questions for Agents. arXiv:2606.21959. Published 20 June 2026.
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
