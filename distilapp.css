@@ -724,8 +724,8 @@ section.visible {
   .nav-links a[href*="scholarly-source-check"]::after { content: "Source Check"; font-size: 0.84rem; }
 }
 @media (max-width: 768px) {
-  .nav-toggle { display: block; order: 3; }
-  .nav-cta { order: 2; }
+  .nav-toggle { display: block; order: 3; margin-left: var(--space-s); }
+  .nav-cta { order: 2; margin-left: auto; }
   .nav-links {
     display: none;
     position: absolute;
@@ -744,7 +744,7 @@ section.visible {
     padding: 12px var(--space-m);
     width: 100%;
   }
-  .nav-inner { padding: 0 var(--space-m); }
+  .nav-inner { padding: 0 var(--space-m); gap: 0; }
   .hero, .section-inner { padding-left: var(--space-m); padding-right: var(--space-m); }
   .confidence-callout { flex-direction: column; gap: var(--space-m); text-align: center; }
   .conf-note { text-align: left; }
