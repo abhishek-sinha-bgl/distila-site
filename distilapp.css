@@ -724,7 +724,8 @@ section.visible {
   .nav-links a[href*="scholarly-source-check"]::after { content: "Source Check"; font-size: 0.84rem; }
 }
 @media (max-width: 768px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; order: 3; }
+  .nav-cta { order: 2; }
   .nav-links {
     display: none;
     position: absolute;
