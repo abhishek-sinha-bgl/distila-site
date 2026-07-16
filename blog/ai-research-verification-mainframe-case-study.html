@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A careful AI research process still missed the story that mattered most — Epistamate</title>
+  <meta name="description" content="A structured, multi-step AI research process missed a market-moving event and conflated vendor claims with verified evidence. A fact-check against primary sources, and what it means for AI-assisted due diligence.">
+  <meta name="keywords" content="AI research verification, AI due diligence, mainframe modernization AI, evidence quality, AI fact-checking, LLM research pipeline">
+  <link rel="canonical" href="https://epistamate.com/blog/ai-research-verification-mainframe-case-study.html">
+  <meta property="og:title" content="A careful AI research process still missed the story that mattered most">
+  <meta property="og:description" content="A structured, multi-step AI research process missed a market-moving event and conflated vendor claims with verified evidence. A fact-check against primary sources, and what it means for AI-assisted due diligence.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="article:published_time" content="2026-07-16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; max-width: var(--text-w); }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '&minus;'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand" aria-label="Epistamate">
+      <span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../epistamate_demo.html">Demo</a>
+      <a href="../scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Get in touch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>July 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">AI verification</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Enterprise AI adoption</span>
+  </div>
+
+  <h1 class="article-h1">A careful AI research process still missed the story that mattered most</h1>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">Fact-checking it against primary sources shows why that gap matters for AI-assisted due diligence.</p>
+
+  <div class="article-body">
+
+    <p>When a consultant reached out regarding a discussion with a client evaluating use of AI for mainframes, I did the usual diligence of performing a landscape check using an AI model. Not a single prompt, but a structured, multi-step process: web search for current sources, an explicit instruction to separate vendor claims from independently verifiable value, and a self-critique pass where the model checked its own output for gaps. That is roughly what a diligent person does with these tools today, short of building a dedicated research pipeline. The output that came back certainly looked the part: sourced, structured, appropriately hedged. Then I checked it against primary sources myself.</p>
+
+    <p>The gap between the first draft and the verified version is the actual subject of this piece. It is a small case study in why "AI produced a well-cited summary" and "AI produced a defensible summary" are not the same claim.</p>
+
+    <h2>What the first pass got right</h2>
+
+    <p>The core framework held up. Value in AI for mainframes is genuinely asymmetric: strong in operational assist and code comprehension, weak and unproven in full automated code translation.</p>
+
+    <h3>Operations and onboarding</h3>
+
+    <p>This is the most defensible category. The best-documented case, IBM's own CIO organization deployment of watsonx Assistant for Z, reported an 8% reduction in onboarding time for early-tenure staff, 10% faster incident resolution, and a 50% cut in Db2 patching time. Those numbers are real in the sense that they are published and specific. They are also from a single internal deployment of roughly 300 users, measured against IBM's own internal records, with IBM's own disclaimer that results elsewhere may vary. That is not a knock on the number, it is a note on what kind of evidence it is. "Best-documented vendor case" and "proven industry benchmark" are different epistemic categories, and the original summary did not distinguish them.</p>
+
+    <h3>Code comprehension and dependency mapping</h3>
+
+    <p>Understanding what decades-old, undocumented code actually does before touching it is where AI's pattern-matching strengths line up cleanly with the problem, and where the risk of a subtle error is lowest, since you are not yet writing production logic.</p>
+
+    <h3>Full code translation</h3>
+
+    <p>COBOL to Java is where the hedging in the first draft was earned. AI can generate plausible-looking translated code fast. Verifying it against mission-critical transaction logic is where the promised savings tend to evaporate, sometimes described as the "missing junior loop": AI removes the entry-level grunt work, but senior engineers now spend their time auditing AI output instead of writing code, which is not obviously less expensive. The junior loop that used to build institutional knowledge, novices learning a codebase by writing it, breaking it, and fixing it under supervision, does not get automated away so much as replaced by a different, more expensive form of labor: senior people doing entry-level verification work at senior rates.</p>
+
+    <h2>What it missed</h2>
+
+    <p>Here is the part that should give anyone pause about treating a rigorous AI research cycle as a substitute for due diligence: the research entirely missed a five-month-old event that had already reshaped the exact landscape it claimed to be summarizing.</p>
+
+    <p>In February 2026, Anthropic announced that Claude Code could automate the dependency-mapping and documentation phase of COBOL modernization, the "understand what this code does" work that traditionally required teams of consultants and months of billable time. The market read it as a direct threat to a large, historically high-margin part of IBM's consulting business, and IBM's stock fell roughly 13% in a single day, its worst drop since October 2000. Accenture and Cognizant moved on the same news. No single-day move in a diversified, dividend-anchored stock has one clean cause, but multiple outlets named the announcement as that day's trigger, and the size of the reaction is itself a data point about how the market is pricing this category.</p>
+
+    <p>IBM's public response is worth repeating almost verbatim, because it is the sharpest available statement of where the real difficulty sits. Rob Thomas, IBM's Senior Vice President of Software and Chief Commercial Officer, published a rebuttal the same day that did not name Anthropic but was clearly aimed at the announcement:</p>
+
+    <div class="callout">
+      "Translation captures almost none of the actual complexity. Decades of hardware-software integration cannot be replicated by moving code."
+    </div>
+
+    <p>That is IBM conceding the discovery layer to AI while defending execution as the actual moat, a more precise version of the "verification bottleneck" the original research gestured at but did not actually locate.</p>
+
+    <p>This is the real tension in the story, and it is worth sitting with rather than resolving: the market moved on perceived threat, a 13% single-day repricing, while IBM's rebuttal points at technical reality, that dependency-mapping was never the hard part of modernization and execution and transaction integrity are. The AI research reported both in the same flat, confident tone, with no signal that one is sentiment and the other is substance. That gap is the actual failure mode this piece is about, and it survives even a rigorous, multi-step prompting process, which is the uncomfortable part.</p>
+
+    <p>There is a nuance buried in the coverage worth surfacing too, and this is where the first draft got sloppy. Thomas's rebuttal claims nearly 40% of COBOL does not run on mainframes at all. That figure does not appear to be IBM's own internal number. It traces most plausibly to a recurring COBOL survey series Micro Focus, now OpenText, has commissioned from Vanson Bourne since 2020, one round of which found 43% of COBOL running on z/OS and 31% on Windows, meaning most COBOL by that survey's count runs somewhere other than the mainframe. Forty-three percent on the mainframe lines up comfortably with "nearly 40%" not on it, even with no citation attached to Thomas's rebuttal.</p>
+
+    <p>What matters more than whether the number is right is whose number it is. IBM's SVP is citing a competing vendor's commissioned research, mid-rebuttal to a stock selloff, in a category where that vendor has its own commercial interest in COBOL looking under-served by the mainframe. That is a more tangled provenance than either "IBM's own data" or "an independent audit," and exactly the kind of nuance a flat, confident AI summary collapses into a single unqualified statistic. What is being reported as "AI disrupts the mainframe" may really be "AI disrupts COBOL," a broader claim with its own chain of vendor interests worth tracing before it gets repeated as settled fact.</p>
+
+    <h2>What it could not tell apart</h2>
+
+    <p>The bigger issue was not a missing fact. It is a known failure mode, that a language model reports claims of different evidentiary weight in the same confident register regardless of source, showing up in a concrete, checkable place: this research, on this topic, that day.</p>
+
+    <p>The research surfaced three genuinely different evidentiary weights and flattened all three: an industry survey run by a company that sells mainframe modernization services, claiming up to 225% first-year ROI and roughly $12B in collective annual client savings; IBM's internally measured 8% onboarding improvement, from a single 300-person deployment; and an "80% code accuracy" claim from a migration-tool vendor with no stated baseline or independent audit. Self-reported industry survey, single-company internal case study, unaudited vendor benchmark: same confident tone, three different amounts of trust each one has actually earned.</p>
+
+    <p>Days after the original research, Gartner published a genuinely independent data point on this topic: a prediction that more than 70% of mainframe exit projects initiated in 2026 will fail to produce their intended benefits, specifically due to overestimating generative AI's capabilities, and that by 2030, 75% of vendors in the "mainframe exit" category will pivot or disappear. Gartner's reasoning is structural, not sentimental: the volume and interconnection of decades of mainframe-resident data makes wholesale migration "physically and financially impossible" for most large enterprises, and investor pressure is pushing vendors to embed AI into offerings regardless of whether it meaningfully improves outcomes.</p>
+
+    <p>That is a genuinely useful data point, the kind of independent counterweight that is rare in this space. It was not in the first draft, because the first draft was built before it existed and never got refreshed against a later source. But "independent" and "final word" are not the same thing either, which is worth addressing directly before this piece makes the same mistake it is critiquing.</p>
+
+    <h2>What no report captures</h2>
+
+    <p>Landscape checks are good at framing and at surfacing a stat that reorients a conversation. They are not a substitute for having actually run one of these programs, and it shows fast the moment you push past the summary into execution. Mainframe environments are not just COBOL: it is JCL, CICS, IMS, VSAM, batch scheduling dependencies, and decades of undocumented coupling between hardware and software that took thirty years to accumulate one exception at a time. A report that only talks about "code translation" is quietly assuming the easy fraction of the problem represents the whole thing.</p>
+
+    <p>That gap is also where vendor hype does its damage. Glossy case studies and confident migration timelines deserve the same scrutiny as an AI-generated summary, not less, and the only real defense is going past the reference slide: talk to the actual client named in the case study, ask what the timeline looked like versus what was promised, and find out what got quietly descoped along the way before any budget gets committed. No report, human or AI-assisted, replaces that legwork.</p>
+
+    <h2>The actual takeaway</h2>
+
+    <p>None of this makes AI research untrustworthy. It makes a plausible, well-cited AI summary a first draft, not a deliverable, and the gap between the two is not about whether the AI hallucinated. It did not. Every claim in the original research was traceable to a real source. The failure mode was subtler: treating claims of different evidentiary strength identically, and missing that the landscape had already shifted since whatever data the model was drawing on was current.</p>
+
+    <p>For anyone using AI to scope a client conversation, a board deck, or a go or no-go decision on mainframe strategy: the fluent, well-hedged paragraph is not the hard part anymore, even when it came from a genuinely rigorous prompting process. Knowing which sentences in it would survive being checked against a primary source is.</p>
+
+    <p>If the client conversation behind this piece goes somewhere, the operative fork is not "AIOps versus migration," it is narrower and more consequential: is the goal to exit the mainframe, or to keep it and make it more AI-legible? Gartner's segment-by-segment framing, modernize in place for large or complex environments, case-by-case exits only for medium ones, mainframe-as-a-service for small ones, is a reasonable starting frame, and a rigorous AI research cycle taken at face value would have missed it entirely. But it is a starting frame, not an answer. The actual answer, in a mainframe environment specifically, is more likely to come from someone who has spent enough time in one to know which parts are genuinely load-bearing, which vendor timelines are fiction, and which battles are worth picking first. That is not a case for secrecy or gatekeeping, it is an acknowledgment that landscape checks, whoever or whatever produces them, are starting points, not substitutes for deep engagement. That is true whether the summary in front of you came from an AI, an analyst firm, or a vendor deck. Fluency and rigor are not the same thing, and neither one substitutes for having actually been there.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="ai-judging-ai-reliability-problem.html">Read the previous article &rarr;</a>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>What does "epistemic flattening" mean in the context of AI-generated research?</summary>
+      <p>It refers to a language model presenting claims of very different evidentiary strength, a vendor's self-reported statistic, a single company's internal case study, an independently audited figure, in the same confident tone. The reader has no signal from the text itself about which claims have earned more trust than others.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does a careful, multi-step AI research process eliminate the risk of missing information?</summary>
+      <p>No. The process in this case study included web search, an explicit instruction to separate vendor claims from independent evidence, and a self-critique pass, which is close to the ceiling of what a diligent person does with these tools today. It still missed a five-month-old event that had already reshaped the market it was summarizing, because that event postdated whatever the model had indexed.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How can a reader tell a vendor-reported statistic apart from an independently verified one inside an AI summary?</summary>
+      <p>Usually only by checking the underlying source. AI summaries typically do not flag the provenance or methodology behind a number unless specifically instructed to, and even then the flagging can be inconsistent. The discipline has to happen outside the model, by tracing each figure back to where it originated before it gets used in a decision.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Why does a stock-price reaction matter to a technical modernization decision?</summary>
+      <p>It is not proof of anything on its own, but a sharp market reaction is a data point about how a category is being priced and by whom. In this case it also flagged a genuine capability shift, AI automating a discovery task that used to anchor a meaningful share of consulting revenue, that the original research had not picked up at all.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What should change in how someone uses AI to scope a business decision after reading this?</summary>
+      <p>Treat the output as a first draft, not a deliverable, regardless of how rigorous the prompting process was. Trace the two or three claims that would most change the decision back to a primary source before they go into a client conversation, a board deck, or a go or no-go call.</p>
+    </details>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> IBM, "watsonx Assistant for Z" case study, ibm.com/case-studies -- Gartner, "Too Big to Fail: Why Mainframe Exit Projects Are Likely to Fail in the Age of Generative AI," press release, June 18, 2026 -- Anthropic, Claude Code COBOL dependency-mapping announcement, February 23, 2026; market coverage via CNBC, IT Pro, DevOps.com, and Futurum -- Rob Thomas (IBM SVP, Software and Chief Commercial Officer), rebuttal quoted in IT Pro and DevOps.com, February 24-25, 2026 -- Micro Focus / OpenText, COBOL platform survey series conducted with Vanson Bourne since 2020
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
