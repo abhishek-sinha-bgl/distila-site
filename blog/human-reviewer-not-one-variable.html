@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A human reviewer is not one variable. AI oversight requirements treat it like one. — Epistamate</title>
+  <meta name="description" content="Availability, competence, and state fail independently. Most AI oversight requirements test for none of them. What a better review process looks like.">
+  <meta name="keywords" content="human in the loop AI, AI oversight, human review AI governance, EU AI Act Article 14, vigilance decrement, automation bias, AI decision theory">
+  <link rel="canonical" href="https://epistamate.com/blog/human-reviewer-not-one-variable.html">
+  <meta property="og:title" content="A human reviewer is not one variable. AI oversight requirements treat it like one.">
+  <meta property="og:description" content="Availability, competence, and state fail independently. Most AI oversight requirements test for none of them. What a better review process looks like.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="article:published_time" content="2026-07-19">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; max-width: var(--text-w); }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '&minus;'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand" aria-label="Epistamate">
+      <span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../epistamate_demo.html">Demo</a>
+      <a href="../scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Get in touch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>July 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">AI governance</span>
+    <span class="article-tag">AI verification</span>
+    <span class="article-tag">Evidence quality</span>
+  </div>
+
+  <h1 class="article-h1">A human reviewer is not one variable. AI oversight requirements treat it like one.</h1>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">Availability, competence, and state fail independently, and a review process built to catch one won't catch the other two.</p>
+
+  <div class="article-body">
+
+    <p>AI governance frameworks reach for the same fix whenever a safety mechanism is needed: add a human reviewer. Article 14 of the EU AI Act requires effective human oversight of high-risk systems, and most vendor and internal governance language makes the same move less formally. The assumption underneath the fix is that a person in the loop is a single, stable unit of reliability, present or absent, that either exists or doesn't. That assumption doesn't hold. At least three things move independently inside any human review process: whether the reviewer is actually available and attentive when the review happens, whether they know enough to recognize the specific error in front of them, and what state they are in, rested or fatigued, careful or cutting corners, when they look. A review process is only as reliable as the weakest of the three at that particular moment, and most oversight requirements are not designed with that in mind.</p>
+
+    <p>None of this is new. Human factors and decision research have studied availability, competence, and state as separate variables for decades, mostly outside any AI context at all. What has changed is not the existence of these limits, it is that large language models interact with them in ways the older research did not anticipate, including one effect that does not require a reviewer to be tired, distracted, or under-qualified at all: a confidence borrowed from the AI that can outlast the conversation that produced it. That mechanism gets its own treatment below, but it is worth flagging early, because it is the clearest case of AI creating a new failure rather than just aggravating an old one.</p>
+
+    <h2>Three variables that fail independently</h2>
+
+    <h3>Availability</h3>
+
+    <p>Availability covers two distinct questions that are easy to blur together. The first is a threshold question: is the reviewer actually present and attending at all. The second is continuous: given that they are present, how long can that attention actually be sustained before it degrades. The research base is strongest on the second question, and it is worth being precise about which one is in view at each point below.</p>
+
+    <p>The vigilance research line goes back to radar operators monitoring screens during the Second World War, where researchers first documented what became known as the vigilance decrement, a measurable drop in an observer's ability to detect a rare signal the longer they sustain attention on a monotonous task. It has since replicated widely, including in healthcare and transportation-safety research, with performance deterioration typically appearing within five to fifteen minutes of sustained monitoring. Passively watching a system that is usually right is exactly the kind of under-stimulating task the decrement shows up fastest in, which makes automation a worse setting for sustained attention, not a better one.</p>
+
+    <p>The standard regulatory fix, limiting continuous review time, does not hold up against the evidence either. A study of breast cancer screening in real clinical practice found that when radiologists self-paced their reading and took their own rest breaks, accuracy did not decline with time on task, and false alarms actually decreased, directly contradicting the assumption that shorter mandated intervals are the safer design. A review process built on the wrong theory of availability can perform worse than one built on no explicit theory of availability at all.</p>
+
+    <h3>Competence</h3>
+
+    <p>A reviewer who is fully alert and present can still miss an error they do not have the specific expertise to recognize, and the vigilance literature shows this is not a separate problem from availability so much as an interacting one: expertise and working memory capacity measurably moderate how badly performance degrades under sustained monitoring. A tired expert and an alert novice can both miss the same error, for different reasons, which means a review process built to test for one variable will misjudge the other.</p>
+
+    <p>There is a sharper version of this problem specific to AI-assisted work: the tools people use to research a question can erode the exact expertise that would let them catch what those tools get wrong, a mechanism this blog covered in more detail in an earlier piece. This piece does not establish the precise channel, but the plausible candidates are worth naming rather than leaving the claim to float unspecified: fewer hands-on repetitions of the underlying skill, since the tool now performs the step a person used to practice; a shift from generating an answer to merely evaluating one, which is a different and generally easier cognitive task than producing it from scratch; or some combination of both. A July 2026 piece from the World Economic Forum makes a narrower version of the same argument under the name the oversight paradox: competence is sustained through practice, and that practice is precisely what the system is now doing instead of the human. It does not get into the specific channel or extend to the availability and state variables treated separately here, but it is a useful data point that a major outlet reached a similar conclusion independently. Whichever channel dominates, if the claim holds, competence and the tool being reviewed are not independent. The same interaction that produces the output is degrading the reviewer's ability to check it, a feedback loop the availability and state literatures do not have to contend with in the same way.</p>
+
+    <h3>State</h3>
+
+    <p>Cognitive fatigue reliably degrades sustained-attention performance. That general claim is well supported and separate from any single dramatic example of it. The most cited specific example, a 2011 study of Israeli parole boards that found favorable rulings dropping from roughly 65 percent to near zero across a session and resetting after a food break, is shakier than its citation count implies: a later simulation-based reanalysis argued the effect was overstated and that non-fatigue explanations fit the same data comparably well, and the broader ego-depletion literature the original causal story leaned on has struggled to replicate at scale since. Treat that specific study as a widely repeated example worth knowing is contested, not as the evidence base for the claim. The stronger, more directly relevant state effect for AI-assisted work is not fatigue at all. It is addressed below.</p>
+
+    <p>Put together, these three variables do not just coexist, they compound, and not additively. As a purely illustrative way to think about compounding, rather than a measured relationship: if fatigue costs a reviewer some fraction of their detection ability, reduced competence in that specific area costs another fraction, and passive monitoring of fluent text costs a third, what is left is closer to the product of those fractions than their sum, the way independent probabilities combine rather than add. A reviewer operating at roughly seventy percent effectiveness on each of three independent dimensions, purely as an illustration of the arithmetic and not a claim about any measured reviewer, is not mildly impaired on one axis while fine on the others. Multiplied together, they are working at under half their full reliability across all three at once. Oversight requirements that treat "a human reviewed it" as a single fact are not just averaging three numbers, they are implicitly multiplying them, and getting a smaller number than intuition suggests.</p>
+
+    <h2>How fluent AI output interacts with all three</h2>
+
+    <p>Large language models do not just add a fourth variable, they interact with the three that already exist. There is a related but distinct research thread worth flagging for anyone tracking this literature further: a term called compound human-AI bias, describing how a person's own cognitive biases and an AI's biases can interact when they collaborate. The finding is not that the two always reinforce each other. Depending on whether the AI's bias points the same direction as the reviewer's or against it, the interaction can amplify error or, in some documented cases, cancel it out. That is a different question from whether a reviewer is available, competent, and level-headed at the moment of review, and this piece is not making a claim about bias alignment specifically, but the two threads are studying adjacent territory and are likely to converge in future work.</p>
+
+    <h3>Competence, compounded</h3>
+
+    <p>The erosion argument above is one channel, and a second, independent finding compounds it. Signal detection theory, the classic framework for separating a person's sensitivity to a real signal from their response bias, has been applied to evaluate whether a person's trust in an LLM's output is properly calibrated to how trustworthy that output actually is. Miscalibration in either direction, trusting too much or too little, is treated as symmetric error against the same standard used for decades in human-automation research, and both directions degrade a reviewer's effective competence regardless of what they knew before the interaction.</p>
+
+    <h3>Availability, exploited</h3>
+
+    <p>Fluent AI output is close to the worst-case setup the vigilance literature describes: mostly-correct text that requires sustained attention to catch the rare error, which is exactly the under-stimulating, low-signal-rate condition the decrement shows up fastest under. A 2026 study found this plays out in practice: when an LLM presents uncertainty in a coarser, more narrative form rather than fine-grained signals, people's external verification behavior, actually clicking through to a source, actually running a search, measurably drops, without any corresponding improvement in their ability to catch the AI's actual errors.</p>
+
+    <h3>Borrowed confidence</h3>
+
+    <p>The most distinctive of the three effects is not a version of fatigue at all. A person's own self-confidence tends to assimilate toward whatever confidence an AI expresses, and that shift can persist after the AI is no longer part of the decision at all. This is a state effect that does not require the reviewer to be tired, distracted, or under-qualified. It can happen to someone who is fully rested, fully expert, and simply had a confident conversation with a model an hour earlier, which is what makes it the sharpest departure from the older, pre-AI research: availability and competence problems are aggravated versions of failure modes that already existed, but borrowed confidence is closer to a new one. A recent conceptual review ties this together with the older automation-bias and motivated-reasoning literatures under a proposed construct it calls artificial confidence, unwarranted certainty that emerges from interaction with fluent AI output rather than from any actual increase in evidence.</p>
+
+    <h2>What agentic oversight research gets right</h2>
+
+    <p>The part of the field that has caught up fastest to this older research is not the general research-and-writing context this blog is mostly about. It is agentic AI oversight, where an unreviewed action has more immediate consequences and the researchers doing the work have reached for economics rather than psychology. Several recent papers frame human oversight of an AI agent explicitly as a principal-agent problem: monitoring is costly, information is asymmetric, and a human's actual ability to observe and understand what an agent is doing is a bottleneck independent of whether they are paying attention.</p>
+
+    <p>One recent paper goes further and directly rejects an assumption baked into most human-in-the-loop governance writing, that the reviewer is an infinitely available, perfectly reliable check. It argues oversight capacity is a scarce, fatiguing resource, and that there is no clean, ground-truth notion of which actions actually warrant a human's attention in the first place. Treating oversight as a budget rather than a switch is a more honest starting point than most compliance-oriented human oversight language uses today, and it is the right frame to carry into what an actual design response looks like.</p>
+
+    <h2>Designing around a reviewer who will not be constant</h2>
+
+    <p>Designing around this does not mean giving up on human review. It means not spending a review budget as if it were unlimited or uniform. A few implications follow directly from treating availability, competence, and state as separate, compounding variables rather than one, each concrete enough to check against a specific process rather than just a general disposition.</p>
+
+    <p>Article 14 requires oversight to be "effective" but leaves the operational meaning to guidance and enforcement, which is precisely why these questions matter now, while those interpretations are still forming. A deployer working to that requirement could document more than the bare fact that a human reviewed an output: how long the reviewer spent, whether session length was fixed or self-paced, what specific expertise they brought to each section, and what if anything prompted them to check a claim against a source rather than accept it. That does not automatically make oversight effective. It turns "a human reviewed it" from a binary checkbox into a traceable process that can actually be evaluated against the three variables above, rather than assumed to be sufficient because it exists.</p>
+
+    <p>Availability suggests self-paced review over fixed intervals, and a way to check it: does the review process log time-on-task per reviewer and let session length vary, or does it impose a uniform interval regardless of the material? The breast cancer screening finding above argues against the latter and for giving reviewers control over their own pacing and rest, though it is a single peer-reviewed domain and the right pacing for any given task should be treated as an open question rather than a settled transfer from radiology to everything else. A similar pattern has been described in quality-assurance trade literature outside healthcare, in calibration-lab certificate review, where reducing how much a reviewer has to check, while preserving how carefully they check it, outperformed exhaustive review at degraded attention. That is not peer-reviewed evidence in the same sense as the radiology study, but it is a second, independent domain pointing the same direction, which is worth more than either domain alone.</p>
+
+    <p>Competence suggests routing review work toward the specific expertise an error requires rather than to whoever is next in a queue, but this runs into the erosion problem from the competence section above directly: if the tool being reviewed is part of what is degrading the reviewer's expertise, routing to "an expert" assumes an available expert whose judgment is exactly what is being called into question. The more honest version of this design principle is narrower: flag which specific claims in a piece of output sit furthest from a reviewer's own declared domain, rather than assuming competence is uniform across everything a reviewer is asked to sign off on. That does not solve the erosion problem. It at least stops pretending a generalist reviewer is equally positioned to catch every kind of error.</p>
+
+    <p>State suggests treating a reviewer's sense of confidence as something to check against the evidence, not just against the AI's own stated confidence, since the borrowed-confidence research above shows the two can bleed into each other without the reviewer noticing it happening. A process that surfaces where a claim's evidentiary weight is uncertain, rather than presenting everything in the same fluent register, gives a reviewer something to calibrate against besides a borrowed sense of certainty. This is the design implication most directly aimed at the hardest version of the problem: a reviewer who is present, expert, and well rested, and still no longer notices anything needs checking, because nothing about the interaction signaled that it should. None of the other two implications touch that failure mode at all, since it has nothing to do with time or workload.</p>
+
+    <p>There is also a way to test whether any of the above is actually working, rather than assuming it: deliberately introduce a known error into a reviewer's queue and check whether it gets caught. This is not a hypothetical fix. A patent filed for radiotherapy treatment planning describes exactly this approach, intentionally injecting errors into an AI-assisted planning tool's output specifically to measure whether the human or AI reviewer downstream catches them. Applied to AI-assisted research or writing, the same logic would mean periodically routing a claim with a known, planted problem through the review process and tracking the catch rate over time, which turns "is our oversight working" from an assumption into a measured quantity.</p>
+
+    <p>None of these are complete solutions, and none of them make a human checkpoint reliable on its own. What they share is a starting assumption the current governance conversation mostly skips: that a review process has to be designed for a reviewer who will, at some point, be unavailable, out of their depth, or quietly more confident than the evidence warrants. That last failure is the harder one to design for than the first two. Agentic oversight research treats attention as a problem of running out of time before a fast-moving action completes. In AI-assisted research and writing, time is rarely the binding constraint the way it is there. The more common failure is a reviewer with plenty of time who no longer notices that anything needs checking, and a design response has to work without the one signal a time-based failure at least provides, the fact that something ran out.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="ai-research-verification-mainframe-case-study.html">Read the previous article &rarr;</a>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Is "borrowed confidence" the same thing as automation bias?</summary>
+      <p>They are related but not identical. Automation bias describes a general tendency to favor an automated system's output over conflicting evidence or one's own judgment. Borrowed confidence, as used in the assimilation research above, is more specific: it is a measurable shift in a person's own stated confidence toward whatever confidence the AI expressed, a shift that can outlast the interaction itself. Automation bias is about what a person does with the AI's answer. Borrowed confidence is about what happens to the person's own sense of certainty, independent of any specific answer at all.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does self-paced review always perform better than fixed review intervals?</summary>
+      <p>Not necessarily. The finding above is from one domain, breast cancer screening, and the more defensible general claim is that mandated short intervals are not automatically the safer design, not that self-pacing is universally correct. The right pacing likely depends on the task, the error rate, and how costly a missed error is in that specific context.</p>
+    </details>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Mackworth-tradition vigilance decrement research, replicated across military, healthcare, and transportation-safety domains, with expertise and working memory documented as moderating variables -- self-paced radiologist reading study on breast cancer screening accuracy over time-on-task, published via PubMed Central -- quality-assurance trade literature on review volume and attention degradation in calibration-lab certificate review, Quality magazine -- Danziger, S., Levav, J., and Avnaim-Pesso, L., "Extraneous factors in judicial decisions," Proceedings of the National Academy of Sciences, 2011 -- simulation-based reanalysis of the same parole board data, Judgment and Decision Making journal, arguing the original effect magnitude was overestimated -- Kovesdi, C., Yamani, Y., Jackson, R., and Lin, C., application of signal detection theory to evaluate trust calibration in large language model outputs, 2025 -- study on uncertainty granularity and its effect on human verification behavior in LLM-assisted decision making, 2026 -- CHI 2025 study on AI-expressed confidence and human self-confidence assimilation in human-AI decision making -- Steidel, I. and Gieger, B., "The oversight paradox: Human control over AI may be eroding," World Economic Forum, July 2026 -- von Felten, N., Schöning, J., Opwis, K., and Scharowski, N., research introducing and studying compound human-AI bias, 2025 -- conceptual review proposing "artificial confidence" as a construct synthesizing automation bias, motivated reasoning, and epistemic vigilance research, Systems journal, 2026 -- principal-agent framing of oversight and liability in LLM-based agentic systems, 2025 -- "Oversight Has a Capacity," on calibrating agent oversight to a fatiguing, non-idealized human reviewer, 2026 -- US Patent 11,766,575, injected-error testing of human and AI reviewers in radiotherapy treatment planning quality assurance -- EU AI Act, Article 14, human oversight requirements for high-risk AI systems
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
