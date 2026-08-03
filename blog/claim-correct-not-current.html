@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A claim can be correct, well-sourced, and no longer true, Epistamate</title>
+  <meta name="description" content="Why citation support and temporal validity are separate properties. A practical taxonomy for how claims expire, and what the research says about whether retrieval fixes it.">
+  <meta name="keywords" content="temporal validity, claim currency, citation verification, evidence expiry, AI research tools, stale claims, evolveQA, DynamicQA">
+  <link rel="canonical" href="https://epistamate.com/blog/claim-correct-not-current.html">
+  <meta property="og:title" content="A claim can be correct, well-sourced, and no longer true">
+  <meta property="og:description" content="Why citation support and temporal validity are separate properties. A practical taxonomy for how claims expire, and what the research says about whether retrieval fixes it.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="article:published_time" content="2026-08-03">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-subtitle { font-family: var(--font-body); font-size: 1rem; color: var(--ink-3); font-weight: 500; margin: -8px 0 var(--space-m); }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .instrument-table { width: 100%; border-collapse: collapse; margin: var(--space-l) 0; font-size: 0.9rem; }
+    .instrument-table th { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); padding: var(--space-s) var(--space-m); text-align: left; border-bottom: 2px solid var(--border-2); }
+    .instrument-table td { padding: var(--space-s) var(--space-m); border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--ink-2); }
+    .instrument-table tr:last-child td { border-bottom: none; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; max-width: var(--text-w); }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '&minus;'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand" aria-label="Epistamate">
+      <span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../epistamate_demo.html">Demo</a>
+      <a href="../scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Get in touch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>August 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Verification architecture</span>
+    <span class="article-tag">AI research tools</span>
+  </div>
+
+  <h1 class="article-h1">A claim can be correct, well-sourced, and no longer true</h1>
+
+  <p class="article-subtitle">Why citation support and temporal validity are separate properties</p>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">A citation can be genuine. A source can say exactly what the AI attributes to it. The finding can have accurately described the state of the world when it was published. And the claim built on it can still be wrong today, because the world moved and the claim didn't.</p>
+
+  <div class="article-body">
+
+    <p>Much of the evidence-quality discussion, including my own writing on this subject, has focused on whether a citation is real and whether a source actually supports what's claimed of it. Those questions matter, but they leave out a third one: does this claim still hold? A source can pass several common checks, including citation accuracy, corroboration, and source quality, while still describing a state of the world that no longer exists, because none of those checks ask about currency in the first place.</p>
+
+    <h2>Why this is a different failure from the ones already covered</h2>
+
+    <p>The fabrication problem is about whether the citation exists. The corroboration problem is about whether independent sources actually agree, rather than just repeating each other. This is a different axis entirely. A claim can be accurately sourced, independently corroborated by several credible outlets, and still expired, because credibility and currency are separate properties. A Tier 1 source from eighteen months ago is not automatically wrong, but its age is a fact that a citation check alone will not establish as relevant or irrelevant to the claim's current validity.</p>
+
+    <p>In many research workflows, freshness is represented at the document level rather than the individual claim. A report gets a "last updated" date, and downstream systems may treat that date as the freshness signal for every claim extracted from it. But a single report routinely contains a historical finding that is still true, a market figure that expired months ago, and a regulatory position that has since been superseded, all carrying the same timestamp. The validity period belongs to the claim, not the container it arrived in.</p>
+
+    <h2>A practical taxonomy separating temporal form from evidence status</h2>
+
+    <p>A workable taxonomy needs to keep two things apart: the temporal form of a claim, and the status of the evidence behind it.</p>
+
+    <table class="instrument-table">
+      <thead>
+        <tr>
+          <th>Temporal form</th>
+          <th>Defining property</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Atemporal</td>
+          <td>Truth isn't implicitly tied to "now"</td>
+          <td>A mathematical theorem</td>
+        </tr>
+        <tr>
+          <td>Current-state</td>
+          <td>Carries an implicit present tense</td>
+          <td>"The product currently supports X"</td>
+        </tr>
+        <tr>
+          <td>Time-indexed</td>
+          <td>Explicitly bound to a date or interval, open or closed</td>
+          <td>"The policy applies during 2026"</td>
+        </tr>
+        <tr>
+          <td>Forecast</td>
+          <td>Becomes assessable once a target window passes</td>
+          <td>"Revenue will exceed X in 2027"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>A time-indexed claim only turns into a fixed historical proposition once its interval closes; "the policy applied from 2022 to 2024" doesn't need ongoing checking, but "the policy applies during 2026" still does, since the window is still open.</p>
+
+    <p>Evidence status is a separate assessment, and it isn't binary: at an aggregate level, a claim may be supported, mixed or contested, inconclusive, or superseded by newer evidence. That's distinct from source status, which can be active, corrected, withdrawn, or retracted; a claim can stay supported after a supporting paper is withdrawn, if other evidence holds it up independently, and a source can be corrected without the claim it's cited for being affected. Atemporal claims aren't exempt. A claim about a stable quantity can lose evidential support when a more precise later measurement shows the earlier estimate was inaccurate, even though the quantity itself never changed; what moved was the evidence, not the world.</p>
+
+    <h2>Retrieval doesn't settle this, and the result depends on how it's tested</h2>
+
+    <p>The intuitive fix is retrieval: don't rely on a model's frozen training data, give it current information instead. Two closely related but methodologically distinct studies point different directions. DynamicQA found that facts with greater internal conflict were harder to update from external context; MULAN found mutable facts updated more readily than immutable ones. A reproducibility study unifying the two found the disagreement was dataset-dependent and asymmetric rather than a clean standoff: MULAN's findings generalized under both frameworks, while DynamicQA's evaluation applied to its own dataset produced mixed outcomes. The defensible conclusion isn't that retrieval reliably works or fails; it's that contextual updating is sensitive to what's tested and how.</p>
+
+    <p>A separate 2025 preprint, evolveQA, examines a related part of the problem without retrieval: whether a model can produce or recognize current information from its own parametric knowledge alone. Grounded in real, timestamped AWS, Azure, and WHO corpora, it found accuracy drops of up to 31% on questions where the correct answer had changed, compared to static-knowledge questions. Its more interesting result is what happened when the same knowledge was tested through cued recognition instead of unaided recall: in 32 to 45% of cases, a model gave an outdated answer to an open-ended question but selected the current, correct one when it was offered as a multiple-choice option. The authors read this as evidence that current knowledge may already be represented but poorly prioritized during open-ended generation, though the multiple-choice format is its own kind of cue, so the result distinguishes unaided recall from cued recognition more cleanly than it fully explains the gap. Either way, since evolveQA doesn't test retrieval, it cannot determine whether retrieved context would close that gap.</p>
+
+    <p>A related 2026 paper on WikiRecentChanges adds a mechanism for why the gap might persist even with retrieval: models often generate temporal reasoning for facts that changed, rarely for stable ones, but that reasoning rarely carries through to their final prediction. Prompting a model to consider whether a fact might be mutable increased mentions of temporal change without improving accuracy. Detecting that a claim is time-sensitive isn't the same as reliably acting on that detection.</p>
+
+    <h2>What this comes down to</h2>
+
+    <p>A citation relationship should be evaluated at a defined time, because support and currency are separate predicates: a source can support a claim without supporting it as of the date the answer is actually being used. That gives research verification three checks instead of two: does the source exist, does it actually support the claim, and does it support the claim as of the relevant date. The citation-verification approaches I have written about previously stop at the first two.</p>
+
+    <p>Tracking the third one needs more than a citation and a source-quality tier: a temporal-form label, a claim-support status, and three dates that aren't interchangeable, valid time (when the claim applies in the world), source time (when the source was published or updated), and verification time (when it was last actually checked). A claim like "Company X's CEO is Y" might carry a valid-from date, a source date, and a separate verification date, with no valid-until date until the claim actually changes. Capturing that metadata is a solvable data-modeling problem. Getting a model to reliably honor those boundaries once they're sitting right there in context is a separate, harder, and still-open one.</p>
+
+    <p>None of this argues that older sources should be discounted by default. An atemporal claim from a ten-year-old paper isn't automatically weaker for its age. The point is narrower: a research pipeline should be able to tell the difference between a claim that's old and irrelevant to its age, and a claim that's old in a way that changes whether it's still true.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="human-ai-collaboration-evidence.html">Read the previous article &rarr;</a>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Isn't this just a knowledge-cutoff problem?</summary>
+      <p>No. A knowledge cutoff is about what a model was trained on. Claim expiry is about the claim itself, and it applies even when the model has live retrieval access to a source published yesterday, if that source is describing something that changed the day after it was published.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Doesn't retrieval-augmented generation solve this by definition?</summary>
+      <p>Not reliably. DynamicQA and MULAN found different things about how readily external context updates a model's stale facts, and a reproducibility study found MULAN's results generalized better than DynamicQA's under cross-testing. Separately, evolveQA found models sometimes select the current answer as a multiple-choice option after failing to produce it unprompted, evidence the authors read as current knowledge being represented but poorly prioritized, though since evolveQA doesn't test retrieval, it can't establish whether retrieval would close that gap.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does this mean older sources are less trustworthy?</summary>
+      <p>No. An atemporal claim doesn't become false solely because time passes, though the evidence supporting it can still be corrected or superseded. The issue is narrower than source age: it's whether a specific claim's truth value is time-bound, and whether that's been tracked.</p>
+    </details>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Nakshatri, Roy, Arivazhagan, Zhou, Kumar, Gangadharaiah, "When Facts Change: Probing LLMs on Evolving Knowledge with evolveQA," arXiv:2510.19172, 2025 (preprint) -- Fierro, Garneau, Bugliarello, Kementchedjhieva, Søgaard, "MULAN: A Study of Fact Mutability in Language Models," Proceedings of NAACL 2024, Volume 2: Short Papers, 762-771 -- Marjanović, Yu, Atanasova, Maistro, Lioma, Augenstein, "DYNAMICQA: Tracing Internal Knowledge Conflicts in Language Models," Findings of the Association for Computational Linguistics: EMNLP 2024, 14346-14360 -- Dey, Ounis, McDonald, Moshfeghi, "Temporal Fact Conflicts in LLMs: Reproducibility Insights from Unifying DynamicQA and MULAN," ECIR 2026 -- Wallat, Nejdl, Sikdar, "When Facts Change: Temporal Knowledge Conflict Resolution in LLMs," Findings of the Association for Computational Linguistics: ACL 2026, 2154-2184
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
