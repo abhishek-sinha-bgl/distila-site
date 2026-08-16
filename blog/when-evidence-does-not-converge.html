@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When Evidence Does Not Converge, Epistamate</title>
+  <meta name="description" content="What AI synthesis loses when credible sources remain in conflict. A three-stage way to diagnose disagreement before resolving it, and a test for when unresolved evidence can still support a decision.">
+  <meta name="keywords" content="conflicting evidence, evidence synthesis, AI research tools, ConfRAG, WikiContradict, contradiction resolution, decision-making under uncertainty">
+  <link rel="canonical" href="https://epistamate.com/blog/when-evidence-does-not-converge.html">
+  <meta property="og:title" content="When Evidence Does Not Converge">
+  <meta property="og:description" content="What AI synthesis loses when credible sources remain in conflict. A three-stage way to diagnose disagreement before resolving it, and a test for when unresolved evidence can still support a decision.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <!-- TODO: set article:published_time to the actual publish date (YYYY-MM-DD) at time of posting, not before -->
+  <meta property="article:published_time" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-subtitle { font-family: var(--font-body); font-size: 1rem; color: var(--ink-3); font-weight: 500; margin: -8px 0 var(--space-m); }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; max-width: var(--text-w); }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '&minus;'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand" aria-label="Epistamate">
+      <span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#personas">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="../epistamate_demo.html">Demo</a>
+      <a href="../scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="../landscape.html">Research landscape</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Get in touch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>August 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Research methodology</span>
+    <span class="article-tag">AI research tools</span>
+  </div>
+
+  <h1 class="article-h1">When Evidence Does Not Converge</h1>
+
+  <p class="article-subtitle">What AI synthesis loses when credible sources remain in conflict</p>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">A synthesized answer that reads smoothly is not the same as an answer that accurately represents what the evidence actually says. Coherence is a property of the writing. Convergence is a property of the evidence. A system can produce the first without the second ever being true, and a fluent paragraph gives no outward sign that it happened.</p>
+
+  <div class="article-body">
+
+    <p>This is a different failure from the ones I've written about before on this site. It isn't about a fabricated citation, or a source that doesn't actually support the claim attached to it, or a claim that used to be true and no longer is. It's about what happens when several sources are genuine, current, and individually credible, and still don't agree. Synthesis has to do something with that. When it goes wrong, it can make the disagreement disappear.</p>
+
+    <h2>Diagnose before you resolve</h2>
+
+    <p>Not every apparent disagreement is a real one, and treating all of them the same way is itself a mistake. A useful sequence has three stages, and they build on each other rather than sorting a disagreement into one exclusive bucket.</p>
+
+    <p>The first stage is scoping: what is each claim actually about, population, outcome, measure, definition, time, and the conditions under which it was found. A study on patients over seventy and a study on patients under forty are answering questions about two different populations. Relative risk and absolute risk are different numbers answering different questions, even when they're about the same intervention. A related but distinct case belongs here too: a claim that was accurate when a source was published but has since been overtaken by events, the specific failure I wrote about in the previous article on this site, where citation validity and temporal validity turned out to be separate properties. Once timestamped, that kind of claim is perfectly comparable to a newer one, it's just answering an older version of the question, and needs different handling than a genuine disagreement does. Scoping doesn't settle the disagreement. It establishes the proposition that is actually being compared.</p>
+
+    <p>The second stage asks what explains or changes the evidential weight of a divergence once the scope is clear. Making the claims comparable doesn't automatically settle the disagreement, sometimes it explains it instead, and there are two different ways that can happen. One is conditioning: two findings may become compatible once the conclusion is conditioned on context, the evidence may support A under condition X and B under condition Y. That population difference from stage one might turn out to belong here too, if the evidence suggests the intervention genuinely behaves differently by age rather than merely being described by two non-comparable studies. The other is evidential weighting: two findings address the same question under the same conditions, but one source of evidence gives stronger grounds for belief than the other. A randomized trial and an observational study reaching different conclusions on the same question isn't necessarily revealing that the effect is conditional, the gap could instead reflect confounding, differences in precision, or other features of study design, which may justify giving one result more weight than the other. But weighting one finding more heavily doesn't make the other disappear. It shifts belief. It doesn't settle the question.</p>
+
+    <p>Scoping and weighting can do legitimate work, and material disagreement can still remain after both. Only once a claim has been properly scoped, and any conditioning or evidential weighting that's actually warranted has been applied, does the third stage matter, whatever disagreement is still standing after that. That's residual disagreement, and it's the case a system actually has to preserve rather than resolve, not because nothing could be said about it, but because what can be said doesn't make it go away.</p>
+
+    <p>The three-stage diagnostic above is a proposed way to think about the problem, not something the research below set out to test. What that research tests is narrower: whether a model can represent and explain conflicting evidence it has already been handed.</p>
+
+    <h2>What models currently lose</h2>
+
+    <p>ConfRAG assembled 1,814 questions from three public datasets and a generated, manually reviewed set spanning six topical domains, then paired them with retrieved documents from heterogeneous web sources, evaluating whether models could organize conflicting material into distinct positions, cover all of them, and preserve the reasoning behind each one. One of the strongest models evaluated, GPT-4.1, scored 0.157 on the benchmark's reason-coverage metric, which is itself gated on correctly matching the associated answer, well below the human panel's 0.275 on the same task. The benchmark also supplies the true number of answer clusters in advance, to rule out degenerate but structurally valid partitions. Real deployment does not get that help.</p>
+
+    <p>WikiContradict tests something ConfRAG doesn't: it gives models two passages from Wikipedia that contain conflicting answers, and the benchmark treats them as equally trustworthy by construction, so source authority can't be used to pick a winner. Models struggle especially with implicit conflicts, ones that require actually reasoning about what the two passages say, not just noticing contradictory wording. Between the two benchmarks, the pattern holds: ConfRAG removes the uncertainty of not knowing how many positions exist, WikiContradict removes source reputation as a ranking shortcut, and in both settings, models still struggle to organize the competing positions and explain the disagreement between them.</p>
+
+    <h2>What preserving disagreement requires</h2>
+
+    <p>At minimum, a synthesis needs to keep distinct positions separate rather than blending them, preserve the source and reasoning attached to each, identify the conditions to which each applies where those are known, and mark what remains unresolved.</p>
+
+    <p>There's recent work suggesting the reasoning-attached-to-position part is achievable, at least in a narrower setting. A 2026 framework for automated fact-checking found that grounding a model's uncertainty explanation in the specific evidence spans that conflict or agree, rather than a generic hedge like "sources disagree," tracked model uncertainty more faithfully and was judged by human raters as more helpful and informative. That doesn't establish that claim-clustering and provenance-tracking solve general research synthesis, only that grounding a disagreement explanation in the specific evidence actually in conflict is feasible and useful, at least in the fact-checking settings tested.</p>
+
+    <h2>When resolution is justified</h2>
+
+    <p>Not every disagreement should survive into the final output unresolved. But resolving one needs a reason, and that reason should be visible, not just implied by how confident the answer sounds. A scope mismatch is handled by separating or conditioning the claims, not averaging them. An evidence-quality difference gets a stated, justified weighting, applied honestly, which can shift where the balance of belief sits without necessarily eliminating the minority position. Whatever disagreement is still standing after both of those, the residual kind, doesn't get resolved at all. It gets preserved.</p>
+
+    <p>The short version: resolution needs a warrant. Fluency is not a warrant.</p>
+
+    <h2>When unresolved evidence can still support a decision</h2>
+
+    <p>A system can still be useful even when sources disagree. Disagreement doesn't necessarily need to block a decision, and treating every one of them as a reason to stall is its own kind of failure.</p>
+
+    <p>The test is whether the decision changes across the credible interpretations that remain, and that test only means something relative to an explicit decision rule. Suppose credible studies disagree about exactly how large an effect is, but under every credible interpretation that remains, the effect is still above the threshold at which one intervention is preferable to the alternative. The scientific disagreement is real, and worth preserving for anyone who needs the full picture. But the immediate decision is robust to it, nothing about choosing between the interventions actually depends on resolving which estimate is closest to correct. Now suppose the credible interpretations fall on opposite sides of that threshold. The disagreement hasn't gotten any bigger, but it's become decision-material, and a system that quietly averages those estimates into one confident number has destroyed exactly the piece of information the decision actually turned on.</p>
+
+    <p>Disagreement capable of changing the decision needs to remain visible, not smoothed into an answer that sounds more settled than the evidence actually is.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="claim-correct-not-current.html">Read the previous article &rarr;</a>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Isn't this the same problem as citation fabrication or weak corroboration?</summary>
+      <p>No. Those are about whether a source is genuine and whether it supports what's claimed of it. This is about what happens after both checks pass, when sources are genuinely credible and still don't agree.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Doesn't asking a model to consider more sources make this worse, not better?</summary>
+      <p>More retrieval doesn't solve it by itself. The benchmarks discussed here show that even with conflicting material already in hand, models still struggle to organize the competing positions and explain the disagreement.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does preserving disagreement mean a system should never give a straight answer?</summary>
+      <p>No. The distinction that matters is whether the decision changes across the credible interpretations that remain. If it doesn't, the disagreement can stay explicit without blocking anything. If it does, hiding it behind a confident-sounding average is the actual failure.</p>
+    </details>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Yuan, Kong, Li, Li, Liu, "Benchmarking LLM's Capability in Reasoning over Conflicting Web References" (ConfRAG), ACL 2026, 303-322 -- Hou, Pascale, Carnerero-Cano, Tchrakian, Marinescu, Daly, Padhi, Sattigeri, "WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia," NeurIPS 2024, Datasets and Benchmarks Track -- Sun, Warren, Shklovski, Augenstein, "Explaining Sources of Uncertainty in Automated Fact-Checking" (CLUE), ACL 2026, 45510-45534
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
