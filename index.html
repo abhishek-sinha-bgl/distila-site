@@ -9,15 +9,49 @@
   <meta property="og:title" content="Epistamate — Research that holds up.">
   <meta property="og:description" content="Every AI tool gives you answers. None tell you which to trust. Epistamate scores each claim against its evidence — not the model's self-reported certainty.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://epistamate.com/">
+  <meta property="og:site_name" content="Epistamate">
   <meta property="og:image" content="https://epistamate.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Epistamate — Research that holds up.">
+  <meta name="twitter:description" content="Every AI tool gives you answers. Epistamate shows which claims the evidence actually supports.">
+  <meta name="twitter:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
   <link rel="canonical" href="https://epistamate.com/">
-  <!-- build:2026-06-23T00:00:00Z -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://epistamate.com/#organization",
+        "name": "Epistamate",
+        "url": "https://epistamate.com/",
+        "logo": "https://epistamate.com/epistamate-icon.svg",
+        "email": "hello@epistamate.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Abhishek Sinha",
+          "sameAs": "https://www.linkedin.com/in/abhishek-sinha-bgl"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://epistamate.com/#website",
+        "url": "https://epistamate.com/",
+        "name": "Epistamate",
+        "description": "Evidence-led research software and professional services for claims that need to hold up.",
+        "publisher": { "@id": "https://epistamate.com/#organization" }
+      }
+    ]
+  }
+  </script>
+  <!-- build:2026-08-17T00:00:00Z -->
 </head>
 <body>
 
@@ -27,6 +61,7 @@
     <a href="#" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
       <a href="index.html#personas">Who it's for</a>
+      <a href="genai-control-evidence-review.html">Control Review</a>
       <a href="engine.html">The Engine</a>
       <a href="epistamate_demo.html">Demo</a>
       <a href="scholarly-source-check.html">Scholarly Source Check</a>
@@ -402,6 +437,29 @@
   </div>
 </section>
 
+<!-- CONTROL EVIDENCE REVIEW SERVICE -->
+<section class="control-review-section" id="control-review">
+  <div class="section-inner">
+    <div class="control-review-shell">
+      <div class="control-review-copy">
+        <div class="section-tag">Founder-led service</div>
+        <h2>Your GenAI controls exist.<br><em>What does the evidence let you claim?</em></h2>
+        <p>Epistamate examines the evidence behind the control claims organisations rely upon across their GenAI workflows. An initial engagement begins with one consequential workflow, keeping every conclusion tied to a defined system, use, configuration and period.</p>
+        <div class="control-review-actions">
+          <a href="genai-control-evidence-review.html" class="btn-primary">Explore the review →</a>
+          <a href="genai-control-evidence-review.html#workflow-examples" class="btn-ghost">See workflow examples →</a>
+        </div>
+      </div>
+      <div class="control-review-questions" aria-label="Examples of control evidence questions">
+        <div><span>01</span><p>Do retrieved sources actually support the generated answer?</p></div>
+        <div><span>02</span><p>Which material errors has human review demonstrated it can detect?</p></div>
+        <div><span>03</span><p>Was the LLM evaluator validated against the failure that matters?</p></div>
+        <div><span>04</span><p>Does evidence from separate controls support the combined workflow?</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ — AEO SECTION -->
 <section class="faq-section" id="faq">
   <div class="section-inner">
@@ -510,9 +568,10 @@
           </div>
 
           <div class="form-group">
-            <label for="cf-domain">Research domain</label>
+            <label for="cf-domain">What would you like to discuss?</label>
             <select id="cf-domain" name="domain">
               <option value="" disabled selected>Select the closest fit</option>
+              <option value="GenAI Control Evidence Review">GenAI Control Evidence Review</option>
               <option value="Policy / Think Tank">Policy / Think Tank</option>
               <option value="Regulatory / Compliance">Regulatory / Compliance</option>
               <option value="Consulting / Advisory">Consulting / Advisory</option>
@@ -523,8 +582,8 @@
           </div>
 
           <div class="form-group">
-            <label for="cf-problem">What research problem are you trying to solve?</label>
-            <textarea id="cf-problem" name="problem" rows="4" placeholder="A sentence or two on the specific workflow problem — not required, but it helps us have a better first conversation." maxlength="600"></textarea>
+            <label for="cf-problem">What workflow or research problem are you trying to solve?</label>
+            <textarea id="cf-problem" name="problem" rows="4" placeholder="A sentence or two on the specific workflow or research problem. Please do not include confidential evidence." maxlength="600"></textarea>
           </div>
 
           <div class="form-group">
@@ -644,6 +703,7 @@
     </div>
     <div class="footer-links">
       <a href="index.html">Home</a>
+      <a href="genai-control-evidence-review.html">Control Evidence Review</a>
       <a href="engine.html">The Engine</a>
       <a href="persona-consultant.html">Analysts</a>
       <a href="landscape.html">Research landscape</a>
