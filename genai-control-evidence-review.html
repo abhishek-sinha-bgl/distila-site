@@ -467,7 +467,8 @@
         color: var(--ink-3);
         backdrop-filter: blur(10px);
       }
-      body.show-mobile-guide .mobile-guide-button { display: inline-flex; }
+      body.show-mobile-guide .mobile-guide-button,
+      body.has-jump-origin .mobile-guide-button { display: inline-flex; }
     }
   </style>
 
@@ -760,7 +761,7 @@
         </div>
         <p class="research-note">The corpus is an input to the assessment, not a substitute for it. External research cannot establish that a client control operated, failed or caused an outcome. Material conclusions remain tied to client evidence and named human judgement.</p>
       </div>
-      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
+      <div class="section-return"><a href="#page-guide">← Return to where you were</a></div>
     </div>
   </section>
 
@@ -859,7 +860,7 @@
           <p>Record the evidence, research state, configuration, assumptions and dependencies behind the conclusion so a later model, prompt, retrieval, interface or research change can be assessed against what was originally relied upon.</p>
         </div>
       </div>
-      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
+      <div class="section-return"><a href="#page-guide">← Return to where you were</a></div>
     </div>
   </section>
 
@@ -903,7 +904,7 @@
           <div class="continuity-rule"><strong>Reassessment starts from preserved state</strong><p>Where a change is material, the client can provide the new configuration or evidence and reassess the affected claims without reconstructing everything.</p></div>
         </div>
       </div>
-      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
+      <div class="section-return"><a href="#page-guide">← Return to where you were</a></div>
     </div>
   </section>
 
@@ -938,7 +939,7 @@
         <article class="trust-card"><h3>Deterministic safeguards</h3><p>The structured assurance case preserves scope, lineage, versions, stale states and evidence relationships so later analysis cannot silently rewrite history.</p></article>
         <article class="trust-card"><h3>Research that is itself challenged</h3><p>Research claims are not accepted because an LLM says a paper found something. The claim, source support, limitations and applicability must survive verification.</p></article>
       </div>
-      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
+      <div class="section-return"><a href="#page-guide">← Return to where you were</a></div>
     </div>
   </section>
 
@@ -971,7 +972,7 @@
           </ul>
         </div>
       </div>
-      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
+      <div class="section-return"><a href="#page-guide">← Return to where you were</a></div>
     </div>
   </section>
 
@@ -1017,7 +1018,7 @@
           <p>No. It is a professional assurance assessment and decision-support engagement, not a statutory audit, certification, legal opinion, regulatory-compliance determination or general declaration that an AI system is safe or reliable.</p>
         </details>
       </div>
-      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
+      <div class="section-return"><a href="#page-guide">← Return to where you were</a></div>
     </div>
   </section>
 
@@ -1033,7 +1034,7 @@
   </section>
 </main>
 
-<a class="mobile-guide-button" href="#page-guide" aria-label="Back to page guide">↑ Page guide</a>
+<a class="mobile-guide-button" href="#page-guide" aria-label="Return to your previous place">↑ Page guide</a>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -1059,13 +1060,67 @@
 </footer>
 
 <script>
+  let jumpOriginY = null;
+
+  const pageGuide = document.getElementById('page-guide');
+  const mobileGuideButton = document.querySelector('.mobile-guide-button');
+  const sectionReturnLinks = document.querySelectorAll('.section-return a');
+
+  const updateReturnControls = () => {
+    const hasOrigin = jumpOriginY !== null;
+    document.body.classList.toggle('has-jump-origin', hasOrigin);
+
+    if (mobileGuideButton) {
+      mobileGuideButton.textContent = hasOrigin ? '← Return' : '↑ Page guide';
+      mobileGuideButton.setAttribute(
+        'aria-label',
+        hasOrigin ? 'Return to where you were before this jump' : 'Back to page guide'
+      );
+    }
+
+    sectionReturnLinks.forEach(link => {
+      link.textContent = hasOrigin ? '← Return to where you were' : '↑ Back to page guide';
+    });
+  };
+
+  const returnToOrigin = () => {
+    if (jumpOriginY !== null) {
+      const destination = jumpOriginY;
+      jumpOriginY = null;
+      updateReturnControls();
+      window.scrollTo({ top: destination, behavior: 'smooth' });
+      return;
+    }
+
+    if (pageGuide) {
+      pageGuide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', event => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        event.preventDefault();
+      const selector = a.getAttribute('href');
+      const target = document.querySelector(selector);
+      if (!target) return;
+
+      event.preventDefault();
+
+      // A jump made from the page guide remembers the exact scroll position.
+      // The reader can then return to that precise place instead of merely
+      // returning to the top of the guide.
+      if (a.closest('#page-guide') && selector !== '#page-guide') {
+        jumpOriginY = window.scrollY;
+        updateReturnControls();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
       }
+
+      if (a.matches('.section-return a') || a.classList.contains('mobile-guide-button')) {
+        returnToOrigin();
+        return;
+      }
+
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
@@ -1077,13 +1132,15 @@
 
   document.querySelectorAll('main section').forEach(section => observer.observe(section));
 
-  const pageGuide = document.getElementById('page-guide');
   const toggleMobileGuide = () => {
     if (!pageGuide) return;
-    document.body.classList.toggle('show-mobile-guide', window.scrollY > pageGuide.offsetTop + pageGuide.offsetHeight);
+    const pastGuide = window.scrollY > pageGuide.offsetTop + pageGuide.offsetHeight;
+    document.body.classList.toggle('show-mobile-guide', pastGuide);
   };
+
   window.addEventListener('scroll', toggleMobileGuide, { passive: true });
   window.addEventListener('resize', toggleMobileGuide);
+  updateReturnControls();
   toggleMobileGuide();
 </script>
 </body>
