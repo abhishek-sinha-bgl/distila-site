@@ -311,11 +311,116 @@
     .assurance-cta p { color: #aaa; margin-top: var(--space-s); max-width: 720px; }
     .assurance-cta .btn-primary { white-space: nowrap; }
 
+
+
+    /* ---- IN-PAGE GUIDE ---- */
+    section[id] { scroll-margin-top: 82px; }
+    .page-guide-section { background: var(--paper-2); }
+    .page-guide-shell {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--paper);
+      padding: var(--space-l);
+    }
+    .page-guide-head {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: var(--space-xl);
+      align-items: end;
+      margin-bottom: var(--space-l);
+    }
+    .page-guide-head h2 { margin: var(--space-s) 0 0; }
+    .page-guide-head h2 em { color: var(--accent); }
+    .page-guide-head p { color: var(--ink-3); font-size: .93rem; max-width: 620px; }
+    .page-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .guide-card {
+      position: relative;
+      display: block;
+      min-height: 136px;
+      padding: var(--space-m);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      background: var(--paper-2);
+      transition: transform .14s ease, border-color .14s ease, background .14s ease;
+    }
+    .guide-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-2);
+      background: var(--paper);
+    }
+    .guide-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .guide-card-num {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      color: var(--accent);
+    }
+    .guide-card-arrow {
+      font-family: var(--font-mono);
+      color: var(--ink-4);
+      font-size: .9rem;
+    }
+    .guide-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .guide-card p { color: var(--ink-3); font-size: .8rem; line-height: 1.45; }
+    .guide-faq-link {
+      display: inline-flex;
+      margin-top: var(--space-m);
+      font-size: .82rem;
+      color: var(--ink-3);
+      border-bottom: 1px solid var(--border-2);
+    }
+    .guide-faq-link:hover { color: var(--ink); border-color: var(--ink); }
+    .section-return {
+      max-width: var(--max-w);
+      margin: var(--space-l) auto 0;
+    }
+    .section-return a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .03em;
+      color: var(--ink-4);
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--paper);
+    }
+    .research-section .section-return a,
+    .method-section .section-return a {
+      background: #151515;
+      border-color: #333;
+      color: #999;
+    }
+    .section-return a:hover { color: var(--ink); border-color: var(--border-2); }
+    .research-section .section-return a:hover,
+    .method-section .section-return a:hover { color: var(--paper); border-color: #555; }
+    .mobile-guide-button { display: none; }
+
     @media (max-width: 1000px) {
       .research-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 900px) {
       .assurance-hero { grid-template-columns: 1fr; }
+      .page-guide-head { grid-template-columns: 1fr; gap: var(--space-m); }
       .question-panel { max-width: 680px; }
       .continuity-panel,
       .privacy-panel { grid-template-columns: 1fr; }
@@ -340,6 +445,29 @@
       .continuity-panel,
       .privacy-panel { padding: var(--space-l); }
       .assurance-cta-inner { padding-left: var(--space-m); padding-right: var(--space-m); }
+      .page-guide-shell { padding: var(--space-m); }
+      .page-guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .guide-card { min-height: 118px; padding: 14px; }
+      .guide-card strong { font-size: 1rem; }
+      .guide-card p { font-size: .74rem; }
+      .mobile-guide-button {
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        z-index: 90;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 12px;
+        border: 1px solid var(--border-2);
+        border-radius: 999px;
+        background: rgba(250,249,247,.96);
+        box-shadow: 0 6px 22px rgba(15,15,15,.12);
+        font-family: var(--font-mono);
+        font-size: .68rem;
+        color: var(--ink-3);
+        backdrop-filter: blur(10px);
+      }
+      body.show-mobile-guide .mobile-guide-button { display: inline-flex; }
     }
   </style>
 
@@ -541,6 +669,55 @@
     </div>
   </section>
 
+  <section class="page-guide-section" id="page-guide" aria-labelledby="page-guide-title">
+    <div class="section-inner">
+      <div class="page-guide-shell">
+        <div class="page-guide-head">
+          <div>
+            <div class="assurance-kicker">Explore the assurance approach</div>
+            <h2 id="page-guide-title">Jump to what
+              <em>matters to you.</em></h2>
+          </div>
+          <p>The core proposition is above. From here, go directly to the part you care about—research intelligence, the workflow unit, the engagement method, outputs, reassessment, or data handling and trust.</p>
+        </div>
+
+        <nav class="page-guide-grid" aria-label="Page sections">
+          <a class="guide-card" href="#research-intelligence">
+            <div class="guide-card-top"><span class="guide-card-num">01 · RESEARCH</span><span class="guide-card-arrow">↘</span></div>
+            <strong>Research that changes the review</strong>
+            <p>How vetted frontier research becomes workflow-specific challenge intelligence.</p>
+          </a>
+          <a class="guide-card" href="#what-is-a-workflow">
+            <div class="guide-card-top"><span class="guide-card-num">02 · WORKFLOW</span><span class="guide-card-arrow">↘</span></div>
+            <strong>Workflow and examples</strong>
+            <p>Why assurance follows the path from input to consequence—not the model alone.</p>
+          </a>
+          <a class="guide-card" href="#how-it-works">
+            <div class="guide-card-top"><span class="guide-card-num">03 · METHOD</span><span class="guide-card-arrow">↘</span></div>
+            <strong>How the engagement works</strong>
+            <p>From boundary and claims to evidence, research challenge, findings and action.</p>
+          </a>
+          <a class="guide-card" href="#deliverables">
+            <div class="guide-card-top"><span class="guide-card-num">04 · OUTPUTS</span><span class="guide-card-arrow">↘</span></div>
+            <strong>What you receive</strong>
+            <p>Decision brief, grounded findings, evidence/test plan and preserved assurance record.</p>
+          </a>
+          <a class="guide-card" href="#continuity">
+            <div class="guide-card-top"><span class="guide-card-num">05 · CONTINUITY</span><span class="guide-card-arrow">↘</span></div>
+            <strong>Reassessment and currency</strong>
+            <p>How later system or research changes can be assessed without starting from scratch.</p>
+          </a>
+          <a class="guide-card" href="#privacy">
+            <div class="guide-card-top"><span class="guide-card-num">06 · TRUST</span><span class="guide-card-arrow">↘</span></div>
+            <strong>Data handling and trust</strong>
+            <p>Private evidence options, human judgement, safeguards and assessment boundaries.</p>
+          </a>
+        </nav>
+        <a class="guide-faq-link" href="#faq">Or jump straight to common questions →</a>
+      </div>
+    </div>
+  </section>
+
   <section class="research-section" id="research-intelligence">
     <div class="section-inner">
       <div class="assurance-kicker">Research that changes the review</div>
@@ -583,6 +760,7 @@
         </div>
         <p class="research-note">The corpus is an input to the assessment, not a substitute for it. External research cannot establish that a client control operated, failed or caused an outcome. Material conclusions remain tied to client evidence and named human judgement.</p>
       </div>
+      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
     </div>
   </section>
 
@@ -681,6 +859,7 @@
           <p>Record the evidence, research state, configuration, assumptions and dependencies behind the conclusion so a later model, prompt, retrieval, interface or research change can be assessed against what was originally relied upon.</p>
         </div>
       </div>
+      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
     </div>
   </section>
 
@@ -724,6 +903,7 @@
           <div class="continuity-rule"><strong>Reassessment starts from preserved state</strong><p>Where a change is material, the client can provide the new configuration or evidence and reassess the affected claims without reconstructing everything.</p></div>
         </div>
       </div>
+      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
     </div>
   </section>
 
@@ -758,6 +938,7 @@
         <article class="trust-card"><h3>Deterministic safeguards</h3><p>The structured assurance case preserves scope, lineage, versions, stale states and evidence relationships so later analysis cannot silently rewrite history.</p></article>
         <article class="trust-card"><h3>Research that is itself challenged</h3><p>Research claims are not accepted because an LLM says a paper found something. The claim, source support, limitations and applicability must survive verification.</p></article>
       </div>
+      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
     </div>
   </section>
 
@@ -790,6 +971,7 @@
           </ul>
         </div>
       </div>
+      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
     </div>
   </section>
 
@@ -835,6 +1017,7 @@
           <p>No. It is a professional assurance assessment and decision-support engagement, not a statutory audit, certification, legal opinion, regulatory-compliance determination or general declaration that an AI system is safe or reliable.</p>
         </details>
       </div>
+      <div class="section-return"><a href="#page-guide">↑ Back to page guide</a></div>
     </div>
   </section>
 
@@ -849,6 +1032,8 @@
     </div>
   </section>
 </main>
+
+<a class="mobile-guide-button" href="#page-guide" aria-label="Back to page guide">↑ Page guide</a>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -891,6 +1076,15 @@
   }, { threshold: 0.08 });
 
   document.querySelectorAll('main section').forEach(section => observer.observe(section));
+
+  const pageGuide = document.getElementById('page-guide');
+  const toggleMobileGuide = () => {
+    if (!pageGuide) return;
+    document.body.classList.toggle('show-mobile-guide', window.scrollY > pageGuide.offsetTop + pageGuide.offsetHeight);
+  };
+  window.addEventListener('scroll', toggleMobileGuide, { passive: true });
+  window.addEventListener('resize', toggleMobileGuide);
+  toggleMobileGuide();
 </script>
 </body>
 </html>
