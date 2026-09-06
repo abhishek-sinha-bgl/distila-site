@@ -4,197 +4,100 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regulatory &amp; Compliance Research, Epistamate</title>
-  <meta name="description" content="Epistamate for regulatory and compliance research. Binding law vs guidance vs draft vs enforcement tracked separately. Article 12 compatible decision log. Evidence-quality scoring for regulatory intelligence.">
-  <meta name="keywords" content="regulatory research AI, compliance intelligence AI, EU AI Act Article 12 tool, regulatory monitoring AI, AI compliance documentation, regulatory evidence quality">
+  <title>Regulatory &amp; Compliance Research — Epistamate</title>
+  <meta name="description" content="Epistamate for regulatory and compliance research: preserve authority class, jurisdiction, applicability, effective state, evidence provenance and reviewer decisions without flattening them into one generated answer.">
+  <meta name="keywords" content="regulatory research AI, compliance research audit trail, regulatory evidence provenance, AI Act research, regulation source authority">
+  <link rel="canonical" href="https://epistamate.com/persona-legal.html">
+  <meta property="og:title" content="Regulatory &amp; Compliance Research — Epistamate">
+  <meta property="og:description" content="Binding law, guidance, proposals and enforcement positions are not the same source class.">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
-  <link rel="canonical" href="https://epistamate.com/persona-legal.html">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="627">
-  <!-- build:2026-06-20T05:38:13Z -->
+  <style>
+    .reg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-m);margin-top:var(--space-xl)}
+    .reg-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+    .reg-card h3{margin-bottom:var(--space-s)} .reg-card p{color:var(--ink-3);line-height:1.7}
+    .boundary{margin-top:var(--space-xl);padding:var(--space-l);border-left:3px solid var(--accent);background:var(--paper-2);color:var(--ink-3);line-height:1.7}
+  </style>
+  <!-- build:2026-09-06-positioning-refresh -->
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
 <section class="hero" style="opacity:1;transform:none;">
   <div class="hero-eyebrow">For · Regulatory &amp; Compliance Research</div>
-  <h1 class="hero-h1">
-    Binding law. Guidance. Draft.<br>
-    Enforcement position. Proposed amendment.<br>
-    <em>These are not the same.</em>
-  </h1>
+  <h1 class="hero-h1">Binding law. Guidance. Draft.<br>Enforcement position.<br><em>These are not the same.</em></h1>
   <div class="stakes-block">
-    <p>A compliance team advises the board that a new AI regulation is likely to require a specific disclosure standard. The advice is based on a Commission guidance note, not a Regulation. Eighteen months later the Regulation passes with a different standard. The board wanted binding law; the team was tracking soft guidance. The distinction was never made explicit in the advice.</p>
-    <p class="stakes-kicker">Regulatory intelligence that does not distinguish by source tier and document status is not intelligence. It is summaries of text.</p>
+    <p>Regulatory research fails when authority, applicability and effective state are flattened into one summary. A real document can still be non-binding. An official source can still be inapplicable to the jurisdiction or date that matters. Commentary can be useful without being authority.</p>
+    <p class="stakes-kicker">Epistamate is designed to preserve those distinctions at the claim and evidence level, together with the audit trail of how the view was formed.</p>
   </div>
-  <div class="hero-ctas">
-    <a href="epistamate_demo.html" class="btn-primary">See the pipeline in action →</a>
-    <a href="index.html#contact" class="btn-secondary">Request early access</a>
-  </div>
+  <div class="hero-ctas"><a href="index.html#contact" class="btn-primary">Request early access →</a><a href="engine.html" class="btn-secondary">The authority model →</a></div>
 </section>
 
-<!-- SOURCE TIER SYSTEM -->
 <section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-tag">Source tier enforcement</div>
-    <h2>Not all regulatory sources are<br><em>epistemically equivalent.</em></h2>
-    <p class="section-sub" style="max-width:700px;">Epistamate's source credibility tier system enforces the distinction automatically. Every claim carries the tier of its source. The confidence formula penalises claims from lower-tier sources regardless of how many times they are cited.</p>
-
-    <div style="margin-top:var(--space-xl);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-m);">
-      <div class="hal-card" style="border-left:3px solid var(--verified);">
-        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--verified);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Tier 1, Binding</div>
-        <h3>Primary law &amp; binding instruments</h3>
-        <p>Regulations, Directives, Acts, Treaties, Decisions. These have direct legal effect. Claims sourced here carry maximum tier credit. They are treated differently from everything else, by the formula, not by analyst judgment.</p>
-      </div>
-      <div class="hal-card" style="border-left:3px solid var(--gold);">
-        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Tier 2, Authoritative</div>
-        <h3>Official guidance &amp; enforcement positions</h3>
-        <p>Commission communications, regulatory authority guidance notes, official Q&amp;A documents, consultation responses. Authoritative but not binding. Claims from these sources score differently, and the distinction is visible in every score breakdown.</p>
-      </div>
-      <div class="hal-card" style="border-left:3px solid var(--ink-4);">
-        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--ink-4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Tier 3, Informative</div>
-        <h3>Proposals, drafts, commentary</h3>
-        <p>Legislative proposals, draft standards, academic commentary, industry positions. Informative for tracking direction, not evidence of current obligations. Claims that only cite Tier 3 sources cannot achieve high confidence scores regardless of how authoritative the prose sounds.</p>
-      </div>
+    <div class="section-tag">Regulatory evidence posture</div>
+    <h2>Source authority is a property to evaluate,<br><em>not a score to infer from a domain name.</em></h2>
+    <div class="reg-grid">
+      <article class="reg-card"><h3>Binding instruments</h3><p>Primary law, regulations, directives, decisions and other binding instruments have a different evidentiary function from interpretive guidance or commentary.</p></article>
+      <article class="reg-card"><h3>Official guidance</h3><p>Regulator guidance, Q&amp;A, supervisory statements and official communications may be highly relevant while remaining non-binding. The distinction should stay visible.</p></article>
+      <article class="reg-card"><h3>Proposals and drafts</h3><p>Draft rules, consultations and legislative proposals are evidence about direction, not current obligations. Future-state and current-state claims should not silently merge.</p></article>
+      <article class="reg-card"><h3>Commentary and analysis</h3><p>Expert and industry analysis can orient research or identify contested interpretations, but it does not inherit the authority of the instrument it discusses.</p></article>
     </div>
   </div>
 </section>
 
-<!-- WHAT IT SOLVES -->
 <section class="diff-section">
   <div class="section-inner">
-    <div class="section-tag">What Epistamate does for regulatory work</div>
-    <h2>Regulatory intelligence that knows<br><em>what it knows and what it doesn't.</em></h2>
-
+    <div class="section-tag">What Epistamate is built to add</div>
+    <h2>Regulatory intelligence that preserves<br><em>authority, scope and uncertainty.</em></h2>
     <div class="diff-items">
-      <div class="diff-item">
-        <div class="diff-num">01</div>
-        <div class="diff-content">
-          <h3>Regulatory status tracked at the claim level</h3>
-          <p>A claim about GDPR Article 22 obligations is not the same as a claim about a proposed amendment to Article 22. Epistamate tracks the source tier and document status of every claim. When a regulation passes, claims that were previously sourced to Tier 3 (proposal) can be re-run against the enacted text and rescored.</p>
-          <div class="diff-callout"><strong>RegWatch domain:</strong> A purpose-built regulatory intelligence slice with jurisdiction-specific source tier hierarchies, obligation claim types, and a compliance status output format. In active development.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">02</div>
-        <div class="diff-content">
-          <h3>Article 12 compatible decision log, by default</h3>
-          <p>The EU AI Act Article 12 requires that high-risk AI systems maintain logs that enable post-hoc auditability, what the system did, on what basis, at what point in time. Epistamate's Decision Log produces exactly this: an immutable record of the full evidence state at the moment a compliance decision was logged.</p>
-          <div class="diff-callout"><strong>This is not a compliance feature added to the product.</strong> It is the structural output of how the engine works. Every session produces a Decision Log entry. Every Decision Log entry records what was known, contested, and uncertain at the moment of logging. Qualified legal counsel must assess applicability to specific use cases.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">03</div>
-        <div class="diff-content">
-          <h3>Cross-jurisdictional contradiction detection</h3>
-          <p>A compliance claim that holds under GDPR is contested under the California Consumer Privacy Act. A safety obligation established in the EU AI Act has no direct equivalent in the UK's AI framework. These contradictions are typed, tracked, and visible, not buried in a 40-page comparison document that nobody reads the cross-references in.</p>
-          <div class="diff-callout"><strong>For multinational compliance teams:</strong> The contradiction graph between jurisdictions is as important as the claims themselves. It is a first-class output.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">04</div>
-        <div class="diff-content">
-          <h3>Gap tracking for pending obligations</h3>
-          <p>A gap in the regulatory intelligence, "the enforcement position of the ICO on this specific provision is not yet established" is not the same as "there is no obligation." Gaps are typed, tracked, and carry importance ratings. The compliance brief tells the reader not just what is known but where the regulatory picture is still forming.</p>
-          <div class="diff-callout"><strong>Board-ready output:</strong> "We have a HIGH importance gap on enforcement position for Article 6(1)(f) legitimate interest in this jurisdiction. This is a known unknown, not an oversight."</div>
-        </div>
-      </div>
+      <div class="diff-item"><div class="diff-num">01</div><div class="diff-content"><h3>Authority and applicability at claim level</h3><p>Regulatory propositions can carry jurisdiction, authority class, binding status, affected actors, effective dates and applicability boundaries rather than losing those distinctions in synthesis.</p><div class="diff-callout"><strong>Core principle:</strong> source trust is not truth, and official status alone does not establish that a proposition applies to the present question.</div></div></div>
+      <div class="diff-item"><div class="diff-num">02</div><div class="diff-content"><h3>Contradictions and overlaps remain explicit</h3><p>Different instruments, regulators or jurisdictions can create genuinely conflicting or overlapping obligations. The product is designed to surface that state rather than forcing a false single answer.</p><div class="diff-callout"><strong>Reviewer value:</strong> a conflict that remains unresolved is a research object, not a synthesis failure to hide.</div></div></div>
+      <div class="diff-item"><div class="diff-num">03</div><div class="diff-content"><h3>Audit trail without legal overclaim</h3><p>Epistamate records research state and researcher decisions so a later reviewer can reconstruct what evidence and uncertainty were visible at the time. That can support governance and auditability; it is not a legal certification of compliance with any statute.</p><div class="diff-callout"><strong>Important:</strong> legal applicability and regulatory compliance require qualified professional judgment outside the software.</div></div></div>
+      <div class="diff-item"><div class="diff-num">04</div><div class="diff-content"><h3>Regulatory knowledge that can be updated</h3><p>The long-term Knowledge layer is intended to preserve prior interpretations and evidence while re-evaluating them when an instrument changes, an effective date passes, or a new jurisdictional source appears.</p><div class="diff-callout"><strong>Current boundary:</strong> RegWatch pack infrastructure exists, but live vertical calibration and durable cross-topic Knowledge are still development milestones.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- DOMAINS -->
 <section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-tag">Regulatory domains</div>
-    <h2>Where the pattern fits<br><em>most directly.</em></h2>
-    <div class="hallucination-grid">
-      <div class="hal-card">
-        <div class="hal-icon">🤖</div>
-        <h3>AI regulation</h3>
-        <p>EU AI Act, UK AI framework, NIST RMF, proposed US federal AI legislation, all in motion simultaneously, often in conflict. The claim graph tracks what is binding where, what is proposed where, and what the enforcement position is where it exists.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🔐</div>
-        <h3>Data protection &amp; privacy</h3>
-        <p>GDPR, CCPA, PIPEDA, PDPB, across jurisdictions. Claims about data subject rights, lawful bases, and controller obligations are jurisdiction-specific and source-tier-dependent. The engine enforces these distinctions structurally.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🏦</div>
-        <h3>Financial services</h3>
-        <p>MiFID II, Basel IV, DORA, SEC AI guidance, regulatory obligations in financial services are dense, overlapping, and frequently updated. The knowledge graph means the second update cycle on the same topic starts from what was verified in the first.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🌱</div>
-        <h3>Sustainability &amp; ESG</h3>
-        <p>CSRD, SFDR, TCFD, taxonomy regulations, mandatory disclosure obligations with significant variation between what is required, what is voluntary, and what is proposed. Source tier enforcement is essential; the policy landscape is moving fast enough that draft and enacted are routinely confused.</p>
-      </div>
+    <div class="section-tag">Why frontier models still matter</div>
+    <h2>Use models to search and interpret.<br><em>Do not let them collapse the legal hierarchy.</em></h2>
+    <div class="reg-grid">
+      <article class="reg-card"><h3>Planning</h3><p>Frontier models can identify missing jurisdictions, likely primary instruments, interpretive disputes and useful acquisition lanes faster than a rigid planner.</p></article>
+      <article class="reg-card"><h3>Interpretation</h3><p>Models can help extract candidate obligations and relationships from long instruments, but candidate interpretation remains separate from evidence and legal authority.</p></article>
+      <article class="reg-card"><h3>Challenge</h3><p>Models can generate alternative readings, conflicting authorities and implementation edge cases. Those suggestions should drive evidence checks rather than become conclusions by agreement.</p></article>
     </div>
+    <div class="boundary"><strong>Product doctrine:</strong> multiple model agreement is process robustness, not independent legal or evidentiary corroboration.</div>
   </div>
 </section>
 
-<!-- CTA -->
 <section style="background:var(--ink);color:var(--paper);">
-  <div class="section-inner" style="max-width:640px;">
+  <div class="section-inner" style="max-width:680px;">
     <div class="section-tag" style="color:var(--accent-2);">Get in touch</div>
-    <h2 style="color:var(--paper);">If your team does regulatory intelligence that needs to hold up,</h2>
-    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We're talking to compliance teams, regulatory intelligence practices, and in-house legal functions in active development. We'd like to understand the specific workflow problem before describing the solution.</p>
-    <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
-      <a href="mailto:hello@epistamate.com" class="btn-primary">Start a conversation →</a>
-      <a href="epistamate_demo.html" class="btn-secondary">See the demo first</a>
-    </div>
+    <h2 style="color:var(--paper);">If your regulatory research needs a defensible trail from proposition to authority,</h2>
+    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We are looking for bounded regulatory workflows where authority class, applicability and reviewer provenance are consequential.</p>
+    <a href="index.html#contact" class="btn-primary">Start a conversation →</a>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-    <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
-      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch · Zenodo</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('section').forEach(s => observer.observe(s));
-</script>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div><div class="footer-links"><a href="index.html">Home</a><a href="engine.html">The Engine</a><a href="landscape.html">Research landscape</a><a href="blog/index.html">Blog</a><a href="index.html#contact">Contact</a></div><div class="footer-refs"><a href="https://doi.org/10.5281/zenodo.19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a></div></div></footer>
 </body>
 </html>

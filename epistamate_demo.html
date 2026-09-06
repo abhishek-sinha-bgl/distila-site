@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Epistamate, Interactive Demo</title>
-  <meta name="description" content="See how Epistamate extracts, scores, and challenges claims from a research question. Real pipeline, real scores, evidence quality not model confidence.">
+  <title>Historical Epistamate Research Prototype Demo</title>
+  <meta name="description" content="Explore a historical Epistamate DCBR research prototype and Cite Explorer. The page is retained for interaction history; current canonical evidence-authority semantics are documented on the Engine page.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -208,13 +208,12 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html" aria-current="page">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
         <a href="index.html#contact" class="nav-cta">Get in touch</a>
@@ -223,10 +222,11 @@
 
 <div class="demo-page">
   <div class="demo-header">
-    <div class="eyebrow">Interactive demo · DCBR Pipeline + Cite Explorer</div>
+    <div class="eyebrow">Historical prototype demo &middot; DCBR Pipeline + Cite Explorer</div>
     <h1>See how Epistamate <em>works.</em></h1>
-    <p>Two tools, one page. Score a claim against evidence-quality criteria, or surface candidate papers from three academic databases. Use one or both.</p>
+    <p>This interactive page preserves an earlier DCBR research prototype. It is useful for exploring claim-level evidence interaction and candidate-source discovery, but its formula scoring and phase mechanics are not the current canonical Epistamate evidence-authority model.</p>
     <p style="margin-top:0.75rem;font-size:0.88rem;color:var(--ink-4);">Enter a research question or claim as text. This demo does not support document upload or file attachment.</p>
+    <p style="margin-top:0.75rem;font-size:0.88rem;color:var(--contested);"><strong>Prototype note:</strong> current Epistamate separates model reasoning from evidence authority, does not treat model/provider agreement as independent corroboration, and does not let human approval itself strengthen the underlying evidence.</p>
   </div>
 
   <!-- ── Tool selector tabs ──────────────────────────────────── -->

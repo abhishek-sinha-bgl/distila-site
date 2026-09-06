@@ -4,195 +4,101 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulting &amp; Advisory, Epistamate</title>
-  <meta name="description" content="Epistamate for consulting and advisory firms. Stop rebuilding the same evidence base every engagement. Compounding knowledge graph, evidence-quality confidence scoring, and an audit trail that travels with the work.">
-  <meta name="keywords" content="AI consulting research tool, strategy consulting AI, evidence quality consulting, AI due diligence tool, management consulting AI, knowledge management consulting">
+  <title>Consulting &amp; Advisory — Epistamate</title>
+  <meta name="description" content="Epistamate for consulting and advisory work: evidence-backed claims, reviewer provenance, explicit gaps and a path toward institutional knowledge that can be revalidated instead of rebuilt.">
+  <meta name="keywords" content="consulting research audit trail, evidence-backed advisory, institutional knowledge consulting, AI research governance, due diligence evidence">
+  <link rel="canonical" href="https://epistamate.com/persona-consultant.html">
+  <meta property="og:title" content="Consulting &amp; Advisory — Epistamate">
+  <meta property="og:description" content="Evidence that survives the read-out. Research state that can survive the engagement.">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
-  <link rel="canonical" href="https://epistamate.com/persona-consultant.html">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="627">
-  <!-- build:2026-06-20T05:38:13Z -->
+  <style>
+    .fit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-m);margin-top:var(--space-xl)}
+    .fit-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+    .fit-card h3{margin-bottom:var(--space-s)} .fit-card p{color:var(--ink-3);line-height:1.7}
+    .status-note{margin-top:var(--space-xl);padding:var(--space-l);border-left:3px solid var(--accent);background:var(--paper-2);color:var(--ink-3);line-height:1.7}
+  </style>
+  <!-- build:2026-09-06-positioning-refresh -->
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
 <section class="hero" style="opacity:1;transform:none;">
   <div class="hero-eyebrow">For · Consulting &amp; Advisory</div>
-  <h1 class="hero-h1">
-    You already do this work.<br>
-    You just do it in documents<br>
-    <em>that don't compound.</em>
-  </h1>
+  <h1 class="hero-h1">The final deck is not<br>the research record.<br><em>It is only the surface.</em></h1>
   <div class="stakes-block">
-    <p>The best strategy research already works the way the engine works: individual claims are sourced and graded, contradictions between data points are noted, gaps in the evidence are named, and the final recommendation is honest about its confidence level. What it doesn't do is carry that structure forward to the next engagement, the next client, the next analyst who joins the team.</p>
-    <p class="stakes-kicker">The structured brief a senior consultant produces for a board is a claim vault, it just doesn't look like one, and it evaporates when the project ends.</p>
+    <p>A client asks which source really supports a recommendation. A partner wants to know whether an analyst inspected the AI-prioritised claims or simply accepted them. A new team starts a similar engagement six months later and rebuilds the same evidence base from scratch.</p>
+    <p class="stakes-kicker">Epistamate is designed to keep the evidence, review decisions, contradictions and gaps underneath the deliverable inspectable and reusable.</p>
   </div>
-  <div class="hero-ctas">
-    <a href="epistamate_demo.html" class="btn-primary">See the pipeline in action →</a>
-    <a href="index.html#contact" class="btn-secondary">Request early access</a>
-  </div>
+  <div class="hero-ctas"><a href="advisory.html" class="btn-primary">Explore evidence-led advisory →</a><a href="engine.html" class="btn-secondary">How the engine works →</a></div>
 </section>
 
-<!-- THE CONSULTING PATTERN -->
 <section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-tag">The structural problem</div>
-    <h2>Why engagement knowledge<br><em>doesn't survive the engagement.</em></h2>
-
+    <div class="section-tag">The consulting problem</div>
+    <h2>Four things a polished deck<br><em>usually cannot tell you later.</em></h2>
     <div class="hallucination-grid">
-      <div class="hal-card">
-        <div class="hal-icon">📁</div>
-        <h3>The archive problem</h3>
-        <p>Research from engagement A is filed. Engagement E, same sector, adjacent question, starts from zero because nobody has time to find, read, and quality-assess what was done before. The institutional knowledge exists; it is just unqueryable.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🎰</div>
-        <h3>The AI confidence problem</h3>
-        <p>The team starts using AI tools. The output sounds authoritative. One analyst spot-checks; most don't have time. A claim that traces to a thin source makes it into the deliverable. The client asks about it in the read-out. There is no audit trail to consult.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🔄</div>
-        <h3>The rebuild problem</h3>
-        <p>A new partner inherits a client relationship. The sector knowledge built over three previous engagements is in six PowerPoint decks and one analyst's memory. The new team rebuilds it in weeks four through seven. The client notices the questions they've answered before.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">⚖️</div>
-        <h3>The defensibility problem</h3>
-        <p>The client implements the recommendation. Eighteen months later something goes wrong. The question arrives: what was the evidence basis? What was known, what was contested, what gaps were acknowledged? The answer is: we have the final deck, but not the evidence chain.</p>
-      </div>
+      <div class="hal-card"><h3>What evidence actually supported the claim?</h3><p>A reference list is not enough. The relevant question is whether the cited material supports the exact proposition, under the conditions in which the recommendation was made.</p></div>
+      <div class="hal-card"><h3>Was the apparent consensus independent?</h3><p>Ten articles can still trace back to one underlying study. Epistamate's target is provenance-aware corroboration, not counting URLs or model agreement.</p></div>
+      <div class="hal-card"><h3>What did the analyst actually review?</h3><p>AI can prioritise attention. A reviewer should still be able to distinguish a model suggestion from a human inspection, disposition and authorisation.</p></div>
+      <div class="hal-card"><h3>What should survive into the next engagement?</h3><p>Institutional knowledge should carry provenance, review history, applicability and recency — not merely old slides retrieved into another model context.</p></div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT HELPS -->
 <section class="diff-section">
   <div class="section-inner">
-    <div class="section-tag">What Epistamate does for consulting work</div>
-    <h2>Structure that travels<br><em>with the work, not against it.</em></h2>
-
+    <div class="section-tag">What Epistamate is built to add</div>
+    <h2>Evidence that survives the read-out.<br><em>Research state that survives the engagement.</em></h2>
     <div class="diff-items">
-      <div class="diff-item">
-        <div class="diff-num">01</div>
-        <div class="diff-content">
-          <h3>A queryable evidence base across engagements</h3>
-          <p>Verified claims from engagement N are available in engagement N+1. Not as a PDF to be read, as structured, searchable claims with confidence scores, source tiers, and provenance. A new engagement in a sector you've covered before starts with a verified base, not a blank slate.</p>
-          <div class="diff-callout"><strong>Practical impact:</strong> The difference between starting engagement five with zero verified claims and starting with forty-two is the difference between weeks two and seven for the first real insight.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">02</div>
-        <div class="diff-content">
-          <h3>AI output you can defend at the read-out</h3>
-          <p>Every claim in a Epistamate session carries its source tier, the number of providers that corroborated it, whether it survived adversarial challenge, and the formula-computed confidence score. When the client asks "how confident are we in this?", the answer is a number with a breakdown, not a paragraph of hedging.</p>
-          <div class="diff-callout"><strong>The adversarial challenge phase is mandatory.</strong> Claims that don't survive have their scores reduced and are visibly flagged. The final brief shows what passed scrutiny, not what sounded best.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">03</div>
-        <div class="diff-content">
-          <h3>Onboarding that uses the knowledge, not rebuilds it</h3>
-          <p>A new analyst joining a client team can query the verified claim base from prior sessions. They inherit the contradictions that were tracked, the gaps that were named, and the confidence scores that were computed, not just the narrative output. They start informed, not starting over.</p>
-          <div class="diff-callout"><strong>Senior time shifts:</strong> From rebuilding context to challenging and extending it. The knowledge graph does the reconstruction.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">04</div>
-        <div class="diff-content">
-          <h3>A Decision Log that travels with the deliverable</h3>
-          <p>When a recommendation is finalised, the Decision Log records the full evidence state at that moment, verified claims, contested claims, acknowledged gaps, confidence scores. This travels with the engagement record. Eighteen months later, the evidence basis is not in the analyst's memory. It is in the log.</p>
-          <div class="diff-callout"><strong>For due diligence work:</strong> The Decision Log is the audit trail. What was known, what was uncertain, what gaps were acknowledged, structured and immutable.</div>
-        </div>
-      </div>
+      <div class="diff-item"><div class="diff-num">01</div><div class="diff-content"><h3>Claim-level evidence inspection</h3><p>Consequential assertions remain addressable below the report level, with source identity, evidence posture, qualifications, contradictions and gaps available for inspection.</p><div class="diff-callout"><strong>Client question:</strong> “What are we basing this on?” should lead to the evidence chain, not to a search through footnotes.</div></div></div>
+      <div class="diff-item"><div class="diff-num">02</div><div class="diff-content"><h3>Reviewer provenance</h3><p>AI triage and challenge can compress the workload, but explicit researcher actions are recorded separately. A senior reviewer can see what the system proposed and what the analyst actually reviewed.</p><div class="diff-callout"><strong>Governance rule:</strong> human acceptance is important for accountability, but it does not directly make weak evidence stronger.</div></div></div>
+      <div class="diff-item"><div class="diff-num">03</div><div class="diff-content"><h3>Known unknowns that remain visible</h3><p>Gaps and contradictions survive synthesis rather than being rewritten into smooth prose. That gives the engagement team a defensible boundary around what the current evidence does and does not warrant.</p><div class="diff-callout"><strong>Practical effect:</strong> uncertainty becomes something to manage and research further, not something to hide.</div></div></div>
+      <div class="diff-item"><div class="diff-num">04</div><div class="diff-content"><h3>Institutional knowledge with revalidation</h3><p>The target Knowledge layer carries prior evidence and review state forward, then checks applicability, recency and contradiction before reuse. The next engagement should start informed without inheriting yesterday's conclusion as automatic truth.</p><div class="diff-callout"><strong>Important:</strong> durable cross-topic Knowledge compounding is still being rebuilt in the canonical product; it is a product direction, not a finished early-access claim.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- WHO SPECIFICALLY -->
 <section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-tag">Specific fit</div>
-    <h2>Where in the consulting stack<br><em>this has most impact.</em></h2>
-    <div class="hallucination-grid">
-      <div class="hal-card">
-        <div class="hal-icon">🔬</div>
-        <h3>Strategy &amp; research boutiques</h3>
-        <p>Smaller teams with deep sector knowledge and no dedicated knowledge management infrastructure. The claim graph is the knowledge management system, it compounds with each engagement without requiring a separate KM investment.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">📊</div>
-        <h3>Investment due diligence</h3>
-        <p>DD is structured evidence work at its core, claims about market size, competitive dynamics, management track record, regulatory risk. These need provenance, confidence gradations, and audit trail. The engine does all three as a byproduct of how it works.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🏢</div>
-        <h3>Independent expert practices</h3>
-        <p>Solo practitioners and small expert practices doing sector-specific advisory work accumulate institutional knowledge with no infrastructure to preserve it. The knowledge graph turns that accumulated expertise into a queryable asset rather than a perishable one.</p>
-      </div>
+    <div class="section-tag">Best fit</div>
+    <h2>Where this matters <em>most.</em></h2>
+    <div class="fit-grid">
+      <div class="fit-card"><h3>Strategy &amp; market research</h3><p>Evidence landscapes where secondary sources, vendor claims and primary research have to be distinguished rather than flattened into one narrative.</p></div>
+      <div class="fit-card"><h3>Transaction due diligence</h3><p>Claims about market, regulatory or operational risk that may need to be reconstructed months after the deal file closes.</p></div>
+      <div class="fit-card"><h3>Regulatory advisory</h3><p>Work where authority class, jurisdiction, applicability and effective date matter as much as topical relevance.</p></div>
+      <div class="fit-card"><h3>Knowledge-intensive practices</h3><p>Teams that repeatedly research adjacent questions and want prior validated evidence to become a governed asset rather than an archive.</p></div>
     </div>
+    <div class="status-note"><strong>Early-access boundary:</strong> current General research is under live end-to-end validation. Same-topic continuation, audit/review state and evidence-bearing outputs are substantially implemented; cross-topic institutional Knowledge is still a canonical rebuild milestone.</div>
   </div>
 </section>
 
-<!-- CTA -->
 <section style="background:var(--ink);color:var(--paper);">
-  <div class="section-inner" style="max-width:640px;">
+  <div class="section-inner" style="max-width:680px;">
     <div class="section-tag" style="color:var(--accent-2);">Get in touch</div>
-    <h2 style="color:var(--paper);">If your practice does evidence-intensive work,</h2>
-    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We're talking to consulting practices and advisory firms in active development. We'd like to understand the specific workflow problem before describing the solution.</p>
-    <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
-      <a href="mailto:hello@epistamate.com" class="btn-primary">Start a conversation →</a>
-      <a href="epistamate_demo.html" class="btn-secondary">See the demo first</a>
-    </div>
+    <h2 style="color:var(--paper);">If your work has to survive a partner, client or regulator asking “show me the evidence,”</h2>
+    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We are looking for evidence-intensive professional workflows to test the product against.</p>
+    <a href="advisory.html" class="btn-primary">Explore the advisory method →</a>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-    <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('section').forEach(s => observer.observe(s));
-</script>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div><div class="footer-links"><a href="index.html">Home</a><a href="engine.html">The Engine</a><a href="landscape.html">Research landscape</a><a href="blog/index.html">Blog</a><a href="index.html#contact">Contact</a></div><div class="footer-refs"><a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener">DCBR Engine · Zenodo</a></div></div></footer>
 </body>
 </html>

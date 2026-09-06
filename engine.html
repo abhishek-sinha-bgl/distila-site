@@ -4,262 +4,274 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Engine, Epistamate</title>
-  <meta name="description" content="The DCBR Engine: typed claim extraction, evidence-quality confidence scoring, adversarial challenge, gap tracking, cross-session compounding. One architecture configurable across policy research, regulatory compliance, consulting, and investigation.">
-  <meta name="keywords" content="DCBR engine, evidence quality AI, AI claim verification, adversarial challenge AI, knowledge graph research, EU AI Act compliance AI, policy research infrastructure">
+  <title>The Engine — Evidence-decision architecture | Epistamate</title>
+  <meta name="description" content="The Epistamate evidence-decision engine separates model capability from authority across research, GenAI workflow assurance and evidence-led advisory: claims, provenance, evidence posture, challenge, reassessment and audit trails.">
+  <meta name="keywords" content="evidence-decision architecture, AI assurance methodology, evidence authority, claim provenance, research audit trail, adversarial challenge, institutional knowledge, decision audit trail">
+  <meta property="og:title" content="The Engine — Epistamate">
+  <meta property="og:description" content="Frontier intelligence can propose. Evidence still has to earn authority. The six architectural principles behind Epistamate.">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
   <link rel="canonical" href="https://epistamate.com/engine.html">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="627">
-  <!-- build:2026-06-20T05:38:13Z -->
+  <style>
+    .engine-grid,.layer-grid,.audit-grid,.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:var(--space-m)}
+    .engine-card,.layer-card,.audit-card,.status-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+    .engine-card .num{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;margin-bottom:var(--space-s)}
+    .engine-card h3,.layer-card h3,.audit-card h3,.status-card h3{margin-bottom:var(--space-s)}
+    .engine-card p,.layer-card p,.audit-card p,.status-card p{color:var(--ink-3);line-height:1.72}
+    .maxim{max-width:880px;margin:var(--space-xl) auto;padding:var(--space-xl);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:var(--radius-m);background:var(--paper-2)}
+    .maxim p{font-family:var(--font-display);font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.45;margin:0}
+    .chain{margin-top:var(--space-l);font-family:var(--font-mono);font-size:.86rem;line-height:1.9;color:var(--ink-3);padding:var(--space-m);background:var(--paper-3);border-radius:var(--radius-m);overflow:auto}
+    .rule-list{display:grid;gap:var(--space-s);margin-top:var(--space-l)}
+    .rule{padding:var(--space-m);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+    .rule strong{color:var(--accent)}
+    .status-label{display:inline-block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--border);border-radius:999px;margin-bottom:var(--space-s)}
+    .status-label.now{color:var(--verified);border-color:rgba(26,110,58,.25)}
+    .status-label.next{color:var(--accent);border-color:rgba(200,67,47,.25)}
+  </style>
+  <!-- build:2026-09-06-positioning-refresh -->
 </head>
 <body class="engine-page">
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" style="opacity:1;transform:none;">
   <div class="hero-eyebrow">DCBR Engine · Published · Zenodo 10.5281/zenodo.19204972</div>
   <h1 class="hero-h1">
-    The same reasoning pattern<br>
-    appears in <em>many places.</em>
+    One evidence discipline.<br>
+    <em>Different consequential workflows.</em>
   </h1>
-  <div class="stakes-block" style="max-width:760px;">
-    <p>Research sessions end, files are archived, and the next person starts from zero. A claim that should have been contested gets into the final report because nobody tracked the conflicting source. Six months later, the same question is being answered again.</p>
-    <p class="stakes-kicker">This is not a technology problem. It is a structural problem with how evidence-based work is done, in consulting, in policy, in investigations, in accountability work. The format changes; the problem doesn't.</p>
+  <div class="stakes-block" style="max-width:820px;">
+    <p>Research, assurance and advisory work look different on the surface. Underneath, the same integrity problem recurs: assertions, source material, model reasoning, professional judgement and later changes must remain distinguishable.</p>
+    <p class="stakes-kicker">The engine exists to preserve the chain from evidence to claim, judgement, recommendation and reassessment — while keeping model capability separate from professional and evidentiary authority.</p>
   </div>
-  <p style="color:var(--ink-3);max-width:640px;margin-bottom:var(--space-l);">Epistamate is one implementation of a more general engine. This page describes the engine.</p>
+  <div class="maxim">
+    <p><strong>Separate capability from authority.</strong> Use the strongest available intelligence for planning and reasoning. Require evidence, provenance and explicit review for consequential claims.</p>
+  </div>
   <div class="hero-ctas">
-    <a href="epistamate_demo.html" class="btn-primary">See it work, interactive demo →</a>
-    <a href="index.html#contact" class="btn-secondary">Request early access</a>
+    <a href="#profiles" class="btn-primary">Where the engine is used →</a>
+    <a href="#properties" class="btn-secondary">The six principles →</a>
+    <a href="landscape.html" class="btn-ghost">Research landscape →</a>
   </div>
 </section>
 
-<!-- ENGINE PROPERTIES -->
+
+<section class="diff-section" id="profiles">
+  <div class="section-inner">
+    <div class="section-tag">One core, different engagement profiles</div>
+    <h2>Generalise the integrity contracts.<br><em>Keep the workflow language specific.</em></h2>
+    <p class="section-sub">The architecture is broader than a research tool without becoming generic consulting software. Each application keeps its own language, outputs and authority model while reusing the evidence-decision core.</p>
+    <div class="layer-grid" style="margin-top:var(--space-xl);">
+      <article class="layer-card"><h3>Research profile</h3><p>Question → plan → acquisition → source/evidence assessment → review → synthesis → Research Further. The researcher controls permissions and consequential transitions.</p><p style="margin-top:10px;"><a href="epistamate_demo.html" style="color:var(--accent);">Research product →</a></p></article>
+      <article class="layer-card"><h3>GenAI workflow assurance</h3><p>Workflow → management propositions → operational evidence → research-informed challenge → assessment → findings → strengthening actions → reassessment.</p><p style="margin-top:10px;"><a href="genai-control-evidence-review.html" style="color:var(--accent);">Workflow assurance →</a></p></article>
+      <article class="layer-card"><h3>Evidence-led advisory</h3><p>Intake → material claims → mixed evidence and public research → assessment → recommendations → controlled outputs → change tracking and reassessment. The workbench is internal; the client receives the professional work product.</p><p style="margin-top:10px;"><a href="advisory.html" style="color:var(--accent);">Advisory method →</a></p></article>
+    </div>
+  </div>
+</section>
 <section class="hallucination-section" id="properties">
   <div class="section-inner">
     <div class="section-tag">Six co-present properties</div>
-    <h2>Removing any one degrades the system to<br><em>something existing tools already do.</em></h2>
+    <h2>The contribution is not one technique.<br><em>It is the architecture around them.</em></h2>
+    <p class="section-sub">The original six-principle thesis remains the architectural core. The canonical rebuild has replaced several early implementation mechanisms with stricter evidence and authority semantics.</p>
 
-    <div class="hallucination-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
-      <div class="hal-card">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:1rem;color:var(--accent);">01</div>
-        <h3>Typed Claim Extraction</h3>
-        <p>Claims are structured objects, text, status, computed confidence, credibility tier, citations, evidence type, not free-text summaries. Each claim is individually addressable: it can be verified, contested, weakened, or carried forward independently.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:1rem;color:var(--accent);">02</div>
-        <h3>Multi-Factor Evidence Confidence</h3>
-        <p>Confidence is computed from a deterministic formula, source tier, consensus across providers, adversarial challenge outcome, evidence recency, not LLM self-report. Range [5, 95]. LLM-reported confidence is recorded in audit metadata but never used in the score.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:1rem;color:var(--accent);">03</div>
-        <h3>Adversarial Challenge as First-Class Stage</h3>
-        <p>Mandatory Phase 3 runs before synthesis. Claims that don't survive lose their socratic bonus and are reassessed. Challenges are persisted as typed output, not discarded after scoring. The brief reflects what survived scrutiny, not what sounded best.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:1rem;color:var(--accent);">04</div>
-        <h3>Gap Tracking as Typed Persistent Output</h3>
-        <p>Knowledge gaps are first-class objects with importance ratings. They accumulate across sessions and narrow as evidence arrives. The reader knows where the brief stops being reliable, not as a disclaimer, but as a structured finding.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:1rem;color:var(--accent);">05</div>
-        <h3>Cross-Session Compounding of Evidential State</h3>
-        <p>VERIFIED claims from session N reduce re-verification burden in session N+1. The knowledge graph accumulates with use. Contradictions between sessions are preserved, not silently resolved. Session five builds on sessions one through four.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:1rem;color:var(--accent);">06</div>
-        <h3>Bidirectional Operation</h3>
-        <p>Synthesis direction (Question → Brief) and Verification direction (Document → Decision Record) share the same graph, formula, and adversarial mechanism. Ingest an authoritative report; its claims enter the same evidence quality system as retrieved sources.</p>
-      </div>
+    <div class="engine-grid" style="margin-top:var(--space-xl);">
+      <article class="engine-card">
+        <div class="num">01 · ADDRESSABLE CLAIMS</div>
+        <h3>Research is represented below the report level.</h3>
+        <p>Claims and propositions are durable, individually addressable objects. They can be traced to source/work identity and exact supporting material, reviewed independently, challenged, qualified, contradicted or carried forward without treating the whole report as one unit of truth.</p>
+      </article>
+
+      <article class="engine-card">
+        <div class="num">02 · EVIDENCE POSTURE</div>
+        <h3>Confidence is not a model feeling — or a magic number.</h3>
+        <p>The engine evaluates what kind of evidence exists beneath a claim: directness, source function and authority, body/span availability, independence, applicability, contradiction, recency and sufficiency. A numeric summary may be useful later; it never replaces the underlying posture.</p>
+      </article>
+
+      <article class="engine-card">
+        <div class="num">03 · ADVERSARIAL CHALLENGE</div>
+        <h3>Strong research tries to break its own conclusions.</h3>
+        <p>Challenge looks for counterevidence, alternative explanations, scope failures and missing assumptions before synthesis hardens into a recommendation. Frontier models can be powerful challengers, but challenge output remains advisory until evidence supports a canonical change.</p>
+      </article>
+
+      <article class="engine-card">
+        <div class="num">04 · PERSISTENT GAPS</div>
+        <h3>Unknowns are first-class research objects.</h3>
+        <p>Gaps are not a disclaimer pasted onto the end of a report. They are typed, durable targets that survive synthesis, can be prioritised by the researcher and can drive Research Further when additional evidence would materially change the conclusion.</p>
+      </article>
+
+      <article class="engine-card">
+        <div class="num">05 · CUMULATIVE RESEARCH STATE</div>
+        <h3>Prior evidence can be reused without laundering old conclusions.</h3>
+        <p>Research should compound across iterations and, ultimately, across topics. Reuse carries provenance and review history, then re-evaluates applicability, currency, contradiction and source validity for the new question. Inherited evidence is not inherited answer authority.</p>
+      </article>
+
+      <article class="engine-card">
+        <div class="num">06 · BIDIRECTIONAL OPERATION</div>
+        <h3>Question-led research and document-led verification share one substrate.</h3>
+        <p>A research question can drive acquisition and synthesis; a supplied report can drive verification and challenge. Both directions use the same source identity, evidence, review and audit boundaries rather than separate prompt workflows with different standards.</p>
+      </article>
     </div>
 
-    <div class="hal-card" style="margin-top:var(--space-m);grid-column:1/-1;border-color:var(--accent);border-left-width:3px;">
-      <h3 style="color:var(--accent);">+ Domain Configurability</h3>
-      <p>Source trust hierarchy, claim type vocabulary, scoring weights, and output format are runtime parameters, not prompts or hardcoded logic. The same binary runs policy research, investment due diligence, and regulatory compliance with no architectural change.</p>
+    <div class="engine-card" style="margin-top:var(--space-m);border-left:3px solid var(--accent);">
+      <div class="num">+ DOMAIN POLICY</div>
+      <h3>Evidence rules belong in policy packs, not prompt folklore.</h3>
+      <p>Different domains need different source roles, authority classes, applicability tests and output structures. The canonical engine owns universal identity, lineage and authority mechanics; domain packs own the evidence policy that legitimately varies between General research, policy work and regulatory monitoring.</p>
     </div>
   </div>
 </section>
 
-<!-- EVIDENCE POSTURE -->
-<section class="diff-section" id="evidence-posture">
+<section class="diff-section" id="authority">
   <div class="section-inner">
-    <div class="section-tag">Evidence posture</div>
-    <h2>Not every source that supports a query<br><em>supports a finding.</em></h2>
-    <p style="max-width:var(--text-w);margin-top:var(--space-s);color:var(--ink-3);">The hardest problem in evidence-based research is not retrieval. It is the gap between what a source says and what a claim needs it to prove. A topically relevant source is not the same as a supporting source. A supporting source is not the same as an independently corroborating one. Most research tools collapse these distinctions. The engine does not.</p>
+    <div class="section-tag">Authority model</div>
+    <h2>Three kinds of authority must<br><em>never collapse into one another.</em></h2>
 
-    <div class="hallucination-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:var(--space-xl);">
-      <div class="hal-card" style="border-top:3px solid var(--accent);">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;">Strict / Findings</div>
-        <h3>Established. Reference-eligible.</h3>
-        <p>Claims that have survived adversarial challenge, passed source credibility gates, and achieved independent corroboration from sources with no shared citation lineage. These are the claims the brief can stand behind. The gate is deliberately hard. Zero strict findings is a correct output when the evidence does not warrant them.</p>
-      </div>
-      <div class="hal-card" style="border-top:3px solid var(--ink-3);">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">Qualified Evidence</div>
-        <h3>Credible. Contextually useful. Not yet strict.</h3>
-        <p>Evidence that is relevant and sourced but does not yet meet the bar for a formal finding. A single high-quality source. A source that partially supports the claim. A finding from a constrained study presented in a broader context. Surfaced explicitly so the analyst knows what it is and is not.</p>
-      </div>
-      <div class="hal-card" style="border-top:3px solid var(--border-2);">
-        <div class="hal-icon" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-4);letter-spacing:0.1em;text-transform:uppercase;">Explore / Leads</div>
-        <h3>Signals. Directions. Not evidence.</h3>
-        <p>Background material, metadata-only records, vendor claims, adjacent literature. Useful for orienting a research direction. Not eligible for the findings layer. The engine labels these explicitly rather than mixing them into the output and letting the analyst mistake noise for signal.</p>
-      </div>
+    <div class="layer-grid" style="margin-top:var(--space-xl);">
+      <article class="layer-card">
+        <h3>Model / reasoning capability</h3>
+        <p>A model may propose search lanes, candidate interpretations, priority items, adversarial challenges or next-research targets. Multiple models agreeing can improve process robustness. It does not create independent evidentiary corroboration.</p>
+      </article>
+      <article class="layer-card">
+        <h3>Evidence authority</h3>
+        <p>Evidence authority comes from acquired and represented sources, exact support relationships, source function, independence, scope and other canonical gates. A secondary article repeating a primary study is not the same as having acquired the primary study.</p>
+      </article>
+      <article class="layer-card">
+        <h3>Researcher authority</h3>
+        <p>Researchers can review, accept, reject, defer, authorise continuation and record decisions. Those actions matter enormously for governance, but they do not directly strengthen source independence, support strength or confidence. Human approval is not evidence.</p>
+      </article>
     </div>
 
-    <div class="hal-card" style="margin-top:var(--space-m);border-left:3px solid var(--accent);border-color:var(--accent);">
-      <h3 style="color:var(--accent);">Fail-closed by design</h3>
-      <p>When evidence does not meet admission standards, the engine fails closed. It does not lower the threshold to produce output. It does not present qualified evidence as a finding. It does not fabricate references to fill a gap. A brief that clearly separates what is established from what is provisional is more useful than one that presents everything with equal confidence. The gaps are typed, rated, and visible. They are part of the output, not an absence of it.</p>
-    </div>
-
-    <div style="margin-top:var(--space-xl);padding:var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);max-width:var(--text-w);">
-      <div class="section-tag" style="margin-bottom:var(--space-s);">Where the field has struggled</div>
-      <p style="color:var(--ink-3);line-height:1.75;">The research community working on automated claim verification has converged on the same diagnosis: the bottleneck is not acquiring sources. It is determining what a fetched source actually says about a specific claim. Academic papers use different terminology from the query. They qualify findings. They describe methods alongside results. A system that treats topical relevance as evidential support will surface plausible-looking material that does not, on close reading, warrant the claim it appears to support. The engine is designed around this bottleneck, not around retrieval volume.</p>
+    <div class="chain">
+      researcher request → bounded plan → optional AI advice → explicit execution authorisation → acquisition → source representation → semantic evidence assessment → canonical state → review / challenge → continuation → outputs → durable knowledge
     </div>
   </div>
 </section>
 
-<!-- USE CASES -->
-<section class="diff-section" id="domains">
+<section class="hallucination-section" id="evidence">
   <div class="section-inner">
-    <div class="section-tag">Where the pattern recurs</div>
-    <h2>The same five problems appear<br><em>in very different rooms.</em></h2>
-    <p class="section-sub">None of these domains currently has a tool that does what the engine does. Each is doing the equivalent work manually, in spreadsheets, committee documents, and institutional reports that nobody reads systematically three years later.</p>
+    <div class="section-tag">Evidence chain</div>
+    <h2>A bibliography is necessary.<br><em>An auditable support chain is better.</em></h2>
+    <p class="section-sub">The engine is designed around the claim–evidence interface: what exact source supports what exact proposition, in what role, under what conditions?</p>
 
-    <div class="use-case-grid" style="margin-top:var(--space-xl);">
-
-      <div class="use-case-card">
-        <div class="use-case-domain">Humanitarian response</div>
-        <h3>Coordinating claims under pressure, across organisations</h3>
-        <p>Dozens of UN agencies produce simultaneous situation reports on the same crisis. The claims conflict. Nobody tracks which ones are established. OCHA's Humanitarian Needs Overviews are evidence synthesis documents built under time pressure with no structured memory between crises.</p>
-        <div class="insight">Gap tracking and contradiction detection are precisely what's missing. The Decision Log is what makes accountability to funding bodies possible.</div>
-        <div class="use-case-refs">// UN OCHA · Humanitarian Data Exchange</div>
-      </div>
-
-      <div class="use-case-card">
-        <div class="use-case-domain">Information integrity</div>
-        <h3>Investigating disinformation with traceable evidence chains</h3>
-        <p>A claim circulates in 40 sources. All 40 trace back to one original. That's amplification, not corroboration, but standard tools can't tell the difference. Fact-checking organisations and digital forensics labs do structured evidence work that needs to be itself defensible.</p>
-        <div class="insight">The confidence formula's diversity weighting catches the difference between genuine cross-source consensus and coordinated amplification.</div>
-        <div class="use-case-refs">// UNESCO · EU Code of Practice on Disinformation</div>
-      </div>
-
-      <div class="use-case-card">
-        <div class="use-case-domain">Land rights &amp; environment</div>
-        <h3>Making contested evidence legible in high-stakes disputes</h3>
-        <p>Government surveys, community testimonies, environmental studies, and corporate reports all exist in the same dispute. Contradictions between them are resolved by institutional power, not by evidence quality.</p>
-        <div class="insight">The engine provides a structured record of what is established, what is contested, and what gaps remain, making the epistemic state of a dispute legible to any party.</div>
-        <div class="use-case-refs">// UNEP · UN Special Rapporteur on Indigenous Rights</div>
-      </div>
-
-      <div class="use-case-card">
-        <div class="use-case-domain">Treaty compliance</div>
-        <h3>Accumulating verified findings across review cycles</h3>
-        <p>Treaty bodies assess state compliance claims cycle after cycle. Previous findings sit in PDF reports. Each new cycle starts from near-zero institutional memory. States report; bodies assess. Currently this is manual evidence synthesis with no compounding knowledge.</p>
-        <div class="insight">The knowledge graph means treaty body five has a verified claim base to work from that treaty body one didn't. Contradictions become part of the structured record.</div>
-        <div class="use-case-refs">// UN Treaty Bodies · CTBTO · OPCW</div>
-      </div>
-
-      <div class="use-case-card">
-        <div class="use-case-domain">Algorithmic accountability</div>
-        <h3>Auditing AI systems with the rigour AI systems deserve</h3>
-        <p>A company claims 95% accuracy. An independent study finds 60% on a specific demographic. Both claims exist in the public record. Neither is resolved, they just accumulate. Civil society and government auditors assessing AI harm need structured evidence work.</p>
-        <div class="insight">The contradiction detector and confidence scoring turn this from advocacy into a defensible record. Directly relevant to EU AI Act conformity assessment and NIST RMF.</div>
-        <div class="use-case-refs">// EU AI Act Art. 9–17 · NIST RMF · AlgorithmWatch</div>
-      </div>
-
-      <div class="use-case-card">
-        <div class="use-case-domain">Regulated procurement</div>
-        <h3>Justifying consequential decisions to auditors who weren't in the room</h3>
-        <p>Government and defence procurement decisions are made over 18 months, across teams, based on claims that need to be traceable to source when the auditor arrives two years later. Capability, price, risk, compliance, each requires provenance, each is subject to challenge.</p>
-        <div class="insight">The Decision Log captures the full evidence state at the moment of decision. That's not a compliance feature, it's the output of how the engine works by default.</div>
-        <div class="use-case-refs">// EU Public Procurement Directive · UNCITRAL Model Law</div>
-      </div>
-
-    </div>
-
-    <!-- CONSULTING CALLOUT -->
-    <div style="margin-top:var(--space-xl);padding:var(--space-xl);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);">
-      <div class="section-tag">And one closer to home</div>
-      <h3 style="font-size:1.4rem;margin-bottom:var(--space-s);">Strategy &amp; independent consulting</h3>
-      <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.1rem;font-style:italic;color:var(--ink-3);margin-bottom:var(--space-m);">You already do this work. You just do it in documents that don't compound.</h4>
-      <p style="max-width:var(--text-w);color:var(--ink-3);">The best strategy research already works the way the engine works: individual claims are sourced and graded, contradictions between data points are noted, gaps in the evidence are named, and the final recommendation is honest about its confidence level. What it doesn't do is carry that structure forward to the next engagement, the next client, the next analyst who joins the team.</p>
-      <p style="max-width:var(--text-w);margin-top:var(--space-s);color:var(--ink-2);">The structured brief a senior consultant produces for a board is a claim vault, it just doesn't look like one, and it evaporates when the project ends. The engine is what that process looks like when the institutional memory is preserved rather than PDF'd into an archive.</p>
-    </div>
-
-    <div style="margin-top:var(--space-xl);padding:var(--space-l) var(--space-xl);background:var(--paper);border:1px solid var(--border);border-radius:var(--radius-m);">
-      <div class="section-tag">One engine, configured per domain</div>
-      <p style="max-width:var(--text-w);color:var(--ink-3);margin-bottom:var(--space-m);">The claim extraction, confidence scoring, gap tracking, and decision logging are the same across every deployment. What changes is narrower than it looks: the source tier hierarchy that governs which publications and databases count as primary, the claim type vocabulary that structures what the engine is looking for, and the output artefact format that reflects how findings get used. Seven working modes are configured in the current build.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:var(--space-s);">
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">General Research</div>
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">Investment Analysis</div>
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">Government &amp; Policy</div>
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">Grants &amp; Funding</div>
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">RegWatch Compliance</div>
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">Pharma &amp; MedTech</div>
-        <div style="padding:6px 14px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-2);">Lineage &amp; Overlap</div>
-      </div>
+    <div class="rule-list">
+      <div class="rule"><strong>Reference exists ≠ source supports claim.</strong> A cited paper can be real and still fail to support the proposition attributed to it.</div>
+      <div class="rule"><strong>Topical relevance ≠ evidentiary relevance.</strong> Metadata, snippets and adjacent literature are useful leads, not evidence admission.</div>
+      <div class="rule"><strong>Two URLs ≠ two independent sources.</strong> Duplicate representations, syndicated material and sources sharing the same underlying work do not create corroboration.</div>
+      <div class="rule"><strong>Strong evidence somewhere ≠ applicable evidence here.</strong> Population, jurisdiction, time period, workflow and mechanism all matter to transferability.</div>
+      <div class="rule"><strong>Silence ≠ support.</strong> Missing evidence stays a gap. The engine is allowed to end with zero strict findings.</div>
     </div>
   </div>
 </section>
 
-<!-- RESPONSIBLE AI -->
-<section style="background:var(--ink);color:var(--paper);">
+<section class="diff-section" id="knowledge">
   <div class="section-inner">
-    <div class="section-tag" style="color:var(--accent-2);">Responsible AI in practice</div>
-    <h2 style="color:var(--paper);">This is what <em style="color:var(--accent-2);">responsible AI</em> looks like in practice.</h2>
-    <p style="color:#aaa;max-width:var(--text-w);margin-top:var(--space-s);">The EU AI Act, UNESCO's AI Ethics Recommendation, and a growing number of national frameworks share one underlying requirement: AI used in high-stakes contexts must be explainable and traceable, not just technically, but epistemically. The question is not only "what did the system output" but <strong style="color:#ddd;">what evidence did it draw on, where did that evidence conflict, and what was uncertain when the decision was made.</strong></p>
+    <div class="section-tag">Institutional knowledge</div>
+    <h2>Memory is not enough.<br><em>Knowledge needs provenance and revalidation.</em></h2>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-m);margin-top:var(--space-xl);">
-      <div style="padding:var(--space-m);border:1px solid #333;border-radius:var(--radius-m);">
-        <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Traceable by construction</div>
-        <p style="font-size:0.875rem;color:#bbb;">Every claim carries its source tier, citations, and confidence derivation. Not a summary, a structured assertion with provenance.</p>
-      </div>
-      <div style="padding:var(--space-m);border:1px solid #333;border-radius:var(--radius-m);">
-        <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Uncertainty is named</div>
-        <p style="font-size:0.875rem;color:#bbb;">Weak and contested findings surface explicitly. The brief reflects what the evidence supports, not what sounds most authoritative.</p>
-      </div>
-      <div style="padding:var(--space-m);border:1px solid #333;border-radius:var(--radius-m);">
-        <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Decision state is immutable</div>
-        <p style="font-size:0.875rem;color:#bbb;">When a decision is logged, the full evidence state is preserved at that moment, verified, contested, gaps acknowledged. Article 12 record-keeping as a byproduct.</p>
-      </div>
-      <div style="padding:var(--space-m);border:1px solid #333;border-radius:var(--radius-m);">
-        <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Human review improves scores</div>
-        <p style="font-size:0.875rem;color:#bbb;">Marking a claim as evidence-grounded raises its confidence. The system reflects researcher judgment, not just model output.</p>
-      </div>
+    <div class="audit-grid" style="margin-top:var(--space-xl);">
+      <article class="audit-card">
+        <h3>Why long context is not the answer</h3>
+        <p>A million-token context can expose old material to a model. It does not tell you which prior claims were actually supported, which were later contradicted, which are stale, or which were accepted without adequate review.</p>
+      </article>
+      <article class="audit-card">
+        <h3>Why RAG is not the whole answer</h3>
+        <p>Retrieval brings back documents or chunks. Epistamate's target is richer: claim identity + exact evidence + provenance + applicability + independence + review history + temporal validity + contradiction state + version lineage.</p>
+      </article>
+      <article class="audit-card">
+        <h3>How reuse should work</h3>
+        <p>A prior claim can be reused only after the new context is evaluated. The result may be strengthened, qualified, weakened, superseded or marked stale. Research compounds without pretending that yesterday's answer is automatically today's truth.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section style="background:var(--paper-2);border-top:1px solid var(--border);">
-  <div class="section-inner" style="text-align:center;max-width:640px;">
-    <div class="section-tag" style="text-align:center;">Start a conversation</div>
-    <h2>If the pattern fits a problem you're working on,</h2>
-    <p style="color:var(--ink-3);margin:var(--space-m) 0 var(--space-l);">Epistamate is in active development and talking to organisations where defensible, compounding evidence matters. If you recognise your domain in this page, I'd like to hear about the specific problem before describing the solution.</p>
-    <div style="display:flex;gap:var(--space-s);justify-content:center;flex-wrap:wrap;">
-      <a href="index.html#contact" class="btn-primary">Start a conversation →</a>
-      <a href="epistamate_demo.html" class="btn-secondary">See the demo first</a>
-      <a href="index.html" class="btn-ghost">← Back to Epistamate</a>
+<section class="hallucination-section" id="audit">
+  <div class="section-inner">
+    <div class="section-tag">Reviewer governance</div>
+    <h2>In high-stakes research,<br><em>who reviewed what is part of the evidence story.</em></h2>
+
+    <div class="audit-grid" style="margin-top:var(--space-xl);">
+      <article class="audit-card">
+        <h3>AI proposal</h3>
+        <p>The system records what AI assistance recommended — planning changes, triage priorities, interpretations or challenges — without disguising those recommendations as researcher decisions.</p>
+      </article>
+      <article class="audit-card">
+        <h3>Researcher action</h3>
+        <p>Review actions are explicit, durable events bound to the research checkpoint and target. A senior reviewer can distinguish inspection and judgment from passive acceptance of an AI-generated queue.</p>
+      </article>
+      <article class="audit-card">
+        <h3>Evidence state at decision time</h3>
+        <p>The point of an audit trail is not merely to know that someone clicked “accept.” It is to reconstruct what evidence, contradictions, gaps and qualifications were visible when the decision was made.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="hallucination-section" id="contracts">
+  <div class="section-inner">
+    <div class="section-tag">Integrity contracts around the six principles</div>
+    <h2>The public architecture is stronger when it says<br><em>what the engine refuses to conflate.</em></h2>
+    <div class="audit-grid" style="margin-top:var(--space-xl);">
+      <article class="audit-card"><h3>Evidence ≠ assertion</h3><p>A management statement, meeting note, sponsor slide or model output can be useful without being established fact.</p></article>
+      <article class="audit-card"><h3>Source presence ≠ support</h3><p>A valid URL, DOI or bibliography entry does not establish that the source supports the proposition attached to it.</p></article>
+      <article class="audit-card"><h3>Model agreement ≠ verification</h3><p>Multiple frontier models can converge on the same interpretation and still be wrong in the same direction.</p></article>
+      <article class="audit-card"><h3>Human approval ≠ stronger evidence</h3><p>Human judgement is authoritative for professional decisions and issuance. It is recorded as provenance, not converted into evidentiary corroboration.</p></article>
+      <article class="audit-card"><h3>Research relevance ≠ client fact</h3><p>External research can sharpen a challenge or test. It cannot prove that a specific client control operated or that a specific business claim is true.</p></article>
+      <article class="audit-card"><h3>Update ≠ overwrite</h3><p>New evidence can stale an assessment or recommendation. Prior states remain reconstructable instead of being silently rewritten.</p></article>
+    </div>
+  </div>
+</section>
+<section class="diff-section" id="status">
+  <div class="section-inner">
+    <div class="section-tag">Canonical rebuild status</div>
+    <h2>Principles are durable.<br><em>Capabilities still have to be earned.</em></h2>
+    <p class="section-sub">The original prototype implemented several ideas with simpler scoring and graph mechanisms. The canonical rebuild is intentionally replacing those shortcuts with stricter evidence, identity and authority contracts.</p>
+
+    <div class="status-grid" style="margin-top:var(--space-xl);">
+      <article class="status-card">
+        <span class="status-label now">Implemented / live validation</span>
+        <h3>Current-run canonical research</h3>
+        <p>General research currently exercises explicit planning/permissions, acquisition, source/evidence inspection, Semantic assessment, gaps/relationships, researcher review infrastructure, continuation controls, audit/activity history and evidence-bearing outputs. End-to-end live quality is still being tested and hardened.</p>
+      </article>
+      <article class="status-card">
+        <span class="status-label next">Active development</span>
+        <h3>Bounded frontier-model assistance</h3>
+        <p>Planning and review assistance are being integrated behind typed, digest-bound contracts. Future stages include stronger adversarial challenge and Research Further advice while retaining zero evidence-authority delta from the assistant itself.</p>
+      </article>
+      <article class="status-card">
+        <span class="status-label next">Canonical rebuild</span>
+        <h3>Durable Knowledge / cross-topic compounding</h3>
+        <p>Same-question iteration and follow-on lineage exist, but the durable cross-topic Knowledge layer and long-lived knowledge graph are not yet claimed as finished early-access capabilities. Their target semantics are provenance-first, versioned and recency/applicability aware.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="hallucination-section" id="publication">
+  <div class="section-inner">
+    <div class="section-tag">Published architecture</div>
+    <h2>The design predates the current rebuild.<br><em>The doctrine has become stricter.</em></h2>
+    <p class="section-sub">The DCBR architecture paper and defensive disclosure document the original six-property contribution. The implementation is evolving; the enduring claim is the need for these properties to coexist in one practitioner-facing research system.</p>
+    <div class="hero-ctas" style="justify-content:flex-start;">
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener" class="btn-primary">DCBR Engine paper ↗</a>
+      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener" class="btn-secondary">Defensive disclosure ↗</a>
+      <a href="landscape.html" class="btn-ghost">Prior art and open problems →</a>
     </div>
   </div>
 </section>
@@ -268,33 +280,22 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+      <p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p>
     </div>
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="engine.html">The Engine</a>
-      <a href="persona-consultant.html">Analysts</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Evidence-led Advisory</a>
       <a href="landscape.html">Research landscape</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="blog/index.html">Insights</a>
       <a href="index.html#contact">Contact</a>
     </div>
     <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine paper · Zenodo</a>
-      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch paper · Zenodo</a>
-      <a href="https://ip.com/IPCOM/000277741" target="_blank">Defensive disclosure · IP.com</a>
-      <a href="landscape.html">Prior art and open problems</a>
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener">Defensive disclosure · IP.com</a>
     </div>
   </div>
 </footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('section').forEach(s => observer.observe(s));
-</script>
 </body>
 </html>

@@ -4,209 +4,103 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Policy Research &amp; Think Tanks, Epistamate</title>
-  <meta name="description" content="Epistamate for policy research and think tanks. Evidence synthesis under time pressure, contradiction detection, gap tracking, and an immutable decision log. EU AI Act Article 12 compatible.">
-  <meta name="keywords" content="AI policy research tool, think tank AI, evidence synthesis policy, AI hallucination policy research, structured policy brief AI, EU AI Act compliance tool">
+  <title>Policy Research &amp; Think Tanks — Epistamate</title>
+  <meta name="description" content="Epistamate for policy research: evidence-backed claims, explicit gaps and contradictions, applicability boundaries, reviewer provenance and cumulative research state.">
+  <meta name="keywords" content="policy research AI, evidence synthesis policy, think tank research audit trail, AI research governance, policy evidence provenance">
+  <link rel="canonical" href="https://epistamate.com/persona-policy.html">
+  <meta property="og:title" content="Policy Research &amp; Think Tanks — Epistamate">
+  <meta property="og:description" content="Policy is built on evidence. The evidence, uncertainty and review history should survive the brief.">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
-  <link rel="canonical" href="https://epistamate.com/persona-policy.html">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="627">
-  <!-- build:2026-06-20T05:38:13Z -->
+  <style>
+    .policy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-m);margin-top:var(--space-xl)}
+    .policy-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+    .policy-card h3{margin-bottom:var(--space-s)} .policy-card p{color:var(--ink-3);line-height:1.7}
+    .boundary{margin-top:var(--space-xl);padding:var(--space-l);border-left:3px solid var(--accent);background:var(--paper-2);color:var(--ink-3);line-height:1.7}
+  </style>
+  <!-- build:2026-09-06-positioning-refresh -->
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
 <section class="hero" style="opacity:1;transform:none;">
   <div class="hero-eyebrow">For · Think Tanks &amp; Policy Research</div>
-  <h1 class="hero-h1">
-    Policy is built on evidence.<br>
-    <em>That evidence needs to hold up.</em>
-  </h1>
+  <h1 class="hero-h1">Policy is built on evidence.<br><em>The uncertainty belongs in the record too.</em></h1>
   <div class="stakes-block">
-    <p>A policy brief reaches a minister's desk. Two of its four key claims trace back to a single working paper, not three independent sources. The third claim was contested in a 2021 OECD report nobody cross-checked. The brief sounds authoritative. Nobody in the chain had the infrastructure to know it wasn't.</p>
-    <p class="stakes-kicker">This is not an analyst failure. It is a structural failure of how evidence-based policy work is done.</p>
+    <p>A policy brief can contain real citations and still overstate what the evidence supports. A single study can be repeated through many secondary sources. Evidence from one population can be silently generalised to another. A disputed claim can disappear into smooth synthesis.</p>
+    <p class="stakes-kicker">Epistamate is designed to preserve the support, scope, contradictions and gaps underneath policy conclusions — together with the review history.</p>
   </div>
-  <div class="hero-ctas">
-    <a href="epistamate_demo.html" class="btn-primary">See the pipeline in action →</a>
-    <a href="index.html#contact" class="btn-secondary">Request early access</a>
-  </div>
+  <div class="hero-ctas"><a href="index.html#contact" class="btn-primary">Request early access →</a><a href="engine.html" class="btn-secondary">The evidence architecture →</a></div>
 </section>
 
-<!-- WHAT IT SOLVES -->
 <section class="hallucination-section">
   <div class="section-inner">
     <div class="section-tag">The structural problems</div>
-    <h2>Five things that go wrong in<br><em>policy evidence synthesis, every time.</em></h2>
-
-    <div class="hallucination-grid">
-      <div class="hal-card">
-        <div class="hal-icon">🔁</div>
-        <h3>The rebuild problem</h3>
-        <p>Every major policy review begins by reconstructing evidence that was gathered for the last one. Six months of institutional knowledge evaporates when the project ends. The analyst who built the previous brief has moved on. The literature they curated is in a folder nobody can find.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🎭</div>
-        <h3>The amplification problem</h3>
-        <p>A single working paper gets cited by 12 subsequent papers, all of which cite each other. Standard tools see 13 sources and report high consensus. Epistamate's diversity weighting detects the cascade. Claims that trace to one original source are flagged, not amplified.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🕳️</div>
-        <h3>The gap invisibility problem</h3>
-        <p>Policy briefs report what is known. They are professionally reluctant to name what is not known, because gaps read as incompleteness. But the gaps are often the most consequential part of the brief. Epistamate makes gaps first-class outputs, with importance ratings.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">⚡</div>
-        <h3>The time pressure problem</h3>
-        <p>A parliamentary question lands. A committee wants a brief in 48 hours. Existing knowledge cannot be rapidly queried for what has already been established. Everything restarts. The second time this topic comes around, the same work is done again, at crisis speed.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">📋</div>
-        <h3>The accountability problem</h3>
-        <p>When a policy recommendation is scrutinised months later, the original evidence basis is often unrecoverable. What was known, what was contested, what gaps were acknowledged at the time of decision, none of it is in the brief. It was in the analyst's working notes, which are gone.</p>
-      </div>
+    <h2>What gets lost when policy research<br><em>is compressed into a final brief.</em></h2>
+    <div class="policy-grid">
+      <article class="policy-card"><h3>Source lineage</h3><p>Apparent consensus can be one original result amplified through many papers, reports and commentary. Counting sources is not enough; independence matters.</p></article>
+      <article class="policy-card"><h3>Applicability</h3><p>Evidence can be strong and still fail to transfer to the jurisdiction, population, mechanism or implementation context of the policy question.</p></article>
+      <article class="policy-card"><h3>Contradiction</h3><p>Disagreement is often professionally inconvenient, so synthesis resolves it too early. Epistamate treats contradiction and qualification as information rather than defects.</p></article>
+      <article class="policy-card"><h3>Unknowns</h3><p>What the evidence does not establish may be more consequential than what it does. Gaps should survive the report and become future research targets.</p></article>
+      <article class="policy-card"><h3>Review provenance</h3><p>A future reviewer should be able to distinguish AI-proposed priorities from claims an analyst actually inspected and judged.</p></article>
+      <article class="policy-card"><h3>Institutional memory</h3><p>Prior research should be reusable with provenance and revalidation rather than rebuilt from scratch or copied forward without checking recency and applicability.</p></article>
     </div>
   </div>
 </section>
 
-<!-- HOW IT HELPS -->
 <section class="diff-section">
   <div class="section-inner">
-    <div class="section-tag">What Epistamate does for policy work</div>
-    <h2>The same five problems,<br><em>with structural answers.</em></h2>
-
+    <div class="section-tag">What Epistamate is built to add</div>
+    <h2>A policy evidence record<br><em>that can be challenged later.</em></h2>
     <div class="diff-items">
-      <div class="diff-item">
-        <div class="diff-num">01</div>
-        <div class="diff-content">
-          <h3>Compounding knowledge, not restarting</h3>
-          <p>Session N+1 retrieves verified claims from session N. A policy analyst running a brief on carbon pricing in Q4 has access to the verified findings from the Q2 session, without rebuilding them. Contradictions between sessions are preserved as typed objects, not silently resolved. The knowledge base grows with each session.</p>
-          <div class="diff-callout"><strong>Practical impact:</strong> The second brief on the same topic takes significantly less time. The fifth brief has a verified claim base the first didn't. Institutional knowledge stops evaporating at project end.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">02</div>
-        <div class="diff-content">
-          <h3>Consensus vs amplification, distinguished</h3>
-          <p>The confidence formula's diversity weighting scores cross-provider consensus differently from single-source amplification. A claim corroborated by three independent Tier 1 sources scores higher than a claim cited by 15 papers all tracing to one original. This distinction is structurally invisible to any tool that counts citations rather than sources.</p>
-          <div class="diff-callout"><strong>For parliamentary work:</strong> When a minister asks "how confident are we in this?", the answer is a formula-computed score with a breakdown, not a paragraph of hedging.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">03</div>
-        <div class="diff-content">
-          <h3>Gaps as first-class outputs</h3>
-          <p>Every research session produces a typed gap list alongside the claim vault. Gaps have importance ratings. They accumulate across sessions and narrow as evidence arrives. A briefing that says "we do not yet have reliable evidence on X, importance: HIGH" is more trustworthy than one that elides the uncertainty.</p>
-          <div class="diff-callout"><strong>For accountability:</strong> The gap list is part of the brief. What was not known when the recommendation was made is a structural part of the record.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">04</div>
-        <div class="diff-content">
-          <h3>48-hour brief from verified prior knowledge</h3>
-          <p>When the parliamentary question arrives, the quick scan retrieves what is already verified. Phase 2 deepens on what has changed or is new. The adversarial challenge phase runs regardless, but it runs faster when the base is already established. The brief ships with confidence scores visible to the reader.</p>
-          <div class="diff-callout"><strong>Time pressure is not an excuse for lower epistemic standards.</strong> The structure enforces the same quality floor regardless of deadline.</div>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">05</div>
-        <div class="diff-content">
-          <h3>Immutable decision record</h3>
-          <p>When a decision is logged, the full evidence state is preserved at that moment, verified claims, contested claims, acknowledged gaps, source tiers, confidence scores. This is not a compliance feature added afterward. It is the output of how the engine works by default.</p>
-          <div class="diff-callout"><strong>EU AI Act Article 12 aligned:</strong> The Decision Log satisfies the epistemic accountability requirement of high-risk AI system deployments. Qualified legal counsel must assess applicability.</div>
-        </div>
-      </div>
+      <div class="diff-item"><div class="diff-num">01</div><div class="diff-content"><h3>Claim-to-evidence traceability</h3><p>Consequential propositions remain linked to source identity and the material that supports, qualifies or contradicts them. A bibliography is part of the output; the support chain is the more important object underneath it.</p><div class="diff-callout"><strong>Research standard:</strong> reference exists → source supports claim → independent corroboration → evidence sufficient for this use.</div></div></div>
+      <div class="diff-item"><div class="diff-num">02</div><div class="diff-content"><h3>Typed gaps and contradictions</h3><p>Unresolved needs remain visible and can drive Research Further. The system is allowed to say “the evidence is insufficient” rather than manufacture a complete-looking brief.</p><div class="diff-callout"><strong>Fail-closed:</strong> zero strict findings is a valid research result when the evidence does not warrant them.</div></div></div>
+      <div class="diff-item"><div class="diff-num">03</div><div class="diff-content"><h3>AI-assisted planning without AI authority</h3><p>Frontier models can improve acquisition planning, review prioritisation and adversarial challenge. Their suggestions remain advisory; model agreement does not count as independent evidence.</p><div class="diff-callout"><strong>Practical benefit:</strong> use frontier intelligence to search more intelligently without letting fluent synthesis decide what is established.</div></div></div>
+      <div class="diff-item"><div class="diff-num">04</div><div class="diff-content"><h3>Cumulative evidence with revalidation</h3><p>The long-term Knowledge layer is intended to carry prior evidence, gaps and review history forward while checking currency, applicability and contradiction for each new policy question.</p><div class="diff-callout"><strong>Current boundary:</strong> same-topic continuation and lineage exist; durable cross-topic Knowledge is still being rebuilt and is not claimed as a finished early-access feature.</div></div></div>
+      <div class="diff-item"><div class="diff-num">05</div><div class="diff-content"><h3>Reviewer accountability</h3><p>Researcher decisions are explicit events tied to the research state. A senior reviewer can reconstruct what evidence was available and what the analyst actually did, without treating approval as evidence strength.</p><div class="diff-callout"><strong>Governance distinction:</strong> evidence authority, model reasoning and human judgment remain separate.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- DOMAIN REFS -->
 <section class="hallucination-section">
   <div class="section-inner">
-    <div class="section-tag">Domain alignment</div>
-    <h2>Built for the institutional context<br><em>policy research actually operates in.</em></h2>
-    <div class="hallucination-grid">
-      <div class="hal-card">
-        <div class="hal-icon">🌍</div>
-        <h3>Humanitarian &amp; development policy</h3>
-        <p>UN agency situation reports, OCHA Humanitarian Needs Overviews, UNDP policy assessments, evidence synthesis under time pressure, across conflicting organisational sources, with accountability to funding bodies. Gap tracking and contradiction detection are exactly what's missing from these workflows.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🇪🇺</div>
-        <h3>EU regulatory policy</h3>
-        <p>Impact assessments, comitology documents, parliamentary questions, and committee briefs all require evidence that is traceable, contestable, and auditable. The engine's Article 12 compatible Decision Log is not a bolt-on, it is the structural output of the pipeline.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🏛️</div>
-        <h3>Parliamentary &amp; legislative research</h3>
-        <p>Library of Parliament units, congressional research services, and independent legislative advisory bodies do structured evidence work under deadline pressure with no institutional memory between legislative cycles. The knowledge graph is precisely what's missing.</p>
-      </div>
+    <div class="section-tag">Domain policy</div>
+    <h2>Policy research needs different rules<br><em>from generic web research.</em></h2>
+    <div class="policy-grid">
+      <article class="policy-card"><h3>Authority and jurisdiction</h3><p>Official instruments, implementation evidence, expert analysis and commentary can play different roles. The engine architecture supports domain policy packs rather than relying on prompt instructions alone.</p></article>
+      <article class="policy-card"><h3>Mechanism and feasibility</h3><p>A policy claim can be normatively attractive yet weakly evidenced on implementation feasibility or stakeholder effects. Those dimensions should remain separable.</p></article>
+      <article class="policy-card"><h3>Contested assumptions</h3><p>Assumptions and transferability conditions should remain visible so a reviewer can challenge them instead of inheriting them from the synthesis.</p></article>
     </div>
+    <div class="boundary"><strong>Early-access boundary:</strong> General is the current gold path. Gov/Policy pack infrastructure exists, but live domain calibration remains a later milestone; this page describes the product direction without claiming full policy-production readiness.</div>
   </div>
 </section>
 
-<!-- CTA -->
 <section style="background:var(--ink);color:var(--paper);">
-  <div class="section-inner" style="max-width:640px;">
+  <div class="section-inner" style="max-width:680px;">
     <div class="section-tag" style="color:var(--accent-2);">Get in touch</div>
-    <h2 style="color:var(--paper);">If your organisation does policy research that needs to hold up,</h2>
-    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We are talking to policy organisations, think tanks, and legislative research bodies in active development. If you recognise your workflow in this page, we would like to understand the specific problem before describing the solution.</p>
-    <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
-      <a href="mailto:hello@epistamate.com" class="btn-primary">Start a conversation →</a>
-      <a href="epistamate_demo.html" class="btn-secondary">See the demo first</a>
-    </div>
+    <h2 style="color:var(--paper);">If your organisation needs policy research that can survive informed challenge,</h2>
+    <p style="color:#aaa;margin:var(--space-m) 0 var(--space-l);">We are looking for consequential policy workflows where evidence traceability, gaps and reviewer provenance matter.</p>
+    <a href="index.html#contact" class="btn-primary">Start a conversation →</a>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-    <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
-      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch · Zenodo</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('section').forEach(s => observer.observe(s));
-</script>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div><div class="footer-links"><a href="index.html">Home</a><a href="engine.html">The Engine</a><a href="landscape.html">Research landscape</a><a href="blog/index.html">Blog</a><a href="index.html#contact">Contact</a></div><div class="footer-refs"><a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener">DCBR Engine · Zenodo</a></div></div></footer>
 </body>
 </html>

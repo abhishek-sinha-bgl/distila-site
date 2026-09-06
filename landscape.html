@@ -4,328 +4,46 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Research Landscape, Epistamate</title>
-  <meta name="description" content="Where Epistamate sits in the AI research and evidence synthesis landscape. An honest account of prior art, what existing approaches get right, where the gaps are, and what Epistamate claims on what basis.">
-  <meta name="keywords" content="AI evidence synthesis research, FActScore GraphRAG comparison, AI hallucination research tools, claim verification landscape, DCBR prior art, evidence quality AI research 2026">
+  <title>AI research, assurance &amp; evidence-decision landscape — Epistamate</title>
+  <meta name="description" content="Where Epistamate sits among frontier research models, RAG, knowledge graphs, academic evidence tools and claim-verification systems — and the narrower architectural claim Epistamate makes.">
+  <meta name="keywords" content="AI research landscape, evidence synthesis AI, RAG limitations, long context research, claim verification, knowledge graph research, research audit trail">
+  <meta property="og:title" content="The Research Landscape — Epistamate">
+  <meta property="og:description" content="The hard problem is no longer generating a plausible research answer. It is preserving what the evidence actually warrants across models, reviewers and time.">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
-  <style>
-    .landscape-page {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: var(--space-2xl) var(--space-l);
-    }
-
-    .lp-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: var(--space-m);
-    }
-
-    .lp-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: var(--space-m);
-    }
-
-    .lp-standfirst {
-      font-size: 1.1rem;
-      color: var(--ink-3);
-      line-height: 1.7;
-      margin-bottom: var(--space-xl);
-      padding-bottom: var(--space-xl);
-      border-bottom: 1px solid var(--border);
-      max-width: 640px;
-    }
-
-    .lp-section {
-      margin-bottom: var(--space-2xl);
-    }
-
-    .lp-section-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-4);
-      margin-bottom: var(--space-m);
-      display: flex;
-      align-items: center;
-      gap: var(--space-s);
-    }
-
-    .lp-section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .lp-h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      line-height: 1.2;
-      letter-spacing: -0.015em;
-      margin-bottom: var(--space-m);
-    }
-
-    .lp-h2 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .lp-body {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--ink-2);
-    }
-
-    .lp-body p {
-      margin-bottom: var(--space-m);
-      color: var(--ink-2);
-    }
-
-    .lp-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Pull quotes */
-    .lp-pull {
-      margin: var(--space-xl) 0;
-      padding: var(--space-l) var(--space-xl);
-      border-left: 3px solid var(--accent);
-      background: var(--paper-2);
-    }
-
-    .lp-pull p {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      line-height: 1.5;
-      color: var(--ink);
-      margin: 0;
-      font-style: italic;
-    }
-
-    .lp-pull cite {
-      display: block;
-      margin-top: var(--space-s);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--ink-4);
-      font-style: normal;
-      letter-spacing: 0.04em;
-    }
-
-    /* System cards for each prior approach */
-    .system-card {
-      margin: var(--space-l) 0;
-      padding: var(--space-l);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-      background: var(--paper-2);
-    }
-
-    .system-card-name {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 4px;
-      letter-spacing: 0.04em;
-    }
-
-    .system-card-type {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--ink-4);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-s);
-    }
-
-    .system-card p {
-      font-size: 0.925rem;
-      color: var(--ink-3);
-      line-height: 1.65;
-      margin-bottom: var(--space-s);
-    }
-
-    .system-card p:last-child { margin-bottom: 0; }
-
-    .system-card .gap-note {
-      font-size: 0.875rem;
-      color: var(--ink-2);
-      padding: var(--space-s) var(--space-m);
-      border-left: 2px solid var(--border-2);
-      margin-top: var(--space-s);
-    }
-
-    /* Comparison table */
-    .comp-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: var(--space-xl) 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-    }
-
-    .lp-table {
-      width: 100%;
-      min-width: 900px;
-      border-collapse: collapse;
-      font-size: 0.825rem;
-    }
-
-    .lp-table th {
-      padding: 10px 12px;
-      text-align: left;
-      background: var(--paper-2);
-      border: 1px solid var(--border);
-      font-weight: 600;
-      font-size: 0.75rem;
-      color: var(--ink-3);
-      white-space: nowrap;
-    }
-
-    .lp-table th:first-child {
-      position: sticky;
-      left: 0;
-      z-index: 2;
-      background: var(--paper-2);
-      border-right: 2px solid var(--border-2);
-    }
-
-    .lp-table th.ours {
-      background: var(--ink);
-      color: var(--paper);
-      min-width: 160px;
-    }
-
-    .lp-table td {
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      color: var(--ink-4);
-      font-size: 0.8rem;
-      vertical-align: top;
-    }
-
-    .lp-table td:first-child {
-      color: var(--ink-2);
-      font-weight: 500;
-      font-size: 0.825rem;
-      position: sticky;
-      left: 0;
-      z-index: 1;
-      background: var(--paper);
-      border-right: 2px solid var(--border-2);
-      white-space: nowrap;
-    }
-
-    .lp-table td.ours {
-      background: rgba(200,67,47,0.05);
-      color: var(--accent);
-      font-weight: 600;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-    }
-
-    .lp-table tr:nth-child(even) td { background: var(--paper-2); }
-    .lp-table tr:nth-child(even) td:first-child { background: var(--paper-2); }
-    .lp-table tr:nth-child(even) td.ours { background: rgba(200,67,47,0.08); }
-
-    /* Timestamp note */
-    .field-note {
-      margin-top: var(--space-2xl);
-      padding: var(--space-m) var(--space-l);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-      background: var(--paper-2);
-    }
-
-    .field-note-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ink-4);
-      margin-bottom: 8px;
-    }
-
-    .field-note p {
-      font-size: 0.875rem;
-      color: var(--ink-3);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* References */
-    .lp-refs {
-      margin-top: var(--space-2xl);
-      padding-top: var(--space-l);
-      border-top: 1px solid var(--border);
-    }
-
-    .lp-refs-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ink-4);
-      margin-bottom: var(--space-m);
-    }
-
-    .lp-refs ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .lp-refs li {
-      font-size: 0.825rem;
-      color: var(--ink-4);
-      line-height: 1.5;
-      padding-left: var(--space-m);
-      position: relative;
-    }
-
-    .lp-refs li::before {
-      content: attr(data-n);
-      position: absolute;
-      left: 0;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-    }
-
-    .lp-refs a {
-      color: var(--ink-3);
-      border-bottom: 1px solid var(--border);
-      transition: color 0.15s, border-color 0.15s;
-    }
-
-    .lp-refs a:hover {
-      color: var(--ink);
-      border-color: var(--ink-3);
-    }
-
-    @media (max-width: 680px) {
-      .landscape-page { padding: var(--space-l) var(--space-m); }
-      .lp-pull { padding: var(--space-m); }
-    }
-  </style>
   <link rel="canonical" href="https://epistamate.com/landscape.html">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="627">
-  <!-- build:2026-06-20T05:38:13Z -->
+  <style>
+    .landscape-page{max-width:900px;margin:0 auto;padding:var(--space-2xl) var(--space-l)}
+    .lp-eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-m)}
+    .lp-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:var(--space-m)}
+    .lp-standfirst{font-size:1.12rem;color:var(--ink-3);line-height:1.75;max-width:760px;padding-bottom:var(--space-xl);border-bottom:1px solid var(--border)}
+    .lp-section{margin:var(--space-2xl) 0}
+    .lp-label{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-4);margin-bottom:var(--space-m)}
+    .lp-h2{font-family:var(--font-display);font-size:clamp(1.45rem,2.8vw,2.15rem);line-height:1.2;margin-bottom:var(--space-m)}
+    .lp-h2 em{color:var(--accent);font-style:italic}
+    .lp-body{font-size:1rem;line-height:1.82;color:var(--ink-2)}
+    .lp-body p{margin-bottom:var(--space-m);color:var(--ink-2)}
+    .lp-pull{margin:var(--space-xl) 0;padding:var(--space-l) var(--space-xl);border-left:3px solid var(--accent);background:var(--paper-2)}
+    .lp-pull p{font-family:var(--font-display);font-size:1.3rem;line-height:1.5;margin:0}
+    .system-grid,.measure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-m);margin-top:var(--space-xl)}
+    .system-card,.measure-card{padding:var(--space-l);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2)}
+    .system-card .type,.measure-card .type{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:var(--space-xs)}
+    .system-card h3,.measure-card h3{margin-bottom:var(--space-s)}
+    .system-card p,.measure-card p{font-size:.93rem;color:var(--ink-3);line-height:1.68}
+    .system-card a{color:var(--accent);font-weight:600}
+    .comparison{overflow:auto;margin-top:var(--space-xl);border:1px solid var(--border);border-radius:var(--radius-m)}
+    .comparison table{width:100%;min-width:760px;border-collapse:collapse}
+    .comparison th,.comparison td{padding:11px 12px;border-bottom:1px solid var(--border);text-align:left;font-size:.84rem;vertical-align:top}
+    .comparison th{background:var(--paper-2);color:var(--ink-3)}
+    .comparison td:first-child{font-weight:600;color:var(--ink-2);white-space:nowrap}
+    .comparison .ours{color:var(--accent);font-weight:600}
+    .note{padding:var(--space-m);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);font-size:.9rem;color:var(--ink-3);line-height:1.7}
+    @media(max-width:680px){.landscape-page{padding:var(--space-xl) var(--space-m)}}
+  </style>
+  <!-- build:2026-09-06-positioning-refresh -->
 </head>
 <body>
 
@@ -333,383 +51,182 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
-<div class="landscape-page">
-
-  <div class="lp-eyebrow">Prior art and open problems</div>
-
+<main class="landscape-page">
+  <div class="lp-eyebrow">Prior art, adjacent systems and the claim we make</div>
   <h1 class="lp-title">The research landscape</h1>
+  <p class="lp-standfirst">Frontier models are improving quickly. The relevant question for Epistamate is therefore not whether an AI can produce an impressive research answer. It is whether a system can preserve what the evidence actually warrants — across sources, models, reviewers, iterations and time.</p>
 
-  <p class="lp-standfirst">This field is moving fast. The account below reflects what we know as of June 2026 and will become incomplete. We think that is a reason to be precise about what we claim and what we don't, not a reason to avoid the question.</p>
-
-
-  <!-- SECTION 1 -->
-  <div class="lp-section">
-    <div class="lp-section-label">The unsolved problem</div>
-    <h2 class="lp-h2">Why the problem is <em>structural</em>, not technical</h2>
-
+  <section class="lp-section">
+    <div class="lp-label">What changed</div>
+    <h2 class="lp-h2">The stronger the models get, the more important <em>the control layer becomes.</em></h2>
     <div class="lp-body">
-      <p>The core difficulty in AI-assisted research is not that language models make things up. It is that they do not know when they are making things up, and they report high confidence regardless. A 2025 study in Memory and Cognition found that LLM confidence judgments are systematically miscalibrated. A separate analysis found that tool-using agents show higher calibration errors than standalone models, not lower, meaning that adding retrieval to a language model often makes the confidence problem worse rather than better.</p>
-
-      <p>This creates a specific problem for professional research. A research brief that sounds authoritative and a research brief that is authoritative look identical in the output. The gap is only visible if you can trace each claim back to its source, assess the quality of that source, and check whether the claim survived scrutiny. Most AI research tools produce neither the trace nor the assessment.</p>
-
-      <p>The medical evidence synthesis community has documented this clearly. A 2026 scoping review in the Journal of Medical Internet Research covering 222 AI evidence synthesis tools concluded that current evidence does not support generative AI use in evidence synthesis without human involvement. Cochrane launched a formal platform study in 2026 to evaluate AI tools against traditional methods precisely because no tool has yet demonstrated sufficient reliability for systematic reviews.</p>
-
-      <p>The gap in that literature is significant. All serious work on AI evidence quality is happening in health and medical research. Policy research, regulatory intelligence, investment due diligence, and general professional research have no equivalent framework and no equivalent scrutiny. That is the domain Epistamate works in.</p>
+      <p>Modern frontier models can decompose a problem, generate search strategies, identify plausible sources, interpret long documents, create adversarial critiques and write coherent synthesis. Epistamate should use those capabilities rather than trying to reproduce them with weaker bespoke heuristics.</p>
+      <p>But model capability and evidence authority are different things. A model can be very good at suggesting where to look while still citing a secondary source as if it were the primary study, overlooking shared citation lineage, carrying stale information into a new context, or smoothing disagreement into fluent prose.</p>
+      <p>The product thesis therefore becomes more durable as models improve: <strong>use frontier intelligence for cognition; use Epistamate to constrain, verify, record and carry forward the evidentiary state.</strong></p>
     </div>
-  </div>
+    <div class="lp-pull"><p>Better models should increase Epistamate's research intelligence without weakening the boundary around what counts as evidence.</p></div>
+  </section>
 
-
-  <!-- SECTION 2 -->
-  <div class="lp-section">
-    <div class="lp-section-label">What exists and what it gets right</div>
-    <h2 class="lp-h2">Prior approaches worth <em>understanding honestly</em></h2>
-
+  <section class="lp-section">
+    <div class="lp-label">Adjacent approaches</div>
+    <h2 class="lp-h2">Serious systems already solve <em>important parts</em> of the problem.</h2>
     <div class="lp-body">
-      <p>Several systems address parts of the problem. None addresses the combination that matters for professional research. The following is not a dismissal of these systems. They are serious work and some are more rigorous than Epistamate on the components they focus on.</p>
+      <p>Epistamate does not claim novelty for claim extraction, retrieval, knowledge graphs, persistent memory, adversarial review or evidence synthesis individually. The relevant prior art is substantial. The narrower claim is that consequential professional research benefits from these capabilities being present together under explicit evidence and human-authority boundaries.</p>
     </div>
 
-    <div class="system-card">
-      <div class="system-card-name">FActScore / VeriScore</div>
-      <div class="system-card-type">Academic · Factuality evaluation</div>
-      <p>FActScore decomposes generated text into atomic claims and verifies each claim against a knowledge source. It is rigorous on the NLP side and has been influential in establishing claim-level evaluation as the correct unit of analysis. VeriScore extends this with better handling of complex claims.</p>
-      <div class="gap-note">These are evaluation systems, not research tools. They measure factuality after the fact; they do not support a research workflow. They have no cross-session memory, no gap tracking, no adversarial challenge stage, and they are designed for academic benchmarks rather than practitioner use. The confidence measures are retrieval-based, not formula-computed from source credibility tiers.</div>
+    <div class="system-grid">
+      <article class="system-card">
+        <div class="type">Frontier research agents</div>
+        <h3>Excellent open-world cognition</h3>
+        <p>Deep-research systems can search broadly, read many sources and generate strong synthesis. They are the benchmark Epistamate should compare against for research usefulness. The remaining gap is durable claim/evidence state, review provenance and controlled reuse across future work.</p>
+      </article>
+
+      <article class="system-card">
+        <div class="type">RAG &amp; long context</div>
+        <h3>Access to prior material</h3>
+        <p>Retrieval and large context windows reduce information loss. They do not, by themselves, preserve whether a prior claim was well supported, stale, contradicted, applicable to the new question or actually reviewed by a human.</p>
+      </article>
+
+      <article class="system-card">
+        <div class="type">Knowledge graph retrieval</div>
+        <h3>Structured memory and multi-hop retrieval</h3>
+        <p>Systems such as <a href="https://microsoft.github.io/graphrag/" target="_blank" rel="noopener">GraphRAG</a> show why relationships and graph structure improve retrieval. Epistamate's target differs: the graph must inherit evidence, provenance and review semantics rather than becoming an independent source of truth.</p>
+      </article>
+
+      <article class="system-card">
+        <div class="type">Claim verification</div>
+        <h3>Atomic factuality evaluation</h3>
+        <p><a href="https://arxiv.org/abs/2305.14251" target="_blank" rel="noopener">FActScore</a> and related work established the value of decomposing generated text into atomic claims and evaluating them individually. Epistamate uses the same unit-of-analysis intuition inside a continuing research workflow rather than only as an after-the-fact benchmark.</p>
+      </article>
+
+      <article class="system-card">
+        <div class="type">Academic evidence tools</div>
+        <h3>Strong source discovery and literature workflows</h3>
+        <p>Products such as <a href="https://elicit.com/" target="_blank" rel="noopener">Elicit</a> and <a href="https://scite.ai/" target="_blank" rel="noopener">Scite</a> provide serious literature discovery, extraction and citation intelligence. Epistamate's focus is broader professional research with explicit source roles, review governance and cumulative research state.</p>
+      </article>
+
+      <article class="system-card">
+        <div class="type">Persistent memory</div>
+        <h3>Continuity across sessions</h3>
+        <p>Memory systems demonstrate that sessions do not need to reset. Epistamate's stronger target is epistemic continuity: not merely remembering text, but knowing the evidence lineage, review state, applicability, contradictions and currency of what is being reused.</p>
+      </article>
     </div>
-
-    <div class="system-card">
-      <div class="system-card-name">GraphRAG (Microsoft Research)</div>
-      <div class="system-card-type">Open source · Knowledge graph retrieval</div>
-      <p>GraphRAG is the most technically serious system in the adjacent space. It builds a knowledge graph from ingested documents and uses that graph for retrieval rather than raw vector search. This produces better multi-hop reasoning and some degree of cross-session persistence. The engineering behind it is substantial and it is actively developed. As of Build 2026, GraphRAG and LazyGraphRAG are the knowledge layer inside Microsoft Discovery, an agentic R&amp;D platform that reached general availability in June 2026. Discovery adds hypothesis generation, experimentation workflows, and reproducible scientific review on top of the GraphRAG retrieval layer.</p>
-      <div class="gap-note">GraphRAG does not have an adversarial challenge stage, typed gap tracking, a source credibility tier system, or a formula-computed confidence score that is decoupled from model self-report. It also does not produce a decision log. Microsoft Discovery moves GraphRAG from a developer library toward a practitioner-facing platform, but the target domain is scientific R&amp;D &mdash; pharmaceuticals, materials science, engineering &mdash; not policy, regulatory, or professional services research. The gap on the developer-to-practitioner axis has narrowed. The gap on domain coverage has not. This remains the competitive system to watch.</div>
-    </div>
-
-    <div class="system-card">
-      <div class="system-card-name">Elicit</div>
-      <div class="system-card-type">Product · Academic literature synthesis</div>
-      <p>Elicit is the most direct product competitor for the research workflow. It does structured extraction from academic papers, claim-level analysis, and some degree of evidence quality assessment. For researchers working primarily with peer-reviewed literature it is a serious tool. The 2026 updates added multimodal capabilities and a Research Agent feature (Pro and higher plans) that extends search to clinical trial data, regulatory documents, and press releases.</p>
-      <div class="gap-note">Elicit's source coverage is broader than it was at Pro tier, but core limitations remain. It does not evaluate methodology quality &mdash; all studies get equal weight unless manually filtered. Grey literature, proprietary documents, dissertations, and reports are largely out of scope. It has no cross-session compounding, no adversarial challenge, and no typed gap tracking. The comparison table reflects the Pro tier capability on non-academic sources.</div>
-    </div>
-
-    <div class="system-card">
-      <div class="system-card-name">Scite</div>
-      <div class="system-card-type">Commercial · Citation intelligence</div>
-      <p>Scite's Smart Citations classify each citing statement as supporting, contrasting, or mentioning the cited work, with the exact text snippet from the citing paper included. The Reference Check feature lets users upload manuscripts to see if cited papers have been contradicted by subsequent research. The AI Assistant can answer research questions while explicitly noting where findings conflict. The platform processes over 1.2 billion citation statements from more than 180 million articles.</p>
-      <div class="gap-note">Scite is the only mainstream product doing something architecturally similar to contradiction detection as a core feature. It operates at the paper-citation level, not the claim-span level &mdash; it surfaces whether a citing paper supports or contradicts the cited paper, not whether a specific claim within a paper is well-supported or contested. It has no confidence score decoupled from citation counts, no source independence check, no adversarial challenge, and no Decision Log. Epistamate's independent corroborator logic goes further: it validates independence of source family, not just whether a different paper exists. Scite is the closest conceptual analog in the practitioner market and worth monitoring closely.</div>
-    </div>
-
-    <div class="system-card">
-      <div class="system-card-name">Undermind</div>
-      <div class="system-card-type">Commercial · Agentic academic research</div>
-      <p>Undermind runs autonomously for minutes to tens of minutes per query, performing iterative searching and reading rather than single-pass retrieval. It produces a research report with paper-level citations addressing questions from multiple angles and noting contradictions and methodological variation. GSK has deployed Undermind as the research-evidence layer of its AI Scientist stack, used by both AI agents and human researchers across target discovery and clinical development workflows.</p>
-      <div class="gap-note">Undermind is the closest analog to an evidence chain product among academic research tools. It is enterprise-facing in practice, entirely cloud-based, and has no per-claim scoring, no source independence verification, and no Decision Log. It also shows a capability limitation: it occasionally over-attributes relevance when initial prompts are too vague, because iterative retrieval without claim-level grounding can drift from the original question. The enterprise deployment at GSK confirms that serious research organisations want a system that iterates and challenges rather than single-pass retrieves. The question is whether they want claim-level scoring alongside it &mdash; which Undermind doesn't provide.</div>
-    </div>
-
-    <div class="system-card">
-      <div class="system-card-name">DebateCV</div>
-      <div class="system-card-type">Academic · Multi-agent adversarial verification</div>
-      <p>DebateCV (published at ACM Web Conference 2026, WWW '26) is the closest academic parallel to Epistamate's adversarial challenge stage. It uses multiple LLM agents in a debate structure to verify claims, with agents challenging each other's assessments. The peer-reviewed paper demonstrates that debate-driven verification improves claim assessment quality over single-model approaches.</p>
-      <div class="gap-note">DebateCV is a claim verification framework, not a research workflow system. It addresses the adversarial challenge component in isolation. There is no knowledge graph, no cross-session memory, no gap tracking, and no practitioner deployment. The existence of this work is validation that mandatory adversarial challenge is the right architectural choice. It is not a competing product.</div>
-    </div>
-
-    <div class="system-card">
-      <div class="system-card-name">MACI (Multi-Agent Collaborative Intelligence)</div>
-      <div class="system-card-type">Academic · Calibration-aware multi-agent debate</div>
-      <p>MACI introduces what it calls dual-dial control: an information quality gate that filters evidence by credibility, and a behaviour dial that adjusts adversarial intensity across debate rounds. It achieves better confidence calibration than fixed-stance debate systems and uses fewer tokens. The calibration improvement is the relevant finding: a system that modulates how hard it challenges a claim based on evidence quality produces better-calibrated outputs than one that challenges everything equally.</p>
-      <div class="gap-note">This is recent academic work without practitioner deployment. The dual-dial insight is relevant to how Epistamate's adversarial challenge stage could be developed: varying challenge intensity based on source tier rather than applying a uniform challenge to every claim.</div>
-    </div>
-
-    <div class="system-card">
-      <div class="system-card-name">MemGPT / long-context memory systems</div>
-      <div class="system-card-type">Open source · Persistent memory</div>
-      <p>MemGPT and similar systems solve the session persistence problem. They maintain memory across conversations and can retrieve prior context. This is real and useful.</p>
-      <div class="gap-note">Memory without epistemic structure is not the same as a compounding knowledge graph. MemGPT remembers what was said. It does not track whether claims were verified, what confidence they were assigned, or what gaps remain. Storing a claim and storing a verified, scored, challenged claim with source provenance are different operations.</div>
-    </div>
-
-    <div class="lp-pull">
-      <p>A useful confidence scoring system uses evidence confidence, not model confidence. The score should tell you: we found three statutory provisions, two rulings, and a circular that directly address your question, and they agree, not: the model is 87% sure about its word choices.</p>
-      <cite>Auryth, December 2025. Independent convergent framing of the same distinction Epistamate's formula is built on.</cite>
-    </div>
-  </div>
+  </section>
 
 
-  <!-- SECTION 3 -->
-  <div class="lp-section">
-    <div class="lp-section-label">The convergent evidence</div>
-    <h2 class="lp-h2">Independent work pointing <em>in the same direction</em></h2>
-
+  <section class="lp-section">
+    <div class="lp-label">The adjacent assurance market</div>
+    <h2 class="lp-h2">AI assurance is becoming crowded.<br><em>The evidentiary question is still unusually specific.</em></h2>
     <div class="lp-body">
-      <p>Three pieces of independent work, from different research groups with no connection to Epistamate, have reached conclusions that validate the core architectural choices.</p>
-
-      <p>WebTrust (Tsinghua University / Chandigarh University, 2025) built an automated source credibility scoring system trained on 140,000 articles across 21 domains, using 35 reliability labels. It achieved a Mean Absolute Error of 0.09 on credibility prediction. The finding relevant to Epistamate: automated source credibility scoring at the tier level is tractable and accurate. Epistamate's source tier system is currently a structured heuristic. Anchoring it to a system like WebTrust would make the tier assignments more defensible empirically.</p>
-
-      <p>The Confidence Dichotomy paper (2025) found that tool-using agents exhibit systematically higher calibration errors than standalone LLMs. The relevant finding: adding retrieval to a language model does not fix confidence miscalibration; it often makes it worse. This is exactly the failure mode Epistamate's formula is designed to address. A formula-computed score based on source tiers, consensus counts, and adversarial outcomes is structurally different from retrieval-augmented model confidence.</p>
-
-      <p>MACI's calibration results show that information quality gating, combined with scheduled adversarial intensity, reduces calibration error (ECE 0.081 vs 0.103) compared to fixed-stance debate. This is the strongest academic evidence so far that the architectural pattern Epistamate uses for its adversarial challenge stage is the right one.</p>
-
-      <p>None of these papers know about Epistamate. They are working on adjacent problems in academic settings. The convergence is the point. When independent groups reach similar conclusions about what the architecture needs to look like, it suggests the architecture is pointed in the right direction.</p>
+      <p>Enterprise governance platforms increasingly connect AI inventories, risks, controls, metrics and accountability. Large professional-services firms offer end-to-end AI controls and assurance across the lifecycle. Those are important layers. Epistamate is not trying to replace them.</p>
+      <p>The narrower question behind Epistamate is: <strong>what does the available evidence actually establish about this consequential claim, control or recommendation?</strong> That requires claim-level provenance, source authority, applicability, explicit uncertainty, named human judgement, dependency tracking and later reassessment.</p>
+      <p>This is why the same architecture can power a research product, a GenAI workflow-assurance engagement and an internal advisory workbench without becoming a generic AI-governance suite.</p>
     </div>
-  </div>
-
-  <!-- OPEN PROBLEMS -->
-  <div class="lp-section">
-    <div class="lp-section-label">Open problems in the field</div>
-    <h2 class="lp-h2">The hard problem is at the <em>claim-evidence interface</em></h2>
-
+    <div class="system-grid">
+      <article class="system-card"><div class="type">Governance platforms</div><h3>Inventory, policy, risk and monitoring</h3><p>Strong at defining what should be governed, connecting controls to owners and maintaining operational visibility. Epistamate’s question begins one level lower: what evidence makes the resulting assurance claim defensible?</p></article>
+      <article class="system-card"><div class="type">Assurance firms</div><h3>Independent evaluation and control effectiveness</h3><p>Broad enterprise services can assess governance, technical controls and operating effectiveness. Epistamate contributes a reproducible evidence-to-proposition method that can sit inside a focused evidence review.</p></article>
+      <article class="system-card"><div class="type">Research agents</div><h3>Search, synthesis and reasoning speed</h3><p>Frontier models are increasingly strong at planning and discovery. Epistamate treats that as a capability to harness, while keeping model output outside the evidence authority boundary.</p></article>
+    </div>
+    <div class="note"><strong>Positioning implication:</strong> the differentiator is not “we do AI governance too.” It is evidence-decision integrity: preserving what was asserted, what was actually supported, what transferred to the real workflow, what a human decided and what changed later.</div>
+  </section>
+  <section class="lp-section">
+    <div class="lp-label">The six-principle thesis</div>
+    <h2 class="lp-h2">The novelty claim is <em>co-presence, not invention.</em></h2>
     <div class="lp-body">
-      <p>Independent research groups working on automated fact verification and claim verification have converged on a specific diagnosis of where the field has struggled. The bottleneck is not retrieval. It is the step between finding a source and determining what that source actually says about a specific claim.</p>
-
-      <p>Several distinct problems cluster at this interface. First, academic and policy sources use different terminology from the claims being researched. A system that matches lexically will miss relevant evidence that paraphrases, qualifies, or uses domain-specific synonyms for the same concept. Second, sources that are topically relevant are not necessarily evidentially relevant. A paper about AI in healthcare is not automatically evidence for a claim about AI diagnostic accuracy in emergency settings. Third, a source that supports part of a compound claim is not the same as a source that supports the whole claim. Fourth, two sources that both cite the same seminal paper are not independent corroborators, even if they reach similar conclusions.</p>
-
-      <p>The research literature addressing these problems has developed a consistent set of architectural recommendations: decompose compound claims into atomic units before attempting to verify them; classify the relationship between a source span and a claim (supports, partially supports, qualifies, contradicts, background only, method context) rather than treating evidence as binary; seek contradicting evidence deliberately rather than only accumulating support; and verify that corroborating sources are genuinely independent rather than tracing back to the same origin.</p>
-
-      <p>These are unsolved problems in the field in the sense that no production research tool has fully addressed them. They are not unsolved in the sense of being intractable. The architectural pattern required is understood. What is missing is its implementation in a practitioner-facing system that maintains the provenance discipline and fail-closed behaviour that professional use requires. This is the problem Epistamate is building toward.</p>
-    </div>
-  </div>
-
-
-  <!-- SECTION 4 -->
-  <div class="lp-section">
-    <div class="lp-section-label">What Epistamate claims</div>
-    <h2 class="lp-h2">The claim is the <em>co-presence</em>, not any component</h2>
-
-    <div class="lp-body">
-      <p>Epistamate does not claim to have invented claim extraction, knowledge graphs, adversarial verification, confidence scoring, or session persistence. All of these exist, some of them in more rigorous forms than what Epistamate implements.</p>
-
-      <p>The claim is that no existing system, academic or commercial, combines all six properties in a single practitioner-facing deployment for general professional research. Typed claim extraction, formula-computed evidence-quality confidence, mandatory adversarial challenge, typed gap tracking as a first-class output, cross-session compounding of evidential state, and bidirectional operation. Removing any one of these degrades the system to something existing tools already do.</p>
-
-      <p>The second claim is that the confidence formula, which computes a score from source credibility tier, cross-provider consensus, adversarial challenge outcome, evidence recency, and sufficiency, is decoupled from LLM self-report. This is not a technical novelty in itself. It is a design choice that has practical consequences. A claim sourced from a single trade blog scores differently from a claim corroborated by three Tier 1 documents, regardless of how confident the model sounds about either one.</p>
-
-      <p>The third claim is that the decision log, which records the full evidence state at the moment a decision is logged, satisfies the epistemic accountability requirement of the EU AI Act Article 12 by construction rather than by bolt-on. This is an architectural claim, not a legal one. Qualified legal counsel must assess applicability to specific deployments.</p>
-
-      <p>These claims are published and citable. The architecture paper is available at Zenodo (10.5281/zenodo.19204972). The RegWatch domain configuration paper, which includes a direct live comparison against a frontier LLM and a structured prior art analysis, is at Zenodo (10.5281/zenodo.19301680). The system is defensively disclosed at IP.com (IPCOM/000277741).</p>
+      <p>The original DCBR / Epistamate architecture was built around six properties appearing together: addressable claims, evidence-quality assessment, adversarial challenge, typed persistent gaps, cross-session compounding and bidirectional research/verification. That remains the core architectural proposition.</p>
+      <p>The canonical rebuild has made the claim more precise. “Confidence” is better understood as evidence posture rather than a formula assembled from model consensus. Cross-session compounding means provenance-preserving reuse with revalidation, not automatically increasing confidence because a prior session said the same thing. Human review is governance authority, not evidence authority.</p>
     </div>
 
-    <!-- Comparison table -->
-    <div class="comp-wrapper">
-      <table class="lp-table">
+    <div class="comparison">
+      <table>
         <thead>
-          <tr>
-            <th>Property</th>
-            <th>FActScore</th>
-            <th>GraphRAG</th>
-            <th>Elicit</th>
-            <th>Scite</th>
-            <th>Undermind</th>
-            <th>DebateCV</th>
-            <th>MemGPT</th>
-            <th class="ours">Epistamate</th>
-          </tr>
+          <tr><th>Property</th><th>Why it matters</th><th class="ours">Epistamate doctrine</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Typed claim extraction</td>
-            <td>Yes, atomic</td>
-            <td>Partial</td>
-            <td>Partial</td>
-            <td>Partial</td>
-            <td>No</td>
-            <td>Yes</td>
-            <td>No</td>
-            <td class="ours">Yes</td>
-          </tr>
-          <tr>
-            <td>Formula-computed confidence</td>
-            <td>Retrieval-based</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td class="ours">Yes, decoupled from model</td>
-          </tr>
-          <tr>
-            <td>Source credibility tier</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td class="ours">Yes</td>
-          </tr>
-          <tr>
-            <td>Adversarial challenge stage</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>Partial</td>
-            <td>No</td>
-            <td>Yes, core</td>
-            <td>No</td>
-            <td class="ours">Yes, mandatory</td>
-          </tr>
-          <tr>
-            <td>Typed gap tracking</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td class="ours">Yes, first-class output</td>
-          </tr>
-          <tr>
-            <td>Cross-session compounding</td>
-            <td>No</td>
-            <td>Partial</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>Partial</td>
-            <td class="ours">Yes</td>
-          </tr>
-          <tr>
-            <td>Bidirectional operation</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td class="ours">Yes</td>
-          </tr>
-          <tr>
-            <td>Decision log / audit trail</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td>No</td>
-            <td class="ours">Yes, immutable</td>
-          </tr>
-          <tr>
-            <td>Practitioner deployment</td>
-            <td>No</td>
-            <td>Developer</td>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>Yes, enterprise</td>
-            <td>No</td>
-            <td>Developer</td>
-            <td class="ours">Yes, desktop</td>
-          </tr>
-          <tr>
-            <td>Non-academic source types</td>
-            <td>Limited</td>
-            <td>Yes</td>
-            <td>Partial (Pro)</td>
-            <td>No</td>
-            <td>No</td>
-            <td>Limited</td>
-            <td>Yes</td>
-            <td class="ours">Yes</td>
-          </tr>
+          <tr><td>Addressable claims</td><td>Reports are too coarse for verification and reuse.</td><td class="ours">Claim / proposition identity tied to source evidence.</td></tr>
+          <tr><td>Evidence posture</td><td>Citations and model confidence do not establish support.</td><td class="ours">Directness, role, independence, applicability, contradiction, recency, sufficiency.</td></tr>
+          <tr><td>Adversarial challenge</td><td>Support-only search hardens confirmation bias.</td><td class="ours">Counterevidence and alternative explanations are explicit research objects.</td></tr>
+          <tr><td>Persistent gaps</td><td>Unknowns otherwise disappear in synthesis.</td><td class="ours">Gaps survive output and can drive Research Further.</td></tr>
+          <tr><td>Cumulative research state</td><td>Institutional knowledge otherwise resets or drifts.</td><td class="ours">Reuse with provenance, recency and applicability revalidation.</td></tr>
+          <tr><td>Bidirectional operation</td><td>Research and document review need the same standards.</td><td class="ours">Question-led and source-led workflows share one evidence substrate.</td></tr>
         </tbody>
       </table>
     </div>
-  </div>
+  </section>
 
-
-  <!-- SECTION 5 -->
-  <div class="lp-section">
-    <div class="lp-section-label">The honest assessment</div>
-    <h2 class="lp-h2">What could close the gap <em>and when</em></h2>
-
+  <section class="lp-section">
+    <div class="lp-label">What Epistamate must beat</div>
+    <h2 class="lp-h2">The benchmark is not a weak chatbot.<br><em>It is a careful frontier-model workflow.</em></h2>
     <div class="lp-body">
-      <p>GraphRAG is the system most likely to close the gap. The launch of Microsoft Discovery at Build 2026 partially answers the question of whether Microsoft would build GraphRAG into a practitioner-facing platform: they have, for scientific R&amp;D. The question that remains is whether they will extend that focus to policy, regulatory, and professional services research specifically, or whether those domains continue to require organisations to configure their own workflows on top of the Azure infrastructure. Epistamate's domain advantage is narrowing on the technical side and depends increasingly on whether it can establish user relationships and domain-specific depth before the larger platforms extend their reach.</p>
-
-      <p>The agentic AI space is moving toward what people are calling verification layers and epistemic harnesses: supervision systems that sit above research agents and check their outputs. This is the architectural role Epistamate occupies. As more organisations deploy AI research agents, the demand for a system that scores, challenges, and audits what those agents produce will grow. Whether Epistamate or a larger platform fills that role depends partly on whether Epistamate can establish domain presence and user relationships before the larger platforms catch up.</p>
-
-      <p>The components Epistamate uses are not all SOTA individually. The source tier system is a structured heuristic where a WebTrust-class automated scoring system would be more rigorous. The adversarial challenge stage is a single-pass mechanism where MACI's dual-dial approach would produce better-calibrated outputs. The knowledge graph is SQLite-backed where a production graph database would scale better. These are known gaps and the relevant comparison is not against the academic frontier on each component. It is against what exists in practitioner-facing deployment for general professional research, where the gap is wider.</p>
-
-      <p>The architecture paper documents what the system is and what it claims. The RegWatch paper includes a structured self-critique and a proposed evaluation methodology for systems of this class. If you are assessing Epistamate seriously, both papers are the right starting point.</p>
+      <p>The meaningful comparison is a strong frontier model with a carefully constructed research prompt, citations, iterative follow-up, and even hostile review by another frontier model. If Epistamate cannot add measurable reliability or institutional value beyond that workflow, it does not earn its place.</p>
+      <p>The product should therefore be evaluated on properties that prompting alone does not reliably guarantee.</p>
     </div>
-  </div>
 
+    <div class="measure-grid">
+      <article class="measure-card"><div class="type">Citation integrity</div><h3>Does the cited source actually support the claim?</h3><p>Measure exact support accuracy, secondary-vs-primary attribution mistakes and fabricated/missing references.</p></article>
+      <article class="measure-card"><div class="type">Source independence</div><h3>Is corroboration genuinely independent?</h3><p>Detect duplicate works, shared citation lineage, syndication and repeated reporting of one underlying result.</p></article>
+      <article class="measure-card"><div class="type">Applicability</div><h3>Does the evidence transfer to this use?</h3><p>Keep population, jurisdiction, period, workflow, mechanism and other scope boundaries explicit.</p></article>
+      <article class="measure-card"><div class="type">Adversarial yield</div><h3>What survives deliberate attempts to falsify it?</h3><p>Compare qualification capture, contradiction discovery, missing counterevidence and researcher correction rate.</p></article>
+      <article class="measure-card"><div class="type">Reviewer provenance</div><h3>Can a senior reviewer reconstruct the human judgment?</h3><p>Separate AI proposals, researcher inspections, dispositions, authorisations and evidence state at decision time.</p></article>
+      <article class="measure-card"><div class="type">Knowledge reuse</div><h3>Can prior research be reused without drift?</h3><p>Measure whether valid prior evidence is recovered, revalidated for recency/applicability and updated rather than blindly repeated.</p></article>
+    </div>
+  </section>
 
-  <!-- FIELD NOTE -->
-  <div class="field-note">
-    <div class="field-note-label">A note on pace</div>
-    <p>This page was last updated in July 2026. Several of the papers cited here appeared in the last six months. The DebateCV framework (now a peer-reviewed paper published at WWW '26), the MACI calibration results, the WebTrust source credibility system, and the Confidence Dichotomy findings all post-date the initial Epistamate architecture paper. Microsoft Discovery reaching general availability at Build 2026 has updated the competitive picture for GraphRAG, with a desktop preview app now targeting researchers and academic labs directly. Scite and Undermind have been added to this page following a June 2026 landscape review. The field is moving fast enough that a honest account of the landscape has a short shelf life. We will update this page as the picture changes. If you are aware of relevant work we have missed, we would like to hear about it.</p>
-    <p style="margin-top:var(--space-m);font-size:0.92rem;color:var(--ink-3);">The researcher behind Epistamate also writes on AI governance, the EU AI Act, and enterprise AI strategy from a CIO perspective at <a href="https://abhishek-sinha-bgl.github.io" target="_blank" rel="noopener" style="color:var(--accent);">abhishek-sinha-bgl.github.io</a> — a separate series written for technology executives and boards.</p>
-  </div>
+  <section class="lp-section">
+    <div class="lp-label">Current product boundary</div>
+    <h2 class="lp-h2">The architecture is ahead of <em>some product capabilities.</em></h2>
+    <div class="lp-body">
+      <p>Epistamate is early-access software in an active canonical rebuild. Current-run General research already exercises explicit planning and permissions, live acquisition, source/evidence inspection, Semantic assessment, gaps and relationships, researcher review infrastructure, audit/activity history, continuation controls and output surfaces. End-to-end usefulness is being validated live.</p>
+      <p>Bounded frontier-model assistance is being integrated at planning, triage, challenge and continuation points. The durable cross-topic Knowledge layer and canonical long-lived knowledge graph are still being rebuilt. They remain central to the product thesis, but are not claimed here as finished early-access capabilities.</p>
+    </div>
+    <div class="note"><strong>Positioning rule:</strong> architecture describes the invariants the product is built to preserve. Capability claims describe only what the current product has actually earned.</div>
+  </section>
 
-
-  <!-- REFERENCES -->
-  <div class="lp-refs">
-    <div class="lp-refs-label">References and further reading</div>
-    <ul>
-      <li data-n="1">Sinha, A. (2026). A Domain-Configurable Bidirectional Reasoning Engine for Evidence-Grounded Decision Making: Architecture and Design. Zenodo. <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">doi:10.5281/zenodo.19204972</a></li>
-      <li data-n="2">Sinha, A. (2026). RegWatch: Domain-Configurable Bidirectional Reasoning as Epistemic Infrastructure for Regulatory Intelligence. Zenodo. <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">doi:10.5281/zenodo.19301680</a></li>
-      <li data-n="3">Min, S. et al. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. EMNLP 2023.</li>
-      <li data-n="4">Edge, D. et al. (2024). From Local to Global: A Graph RAG Approach to Query-Focused Summarization. Microsoft Research.</li>
-      <li data-n="5">He, H. et al. (2026). Debating Truth: Debate-driven Claim Verification with Multiple Large Language Model Agents. <em>Proceedings of the ACM Web Conference 2026 (WWW '26)</em>. arXiv:2507.19090.</li>
-      <li data-n="6">MACI: Multi-Agent Collaborative Intelligence: Dual-Dial Control for Reliable LLM Reasoning. arXiv:2510.04488.</li>
-      <li data-n="7">Cash, T.N. et al. (2025). Quantifying uncert-AI-nty: Testing the accuracy of LLMs confidence judgments. Memory and Cognition.</li>
-      <li data-n="8">The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents. arXiv:2601.07264.</li>
-      <li data-n="9">Clark J. et al. (2026). Artificial Intelligence Tools for Automating Evidence Synthesis: Scoping Review. Journal of Medical Internet Research. <a href="https://doi.org/10.2196/81597" target="_blank">doi:10.2196/81597</a></li>
-      <li data-n="10">Cochrane (2026). Cochrane launches innovative study to assess AI tools for evidence synthesis. <a href="https://www.cochrane.org/about-us/news/cochrane-launches-innovative-study-assess-ai-tools-evidence-synthesis" target="_blank">cochrane.org</a></li>
-      <li data-n="11">Auryth (2025). What is confidence scoring and why it is more honest than a confident answer. <a href="https://auryth.ai/en/blog/confidence-scoring-explained/" target="_blank">auryth.ai</a></li>
-      <li data-n="12">Defensive disclosure: IPCOM/000277741. <a href="https://ip.com/IPCOM/000277741" target="_blank">ip.com</a></li>
-    </ul>
-  </div>
-
-  <!-- CTA -->
-  <div style="margin-top:var(--space-2xl);padding-top:var(--space-xl);border-top:1px solid var(--border);display:flex;gap:var(--space-s);flex-wrap:wrap;align-items:center;">
-    <a href="index.html#contact" class="btn-primary">Get in touch →</a>
-    <a href="epistamate_demo.html" class="btn-secondary">See the demo</a>
-    <a href="engine.html" class="btn-ghost">The Engine →</a>
-  </div>
-
-</div>
+  <section class="lp-section">
+    <div class="lp-label">Published work</div>
+    <h2 class="lp-h2">The original architecture is public.<br><em>The implementation keeps evolving.</em></h2>
+    <div class="lp-body">
+      <p>The DCBR Engine architecture and defensive disclosure document the original six-property contribution. The current canonical implementation is stricter than several mechanisms described in the early prototype — especially around evidence authority, provider agreement, human review and cumulative knowledge.</p>
+    </div>
+    <div class="hero-ctas" style="justify-content:flex-start;">
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener" class="btn-primary">DCBR Engine paper ↗</a>
+      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener" class="btn-secondary">Defensive disclosure ↗</a>
+      <a href="engine.html" class="btn-ghost">The current engine doctrine →</a>
+    </div>
+  </section>
+</main>
 
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
       <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+      <p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p>
     </div>
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="engine.html">The Engine</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Evidence-led Advisory</a>
+      <a href="blog/index.html">Insights</a>
       <a href="index.html#contact">Contact</a>
     </div>
     <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine · Zenodo</a>
-      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch · Zenodo</a>
-      <a href="https://ip.com/IPCOM/000277741" target="_blank">Defensive disclosure · IP.com</a>
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener">Defensive disclosure · IP.com</a>
     </div>
   </div>
 </footer>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.06 });
-  document.querySelectorAll('.lp-section').forEach(s => observer.observe(s));
-</script>
-
 </body>
 </html>

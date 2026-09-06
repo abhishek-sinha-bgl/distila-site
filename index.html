@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Epistamate — Research that holds up.</title>
-  <meta name="description" content="Epistamate scores every AI claim against real evidence quality — not model confidence. Built for policy research, consulting, and regulatory work where what you don't know matters as much as what you do.">
-  <meta name="keywords" content="AI hallucination research tool, verify AI claims, evidence quality scoring, AI research audit trail, EU AI Act Article 12, policy research AI, consulting research tool, claim verification">
-  <meta property="og:title" content="Epistamate — Research that holds up.">
-  <meta property="og:description" content="Every AI tool gives you answers. None tell you which to trust. Epistamate scores each claim against its evidence — not the model's self-reported certainty.">
+  <title>Epistamate — Evidence-decision infrastructure for AI-assisted research &amp; assurance</title>
+  <meta name="description" content="Epistamate combines evidence-backed AI research, GenAI workflow assurance and evidence-led advisory around one evidence-decision architecture: provenance, source authority, human review, reassessment and audit trails.">
+  <meta name="keywords" content="AI assurance, GenAI workflow assurance, AI research verification, evidence-backed research, AI control effectiveness, evidence traceability, decision audit trail, institutional knowledge, claim provenance, AI governance evidence">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta property="og:title" content="Epistamate — Evidence that survives the decision.">
+  <meta property="og:description" content="Research software and evidence-led services for professional work where claims, recommendations and control assertions need to hold up under scrutiny.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://epistamate.com/">
   <meta property="og:site_name" content="Epistamate">
@@ -15,542 +16,217 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Epistamate — Research that holds up.">
-  <meta name="twitter:description" content="Every AI tool gives you answers. Epistamate shows which claims the evidence actually supports.">
+  <meta name="twitter:title" content="Epistamate — Evidence that survives the decision.">
+  <meta name="twitter:description" content="Evidence you can defend. Knowledge that compounds. Decisions you can audit.">
   <meta name="twitter:image" content="https://epistamate.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="distilapp.css">
   <link rel="canonical" href="https://epistamate.com/">
+  <style>
+    .app-grid,.pillar-grid,.method-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+    .app-card,.pillar-card,.method-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+    .app-card{display:flex;flex-direction:column;min-height:300px}
+    .app-card .eyebrow,.pillar-card .eyebrow,.proof-card .eyebrow{font-family:var(--font-mono);font-size:.69rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+    .app-card h3,.pillar-card h3,.method-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+    .app-card p,.pillar-card p,.method-card p,.proof-card p{color:var(--ink-3);line-height:1.7}
+    .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+    .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+    .badge-line{display:flex;gap:8px;flex-wrap:wrap;margin:var(--space-l) 0}
+    .badge-line span{font-family:var(--font-mono);font-size:.68rem;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--ink-3);background:var(--paper-2)}
+    .hero-proof{max-width:980px;margin:var(--space-xl) auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-s)}
+    .hero-proof div{border-top:2px solid var(--accent);padding:var(--space-m);background:var(--paper-2)}
+    .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.12rem;margin-bottom:4px}
+    .hero-proof span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+    .method-chain{max-width:980px;margin:var(--space-xl) auto 0;padding:var(--space-l);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-m);background:var(--paper-2)}
+    .method-chain p{font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.5}
+    .market-strip{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-xl);align-items:center}
+    .market-list{display:grid;gap:10px}
+    .market-list div{padding:var(--space-m);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+    .market-list strong{display:block;margin-bottom:4px}
+    .market-list p{font-size:.88rem;color:var(--ink-3);line-height:1.6}
+    .status-note{margin-top:var(--space-l);padding:var(--space-m);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-3);color:var(--ink-3);font-size:.9rem;line-height:1.7}
+    @media(max-width:900px){.app-grid,.pillar-grid,.method-grid,.proof-grid,.hero-proof{grid-template-columns:1fr}.market-strip{grid-template-columns:1fr}}
+  </style>
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://epistamate.com/#organization",
-        "name": "Epistamate",
-        "url": "https://epistamate.com/",
-        "logo": "https://epistamate.com/epistamate-icon.svg",
-        "email": "hello@epistamate.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Abhishek Sinha",
-          "sameAs": "https://www.linkedin.com/in/abhishek-sinha-bgl"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://epistamate.com/#website",
-        "url": "https://epistamate.com/",
-        "name": "Epistamate",
-        "description": "Evidence-led research software and professional services for claims that need to hold up.",
-        "publisher": { "@id": "https://epistamate.com/#organization" }
-      }
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com"},
+      {"@type":"WebSite","@id":"https://epistamate.com/#website","url":"https://epistamate.com/","name":"Epistamate","description":"Evidence-decision infrastructure for AI-assisted research, workflow assurance and evidence-led advisory.","publisher":{"@id":"https://epistamate.com/#organization"}},
+      {"@type":"SoftwareApplication","@id":"https://epistamate.com/#research-product","name":"Epistamate Research","applicationCategory":"BusinessApplication","operatingSystem":"Windows","description":"Early-access evidence-backed AI research software with provenance, explicit uncertainty, researcher review and durable research state.","url":"https://epistamate.com/epistamate_demo.html"},
+      {"@type":"Service","@id":"https://epistamate.com/#workflow-assurance","name":"GenAI Workflow Assurance","serviceType":"Evidence-led assessment of consequential GenAI workflows","description":"Evidence-led review of what operational evidence establishes about controls in one consequential GenAI workflow.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},
+      {"@type":"Service","@id":"https://epistamate.com/#evidence-advisory","name":"Evidence-led Advisory","serviceType":"Evidence-decision support for consequential professional engagements","description":"Evidence-led advisory using an internal evidence-decision workbench to preserve claims, evidence, recommendations, dependencies and reassessment history.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"}
     ]
   }
   </script>
-  <!-- build:2026-08-17T00:00:00Z -->
+  <!-- build:2026-09-06-evidence-decision-positioning -->
 </head>
 <body>
-
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
     <div class="nav-links">
-      <a href="index.html#personas">Who it's for</a>
-      <a href="genai-control-evidence-review.html">Control Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="epistamate_demo.html">Research</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
+      <a href="blog/index.html">Insights</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Windows · Early Access · Active development</div>
-
-  <h1 class="hero-h1">
-    Most AI tools help you<br>
-    find information.<br>
-    This one helps you <em>decide what's true.</em>
-  </h1>
-
-  <!-- STAKES CALLOUT — the pain first -->
-  <div class="stakes-block">
-    <p>Your analyst rebuilt last quarter's competitive landscape from scratch — again. A claim made it into the final brief because nobody tracked the conflicting source. The citation was a trade blog. The board approved it anyway, because there was no way to know.</p>
-    <p class="stakes-kicker">This is not a research quality problem. It is a structural problem with how evidence-based work is done.</p>
+  <div class="hero-eyebrow">Research software · GenAI workflow assurance · Evidence-led advisory</div>
+  <h1 class="hero-h1">Evidence that<br><em>survives the decision.</em></h1>
+  <div class="stakes-block" style="max-width:900px;">
+    <p>AI can find more, draft faster and propose better possibilities. The harder problem is deciding what the evidence actually establishes, which assumptions remain open, who reviewed the judgement, and what should still be trusted when the workflow or evidence changes.</p>
+    <p class="stakes-kicker">Epistamate is an evidence-decision architecture for professional work where claims, recommendations or controls need to hold up under scrutiny.</p>
   </div>
-
-  <!-- CONFIDENCE FORMULA CALLOUT — the most persuasive fact -->
-  <div class="confidence-callout">
-    <div class="conf-stat">
-      <span class="conf-number">87–92%</span>
-      <span class="conf-label">LLM self-reported confidence</span>
-    </div>
-    <div class="conf-divider">vs</div>
-    <div class="conf-stat conf-real">
-      <span class="conf-number accent">11–70%</span>
-      <span class="conf-label">Formula-computed per-claim score<br><small>(based on actual source tier quality)</small></span>
-    </div>
-    <p class="conf-note">Epistamate never uses LLM self-reported confidence in its scores. It computes confidence from the evidence underneath — source credibility tier, cross-source agreement, adversarial challenge outcome, evidence recency.</p>
+  <div class="hero-proof" aria-label="Epistamate value proposition">
+    <div><strong>Evidence you can defend</strong><span>Trace consequential claims back to real sources, exact support, provenance and limitations.</span></div>
+    <div><strong>Knowledge that compounds</strong><span>Carry research and judgement forward with recency, applicability and dependency checks instead of starting from zero.</span></div>
+    <div><strong>Decisions you can audit</strong><span>Separate what AI proposed, what evidence supported and what a human actually reviewed or authorised.</span></div>
   </div>
-
-  <!-- WHAT IT IS NOT — reposition fast -->
-  <div class="not-strip">
-    <span>Not a search engine</span>
-    <span class="sep">·</span>
-    <span>Not a chatbot</span>
-    <span class="sep">·</span>
-    <span>Not a RAG wrapper</span>
-    <span class="sep">·</span>
-    <span>Not a report generator</span>
-  </div>
-  <p class="not-label">A <strong>claim-based research system</strong> — for building knowledge you can defend.</p>
-
-  <!-- TRUST BADGES -->
-  <div class="trust-badges">
-    <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" class="badge">
-      <span class="badge-icon">📄</span>
-      <span>Published · Zenodo<br><small>DCBR Engine Architecture</small></span>
-    </a>
-    <div class="badge">
-      <span class="badge-icon">⚖️</span>
-      <span>EU AI Act<br><small>Article 12 aligned</small></span>
-    </div>
-    <div class="badge">
-      <span class="badge-icon">🔒</span>
-      <span>Privacy-first<br><small>Everything stays on your machine</small></span>
-    </div>
-    <a href="https://ip.com/IPCOM/000277741" target="_blank" class="badge">
-      <span class="badge-icon">🛡️</span>
-      <span>Defensive disclosure<br><small>IP.com · IPCOM/000277741</small></span>
-    </a>
-  </div>
-
   <div class="hero-ctas">
-    <a href="#contact" class="btn-primary">Request early access →</a>
-    <a href="epistamate_demo.html" class="btn-secondary">See it work ↗</a>
-    <a href="engine.html" class="btn-ghost">The Engine →</a>
+    <a href="#applications" class="btn-primary">See where it applies →</a>
+    <a href="engine.html" class="btn-secondary">The architecture →</a>
+    <a href="#contact" class="btn-ghost">Discuss a workflow</a>
   </div>
 </section>
 
-<!-- HALLUCINATION SECTION -->
-<section class="hallucination-section" id="hallucination">
+<section class="hallucination-section" id="applications">
   <div class="section-inner">
-    <div class="section-tag">The hallucination problem</div>
-    <h2>Every LLM tells you it's confident.<br><em>That confidence is not the same as evidence quality.</em></h2>
-    <div class="hallucination-grid">
-      <div class="hal-card">
-        <div class="hal-icon">🎭</div>
-        <h3>The model doesn't know what it doesn't know</h3>
-        <p>A frontier LLM producing a research brief will report high confidence even when the underlying sources are weak, out of date, or non-existent. It has no mechanism to distinguish between a claim corroborated by three Tier 1 sources and a claim it generated from pretraining memory.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">🔍</div>
-        <h3>Epistamate separates the claim from the confidence</h3>
-        <p>Every finding is a structured assertion — with a source credibility tier, provider consensus count, adversarial challenge outcome, and evidence age. The formula-computed score is deterministic. The 29% claim is shown alongside the 90% one. Nothing is averaged away.</p>
-      </div>
-      <div class="hal-card">
-        <div class="hal-icon">📊</div>
-        <h3>The gap is larger than you think</h3>
-        <p>In live sessions, LLM-reported aggregate confidence typically runs 87–92%. Formula-computed per-claim scores, reflecting actual source tier quality, range 11–70%. That gap is not a rounding error. It is the difference between research you can defend and research that sounds authoritative.</p>
-      </div>
+    <div class="section-tag">Three expressions of one method</div>
+    <h2>Research is one application.<br><em>The evidence discipline is the product idea.</em></h2>
+    <p class="section-sub">The same integrity rules now support a public research product, a GenAI workflow assurance service, and an emerging evidence-led advisory method used internally on consulting engagements.</p>
+    <div class="app-grid" style="margin-top:var(--space-xl);">
+      <article class="app-card">
+        <div class="eyebrow">Software · Early access</div>
+        <h3>Epistamate Research</h3>
+        <p>AI-assisted professional research with source-level provenance, evidence posture, explicit contradictions and gaps, researcher review and durable lineage. Strong models can improve planning, triage and challenge; they do not become evidence authority.</p>
+        <div class="badge-line"><span>Windows desktop</span><span>General research</span><span>Active E2E validation</span></div>
+        <div class="app-links"><a href="epistamate_demo.html">See the research concept →</a><a href="engine.html">How evidence authority works →</a></div>
+      </article>
+      <article class="app-card">
+        <div class="eyebrow">Service · Available for discussion</div>
+        <h3>GenAI Workflow Assurance</h3>
+        <p>Not a generic AI governance maturity score. The review starts with one consequential workflow and asks what operational evidence actually establishes about the controls management relies on — informed by current research but never substituting research for client evidence.</p>
+        <div class="badge-line"><span>Control effectiveness</span><span>Workflow-specific</span><span>Research-informed</span></div>
+        <div class="app-links"><a href="genai-control-evidence-review.html">Explore the assurance approach →</a></div>
+      </article>
+      <article class="app-card">
+        <div class="eyebrow">Advisory method · Emerging</div>
+        <h3>Evidence-led Advisory</h3>
+        <p>For evidence-intensive business decisions where the case matures through documents, public research, meetings, specialist input and market feedback. Epistamate’s internal workbench keeps claims, recommendations, dependencies, target-specific outputs and reassessment history coherent. The software itself is not the client deliverable.</p>
+        <div class="badge-line"><span>Decision evidence</span><span>Due diligence</span><span>Reassessment</span></div>
+        <div class="app-links"><a href="advisory.html">See the advisory method →</a></div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS — DEMO TEASER -->
-<section class="demo-section" id="demo">
+<section class="diff-section" id="difference">
   <div class="section-inner">
-    <div class="section-tag">See it work</div>
-    <h2>Not a summary. <em>An argument.</em></h2>
-    <p class="section-sub">If a claim makes it into a brief, you should be able to say why you trust it. Epistamate structures research as a claim vault — every finding individually addressable, scored, and traceable. Contradictions are named. Gaps are tracked. The decision record is immutable.</p>
-
-    <div class="demo-cta-block">
-      <a href="epistamate_demo.html" class="btn-primary btn-large">Try the interactive demo →</a>
-      <p class="demo-note">Enter a research question. See how claims are extracted, scored, and challenged — on a real topic, with real scores.</p>
-      <p class="demo-note" style="margin-top:8px;">Want to check a single claim against the academic literature first? Try <a href="scholarly-source-check.html" style="color:var(--accent);font-weight:600;">Scholarly Source Check</a> — free, no signup.</p>
+    <div class="section-tag">The common failure</div>
+    <h2>Assertions, evidence, model reasoning and decisions<br><em>should not collapse into one polished answer.</em></h2>
+    <div class="pillar-grid" style="margin-top:var(--space-xl);">
+      <article class="pillar-card"><div class="eyebrow">01 · Claims are explicit</div><h3>What exactly needs to be true?</h3><p>A report, policy, control description, investment case or recommendation is decomposed into material propositions that can be individually supported, contradicted, qualified or left unresolved.</p></article>
+      <article class="pillar-card"><div class="eyebrow">02 · Evidence has authority and provenance</div><h3>A source existing is not the same as a claim being supported.</h3><p>The method preserves original source identity, intake/acquisition context, exact support locations where available, source authority, warnings and version state. Lower-authority material can inform a decision without silently becoming stronger evidence.</p></article>
+      <article class="pillar-card"><div class="eyebrow">03 · AI is advisory</div><h3>Fluent reasoning is still candidate reasoning.</h3><p>Frontier models can propose search lanes, classify, interpret, challenge and draft. Their output must be validated against the frozen evidence context, and model agreement never becomes independent verification.</p></article>
+      <article class="pillar-card"><div class="eyebrow">04 · Applicability is explicit</div><h3>Research relevance does not prove client-specific fact.</h3><p>Published evidence can reveal failure modes and better tests. It does not prove that a particular workflow, control or business claim is true. Transferability is an explicit judgement, not an invisible prompt assumption.</p></article>
+      <article class="pillar-card"><div class="eyebrow">05 · The narrowest supported conclusion wins</div><h3>“Partly supported” is a valid result.</h3><p>Uncertainty, contradictions and missing evidence remain visible. The system is designed to prefer the smallest conclusion the evidence warrants over rhetorical completeness.</p></article>
+      <article class="pillar-card"><div class="eyebrow">06 · History is preserved</div><h3>New evidence should update the case, not rewrite the past.</h3><p>Claims, assessments, recommendations and outputs can become stale when their dependencies change. Reassessment creates a new current state against a preserved prior baseline.</p></article>
     </div>
+    <div class="method-chain"><p><strong>Evidence → Research → Applicability → Priority → Test → Strengthen → Reassess → Stay current.</strong><br>This is the shared reasoning pattern across research, workflow assurance and advisory decision work.</p></div>
+  </div>
+</section>
 
-    <div class="pipeline-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h4>Quick Scan</h4>
-          <p>Topic map, initial claim stubs, prior verified claims retrieved from the knowledge graph.</p>
-        </div>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>Deep Research</h4>
-          <p>Multi-provider parallel retrieval. Each claim scored against the confidence formula. Gaps extracted as typed objects.</p>
-        </div>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>Adversarial Challenge</h4>
-          <p>Mandatory phase. Claims that don't survive lose their socratic bonus. Challenges are persisted, not discarded.</p>
-        </div>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <h4>Structured Brief + Decision Log</h4>
-          <p>WEAK and UNVERIFIED claims excluded from Key Findings. Decision log entry immutably preserves the evidence state at time of decision.</p>
-        </div>
-      </div>
+<section class="hallucination-section" id="market">
+  <div class="section-inner market-strip">
+    <div>
+      <div class="section-tag">Why this is not another AI governance site</div>
+      <h2>Governance can define the control.<br><em>Epistamate asks what the evidence lets you claim.</em></h2>
+      <p class="section-sub">AI governance platforms are increasingly good at inventories, policies, risks, controls and monitoring. Assurance firms evaluate systems, governance and control effectiveness. Epistamate’s distinctive layer is narrower: the evidentiary chain underneath a consequential claim, workflow judgement or recommendation — and whether that chain remains defensible over time.</p>
+      <div class="hero-ctas" style="justify-content:flex-start;"><a href="genai-control-evidence-review.html" class="btn-primary">See GenAI Workflow Assurance →</a><a href="landscape.html" class="btn-ghost">Research &amp; market landscape →</a></div>
+    </div>
+    <div class="market-list">
+      <div><strong>Not framework completion.</strong><p>A policy, owner or review step can exist without proving the mechanism works in the workflow that matters.</p></div>
+      <div><strong>Not AI judging AI.</strong><p>An evaluator score, model consensus or valid JSON response is not evidence that the underlying assertion is true.</p></div>
+      <div><strong>Not an autonomous audit.</strong><p>Human judgement remains explicit, named and reviewable; the system does not impersonate professional authority.</p></div>
+      <div><strong>Not a generic consulting platform.</strong><p>The reusable asset is the evidence-decision integrity core. Engagement profiles keep domain language and workflow specific.</p></div>
     </div>
   </div>
 </section>
 
-<!-- WHAT MAKES IT DIFFERENT -->
-<section class="diff-section" id="different">
+<section class="diff-section" id="research">
   <div class="section-inner">
-    <div class="section-tag">What makes it different</div>
-    <h2>Every AI tool gives you answers.<br><em>None tell you which to trust.</em></h2>
-
-    <div class="diff-items">
-      <div class="diff-item">
-        <div class="diff-num">01</div>
-        <div class="diff-content">
-          <h3>Research is not answers. Research is claims.</h3>
-          <p>The atomic unit is a claim, not a summary. Every finding is a structured, scored assertion — with a source tier, provider consensus count, adversarial challenge outcome, and evidence age. The 29% claim is shown alongside the 90% one. Epistamate never averages away what it doesn't know, and it never hides uncertainty behind confident prose.</p>
-          <p class="diff-callout"><strong>Your documents count.</strong> An authoritative report you ingest contributes directly to confidence scores — outweighing what the model guesses from memory.</p>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">02</div>
-        <div class="diff-content">
-          <h3>Knowledge resets every session. Research does not.</h3>
-          <p>The same analyst rebuilds the same knowledge every quarter. Epistamate maintains a durable claim graph across sessions. Run five builds on sessions one through four. Contradictions are preserved, not discarded. The knowledge graph compounds with use.</p>
-          <p class="diff-callout"><strong>Works for general professional research</strong> — not locked to academic literature like Elicit, Consensus, or Scite.</p>
-        </div>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-num">03</div>
-        <div class="diff-content">
-          <h3>You already do this work. You just do it in documents that don't compound.</h3>
-          <p>The best strategy research already works the way the engine works: individual claims are sourced and graded, contradictions are noted, gaps are named, and the final recommendation is honest about its confidence level. What it doesn't do is carry that structure forward to the next engagement, the next client, the next analyst who joins the team.</p>
-          <p class="diff-callout"><strong>The structured brief a senior consultant produces for a board is a claim vault</strong> — it just doesn't look like one, and it evaporates when the project ends.</p>
-        </div>
-      </div>
+    <div class="section-tag">Research remains central</div>
+    <h2>Use frontier intelligence to look harder.<br><em>Use Epistamate to decide what survived.</em></h2>
+    <div class="method-grid" style="margin-top:var(--space-xl);">
+      <article class="method-card"><h3>Plan and acquire</h3><p>Question, intent and scope become a bounded acquisition plan. Strong external models can propose richer search lanes; researcher authorisation and explicit provider/network permissions stay separate.</p></article>
+      <article class="method-card"><h3>Bind and challenge</h3><p>Sources are evaluated for what they actually support. Secondary citation context does not silently become primary evidence. Adversarial challenge searches for counterevidence, qualification and applicability failures.</p></article>
+      <article class="method-card"><h3>Review and continue</h3><p>AI can prioritise the review queue, but researcher action is recorded separately from evidence strength. Gaps, contradictions and weak claims can drive Research Further without laundering old conclusions into new authority.</p></article>
     </div>
   </div>
 </section>
 
-<!-- WHO IT'S FOR -->
-<section class="personas-section" id="personas">
+<section class="hallucination-section" id="proof">
   <div class="section-inner">
-    <div class="section-tag">Who it's for</div>
-    <h2>Built for work where <em>being wrong has consequences.</em></h2>
+    <div class="section-tag">What is implemented vs emerging</div>
+    <h2>The website should be evidence-led<br><em>about Epistamate too.</em></h2>
+    <div class="proof-grid" style="margin-top:var(--space-xl);">
+      <article class="proof-card"><div class="eyebrow">Research product</div><h3>Early-access, live E2E validation</h3><p>The current General path has explicit planning and permissions, live acquisition, configured-provider Semantic assessment, evidence/gap/relationship surfaces, researcher review infrastructure, audit history, continuation controls and output surfaces. End-to-end usefulness is still being validated in real runs.</p></article>
+      <article class="proof-card"><div class="eyebrow">Workflow assurance</div><h3>Substantially functional assurance workbench</h3><p>The assurance application has real workflow, proposition, evidence, research-applicability, assessment, stale-dependency and reassessment machinery. It is not presented as a production-proven autonomous audit platform.</p></article>
+      <article class="proof-card"><div class="eyebrow">Advisory decision evidence</div><h3>Working internal experiment</h3><p>A materially different consulting profile has demonstrated evidence-room capture, versioned claims and recommendations, prospect dossiers, controlled pitch views, public-research import/review and report snapshots. It remains an internal/experimental pattern, not a finished client software product.</p></article>
+    </div>
+    <div class="status-note"><strong>Long-term institutional knowledge:</strong> same-topic lineage and reassessment are real architectural capabilities, while durable cross-topic canonical Knowledge remains under rebuild. The target is provenance-rich reuse with recency and applicability checks — not simple retrieval of old text into a larger context window.</div>
+  </div>
+</section>
 
+<section class="personas-section" id="audiences">
+  <div class="section-inner">
+    <div class="section-tag">Who should care</div>
+    <h2>For teams whose work may be<br><em>challenged by someone informed.</em></h2>
     <div class="persona-grid">
-      <a href="persona-policy.html" class="persona-card">
-        <div class="persona-icon">🏛️</div>
-        <h3>Think Tanks &amp; Policy</h3>
-        <p>Evidence synthesis under time pressure, across contradictory sources. Gap tracking and contradiction detection are precisely what's missing from policy brief workflows.</p>
-        <div class="persona-link">Read more →</div>
-      </a>
-
-      <a href="persona-consultant.html" class="persona-card">
-        <div class="persona-icon">📐</div>
-        <h3>Consulting &amp; Advisory</h3>
-        <p>Stop rebuilding the same landscape every engagement. Compounding knowledge graph means session five builds on sessions one through four — not from zero.</p>
-        <div class="persona-link">Read more →</div>
-      </a>
-
-      <a href="persona-legal.html" class="persona-card">
-        <div class="persona-icon">⚖️</div>
-        <h3>Regulatory &amp; Compliance</h3>
-        <p>Binding law vs guidance vs draft vs enforcement — these are not the same. Epistamate tracks them separately. Article 12 compatible decision log by design, not by bolt-on.</p>
-        <div class="persona-link">Read more →</div>
-      </a>
-
-      <a href="persona-executive.html" class="persona-card">
-        <div class="persona-icon">🔎</div>
-        <h3>Research &amp; Investigation</h3>
-        <p>Claims that trace back to a single source are amplification, not corroboration. The confidence formula's diversity weighting catches the difference.</p>
-        <div class="persona-link">Read more →</div>
-      </a>
-
-      <a href="persona-professional-services.html" class="persona-card">
-        <div class="persona-icon">🏢</div>
-        <h3>Professional Services &amp; Advisory</h3>
-        <p>Deliverable liability, client trust, and data confidentiality -- the three evidence problems that matter to partners and practice leads in Big 4 and advisory firms.</p>
-        <div class="persona-link">Read more →</div>
-      </a>
+      <a href="persona-policy.html" class="persona-card"><div class="persona-icon">🏛️</div><h3>Think Tanks &amp; Policy</h3><p>Evidence synthesis under time pressure where applicability, contradictions and gaps should survive into the review record.</p><div class="persona-link">Policy use case →</div></a>
+      <a href="persona-professional-services.html" class="persona-card"><div class="persona-icon">🏢</div><h3>Professional Services</h3><p>AI-assisted work product where partners need an inspectable evidence and reviewer trail rather than a confident final deck.</p><div class="persona-link">Professional services →</div></a>
+      <a href="persona-legal.html" class="persona-card"><div class="persona-icon">⚖️</div><h3>Regulatory &amp; Compliance</h3><p>Authority, effective status, jurisdiction and applicability cannot be flattened into generic “sources”.</p><div class="persona-link">Regulatory use case →</div></a>
+      <a href="persona-consultant.html" class="persona-card"><div class="persona-icon">📐</div><h3>Consulting &amp; Advisory</h3><p>Build a decision case that can mature as documents, research and conversations arrive, without losing the evidence basis for prior recommendations.</p><div class="persona-link">Consulting use case →</div></a>
     </div>
   </div>
 </section>
 
-<!-- COMPETITIVE TABLE -->
-<section class="competitive-section" id="competitive">
+<section class="hallucination-section" id="insights">
   <div class="section-inner">
-    <div class="section-tag">vs others</div>
-    <h2>The contribution is not any individual component.<br><em>It is their co-presence.</em></h2>
-    <p class="section-sub">Removing any one of the six properties degrades the system to something existing tools already do.</p>
-
-    <div class="table-scroll">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Capability</th>
-            <th>FActScore / VeriScore</th>
-            <th>GraphRAG</th>
-            <th>MemGPT</th>
-            <th>Commercial tools</th>
-            <th>Std. LLM</th>
-            <th class="ours">Epistamate</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Typed claim extraction</td>
-            <td>✓ atomic</td>
-            <td>—</td>
-            <td>—</td>
-            <td>partial</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Multi-factor evidence confidence</td>
-            <td>retrieval-based</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓ formula</td>
-          </tr>
-          <tr>
-            <td>Tier-enforced source hierarchy</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Adversarial challenge (pre-synthesis)</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Gap tracking (typed, persistent)</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Cross-session compounding</td>
-            <td>—</td>
-            <td>partial</td>
-            <td>partial</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Bidirectional operation</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Domain configurability (runtime)</td>
-            <td>—</td>
-            <td>partial</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Decision log (Article 12 compatible)</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-          <tr>
-            <td>Immutable audit snapshot</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td class="ours">✓</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="section-tag">Evidence quality, not AI theatre</div>
+    <h2>The blog is becoming the methodology.<br><em>The applications are where it gets tested.</em></h2>
+    <p class="section-sub">Articles on citation support, amplification vs corroboration, stale evidence, human review, model-as-judge failure and contradictory evidence are not a separate content strategy. They are the failure modes the products and advisory method are being designed to handle.</p>
+    <div class="hero-ctas" style="justify-content:flex-start;"><a href="blog/index.html" class="btn-primary">Read the evidence-quality series →</a><a href="landscape.html" class="btn-secondary">See the research landscape →</a><a href="scholarly-source-check.html" class="btn-ghost">Scholarly Source Check →</a></div>
   </div>
 </section>
 
-<!-- TEAMS / DEPLOYMENT -->
-<section class="teams-section" id="teams">
-  <div class="section-inner">
-    <div class="section-tag">Deployment</div>
-    <h2>Desktop-native. <em>Privacy by design.</em></h2>
-    <div class="teams-grid">
-      <div class="team-card">
-        <h3>Individual analyst</h3>
-        <p>Local SQLite storage with vector similarity. No research data transmitted to external servers beyond LLM API calls. Everything stays on your machine.</p>
-      </div>
-      <div class="team-card">
-        <h3>Team deployment</h3>
-        <p>Shared knowledge graphs, parallel research runs, consolidated decision logs. Appropriate for investment due diligence, legal research, regulatory compliance.</p>
-      </div>
-      <div class="team-card">
-        <h3>Enterprise</h3>
-        <p>PostgreSQL-backed store for concurrent deployment. No architectural change to the reasoning pipeline — same formula, same audit trail, at scale.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTROL EVIDENCE REVIEW SERVICE -->
-<section class="control-review-section" id="control-review">
-  <div class="section-inner">
-    <div class="control-review-shell">
-      <div class="control-review-copy">
-        <div class="section-tag">Founder-led service</div>
-        <h2>Your GenAI controls exist.<br><em>What does the evidence let you claim?</em></h2>
-        <p>Epistamate examines the evidence behind the control claims organisations rely upon across their GenAI workflows. An initial engagement begins with one consequential workflow, keeping every conclusion tied to a defined system, use, configuration and period.</p>
-        <div class="control-review-actions">
-          <a href="genai-control-evidence-review.html" class="btn-primary">Explore the review →</a>
-          <a href="genai-control-evidence-review.html#workflow-examples" class="btn-ghost">See workflow examples →</a>
-        </div>
-      </div>
-      <div class="control-review-questions" aria-label="Examples of control evidence questions">
-        <div><span>01</span><p>Do retrieved sources actually support the generated answer?</p></div>
-        <div><span>02</span><p>Which material errors has human review demonstrated it can detect?</p></div>
-        <div><span>03</span><p>Was the LLM evaluator validated against the failure that matters?</p></div>
-        <div><span>04</span><p>Does evidence from separate controls support the combined workflow?</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ — AEO SECTION -->
-<section class="faq-section" id="faq">
-  <div class="section-inner">
-    <div class="section-tag">Common questions</div>
-    <h2>What people ask before <em>getting in touch.</em></h2>
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>How is Epistamate different from a RAG system?</summary>
-        <p>A RAG system retrieves documents and passes them to an LLM, which produces a summary. Epistamate extracts structured claims from that retrieval, scores each one against a deterministic confidence formula based on source credibility tier, cross-source agreement, adversarial challenge outcome, and evidence recency — and tracks what is unknown alongside what is known. The output is a scored claim vault with a full provenance chain, not a synthesised summary. The knowledge graph persists across sessions; a RAG context window resets.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How does Epistamate handle AI hallucinations?</summary>
-        <p>Epistamate never uses an LLM's self-reported confidence in its scoring. It computes confidence from the evidence underneath each claim: the credibility tier of cited sources, how many independent providers corroborated the claim, whether the claim survived adversarial challenge, and how recent the evidence is. A claim the model is highly confident about but that only cites a single Tier 3 source will score low. A claim from three Tier 1 documents with cross-provider consensus will score high. The formula separates rhetorical confidence from evidential quality.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What does "EU AI Act Article 12 aligned" mean?</summary>
-        <p>Article 12 of the EU AI Act requires that high-risk AI systems maintain logs enabling post-hoc auditability — what the system did, on what basis, at what point in time. Epistamate's Decision Log mechanism produces exactly this: an immutable, timestamped record of the full evidence state at the moment a decision was logged — which claims were verified, which were contested, which gaps were acknowledged. This is the output of how the system works by default, not a compliance layer added afterward. It is not a legal certification; qualified legal counsel must assess applicability.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How does cross-session compounding work?</summary>
-        <p>Verified claims from session N are stored in a persistent knowledge graph. In session N+1, when a semantically similar question is asked, prior verified claims are retrieved and contribute directly to the new session — reducing re-derivation burden and increasing confidence scores for claims with existing corroboration. Contradictions between sessions are preserved as typed objects, not silently resolved. The graph accumulates with use; it does not reset.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I use my own documents as sources?</summary>
-        <p>Yes. Documents you ingest are assigned a credibility tier within the source hierarchy. An authoritative report from a Tier 1 institution outweighs model-generated inferences. Your documents participate in the confidence formula directly — they are not just context passed to the LLM.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What research domains does it work for?</summary>
-        <p>Epistamate's validated pipeline covers general professional research. The engine is domain-configurable at runtime — source trust hierarchies, claim type vocabularies, scoring weights, and output formats are parameters, not hardcoded logic. Gov/Policy and RegWatch vertical slices are in active development. The same binary can run policy research, investment due diligence, and regulatory compliance with no architectural change.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section class="hallucination-section" id="blog">
-  <div class="section-inner">
-    <div class="section-tag">From the blog</div>
-    <h2>On evidence quality,<br><em>AI research, and what tools get wrong.</em></h2>
-    <p class="section-sub" style="margin-bottom:var(--space-l);">Thought leadership on the structural problems in AI-assisted research, written for people who do serious evidence work. Written by <a href="https://www.linkedin.com/in/abhishek-sinha-bgl" target="_blank" rel="noopener" style="color:var(--accent);">Abhishek Sinha</a> — Global CTO, Arth Group · Published researcher · Former IBM, Kyndryl, HP.</p>
-
-    <div style="border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;">
-      <a href="blog/when-evidence-does-not-converge.html" style="display:block;padding:var(--space-l);text-decoration:none;color:inherit;transition:background 0.2s;border-bottom:1px solid var(--border);" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='transparent'">
-        <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:var(--space-xs);display:flex;gap:var(--space-s);flex-wrap:wrap;">
-          <span>August 2026</span>
-          <span style="color:var(--border-2);">&middot;</span>
-          <span style="background:var(--paper-3);border:1px solid var(--border);border-radius:var(--radius);padding:2px 8px;font-size:0.67rem;">Evidence quality</span>
-          <span style="background:var(--paper-3);border:1px solid var(--border);border-radius:var(--radius);padding:2px 8px;font-size:0.67rem;">Research methodology</span>
-        </div>
-        <h3 style="font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.55rem);line-height:1.2;margin-bottom:var(--space-xs);color:var(--ink);">When Evidence Does Not Converge</h3>
-        <p style="font-size:0.95rem;color:var(--ink-3);line-height:1.65;max-width:620px;margin-bottom:0;">A synthesized answer that reads smoothly is not the same as one that accurately represents what the evidence says. A three-stage way to diagnose disagreement before resolving it.</p>
-      </a>
-      <a href="blog/claim-correct-not-current.html" style="display:block;padding:var(--space-l);text-decoration:none;color:inherit;transition:background 0.2s;" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='transparent'">
-        <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:var(--space-xs);display:flex;gap:var(--space-s);flex-wrap:wrap;">
-          <span>August 2026</span>
-          <span style="color:var(--border-2);">&middot;</span>
-          <span style="background:var(--paper-3);border:1px solid var(--border);border-radius:var(--radius);padding:2px 8px;font-size:0.67rem;">Evidence quality</span>
-          <span style="background:var(--paper-3);border:1px solid var(--border);border-radius:var(--radius);padding:2px 8px;font-size:0.67rem;">Verification architecture</span>
-        </div>
-        <h3 style="font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.55rem);line-height:1.2;margin-bottom:var(--space-xs);color:var(--ink);">A claim can be correct, well-sourced, and no longer true</h3>
-        <p style="font-size:0.95rem;color:var(--ink-3);line-height:1.65;max-width:620px;margin-bottom:0;">Citation accuracy and source corroboration are not the same property as currency. A practical taxonomy for how claims expire, and what the research says about whether retrieval fixes it.</p>
-      </a>
-    </div>
-
-    <div style="margin-top:var(--space-m);">
-      <a href="blog/index.html" class="btn-ghost">All articles →</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="section-inner contact-inner">
     <div class="section-tag">Get in touch</div>
-    <h2>Epistamate is in active development and<br><em>talking to organisations where defensible, compounding evidence matters.</em></h2>
-    <p class="contact-sub">If you recognise your domain in this site, I'd like to hear about the specific problem before describing the solution. I'll respond personally within a week.</p>
+    <h2>Epistamate is in active development and<br><em>looking for consequential workflows and decisions to test against.</em></h2>
+    <p class="contact-sub">If your team is using AI in research, assurance or another evidence-intensive workflow, I’d like to understand the decision, the evidence chain and the failure modes you care about. I’ll respond personally within a week.</p>
     <div class="contact-options">
       <div class="contact-what">
         <h4>What happens when you reach out</h4>
         <ul>
-          <li>A short conversation about your specific research workflow</li>
-          <li>Early access to the Windows desktop application</li>
-          <li>Direct input into the domain configuration for your use case</li>
+          <li>A short conversation about the consequential workflow or decision</li>
+          <li>Early access to the Windows research product where appropriate</li>
+          <li>Workflow assurance or evidence-led advisory where that is the better fit</li>
         </ul>
       </div>
       <div class="contact-form-block">
         <form id="contact-form" novalidate>
-
-          <!-- Honeypot spam protection -->
           <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1">
-
           <div class="form-row">
             <div class="form-group">
               <label for="cf-name">Name</label>
@@ -561,31 +237,29 @@
               <input type="text" id="cf-org" name="organisation" placeholder="Where you work">
             </div>
           </div>
-
           <div class="form-group">
             <label for="cf-email">Email</label>
             <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
           </div>
-
           <div class="form-group">
             <label for="cf-domain">What would you like to discuss?</label>
             <select id="cf-domain" name="domain">
               <option value="" disabled selected>Select the closest fit</option>
-              <option value="GenAI Control Evidence Review">GenAI Control Evidence Review</option>
+              <option value="GenAI Workflow Assurance">GenAI Workflow Assurance / Control Evidence Review</option>
+              <option value="Evidence-led Advisory">Evidence-led Advisory / Decision Evidence</option>
+              <option value="Epistamate Research">Epistamate Research / Early Access</option>
               <option value="Policy / Think Tank">Policy / Think Tank</option>
               <option value="Regulatory / Compliance">Regulatory / Compliance</option>
-              <option value="Consulting / Advisory">Consulting / Advisory</option>
+              <option value="Consulting / Advisory">Consulting / Advisory Firm</option>
               <option value="Research / Investigation">Research / Investigation</option>
               <option value="Enterprise Research Team">Enterprise Research Team</option>
               <option value="Other">Other</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="cf-problem">What workflow or research problem are you trying to solve?</label>
-            <textarea id="cf-problem" name="problem" rows="4" placeholder="A sentence or two on the specific workflow or research problem. Please do not include confidential evidence." maxlength="600"></textarea>
+            <textarea id="cf-problem" name="problem" rows="4" placeholder="A sentence or two on the workflow or research problem. Please do not include confidential evidence." maxlength="600"></textarea>
           </div>
-
           <div class="form-group">
             <label for="cf-source">How did you hear about Epistamate?</label>
             <select id="cf-source" name="source">
@@ -597,90 +271,67 @@
               <option value="Other">Other</option>
             </select>
           </div>
-
-          <button type="submit" class="btn-primary btn-large" id="submit-btn">
-            Start a conversation →
-          </button>
+          <button type="submit" class="btn-primary btn-large" id="submit-btn">Start a conversation →</button>
           <p class="contact-note">Or reach out directly: <a href="mailto:hello@epistamate.com">hello@epistamate.com</a></p>
-
           <div id="form-status" style="display:none;margin-top:var(--space-m);padding:var(--space-s) var(--space-m);border-radius:var(--radius-m);font-size:0.9rem;line-height:1.5;"></div>
         </form>
 
         <script>
         (function() {
-          const W3F_KEY   = 'a8d3233f-1cfa-456c-add9-9922694c1cab';           // Replace with key from web3forms.com
+          const W3F_KEY   = 'a8d3233f-1cfa-456c-add9-9922694c1cab';
           const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyy53sShkAF93VOHdktUzOVDIImEke1a8F_5CQcpwi8h06WXCzeh3F0_cgBTiLAnjQM9Q/exec';
-
-          const form   = document.getElementById('contact-form');
-          const btn    = document.getElementById('submit-btn');
+          const form = document.getElementById('contact-form');
+          const btn = document.getElementById('submit-btn');
           const status = document.getElementById('form-status');
 
           function showStatus(msg, ok) {
             status.style.display = 'block';
-            status.style.background  = ok ? 'rgba(26,110,58,0.07)' : 'rgba(200,67,47,0.07)';
-            status.style.border      = ok ? '1px solid rgba(26,110,58,0.2)' : '1px solid rgba(200,67,47,0.2)';
-            status.style.color       = ok ? 'var(--verified)' : 'var(--contested)';
-            status.textContent       = msg;
+            status.style.background = ok ? 'rgba(26,110,58,0.07)' : 'rgba(200,67,47,0.07)';
+            status.style.border = ok ? '1px solid rgba(26,110,58,0.2)' : '1px solid rgba(200,67,47,0.2)';
+            status.style.color = ok ? 'var(--verified)' : 'var(--contested)';
+            status.textContent = msg;
           }
 
           form.addEventListener('submit', async function(e) {
             e.preventDefault();
-
-            // Basic validation
-            const name  = form.querySelector('#cf-name').value.trim();
+            const name = form.querySelector('#cf-name').value.trim();
             const email = form.querySelector('#cf-email').value.trim();
             if (!name || !email) {
               showStatus('Please fill in your name and email before submitting.', false);
               return;
             }
-
             btn.disabled = true;
             btn.textContent = 'Sending...';
 
             const payload = {
-              name:         name,
+              name,
               organisation: form.querySelector('#cf-org').value.trim(),
-              email:        email,
-              domain:       form.querySelector('#cf-domain').value || '',
-              problem:      form.querySelector('#cf-problem').value.trim(),
-              source:       form.querySelector('#cf-source').value || '',
+              email,
+              domain: form.querySelector('#cf-domain').value || '',
+              problem: form.querySelector('#cf-problem').value.trim(),
+              source: form.querySelector('#cf-source').value || ''
             };
 
             try {
-              // 1 — Send to Web3Forms (notifies epistamate@proton.me)
               const w3fBody = new FormData();
               w3fBody.append('access_key', W3F_KEY);
               w3fBody.append('subject', 'Epistamate enquiry: ' + payload.name + ' / ' + (payload.organisation || 'no org'));
               w3fBody.append('from_name', 'Epistamate contact form');
-              Object.entries(payload).forEach(([k, v]) => w3fBody.append(k, v));
-
-              const w3fRes = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: w3fBody,
-              });
+              Object.entries(payload).forEach(([k,v]) => w3fBody.append(k,v));
+              const w3fRes = await fetch('https://api.web3forms.com/submit', { method:'POST', body:w3fBody });
               const w3fData = await w3fRes.json();
 
-              // 2 — Log to Google Sheet via Apps Script
-              // Awaited with timeout so the request completes before redirect
-              if (SHEET_URL && SHEET_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
+              if (SHEET_URL) {
                 try {
                   await Promise.race([
-                    fetch(SHEET_URL, {
-                      method: 'POST',
-                      body: JSON.stringify(payload),
-                    }),
-                    new Promise(r => setTimeout(r, 3000)) // 3s max wait
+                    fetch(SHEET_URL, { method:'POST', body:JSON.stringify(payload) }),
+                    new Promise(r => setTimeout(r, 3000))
                   ]);
                 } catch (_) {}
               }
 
-              if (w3fData.success) {
-                // Redirect to thank-you page
-                window.location.href = '/contact-success.html';
-              } else {
-                throw new Error(w3fData.message || 'Submission failed');
-              }
-
+              if (w3fData.success) window.location.href = '/contact-success.html';
+              else throw new Error(w3fData.message || 'Submission failed');
             } catch (err) {
               showStatus('Something went wrong. Please email us directly at hello@epistamate.com', false);
               btn.disabled = false;
@@ -694,55 +345,44 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
       <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+      <p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p>
     </div>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="genai-control-evidence-review.html">Control Evidence Review</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="advisory.html">Evidence-led Advisory</a>
       <a href="engine.html">The Engine</a>
-      <a href="persona-consultant.html">Analysts</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="epistamate_demo.html">Demo</a>
-      <a href="scholarly-source-check.html">Scholarly Source Check</a>
+      <a href="blog/index.html">Insights</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank">DCBR Engine paper · Zenodo</a>
-      <a href="https://doi.org/10.5281/zenodo.19301680" target="_blank">RegWatch paper · Zenodo</a>
-      <a href="https://ip.com/IPCOM/000277741" target="_blank">Defensive disclosure · IP.com</a>
+      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener">Defensive disclosure · IP.com</a>
       <a href="landscape.html">Prior art and open problems</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior:'smooth', block:'start' });
       }
     });
   });
-
-  // Animate sections on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold:0.1 });
   document.querySelectorAll('section').forEach(s => observer.observe(s));
 </script>
 </body>
 </html>
+
