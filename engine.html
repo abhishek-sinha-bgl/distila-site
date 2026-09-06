@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Engine — Evidence-decision architecture | Epistamate</title>
-  <meta name="description" content="The Epistamate evidence-decision engine separates model capability from authority across research, GenAI workflow assurance and evidence-led advisory: claims, provenance, evidence posture, challenge, reassessment and audit trails.">
-  <meta name="keywords" content="evidence-decision architecture, AI assurance methodology, evidence authority, claim provenance, research audit trail, adversarial challenge, institutional knowledge, decision audit trail">
-  <meta property="og:title" content="The Engine — Epistamate">
-  <meta property="og:description" content="Frontier intelligence can propose. Evidence still has to earn authority. The six architectural principles behind Epistamate.">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="distilapp.css">
-  <link rel="canonical" href="https://epistamate.com/engine.html">
-  <style>
-    .engine-grid,.layer-grid,.audit-grid,.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:var(--space-m)}
-    .engine-card,.layer-card,.audit-card,.status-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
-    .engine-card .num{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;margin-bottom:var(--space-s)}
-    .engine-card h3,.layer-card h3,.audit-card h3,.status-card h3{margin-bottom:var(--space-s)}
-    .engine-card p,.layer-card p,.audit-card p,.status-card p{color:var(--ink-3);line-height:1.72}
-    .maxim{max-width:880px;margin:var(--space-xl) auto;padding:var(--space-xl);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:var(--radius-m);background:var(--paper-2)}
-    .maxim p{font-family:var(--font-display);font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.45;margin:0}
-    .chain{margin-top:var(--space-l);font-family:var(--font-mono);font-size:.86rem;line-height:1.9;color:var(--ink-3);padding:var(--space-m);background:var(--paper-3);border-radius:var(--radius-m);overflow:auto}
-    .rule-list{display:grid;gap:var(--space-s);margin-top:var(--space-l)}
-    .rule{padding:var(--space-m);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
-    .rule strong{color:var(--accent)}
-    .status-label{display:inline-block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--border);border-radius:999px;margin-bottom:var(--space-s)}
-    .status-label.now{color:var(--verified);border-color:rgba(26,110,58,.25)}
-    .status-label.next{color:var(--accent);border-color:rgba(200,67,47,.25)}
-  </style>
-  <!-- build:2026-09-06-positioning-refresh -->
-</head>
-<body class="engine-page">
-
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>The Engine — Epistamate evidence-decision architecture</title>
+<meta name="description" content="The Epistamate engine keeps model capability, evidence authority and researcher authority separate across claims, provenance, independence, applicability, contradictions, gaps, review and reassessment.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://epistamate.com/engine.html">
+<meta property="og:title" content="The Engine — Epistamate"><meta property="og:description" content="Frontier intelligence can propose. Evidence still has to earn authority."><meta property="og:image" content="https://epistamate.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="distilapp.css">
+<style>
+ .engine-grid,.authority-grid,.profile-grid,.pub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+ .e-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+ .e-card h3{margin-bottom:var(--space-s)}.e-card p{color:var(--ink-3);font-size:.92rem;line-height:1.7}
+ .num{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.09em;color:var(--accent);margin-bottom:var(--space-s)}
+ .authority-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .pub-card{display:flex;flex-direction:column}
+ .pub-card .hero-ctas{margin-top:auto;padding-top:var(--space-m)}
+ @media(max-width:800px){.engine-grid,.authority-grid,.profile-grid,.pub-grid{grid-template-columns:1fr}}
+</style><!-- build:2026-09-06-engine-convergence -->
+</head><body class="engine-page">
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
@@ -43,259 +26,80 @@
       <a href="epistamate_demo.html">Research</a>
       <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
       <a href="advisory.html">Advisory</a>
-      <a href="engine.html">The Engine</a>
+      <a href="engine.html" aria-current="page">The Engine</a>
       <a href="blog/index.html">Insights</a>
     </div>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
     <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
-
-<section class="hero" style="opacity:1;transform:none;">
-  <div class="hero-eyebrow">DCBR Engine · Published · Zenodo 10.5281/zenodo.19204972</div>
-  <h1 class="hero-h1">
-    One evidence discipline.<br>
-    <em>Different consequential workflows.</em>
-  </h1>
-  <div class="stakes-block" style="max-width:820px;">
-    <p>Research, assurance and advisory work look different on the surface. Underneath, the same integrity problem recurs: assertions, source material, model reasoning, professional judgement and later changes must remain distinguishable.</p>
-    <p class="stakes-kicker">The engine exists to preserve the chain from evidence to claim, judgement, recommendation and reassessment — while keeping model capability separate from professional and evidentiary authority.</p>
-  </div>
-  <div class="maxim">
-    <p><strong>Separate capability from authority.</strong> Use the strongest available intelligence for planning and reasoning. Require evidence, provenance and explicit review for consequential claims.</p>
-  </div>
-  <div class="hero-ctas">
-    <a href="#profiles" class="btn-primary">Where the engine is used →</a>
-    <a href="#properties" class="btn-secondary">The six principles →</a>
-    <a href="landscape.html" class="btn-ghost">Research landscape →</a>
-  </div>
+<section class="hero">
+ <div class="hero-eyebrow">Evidence-decision engine · Published architectural thesis</div>
+ <h1 class="hero-h1">Frontier intelligence can propose.<br><em>Evidence still has to earn authority.</em></h1>
+ <div class="stakes-block"><p>Epistamate is built around a separation that becomes more important as models improve: reasoning capability, evidentiary authority and professional judgement are not the same thing.</p><p class="stakes-kicker">Use the strongest available intelligence for cognition. Preserve a separate, inspectable path for what the evidence warrants and what a human authorised.</p></div>
+ <div class="evidence-chain">request → bounded plan → optional model advice → explicit execution → acquired source → exact support → evidence posture → human review → output → reassessment</div>
+ <div class="hero-ctas" style="margin-top:var(--space-xl)"><a href="#properties" class="btn-primary">Six engine properties ↓</a><a href="#authority" class="btn-secondary">Authority model ↓</a><a href="#publication" class="btn-ghost">Published architecture</a></div>
 </section>
 
+<section class="hallucination-section" id="properties"><div class="section-inner">
+ <div class="section-tag">Six co-present properties</div><h2>The contribution is not one technique.<br><em>It is the architecture around them.</em></h2>
+ <div class="engine-grid" style="margin-top:var(--space-xl)">
+  <article class="e-card"><div class="num">01 · ADDRESSABLE CLAIMS</div><h3>Control below the report level.</h3><p>Consequential propositions remain durable objects that can be supported, qualified, contradicted, reviewed and reused independently of the prose around them.</p></article>
+  <article class="e-card"><div class="num">02 · EVIDENCE POSTURE</div><h3>No magic confidence number.</h3><p>Directness, source role, exact support, independence, applicability, contradiction, recency and sufficiency remain inspectable dimensions.</p></article>
+  <article class="e-card"><div class="num">03 · ADVERSARIAL CHALLENGE</div><h3>Try to break the conclusion.</h3><p>Models can surface counterevidence and alternative explanations, but challenge changes canonical posture only when the evidence justifies it.</p></article>
+  <article class="e-card"><div class="num">04 · PERSISTENT GAPS</div><h3>Unknowns survive synthesis.</h3><p>Missing evidence is a durable research object and possible Research Further target, not a disclaimer that disappears after drafting.</p></article>
+  <article class="e-card"><div class="num">05 · CUMULATIVE STATE</div><h3>Reuse without laundering old answers.</h3><p>Inherited evidence can be reconsidered for freshness, applicability and contradiction. Inherited answer authority is not automatically reusable.</p></article>
+  <article class="e-card"><div class="num">06 · BIDIRECTIONAL OPERATION</div><h3>Question-led and source-led work share standards.</h3><p>A research question can drive acquisition; a supplied report can drive verification. Both enter the same evidence and review spine.</p></article>
+ </div>
+</div></section>
 
-<section class="diff-section" id="profiles">
-  <div class="section-inner">
-    <div class="section-tag">One core, different engagement profiles</div>
-    <h2>Generalise the integrity contracts.<br><em>Keep the workflow language specific.</em></h2>
-    <p class="section-sub">The architecture is broader than a research tool without becoming generic consulting software. Each application keeps its own language, outputs and authority model while reusing the evidence-decision core.</p>
-    <div class="layer-grid" style="margin-top:var(--space-xl);">
-      <article class="layer-card"><h3>Research profile</h3><p>Question → plan → acquisition → source/evidence assessment → review → synthesis → Research Further. The researcher controls permissions and consequential transitions.</p><p style="margin-top:10px;"><a href="epistamate_demo.html" style="color:var(--accent);">Research product →</a></p></article>
-      <article class="layer-card"><h3>GenAI workflow assurance</h3><p>Workflow → management propositions → operational evidence → research-informed challenge → assessment → findings → strengthening actions → reassessment.</p><p style="margin-top:10px;"><a href="genai-control-evidence-review.html" style="color:var(--accent);">Workflow assurance →</a></p></article>
-      <article class="layer-card"><h3>Evidence-led advisory</h3><p>Intake → material claims → mixed evidence and public research → assessment → recommendations → controlled outputs → change tracking and reassessment. The workbench is internal; the client receives the professional work product.</p><p style="margin-top:10px;"><a href="advisory.html" style="color:var(--accent);">Advisory method →</a></p></article>
-    </div>
-  </div>
-</section>
-<section class="hallucination-section" id="properties">
-  <div class="section-inner">
-    <div class="section-tag">Six co-present properties</div>
-    <h2>The contribution is not one technique.<br><em>It is the architecture around them.</em></h2>
-    <p class="section-sub">The original six-principle thesis remains the architectural core. The canonical rebuild has replaced several early implementation mechanisms with stricter evidence and authority semantics.</p>
+<section class="diff-section" id="authority"><div class="section-inner">
+ <div class="section-tag">Authority model</div><h2>Three kinds of authority.<br><em>Never silently collapsed.</em></h2>
+ <div class="authority-grid" style="margin-top:var(--space-xl)">
+  <article class="e-card"><div class="num">MODEL / REASONING</div><h3>Can propose.</h3><p>Search lanes, interpretations, triage, challenge and drafts. Model agreement can improve process robustness; it is not independent evidence.</p></article>
+  <article class="e-card"><div class="num">EVIDENCE</div><h3>Must be earned.</h3><p>Acquired source identity, exact support, evidence function, work/family lineage, independence, scope and other domain gates determine what a proposition can claim.</p></article>
+  <article class="e-card"><div class="num">RESEARCHER</div><h3>Can judge and authorise.</h3><p>Human review is essential governance. It records acceptance, rejection, deferral and continuation authority without pretending that approval strengthened the source evidence.</p></article>
+ </div>
+</div></section>
 
-    <div class="engine-grid" style="margin-top:var(--space-xl);">
-      <article class="engine-card">
-        <div class="num">01 · ADDRESSABLE CLAIMS</div>
-        <h3>Research is represented below the report level.</h3>
-        <p>Claims and propositions are durable, individually addressable objects. They can be traced to source/work identity and exact supporting material, reviewed independently, challenged, qualified, contradicted or carried forward without treating the whole report as one unit of truth.</p>
-      </article>
+<section class="hallucination-section"><div class="section-inner">
+ <div class="section-tag">Profiles over one spine</div><h2>Shared integrity mechanics.<br><em>Domain-specific evidence rules.</em></h2>
+ <div class="profile-grid" style="margin-top:var(--space-xl)">
+  <article class="e-card"><h3>Research</h3><p>Question → planning → acquisition → evidence assessment → review → synthesis → Research Further.</p><p style="margin-top:12px"><a href="epistamate_demo.html" style="color:var(--accent)">Research product →</a></p></article>
+  <article class="e-card"><h3>GenAI Workflow Assurance</h3><p>Workflow propositions → operational evidence → research-informed challenge → findings → strengthening action → reassessment.</p><p style="margin-top:12px"><a href="genai-control-evidence-review.html" style="color:var(--accent)">Workflow Assurance →</a></p></article>
+  <article class="e-card"><h3>Evidence-led Advisory</h3><p>Material claims → mixed evidence → assessment → recommendation dependencies → controlled output → update / reassessment.</p><p style="margin-top:12px"><a href="advisory.html" style="color:var(--accent)">Advisory →</a></p></article>
+ </div>
+</div></section>
 
-      <article class="engine-card">
-        <div class="num">02 · EVIDENCE POSTURE</div>
-        <h3>Confidence is not a model feeling — or a magic number.</h3>
-        <p>The engine evaluates what kind of evidence exists beneath a claim: directness, source function and authority, body/span availability, independence, applicability, contradiction, recency and sufficiency. A numeric summary may be useful later; it never replaces the underlying posture.</p>
-      </article>
+<section class="diff-section"><div class="section-inner">
+ <div class="section-tag">Institutional knowledge</div><h2>Memory retrieves old text.<br><em>Epistemic continuity asks whether it still warrants belief.</em></h2>
+ <p class="section-sub">The target reusable object is closer to claim + exact evidence + provenance + applicability + independence + contradiction state + review history + version lineage. Same-topic continuity exists today; durable cross-topic canonical Knowledge remains under rebuild.</p>
+ <div class="evidence-chain">reuse → revalidate → strengthen / qualify / weaken / supersede / mark stale</div>
+</div></section>
 
-      <article class="engine-card">
-        <div class="num">03 · ADVERSARIAL CHALLENGE</div>
-        <h3>Strong research tries to break its own conclusions.</h3>
-        <p>Challenge looks for counterevidence, alternative explanations, scope failures and missing assumptions before synthesis hardens into a recommendation. Frontier models can be powerful challengers, but challenge output remains advisory until evidence supports a canonical change.</p>
-      </article>
-
-      <article class="engine-card">
-        <div class="num">04 · PERSISTENT GAPS</div>
-        <h3>Unknowns are first-class research objects.</h3>
-        <p>Gaps are not a disclaimer pasted onto the end of a report. They are typed, durable targets that survive synthesis, can be prioritised by the researcher and can drive Research Further when additional evidence would materially change the conclusion.</p>
-      </article>
-
-      <article class="engine-card">
-        <div class="num">05 · CUMULATIVE RESEARCH STATE</div>
-        <h3>Prior evidence can be reused without laundering old conclusions.</h3>
-        <p>Research should compound across iterations and, ultimately, across topics. Reuse carries provenance and review history, then re-evaluates applicability, currency, contradiction and source validity for the new question. Inherited evidence is not inherited answer authority.</p>
-      </article>
-
-      <article class="engine-card">
-        <div class="num">06 · BIDIRECTIONAL OPERATION</div>
-        <h3>Question-led research and document-led verification share one substrate.</h3>
-        <p>A research question can drive acquisition and synthesis; a supplied report can drive verification and challenge. Both directions use the same source identity, evidence, review and audit boundaries rather than separate prompt workflows with different standards.</p>
-      </article>
-    </div>
-
-    <div class="engine-card" style="margin-top:var(--space-m);border-left:3px solid var(--accent);">
-      <div class="num">+ DOMAIN POLICY</div>
-      <h3>Evidence rules belong in policy packs, not prompt folklore.</h3>
-      <p>Different domains need different source roles, authority classes, applicability tests and output structures. The canonical engine owns universal identity, lineage and authority mechanics; domain packs own the evidence policy that legitimately varies between General research, policy work and regulatory monitoring.</p>
-    </div>
-  </div>
-</section>
-
-<section class="diff-section" id="authority">
-  <div class="section-inner">
-    <div class="section-tag">Authority model</div>
-    <h2>Three kinds of authority must<br><em>never collapse into one another.</em></h2>
-
-    <div class="layer-grid" style="margin-top:var(--space-xl);">
-      <article class="layer-card">
-        <h3>Model / reasoning capability</h3>
-        <p>A model may propose search lanes, candidate interpretations, priority items, adversarial challenges or next-research targets. Multiple models agreeing can improve process robustness. It does not create independent evidentiary corroboration.</p>
-      </article>
-      <article class="layer-card">
-        <h3>Evidence authority</h3>
-        <p>Evidence authority comes from acquired and represented sources, exact support relationships, source function, independence, scope and other canonical gates. A secondary article repeating a primary study is not the same as having acquired the primary study.</p>
-      </article>
-      <article class="layer-card">
-        <h3>Researcher authority</h3>
-        <p>Researchers can review, accept, reject, defer, authorise continuation and record decisions. Those actions matter enormously for governance, but they do not directly strengthen source independence, support strength or confidence. Human approval is not evidence.</p>
-      </article>
-    </div>
-
-    <div class="chain">
-      researcher request → bounded plan → optional AI advice → explicit execution authorisation → acquisition → source representation → semantic evidence assessment → canonical state → review / challenge → continuation → outputs → durable knowledge
-    </div>
-  </div>
-</section>
-
-<section class="hallucination-section" id="evidence">
-  <div class="section-inner">
-    <div class="section-tag">Evidence chain</div>
-    <h2>A bibliography is necessary.<br><em>An auditable support chain is better.</em></h2>
-    <p class="section-sub">The engine is designed around the claim–evidence interface: what exact source supports what exact proposition, in what role, under what conditions?</p>
-
-    <div class="rule-list">
-      <div class="rule"><strong>Reference exists ≠ source supports claim.</strong> A cited paper can be real and still fail to support the proposition attributed to it.</div>
-      <div class="rule"><strong>Topical relevance ≠ evidentiary relevance.</strong> Metadata, snippets and adjacent literature are useful leads, not evidence admission.</div>
-      <div class="rule"><strong>Two URLs ≠ two independent sources.</strong> Duplicate representations, syndicated material and sources sharing the same underlying work do not create corroboration.</div>
-      <div class="rule"><strong>Strong evidence somewhere ≠ applicable evidence here.</strong> Population, jurisdiction, time period, workflow and mechanism all matter to transferability.</div>
-      <div class="rule"><strong>Silence ≠ support.</strong> Missing evidence stays a gap. The engine is allowed to end with zero strict findings.</div>
-    </div>
-  </div>
-</section>
-
-<section class="diff-section" id="knowledge">
-  <div class="section-inner">
-    <div class="section-tag">Institutional knowledge</div>
-    <h2>Memory is not enough.<br><em>Knowledge needs provenance and revalidation.</em></h2>
-
-    <div class="audit-grid" style="margin-top:var(--space-xl);">
-      <article class="audit-card">
-        <h3>Why long context is not the answer</h3>
-        <p>A million-token context can expose old material to a model. It does not tell you which prior claims were actually supported, which were later contradicted, which are stale, or which were accepted without adequate review.</p>
-      </article>
-      <article class="audit-card">
-        <h3>Why RAG is not the whole answer</h3>
-        <p>Retrieval brings back documents or chunks. Epistamate's target is richer: claim identity + exact evidence + provenance + applicability + independence + review history + temporal validity + contradiction state + version lineage.</p>
-      </article>
-      <article class="audit-card">
-        <h3>How reuse should work</h3>
-        <p>A prior claim can be reused only after the new context is evaluated. The result may be strengthened, qualified, weakened, superseded or marked stale. Research compounds without pretending that yesterday's answer is automatically today's truth.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="hallucination-section" id="audit">
-  <div class="section-inner">
-    <div class="section-tag">Reviewer governance</div>
-    <h2>In high-stakes research,<br><em>who reviewed what is part of the evidence story.</em></h2>
-
-    <div class="audit-grid" style="margin-top:var(--space-xl);">
-      <article class="audit-card">
-        <h3>AI proposal</h3>
-        <p>The system records what AI assistance recommended — planning changes, triage priorities, interpretations or challenges — without disguising those recommendations as researcher decisions.</p>
-      </article>
-      <article class="audit-card">
-        <h3>Researcher action</h3>
-        <p>Review actions are explicit, durable events bound to the research checkpoint and target. A senior reviewer can distinguish inspection and judgment from passive acceptance of an AI-generated queue.</p>
-      </article>
-      <article class="audit-card">
-        <h3>Evidence state at decision time</h3>
-        <p>The point of an audit trail is not merely to know that someone clicked “accept.” It is to reconstruct what evidence, contradictions, gaps and qualifications were visible when the decision was made.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<section class="hallucination-section" id="contracts">
-  <div class="section-inner">
-    <div class="section-tag">Integrity contracts around the six principles</div>
-    <h2>The public architecture is stronger when it says<br><em>what the engine refuses to conflate.</em></h2>
-    <div class="audit-grid" style="margin-top:var(--space-xl);">
-      <article class="audit-card"><h3>Evidence ≠ assertion</h3><p>A management statement, meeting note, sponsor slide or model output can be useful without being established fact.</p></article>
-      <article class="audit-card"><h3>Source presence ≠ support</h3><p>A valid URL, DOI or bibliography entry does not establish that the source supports the proposition attached to it.</p></article>
-      <article class="audit-card"><h3>Model agreement ≠ verification</h3><p>Multiple frontier models can converge on the same interpretation and still be wrong in the same direction.</p></article>
-      <article class="audit-card"><h3>Human approval ≠ stronger evidence</h3><p>Human judgement is authoritative for professional decisions and issuance. It is recorded as provenance, not converted into evidentiary corroboration.</p></article>
-      <article class="audit-card"><h3>Research relevance ≠ client fact</h3><p>External research can sharpen a challenge or test. It cannot prove that a specific client control operated or that a specific business claim is true.</p></article>
-      <article class="audit-card"><h3>Update ≠ overwrite</h3><p>New evidence can stale an assessment or recommendation. Prior states remain reconstructable instead of being silently rewritten.</p></article>
-    </div>
-  </div>
-</section>
-<section class="diff-section" id="status">
-  <div class="section-inner">
-    <div class="section-tag">Canonical rebuild status</div>
-    <h2>Principles are durable.<br><em>Capabilities still have to be earned.</em></h2>
-    <p class="section-sub">The original prototype implemented several ideas with simpler scoring and graph mechanisms. The canonical rebuild is intentionally replacing those shortcuts with stricter evidence, identity and authority contracts.</p>
-
-    <div class="status-grid" style="margin-top:var(--space-xl);">
-      <article class="status-card">
-        <span class="status-label now">Implemented / live validation</span>
-        <h3>Current-run canonical research</h3>
-        <p>General research currently exercises explicit planning/permissions, acquisition, source/evidence inspection, Semantic assessment, gaps/relationships, researcher review infrastructure, continuation controls, audit/activity history and evidence-bearing outputs. End-to-end live quality is still being tested and hardened.</p>
-      </article>
-      <article class="status-card">
-        <span class="status-label next">Active development</span>
-        <h3>Bounded frontier-model assistance</h3>
-        <p>Planning and review assistance are being integrated behind typed, digest-bound contracts. Future stages include stronger adversarial challenge and Research Further advice while retaining zero evidence-authority delta from the assistant itself.</p>
-      </article>
-      <article class="status-card">
-        <span class="status-label next">Canonical rebuild</span>
-        <h3>Durable Knowledge / cross-topic compounding</h3>
-        <p>Same-question iteration and follow-on lineage exist, but the durable cross-topic Knowledge layer and long-lived knowledge graph are not yet claimed as finished early-access capabilities. Their target semantics are provenance-first, versioned and recency/applicability aware.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="hallucination-section" id="publication">
-  <div class="section-inner">
-    <div class="section-tag">Published architecture</div>
-    <h2>The design predates the current rebuild.<br><em>The doctrine has become stricter.</em></h2>
-    <p class="section-sub">The DCBR architecture paper and defensive disclosure document the original six-property contribution. The implementation is evolving; the enduring claim is the need for these properties to coexist in one practitioner-facing research system.</p>
-    <div class="hero-ctas" style="justify-content:flex-start;">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener" class="btn-primary">DCBR Engine paper ↗</a>
-      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener" class="btn-secondary">Defensive disclosure ↗</a>
-      <a href="landscape.html" class="btn-ghost">Prior art and open problems →</a>
-    </div>
-  </div>
-</section>
-
+<section class="hallucination-section" id="publication"><div class="section-inner">
+ <div class="section-tag">Published architecture</div><h2>The original thesis is public.<br><em>The implementation doctrine has become stricter.</em></h2>
+ <p class="section-sub">The DCBR paper and defensive disclosure document the six-property architecture. Direct publication links below avoid the fragile redirect/deep-link paths that previously produced blank pages.</p>
+ <div class="pub-grid" style="margin-top:var(--space-xl)">
+  <article class="e-card pub-card"><div class="num">ZENODO</div><h3>DCBR Engine paper</h3><p>Canonical record for the published architecture.</p><div class="publication-id">10.5281/zenodo.19204972</div><div class="hero-ctas"><a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener" class="btn-primary">Open Zenodo record ↗</a></div></article>
+  <article class="e-card pub-card"><div class="num">IP.COM</div><h3>Defensive disclosure</h3><p>IP.com changed its public retrieval surface. Use its prior-art search and the publication identifier shown here rather than the old fragile deep link.</p><div class="publication-id">IPCOM/000277741</div><div class="hero-ctas"><a href="https://priorart.ip.com/" target="_blank" rel="noopener" class="btn-secondary">Open IP.com search ↗</a></div></article>
+  <article class="e-card pub-card"><div class="num">CONTEXT</div><h3>Prior art &amp; adjacent systems</h3><p>Where Epistamate sits relative to frontier research agents, scholarly tools, RAG, knowledge graphs and AI governance.</p><div class="hero-ctas"><a href="landscape.html" class="btn-ghost">Research landscape →</a></div></article>
+ </div>
+</div></section>
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>Epistamate</strong>
-      <p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p>
-    </div>
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="engine.html">The Engine</a>
+      <a href="index.html">Home</a><a href="epistamate_demo.html">Research</a>
       <a href="genai-control-evidence-review.html">AI Workflow Assurance</a>
-      <a href="advisory.html">Evidence-led Advisory</a>
-      <a href="landscape.html">Research landscape</a>
-      <a href="blog/index.html">Insights</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="advisory.html">Evidence-led Advisory</a><a href="engine.html">The Engine</a>
+      <a href="blog/index.html">Insights</a><a href="index.html#contact">Contact</a>
     </div>
     <div class="footer-refs">
-      <a href="https://doi.org/10.5281/zenodo.19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
-      <a href="https://ip.com/IPCOM/000277741" target="_blank" rel="noopener">Defensive disclosure · IP.com</a>
+      <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
+      <a href="landscape.html">Prior art and open problems</a>
     </div>
   </div>
 </footer>
-</body>
-</html>
+</body></html>

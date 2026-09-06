@@ -1,209 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Historical Epistamate Research Prototype Demo</title>
-  <meta name="description" content="Explore a historical Epistamate DCBR research prototype and Cite Explorer. The page is retained for interaction history; current canonical evidence-authority semantics are documented on the Engine page.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="distilapp.css">
-  <style>
-    body { background: var(--paper); }
-    .demo-page { max-width: 860px; margin: 0 auto; padding: var(--space-xl) var(--space-l); }
-    .demo-header { margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border); padding-bottom: var(--space-l); }
-    .demo-header .eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-s); }
-    .demo-header h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: var(--space-s); }
-    .demo-header p { color: var(--ink-3); max-width: 600px; }
-    .input-section { margin-bottom: var(--space-l); }
-    .input-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 8px; display: block; }
-    .question-input { width: 100%; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 2px solid var(--border); border-radius: var(--radius-m); background: var(--paper); color: var(--ink); resize: vertical; min-height: 72px; transition: border-color 0.2s; line-height: 1.5; }
-    .question-input:focus { outline: none; border-color: var(--accent); }
-    .domain-select { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-s); }
-    .domain-pill { padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.82rem; cursor: pointer; background: var(--paper-2); color: var(--ink-3); transition: all 0.15s; }
-    .domain-pill:hover, .domain-pill.active { border-color: var(--accent); background: rgba(200,67,47,0.06); color: var(--accent); }
-    .run-btn { margin-top: var(--space-m); padding: 14px 32px; background: var(--accent); color: #fff; font-size: 1rem; font-weight: 600; border: none; border-radius: var(--radius-m); cursor: pointer; transition: background 0.15s, transform 0.1s; font-family: var(--font-body); }
-    .run-btn:hover:not(:disabled) { background: var(--accent-2); transform: translateY(-1px); }
-    .run-btn:disabled { background: var(--ink-4); cursor: not-allowed; transform: none; }
-    .results-area { margin-top: var(--space-xl); }
-    .phase-header { display: flex; align-items: center; gap: var(--space-s); margin: var(--space-xl) 0 var(--space-m); padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-    .phase-badge { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: var(--radius); background: var(--ink); color: var(--paper); }
-    .phase-title { font-weight: 600; font-size: 0.9rem; color: var(--ink-3); }
-    .claim-card { margin-bottom: var(--space-m); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; background: var(--paper); }
-    .claim-header { display: grid; grid-template-columns: 58px 1fr auto; gap: var(--space-m); padding: var(--space-m); background: var(--paper-2); border-bottom: 1px solid var(--border); align-items: center; }
-    .claim-score { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 1rem; }
-    .score-high { background: rgba(26,110,58,0.1); color: var(--verified); border: 2px solid rgba(26,110,58,0.35); }
-    .score-mid  { background: rgba(200,67,47,0.08); color: var(--contested); border: 2px solid rgba(200,67,47,0.3); }
-    .score-low  { background: rgba(136,136,136,0.1); color: var(--weak); border: 2px solid rgba(136,136,136,0.3); }
-    .claim-text-block h4 { font-size: 0.95rem; margin-bottom: 4px; }
-    .claim-type-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-4); letter-spacing: 0.04em; }
-    .claim-status-badge { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--radius); white-space: nowrap; align-self: flex-start; }
-    .badge-verified   { background: rgba(26,110,58,0.1); color: var(--verified); }
-    .badge-contested  { background: rgba(200,67,47,0.1); color: var(--contested); }
-    .badge-weak       { background: rgba(136,136,136,0.1); color: var(--weak); }
-    .badge-unverified { background: rgba(136,136,136,0.06); color: var(--ink-4); border: 1px solid var(--border); }
-    .claim-body { padding: var(--space-m); }
-    .claim-evidence { font-size: 0.925rem; color: var(--ink-2); margin-bottom: var(--space-s); line-height: 1.6; }
-    .meta-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-s); }
-    .meta-chip { font-family: var(--font-mono); font-size: 0.7rem; padding: 3px 8px; border-radius: var(--radius); background: var(--paper-2); border: 1px solid var(--border); color: var(--ink-4); }
-    .meta-chip.pos { color: var(--verified); background: rgba(26,110,58,0.05); border-color: rgba(26,110,58,0.2); }
-    .meta-chip.neg { color: var(--contested); background: rgba(200,67,47,0.05); border-color: rgba(200,67,47,0.2); }
-    .score-formula { padding: var(--space-s) var(--space-m); background: var(--paper-2); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-3); line-height: 1.8; margin-bottom: var(--space-s); }
-    .score-formula .val-pos { color: var(--verified); }
-    .score-formula .val-neg { color: var(--contested); }
-    .score-formula .val-total { color: var(--ink); font-weight: 500; font-size: 0.85rem; }
-    .challenge-block { padding: var(--space-s) var(--space-m); background: rgba(200,67,47,0.04); border: 1px solid rgba(200,67,47,0.18); border-radius: var(--radius); margin-bottom: var(--space-s); }
-    .challenge-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--contested); margin-bottom: 6px; }
-    .challenge-text { font-size: 0.875rem; color: var(--ink-3); }
-    .challenge-outcome { margin-top: 8px; font-size: 0.78rem; font-family: var(--font-mono); color: var(--ink-4); }
-    .gap-card { margin-bottom: var(--space-s); padding: var(--space-m); border: 1px dashed var(--border-2); border-radius: var(--radius-m); background: var(--paper-2); }
-    .gap-importance { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
-    .gap-card h4 { font-size: 0.925rem; margin-bottom: 4px; }
-    .gap-card p { font-size: 0.875rem; color: var(--ink-3); }
-    .brief-block { padding: var(--space-l); background: var(--ink); color: var(--paper); border-radius: var(--radius-m); margin-bottom: var(--space-m); }
-    .brief-block h3 { color: var(--paper); font-size: 1.2rem; margin-bottom: var(--space-m); }
-    .brief-block p { color: #ccc; font-size: 0.925rem; line-height: 1.7; margin-bottom: var(--space-s); }
-    .brief-block .key-findings { margin-top: var(--space-m); }
-    .brief-block .key-findings h4 { color: var(--accent-2); font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-s); }
-    .brief-finding { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-s); margin-bottom: var(--space-s); align-items: start; }
-    .brief-finding-score { font-family: var(--font-mono); font-size: 0.875rem; color: var(--accent-2); text-align: right; }
-    .brief-finding-text { font-size: 0.9rem; color: #bbb; }
-    .decision-log { padding: var(--space-m); border: 1px solid var(--border-2); border-radius: var(--radius-m); background: var(--paper-2); }
-    .decision-log-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-m); flex-wrap: wrap; gap: 8px; }
-    .decision-log-title { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); }
-    .decision-log-id { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-4); }
-    .log-stats { display: flex; flex-wrap: wrap; gap: var(--space-s); }
-    .log-stat { text-align: center; }
-    .log-stat .val { font-family: var(--font-mono); font-size: 1.3rem; display: block; }
-    .log-stat .lbl { font-size: 0.72rem; color: var(--ink-4); }
-    .val-v { color: var(--verified); }
-    .val-c { color: var(--contested); }
-    .val-w { color: var(--weak); }
-    .loading-wrap { padding: var(--space-xl) 0; display: flex; flex-direction: column; gap: var(--space-m); }
-    .phase-progress { display: flex; align-items: center; gap: var(--space-m); padding: var(--space-m); border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--paper-2); transition: background 0.3s, border-color 0.3s; }
-    .phase-progress .spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
-    .phase-progress .done-icon { color: var(--verified); font-size: 1.1rem; flex-shrink: 0; width: 18px; text-align: center; }
-    .phase-progress .idle-icon { color: var(--border-2); font-size: 1rem; flex-shrink: 0; width: 18px; text-align: center; }
-    .phase-progress-text { font-size: 0.9rem; color: var(--ink-3); }
-    .phase-progress-label { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .error-block { padding: var(--space-l); border: 1px solid rgba(200,67,47,0.3); border-radius: var(--radius-m); background: rgba(200,67,47,0.04); }
-    .error-block h4 { color: var(--contested); margin-bottom: var(--space-s); }
-    .error-block p { font-size: 0.9rem; color: var(--ink-3); }
-    .error-block .error-code { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-4); margin-top: var(--space-s); }
-    .suggested-questions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-s); }
-    .suggested-q { padding: 7px 14px; font-size: 0.82rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--paper-2); color: var(--ink-3); cursor: pointer; transition: all 0.15s; }
-    .suggested-q:hover { border-color: var(--accent); color: var(--accent); }
-    .disclaimer { margin-top: var(--space-xl); padding: var(--space-m); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.8rem; color: var(--ink-4); line-height: 1.6; }
-    @media (max-width: 600px) { .claim-header { grid-template-columns: 48px 1fr; } .claim-status-badge { display: none; } .demo-page { padding: var(--space-l) var(--space-m); } }
-
-
-    /* ── Tool tabs ──────────────────────────────────────────── */
-    .tool-tabs {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-m);
-      overflow: hidden;
-      margin-bottom: var(--space-l);
-    }
-    .tool-tab {
-      flex: 1;
-      padding: 1.1rem 1.5rem;
-      background: var(--paper-2);
-      border: none;
-      border-right: 1px solid var(--border);
-      cursor: pointer;
-      text-align: left;
-      transition: background 0.15s;
-      font-family: var(--font-body);
-    }
-    .tool-tab:last-child { border-right: none; }
-    .tool-tab:hover { background: var(--paper-3); }
-    .tool-tab.active {
-      background: var(--ink);
-      color: #fff;
-    }
-    .tool-tab-label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 3px;
-    }
-    .tool-tab-desc {
-      display: block;
-      font-size: 0.78rem;
-      opacity: 0.65;
-      font-family: var(--font-mono);
-    }
-    .tool-tab.active .tool-tab-desc { opacity: 0.7; }
-    .tool-panel { }
-    .btn-cite-jump {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--ink);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 600;
-      border-radius: var(--radius-m);
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .btn-cite-jump:hover { background: var(--ink-2); }
-    /* ── Cite Explorer ──────────────────────────────────────── */
-    .cite-explorer { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 2px solid var(--border); }
-    .cite-explorer-header { margin-bottom: var(--space-l); }
-    .cite-explorer-header .eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
-    .cite-explorer-header h2 { font-size: 1.4rem; font-family: var(--font-display); font-weight: 400; margin-bottom: 8px; }
-    .cite-explorer-header p { font-size: 0.875rem; color: var(--ink-3); max-width: 580px; line-height: 1.7; }
-    .cite-disclaimer { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-4); background: var(--paper-2); border: 1px solid var(--border); border-left: 3px solid var(--border-2); border-radius: 0 4px 4px 0; padding: 0.45rem 0.75rem; margin-top: 0.6rem; display: inline-block; }
-    .cite-input-row { display: flex; gap: 0.75rem; margin-bottom: var(--space-m); flex-wrap: wrap; align-items: flex-start; }
-    .cite-input-row textarea { flex: 1; min-width: 220px; padding: 12px 14px; font-family: var(--font-body); font-size: 0.9rem; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--paper); color: var(--ink); resize: vertical; min-height: 68px; transition: border-color 0.2s; line-height: 1.5; }
-    .cite-input-row textarea:focus { outline: none; border-color: var(--border-2); }
-    .cite-run-btn { padding: 12px 22px; background: var(--ink); color: #fff; font-size: 0.875rem; font-weight: 600; border: none; border-radius: var(--radius-m); cursor: pointer; transition: background 0.15s; font-family: var(--font-body); white-space: nowrap; }
-    .cite-run-btn:hover:not(:disabled) { background: var(--ink-2); }
-    .cite-run-btn:disabled { background: var(--border-2); cursor: not-allowed; }
-    .cite-status { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-3); background: var(--paper-2); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 0.8rem; margin-bottom: var(--space-m); display: flex; align-items: center; gap: 0.5rem; }
-    .cite-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: spin2 1.2s linear infinite; }
-    @keyframes spin2 { 0%,100%{opacity:1} 50%{opacity:0.2} }
-    .cite-status.done .cite-status-dot { background: var(--verified); animation: none; }
-    .cite-terms { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-m); }
-    .cite-term-chip { font-family: var(--font-mono); font-size: 0.7rem; background: var(--paper-3); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; color: var(--ink-3); }
-    .cite-table-wrap { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; background: #fff; }
-    .cite-table-header { padding: 0.55rem 0.9rem; background: var(--paper-2); border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-4); letter-spacing: 0.04em; display: flex; justify-content: space-between; align-items: center; }
-    .cite-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
-    .cite-table-wrap thead { background: var(--paper-2); border-bottom: 1px solid var(--border); }
-    .cite-table-wrap th { text-align: left; padding: 0.5rem 0.75rem; font-family: var(--font-mono); font-size: 0.67rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-4); font-weight: 500; }
-    .cite-table-wrap td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink-2); line-height: 1.4; }
-    .cite-table-wrap tr:last-child td { border-bottom: none; }
-    .cite-table-wrap tr:hover td { background: var(--paper); }
-    .cite-api-badge { font-family: var(--font-mono); font-size: 0.63rem; padding: 2px 6px; border-radius: 3px; font-weight: 500; letter-spacing: 0.02em; }
-    .cite-api-crossref { background: #e8f0fe; color: #3c5a9a; }
-    .cite-api-semanticscholar { background: #e6f4ea; color: #1a6e3a; }
-    .cite-api-openalex { background: #fef3e2; color: #8b5e0a; }
-    .cite-link { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); text-decoration: none; }
-    .cite-link:hover { text-decoration: underline; }
-    .cite-empty { padding: 2rem; text-align: center; color: var(--ink-4); font-size: 0.875rem; }
-    .cite-footer { margin-top: var(--space-m); font-size: 0.78rem; color: var(--ink-4); line-height: 1.7; }
-    .cite-footer a { color: var(--ink-3); text-decoration: underline; }
-    .btn-cite-jump { display: inline-block; padding: 10px 20px; background: var(--ink); color: #fff !important; font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; border-radius: var(--radius-m); text-decoration: none !important; white-space: nowrap; }
-    .btn-cite-jump:hover { background: var(--ink-2); }
-    @media (max-width: 600px) { .cite-table-wrap th:nth-child(3), .cite-table-wrap td:nth-child(3),
-      .cite-table-wrap th:nth-child(4), .cite-table-wrap td:nth-child(4) { display: none; } }
-  </style>
-  <link rel="canonical" href="https://epistamate.com/epistamate_demo.html">
-  <meta property="og:image" content="https://epistamate.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="627">
-  <!-- build:2026-06-20T05:38:13Z -->
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Epistamate Research — Evidence-backed AI-assisted research</title>
+<meta name="description" content="Early-access Windows research software that uses frontier models for planning, search, interpretation and challenge while keeping claim support, evidence lineage, applicability, contradictions, gaps and researcher decisions explicit.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://epistamate.com/epistamate_demo.html">
+<meta property="og:title" content="Epistamate Research"><meta property="og:description" content="Use frontier intelligence to research harder. Keep evidence authority outside the model."><meta property="og:image" content="https://epistamate.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="distilapp.css">
+<style>
+  .research-page .research-landing{
+    max-width:var(--max-w);margin:0 auto;padding:1.8rem var(--space-l) 1.5rem;
+  }
+  .research-page .hero-eyebrow{margin-bottom:.7rem}
+  .research-page .research-title{
+    max-width:1080px;font-family:var(--font-display);font-weight:400;
+    font-size:clamp(2.4rem,3.75vw,3.25rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:.7rem;
+  }
+  .research-page .research-title em{color:var(--accent)}
+  .research-standfirst{
+    font-size:1.04rem;font-weight:600;line-height:1.42;max-width:940px;color:var(--ink);margin-bottom:.35rem;
+  }
+  .research-copy{font-size:.9rem;line-height:1.48;color:var(--ink-3);max-width:980px}
+  .research-proof-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:1rem;
+  }
+  .research-proof{
+    border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);
+    padding:.78rem .95rem;min-height:88px;
+  }
+  .research-proof .label{
+    font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:.25rem;
+  }
+  .research-proof h3{font-size:.96rem;margin-bottom:.18rem}
+  .research-proof p{font-size:.75rem;line-height:1.35;color:var(--ink-3)}
+  .research-flow{
+    margin-top:.7rem;font-family:var(--font-mono);font-size:.69rem;line-height:1.5;color:var(--ink-3);
+    padding:.5rem .75rem;border-left:2px solid var(--accent);background:var(--paper-2);
+  }
+  .research-page .hero-ctas{margin-top:.7rem}
+  .research-page .hero-ctas a{font-size:.86rem;padding-top:8px;padding-bottom:8px}
+  .research-boundary{
+    margin-top:.5rem;font-size:.7rem;color:var(--ink-4);line-height:1.4;max-width:980px;
+  }
+  @media(max-width:900px){
+    .research-page .research-landing{padding-top:1.75rem;padding-bottom:1.75rem}
+    .research-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media(max-width:620px){
+    .research-page .research-landing{padding:2rem var(--space-m)}
+    .research-page .research-title{font-size:2.25rem;line-height:1.08}
+    .research-proof-grid{grid-template-columns:1fr}
+    .research-proof{min-height:0}
+    .research-page .hero-ctas{align-items:stretch}
+    .research-page .hero-ctas>a{width:100%;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Epistamate Research","applicationCategory":"BusinessApplication","operatingSystem":"Windows","description":"Early-access professional research software with provenance-aware evidence state, explicit uncertainty, researcher review and durable continuation.","url":"https://epistamate.com/epistamate_demo.html"}</script>
+<!-- build:2026-09-06-research-one-screen-final-density -->
 </head>
-<body>
-
+<body class="research-page">
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
@@ -215,654 +73,42 @@
       <a href="engine.html">The Engine</a>
       <a href="blog/index.html">Insights</a>
     </div>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
-<div class="demo-page">
-  <div class="demo-header">
-    <div class="eyebrow">Historical prototype demo &middot; DCBR Pipeline + Cite Explorer</div>
-    <h1>See how Epistamate <em>works.</em></h1>
-    <p>This interactive page preserves an earlier DCBR research prototype. It is useful for exploring claim-level evidence interaction and candidate-source discovery, but its formula scoring and phase mechanics are not the current canonical Epistamate evidence-authority model.</p>
-    <p style="margin-top:0.75rem;font-size:0.88rem;color:var(--ink-4);">Enter a research question or claim as text. This demo does not support document upload or file attachment.</p>
-    <p style="margin-top:0.75rem;font-size:0.88rem;color:var(--contested);"><strong>Prototype note:</strong> current Epistamate separates model reasoning from evidence authority, does not treat model/provider agreement as independent corroboration, and does not let human approval itself strengthen the underlying evidence.</p>
+<main class="research-landing">
+  <div class="hero-eyebrow">Epistamate Research · Windows desktop · Early access</div>
+  <h1 class="research-title">Use frontier intelligence to research harder.<br><em>Keep evidence authority outside the model.</em></h1>
+  <p class="research-standfirst">Not a prettier research report. A research state you can reopen, challenge, continue and defend.</p>
+  <p class="research-copy">Frontier models can plan, search, read difficult material and challenge a draft. Epistamate keeps the evidence state, unresolved questions and researcher decisions outside the model so later work can be inspected and continued rather than reconstructed.</p>
+
+  <div class="research-proof-grid" aria-label="What Epistamate Research controls">
+    <article class="research-proof"><div class="label">Support</div><h3>A real citation can still fail the claim.</h3><p>Keep the exact proposition tied to the material that actually supports, qualifies or contradicts it.</p></article>
+    <article class="research-proof"><div class="label">Independence</div><h3>Forty URLs may still be one result.</h3><p>Shared work, dataset and source-family lineage should not silently become corroboration.</p></article>
+    <article class="research-proof"><div class="label">Applicability</div><h3>Strong evidence may not transfer.</h3><p>Population, jurisdiction, configuration, task and time constrain what a finding warrants here.</p></article>
+    <article class="research-proof"><div class="label">Contradiction</div><h3>Disagreement stays visible.</h3><p>Counterevidence, qualifications and gaps remain research objects instead of being smoothed away.</p></article>
+    <article class="research-proof"><div class="label">Researcher review</div><h3>AI priority is not human review.</h3><p>The record separates what a model suggested from what a researcher actually inspected and decided.</p></article>
+    <article class="research-proof"><div class="label">Continuation</div><h3>Prior evidence is revalidated.</h3><p>Same-topic research can deepen without rewriting history or automatically inheriting answer authority.</p></article>
   </div>
 
-  <!-- ── Tool selector tabs ──────────────────────────────────── -->
-  <div class="tool-tabs" id="toolTabs">
-    <button class="tool-tab active" id="tabPipeline" onclick="switchTab('pipeline')">
-      <span class="tool-tab-label">DCBR Pipeline</span>
-      <span class="tool-tab-desc">Score a claim against evidence</span>
-    </button>
-    <button class="tool-tab" id="tabCite" onclick="switchTab('cite')">
-      <span class="tool-tab-label">Cite Explorer</span>
-      <span class="tool-tab-desc">Find candidate papers</span>
-    </button>
+  <div class="research-flow">Question → plan → acquire → represent evidence → review / challenge → output → Research Further / follow-on</div>
+
+  <div class="hero-ctas">
+    <a href="index.html#contact" class="btn-primary">Discuss early access →</a>
+    <a href="engine.html" class="btn-secondary">See the evidence architecture →</a>
+    <a href="prototype-demo.html" class="btn-ghost">Historical interactive prototype</a>
   </div>
+  <p class="research-boundary"><strong>Current boundary:</strong> General research is in active end-to-end validation. Same-topic continuation and review lineage are real; durable governed cross-topic Knowledge remains a product milestone rather than a finished early-access claim.</p>
+</main>
 
-  <!-- ── Pipeline panel ──────────────────────────────────────── -->
-  <div class="tool-panel" id="panelPipeline">
-    <div class="input-section">
-      <label class="input-label" for="researchQ">Research question</label>
-      <textarea class="question-input" id="researchQ" placeholder="e.g. What is the evidence base for carbon border adjustment mechanisms as a climate policy instrument?"></textarea>
-
-      <div style="margin-top:var(--space-s);">
-        <span class="input-label" style="display:inline;margin-right:8px;">Suggested questions →</span>
-        <div class="suggested-questions">
-          <div class="suggested-q">Carbon border adjustment mechanisms</div>
-          <div class="suggested-q">AI regulation effectiveness EU vs US</div>
-          <div class="suggested-q">Evidence base for four-day work week policies</div>
-          <div class="suggested-q">Generative AI impact on knowledge worker productivity</div>
-        </div>
-      </div>
-
-      <div style="margin-top:var(--space-m);">
-        <label class="input-label">Domain context</label>
-        <div class="domain-select" id="domainSelect">
-          <div class="domain-pill active" data-domain="general">General research</div>
-          <div class="domain-pill" data-domain="policy">Policy / Think tank</div>
-          <div class="domain-pill" data-domain="consulting">Consulting</div>
-          <div class="domain-pill" data-domain="regulatory">Regulatory / Compliance</div>
-        </div>
-      </div>
-
-      <button class="run-btn" id="runBtn" onclick="runPipeline()">Run DCBR Pipeline →</button>
-    </div>
-
-    <div id="resultsArea" class="results-area" style="display:none;"></div>
-
-
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="epistamate_demo.html">Research</a><a href="genai-control-evidence-review.html">AI Workflow Assurance</a><a href="advisory.html">Evidence-led Advisory</a><a href="engine.html">The Engine</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Contact</a></div>
+    <div class="footer-refs"><a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a><span class="publication-id">Defensive disclosure · IPCOM/000277741</span><a href="landscape.html">Prior art and open problems</a></div>
   </div>
-
-  <!-- ── Cite Explorer panel ─────────────────────────────────── -->
-  <div class="tool-panel" id="panelCite" style="display:none">
-    <div class="cite-explorer-header">
-      <p style="font-size:0.9rem;color:var(--ink-3);line-height:1.7;margin-bottom:0.75rem;">Enter a claim or research question to surface related papers from CrossRef, Semantic Scholar, and OpenAlex. Results are unverified leads, not admitted evidence.</p>
-      <div class="cite-disclaimer">Candidate sources only. Evidence admission requires claim-span matching, source tier validation, and adversarial challenge.</div>
-    </div>
-
-    <div class="cite-input-row" style="margin-top:var(--space-m);">
-      <textarea id="citeInput" placeholder="e.g. Large language models fabricate academic citations at high rates..." maxlength="1000" rows="2"></textarea>
-      <button class="cite-run-btn" id="citeRunBtn" onclick="runCiteExplorer()">Find candidate papers</button>
-    </div>
-
-    <div style="margin-top:var(--space-s);">
-      <span class="input-label" style="display:inline;margin-right:8px;">Suggested questions →</span>
-      <div class="suggested-questions">
-        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">Carbon border adjustment mechanisms</div>
-        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">AI regulation effectiveness EU vs US</div>
-        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">LLM hallucination research integrity</div>
-        <div class="suggested-q" onclick="document.getElementById('citeInput').value=this.textContent">Generative AI knowledge worker productivity</div>
-      </div>
-    </div>
-
-    <div class="cite-status" id="citeStatus" style="display:none;margin-top:var(--space-m);">
-      <span class="cite-status-dot" id="citeStatusDot"></span>
-      <span id="citeStatusText"></span>
-    </div>
-
-    <div id="citeTermsWrap" style="display:none;margin:var(--space-m) 0 var(--space-s);">
-      <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px;">Search terms derived</div>
-      <div class="cite-terms" id="citeTerms"></div>
-    </div>
-
-    <div id="citeResultsWrap" style="display:none;margin-top:var(--space-m);">
-      <div class="cite-table-wrap">
-        <div class="cite-table-header">
-          <span id="citeResultsCount"></span>
-          <span>Click titles or open links to view papers</span>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th style="width:32px">#</th>
-              <th>Title</th>
-              <th style="width:170px">Authors</th>
-              <th style="width:48px">Year</th>
-              <th style="width:80px">Source</th>
-              <th style="width:52px">Open</th>
-            </tr>
-          </thead>
-          <tbody id="citeResultsBody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div id="citeEmpty" class="cite-empty" style="display:none">No candidate papers found for this query. Try rephrasing with more specific terminology.</div>
-
-    <div class="cite-footer" style="margin-top:var(--space-l);">
-      Sources: <a href="https://www.crossref.org" target="_blank" rel="noopener">CrossRef</a> &middot; <a href="https://www.semanticscholar.org" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a>. Queried directly from your browser. Results are deduplicated by DOI and title. <a href="engine.html">How Epistamate's evidence engine works.</a> Want this as a standalone tool, or to look up a DOI directly? Try <a href="scholarly-source-check.html">Scholarly Source Check</a>.
-    </div>
-  </div>
-
-  <div class="disclaimer">
-    <strong>About this demo:</strong> This demonstration simulates the Epistamate DCBR pipeline, showing how claims are extracted, scored against evidence-quality criteria, challenged adversarially, and compiled into a structured brief with gap tracking. Input is a typed research question or claim -- the demo does not process uploaded documents or files. In the full desktop application, this runs locally with multi-provider parallel retrieval, a persistent knowledge graph, and an immutable Decision Log. Evidence scores reflect the formula structure; in production, source tier assignments draw on real retrieval and ingestion from declared source packs.
-  </div>
-</div>
-
-<script>
-const PHASES = [
-  { id: 'scan',        label: 'Phase 1, Quick Scan',           desc: 'Topic mapping, initial claim stubs, prior knowledge retrieval' },
-  { id: 'research',    label: 'Phase 2, Deep Research',         desc: 'Multi-provider retrieval, claim extraction, confidence scoring' },
-  { id: 'adversarial', label: 'Phase 3, Adversarial Challenge',  desc: 'Challenging assumptions, reassessing claim survival' },
-  { id: 'synthesis',   label: 'Phase 4, Synthesis',             desc: 'Structured brief, Decision Log entry, knowledge graph update' },
-];
-
-let activeDomain = 'general';
-
-document.querySelectorAll('.domain-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.domain-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    activeDomain = pill.dataset.domain;
-  });
-});
-
-document.querySelectorAll('.suggested-q').forEach(q => {
-  q.addEventListener('click', () => {
-    document.getElementById('researchQ').value = q.textContent.trim();
-    document.getElementById('researchQ').focus();
-  });
-});
-
-async function runPipeline() {
-  const question = document.getElementById('researchQ').value.trim();
-  if (!question) { document.getElementById('researchQ').focus(); return; }
-
-  const btn = document.getElementById('runBtn');
-  btn.disabled = true;
-  btn.textContent = 'Running pipeline…';
-
-  const resultsArea = document.getElementById('resultsArea');
-  resultsArea.style.display = 'block';
-  resultsArea.innerHTML = renderLoading();
-  resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  const animPromise = animatePhases();
-
-  try {
-    const response = await fetch('/api/research', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question, domain: activeDomain })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      await animPromise.catch(() => {});
-      resultsArea.innerHTML = renderError(data, response.status);
-      btn.disabled = false;
-      btn.textContent = 'Run DCBR Pipeline →';
-      return;
-    }
-
-    await animPromise;
-    resultsArea.innerHTML = renderResults(question, data);
-
-  } catch (err) {
-    resultsArea.innerHTML = renderError({
-      error: 'Could not reach the research engine. Please check your connection and try again.',
-      code: 'NETWORK_ERROR'
-    }, 0);
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Run DCBR Pipeline →';
-
-  // Pre-fill Cite Explorer and show nudge
-  const citeInput = document.getElementById('citeInput');
-  if (citeInput && !citeInput.value.trim()) {
-    citeInput.value = question;
-  }
-
-}
-
-function renderLoading() {
-  return `<div class="loading-wrap">
-    ${PHASES.map((p, i) => `
-      <div class="phase-progress" id="phase-${p.id}">
-        <div class="${i === 0 ? 'spinner' : 'idle-icon'}" id="icon-${p.id}">${i === 0 ? '' : '○'}</div>
-        <div>
-          <div class="phase-progress-label">${p.label}</div>
-          <div class="phase-progress-text">${p.desc}</div>
-        </div>
-      </div>`).join('')}
-  </div>`;
-}
-
-async function animatePhases() {
-  for (let i = 0; i < PHASES.length; i++) {
-    const p   = PHASES[i];
-    const el  = document.getElementById(`phase-${p.id}`);
-    const ico = document.getElementById(`icon-${p.id}`);
-    if (!el) continue;
-    if (ico) { ico.className = 'spinner'; ico.textContent = ''; }
-    el.style.background   = 'rgba(200,67,47,0.04)';
-    el.style.borderColor  = 'rgba(200,67,47,0.2)';
-    await delay(700 + Math.random() * 500);
-    if (ico) { ico.className = 'done-icon'; ico.textContent = '✓'; }
-    el.style.background  = 'rgba(26,110,58,0.04)';
-    el.style.borderColor = 'rgba(26,110,58,0.2)';
-  }
-  await delay(200);
-}
-
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
-function scoreClass(s) { return s >= 55 ? 'score-high' : s >= 35 ? 'score-mid' : 'score-low'; }
-function statusClass(s) {
-  return { VERIFIED:'badge-verified', CONTESTED:'badge-contested', WEAK:'badge-weak', UNVERIFIED:'badge-unverified' }[(s||'').toUpperCase()] || 'badge-unverified';
-}
-
-function renderError(data, status) {
-  const title = (data.code === 'RATE_LIMITED' || status === 429) ? 'Too many requests'
-              : (data.code === 'UPSTREAM_RATE_LIMITED')          ? 'High demand, please retry in a moment'
-              : 'Something went wrong';
-  return `<div class="error-block">
-    <h4>${title}</h4>
-    <p>${esc(data.error || 'An unexpected error occurred.')}</p>
-    ${data.code ? `<div class="error-code">code: ${esc(data.code)}</div>` : ''}
-    <div style="margin-top:var(--space-m);">
-      <button class="run-btn" style="margin-top:0;" onclick="document.getElementById('resultsArea').style.display='none';">← Try again</button>
-    </div>
-  </div>`;
-}
-
-function renderResults(question, r) {
-  const llmConf    = Math.floor(87 + Math.random() * 5);
-  const avgFormula = r.claims.length ? Math.round(r.claims.reduce((a,c) => a + (c.confidence_score||0), 0) / r.claims.length) : 0;
-
-  return `
-    <div style="padding:var(--space-m) var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);margin-bottom:var(--space-l);">
-      <div class="phase-badge" style="display:inline-block;margin-bottom:8px;">Phase 1, Scan</div>
-      <p style="font-size:0.925rem;color:var(--ink-3);">${esc(r.scan_summary||'')}</p>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:var(--space-l);padding:var(--space-m) var(--space-l);background:var(--ink);border-radius:var(--radius-m);margin-bottom:var(--space-l);flex-wrap:wrap;">
-      <div style="text-align:center;">
-        <div style="font-family:var(--font-mono);font-size:1.8rem;color:#aaa;">${llmConf}%</div>
-        <div style="font-size:0.75rem;color:#666;margin-top:4px;">LLM self-reported<br>confidence</div>
-      </div>
-      <div style="font-family:var(--font-mono);color:#444;font-size:1.2rem;">vs</div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--font-mono);font-size:1.8rem;color:var(--accent-2);">${avgFormula}%</div>
-        <div style="font-size:0.75rem;color:#888;margin-top:4px;">Formula-computed<br>average (this session)</div>
-      </div>
-      <p style="flex:1;min-width:200px;font-size:0.82rem;color:#999;margin:0;">The gap between these numbers is what Epistamate measures. LLM confidence is recorded in audit metadata but never used in scoring.</p>
-    </div>
-
-    <div class="phase-header">
-      <span class="phase-badge">Phase 2, Claims</span>
-      <span class="phase-title">${r.claims.length} claims extracted · scored against evidence formula</span>
-    </div>
-
-    ${r.claims.map(c => {
-      const sb = c.score_breakdown || {};
-      return `<div class="claim-card">
-        <div class="claim-header">
-          <div class="claim-score ${scoreClass(c.confidence_score||0)}">${c.confidence_score||'—'}</div>
-          <div class="claim-text-block">
-            <h4>${esc(c.text||'')}</h4>
-            <span class="claim-type-tag">${esc(c.type||'')} · ${esc(c.source_tier||'')} · ${c.provider_count||1} provider${(c.provider_count||1)!==1?'s':''}</span>
-          </div>
-          <span class="claim-status-badge ${statusClass(c.status)}">${esc(c.status||'')}</span>
-        </div>
-        <div class="claim-body">
-          <p class="claim-evidence">${esc(c.evidence_summary||'')}</p>
-          <div class="meta-row">
-            <span class="meta-chip ${(sb.source_tier_bonus||0)>0?'pos':''}">tier: +${sb.source_tier_bonus||0}</span>
-            <span class="meta-chip ${(sb.consensus_bonus||0)>0?'pos':''}">consensus: +${sb.consensus_bonus||0}</span>
-            <span class="meta-chip ${(sb.socratic_bonus||0)>0?'pos':'neg'}">socratic: ${(sb.socratic_bonus||0)>=0?'+':''}${sb.socratic_bonus||0}</span>
-            ${(sb.recency_decay||0)<0?`<span class="meta-chip neg">recency: ${sb.recency_decay}</span>`:''}
-            ${(sb.sufficiency_penalty||0)<0?`<span class="meta-chip neg">sufficiency: ${sb.sufficiency_penalty}</span>`:''}
-            ${sb.status_adjustment?`<span class="meta-chip ${(sb.status_adjustment||0)>0?'pos':'neg'}">status: ${(sb.status_adjustment||0)>0?'+':''}${sb.status_adjustment}</span>`:''}
-          </div>
-          <div class="score-formula">
-            C_raw = 40
-            <span class="val-pos"> +${sb.source_tier_bonus||0} (tier)</span>
-            <span class="val-pos"> +${sb.consensus_bonus||0} (consensus)</span>
-            <span class="${(sb.socratic_bonus||0)>=0?'val-pos':'val-neg'}"> ${(sb.socratic_bonus||0)>=0?'+':''}${sb.socratic_bonus||0} (socratic)</span>
-            ${(sb.recency_decay||0)<0?`<span class="val-neg"> ${sb.recency_decay} (recency)</span>`:''}
-            ${(sb.sufficiency_penalty||0)<0?`<span class="val-neg"> ${sb.sufficiency_penalty} (sufficiency)</span>`:''}
-            ${sb.status_adjustment?`<span class="${(sb.status_adjustment||0)>0?'val-pos':'val-neg'}"> ${(sb.status_adjustment||0)>0?'+':''}${sb.status_adjustment} (status)</span>`:''}
-            <br/><span class="val-total">= ${c.confidence_score} (bounded [5,95])</span>
-          </div>
-          <div class="challenge-block">
-            <div class="challenge-label">Adversarial challenge · Phase 3</div>
-            <div class="challenge-text">${esc(c.adversarial_challenge||'')}</div>
-            <div class="challenge-outcome">Outcome: ${esc(c.challenge_outcome||'')} · survived: ${c.survived_challenge?'<span style="color:var(--verified)">yes</span>':'<span style="color:var(--contested)">no, socratic bonus removed</span>'}</div>
-          </div>
-        </div>
-      </div>`;
-    }).join('')}
-
-    <div class="phase-header">
-      <span class="phase-badge">Phase 2, Gaps</span>
-      <span class="phase-title">${(r.gaps||[]).length} knowledge gaps identified</span>
-    </div>
-    ${(r.gaps||[]).map(g=>`<div class="gap-card">
-      <div class="gap-importance">${esc(g.importance||'')} importance</div>
-      <h4>${esc(g.question||'')}</h4>
-      <p>${esc(g.why_it_matters||'')}</p>
-    </div>`).join('')}
-
-    <div class="phase-header">
-      <span class="phase-badge">Phase 4, Structured Brief</span>
-      <span class="phase-title">WEAK / UNVERIFIED claims excluded from key findings</span>
-    </div>
-    <div class="brief-block">
-      <h3>Analytical Brief</h3>
-      ${(r.brief_summary||'').split('\n').filter(p=>p.trim()).map(p=>`<p>${esc(p)}</p>`).join('')}
-      <div class="key-findings">
-        <h4>Key findings (verified &amp; contested claims)</h4>
-        ${(r.key_findings||[]).map(f=>{
-          const cl=(r.claims||[]).find(c=>c.id===f.claim_id);
-          if(cl&&(cl.status==='WEAK'||cl.status==='UNVERIFIED')) return '';
-          return `<div class="brief-finding">
-            <div class="brief-finding-score">${f.confidence||'—'}%</div>
-            <div class="brief-finding-text">${esc(f.finding||'')}</div>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>
-
-    <div class="decision-log">
-      <div class="decision-log-header">
-        <span class="decision-log-title">Decision Log entry · immutable snapshot</span>
-        <span class="decision-log-id">session_${Date.now().toString(36).toUpperCase()} · ${new Date().toISOString().split('T')[0]}</span>
-      </div>
-      <div class="log-stats">
-        <div class="log-stat"><span class="val val-v">${(r.decision_log||{}).verified_count||0}</span><span class="lbl">verified</span></div>
-        <div class="log-stat"><span class="val val-c">${(r.decision_log||{}).contested_count||0}</span><span class="lbl">contested</span></div>
-        <div class="log-stat"><span class="val val-w">${(r.decision_log||{}).weak_count||0}</span><span class="lbl">weak</span></div>
-        <div class="log-stat"><span class="val" style="color:var(--gold)">${(r.decision_log||{}).gap_count||0}</span><span class="lbl">gaps</span></div>
-        <div class="log-stat"><span class="val" style="color:var(--ink-4)">${(((r.decision_log||{}).snr||0)*100).toFixed(0)}%</span><span class="lbl">SNR</span></div>
-      </div>
-      <p style="margin-top:var(--space-m);font-size:0.875rem;color:var(--ink-3);">${esc((r.decision_log||{}).session_note||'')}</p>
-      <p style="margin-top:8px;font-size:0.78rem;color:var(--ink-4);font-family:var(--font-mono);">In the full application, this entry is immutable, the full evidence state at this moment is preserved. Article 12 compatible.</p>
-    </div>
-
-    <div style="margin-top:var(--space-xl);padding:var(--space-l);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);">
-      <h4 style="margin-bottom:var(--space-s);">What happens next in the full application</h4>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:var(--space-l);">
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Verified claims write to the persistent knowledge graph, next session on this topic starts ahead</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Gaps accumulate and narrow as evidence arrives across sessions</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Ingest your own documents, they enter the source tier system and shift confidence scores</li>
-        <li style="padding-left:var(--space-m);position:relative;font-size:0.9rem;color:var(--ink-3);"><span style="position:absolute;left:0;color:var(--accent);font-family:var(--font-mono);">→</span>Human grounding (+8) mark a claim as evidence-grounded to raise its score</li>
-      </ul>
-      <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;">
-        <a href="index.html#contact" class="btn-primary">Request early access →</a>
-        <button class="btn-secondary"
-          onclick="document.getElementById('resultsArea').style.display='none';document.getElementById('researchQ').value='';document.getElementById('researchQ').focus();"
-          style="border:2px solid var(--ink);padding:14px 24px;background:transparent;font-weight:600;font-size:1rem;border-radius:var(--radius-m);cursor:pointer;font-family:var(--font-body);">
-          Try another question
-        </button>
-      </div>
-    </div>
-    <div style="margin-top:var(--space-l);padding:var(--space-m);background:var(--paper-2);border:1px solid var(--border);border-radius:var(--radius-m);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-s);">
-      <div>
-        <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px;">Next step</div>
-        <div style="font-size:0.9rem;color:var(--ink-2);">Find candidate papers from CrossRef, Semantic Scholar, and OpenAlex for this question.</div>
-      </div>
-      <a href="#citeExplorer" class="btn-cite-jump" onclick="document.getElementById('citeExplorer').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){if(!citeRunning){runCiteExplorer();}},400);return false;">Explore candidate papers ↓</a>
-    </div>`;
-}
-
-// ── Cite Explorer ────────────────────────────────────────────────
-const CITE_MAILTO = 'hello@epistamate.com';
-const CITE_DELAY = 600;
-let citeRunning = false;
-
-const CITE_STOPWORDS = new Set([
-  'a','an','the','and','or','but','in','on','at','to','for','of','with','by',
-  'from','is','are','was','were','be','been','being','have','has','had','do',
-  'does','did','will','would','could','should','may','might','shall','can',
-  'this','that','these','those','it','its','not','no','nor','so','if','then',
-  'than','too','very','just','about','above','after','again','all','also',
-  'any','because','before','between','both','each','few','more','most','other',
-  'some','such','into','over','own','same','through','under','until','up',
-  'while','only','now','find','here','there','how','what','when','where',
-  'who','whom','which','why','study','paper','research','article','review',
-  'based','using','used','approach','method','results','show','shown','new',
-  'one','two','first','well','however','need','way','make','like','time',
-]);
-
-const CITE_SEEDS = new Set([
-  'language','model','models','llm','llms','gpt','citation','citations',
-  'hallucination','hallucinations','fabricat','fabrication','fabricate',
-  'academic','integrity','scholarly','reference','references',
-  'generative','ai','artificial','intelligence','peer','misinformation',
-  'disinformation','bias','reliability','accuracy','verification',
-  'deep','learning','machine','neural','network','transformer',
-  'plagiarism','misconduct','factuality','source','sources',
-  'evidence','claim','claims','policy','regulatory','compliance','governance',
-  'calibration','confidence','uncertainty','reasoning','knowledge','graph',
-  'epistemic','provenance','traceability','audit','corroboration',
-  'medical','clinical','biomedical','legal','law','regulation','directive',
-  'carbon','climate','border','adjustment','mechanism','productivity',
-  'worker','work','week','impact','effectiveness','evaluation',
-]);
-
-function citeMatchesSeed(word) {
-  if (CITE_SEEDS.has(word)) return true;
-  for (const seed of CITE_SEEDS) {
-    if (seed.length >= 5 && word.length >= 5) {
-      if (word.startsWith(seed) || seed.startsWith(word)) return true;
-    }
-    if (seed.length <= 4 && word === seed) return true;
-  }
-  return false;
-}
-
-function citeExtractTerms(input) {
-  const tokens = input.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, ' ')
-    .split(/\s+/)
-    .filter(w => w.length > 2 && !CITE_STOPWORDS.has(w));
-
-  const matched = [];
-  const seen = new Set();
-  for (let i = 0; i < tokens.length; i++) {
-    if (citeMatchesSeed(tokens[i]) && !seen.has(tokens[i])) {
-      matched.push({ word: tokens[i], index: i });
-      seen.add(tokens[i]);
-    }
-  }
-
-  const phrases = [];
-  let i = 0;
-  while (i < matched.length && phrases.length < 4) {
-    if (i + 1 < matched.length && matched[i+1].index === matched[i].index + 1) {
-      phrases.push(matched[i].word + ' ' + matched[i+1].word);
-      i += 2;
-    } else { i += 1; }
-  }
-  if (matched.length >= 2) {
-    const comp = matched[0].word + ' ' + matched[1].word + ' research';
-    if (!phrases.includes(comp)) phrases.push(comp);
-  }
-  const fallback = phrases.length < 2 ? tokens.filter(w => w.length > 4).slice(0, 4) : phrases;
-  return [...new Set(fallback)].slice(0, 5);
-}
-
-function citeNormDoi(doi) {
-  if (!doi) return null;
-  return doi.replace(/^https?:\/\/doi\.org\//, '').toLowerCase().trim();
-}
-function citeNormTitle(t) {
-  return (t||'').toLowerCase().replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,' ').trim();
-}
-function citeDedup(arr) {
-  const seen = new Set(); const out = [];
-  for (const c of arr) {
-    const k = citeNormDoi(c.doi) || citeNormTitle(c.title);
-    if (!k || seen.has(k)) continue;
-    seen.add(k); out.push(c);
-  }
-  return out;
-}
-
-async function citeFetch(url) {
-  const resp = await fetch(url, { signal: AbortSignal.timeout(14000) });
-  if (!resp.ok) return [];
-  return resp.json();
-}
-
-async function citeCrossRef(term) {
-  try {
-    const d = await citeFetch(`https://api.crossref.org/works?query=${encodeURIComponent(term)}&rows=5&mailto=${CITE_MAILTO}&select=DOI,title,author,published,URL`);
-    return (d.message?.items||[]).map(item => {
-      const authors = (item.author||[]).map(a => ((a.given||'')+' '+(a.family||'')).trim()).filter(Boolean);
-      const year = item.published?.['date-parts']?.[0]?.[0] ?? null;
-      const doi = item.DOI || null;
-      return { title:(item.title||[])[0]||'', authors, year, doi, url: doi?`https://doi.org/${doi}`:(item.URL||null), sourceApi:'crossref' };
-    });
-  } catch { return []; }
-}
-
-async function citeS2(term) {
-  try {
-    const d = await citeFetch(`https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(term)}&limit=5&fields=title,authors,year,externalIds,openAccessPdf,url`);
-    return (d.data||[]).map(item => {
-      const authors = (item.authors||[]).map(a=>a.name||'').filter(Boolean);
-      const doi = item.externalIds?.DOI||null;
-      return { title:item.title||'', authors, year:item.year||null, doi, url:item.openAccessPdf?.url||(doi?`https://doi.org/${doi}`:item.url||null), sourceApi:'semanticscholar' };
-    });
-  } catch { return []; }
-}
-
-async function citeOpenAlex(term) {
-  try {
-    const d = await citeFetch(`https://api.openalex.org/works?search=${encodeURIComponent(term)}&per-page=5&mailto=${CITE_MAILTO}`);
-    return (d.results||[]).map(item => {
-      const authors = (item.authorships||[]).map(a=>a.author?.display_name||'').filter(Boolean);
-      const doi = item.doi ? item.doi.replace(/^https?:\/\/doi\.org\//, '') : null;
-      return { title:item.title||'', authors, year:item.publication_year||null, doi, url:item.open_access?.oa_url||(doi?`https://doi.org/${doi}`:null), sourceApi:'openalex' };
-    });
-  } catch { return []; }
-}
-
-function setCiteStatus(text, done=false) {
-  const b = document.getElementById('citeStatus');
-  const dot = document.getElementById('citeStatusDot');
-  b.style.display = 'flex';
-  b.className = 'cite-status' + (done ? ' done' : '');
-  document.getElementById('citeStatusText').textContent = text;
-}
-
-function citeBadge(api) {
-  const map = { crossref:['cite-api-crossref','CrossRef'], semanticscholar:['cite-api-semanticscholar','S2'], openalex:['cite-api-openalex','OpenAlex'] };
-  const [cls, label] = map[api]||['','?'];
-  return `<span class="cite-api-badge ${cls}">${label}</span>`;
-}
-
-function citeTrunc(s, n) { return s && s.length > n ? s.slice(0,n)+'…' : (s||''); }
-
-function switchTab(tab) {
-  const isPipeline = tab === 'pipeline';
-  document.getElementById('tabPipeline').className = 'tool-tab' + (isPipeline ? ' active' : '');
-  document.getElementById('tabCite').className = 'tool-tab' + (!isPipeline ? ' active' : '');
-  document.getElementById('panelPipeline').style.display = isPipeline ? 'block' : 'none';
-  document.getElementById('panelCite').style.display = !isPipeline ? 'block' : 'none';
-  // If switching to cite and input is empty but pipeline question exists, pre-fill
-  if (!isPipeline) {
-    const pipelineQ = document.getElementById('researchQ').value.trim();
-    const citeInput = document.getElementById('citeInput');
-    if (pipelineQ && !citeInput.value.trim()) {
-      citeInput.value = pipelineQ;
-    }
-  }
-}
-
-
-async function runCiteExplorer() {
-  const input = document.getElementById('citeInput').value.trim();
-  if (!input || citeRunning) return;
-  citeRunning = true;
-  // Ensure section is visible
-  const section = document.getElementById('citeExplorer');
-  if (section) section.style.display = 'block';
-
-  document.getElementById('citeRunBtn').disabled = true;
-  document.getElementById('citeTermsWrap').style.display = 'none';
-  document.getElementById('citeResultsWrap').style.display = 'none';
-  document.getElementById('citeEmpty').style.display = 'none';
-
-  setCiteStatus('Extracting search terms...');
-  document.getElementById('citeStatus').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  const terms = citeExtractTerms(input);
-
-  // Show terms
-  document.getElementById('citeTermsWrap').style.display = 'block';
-  document.getElementById('citeTerms').innerHTML = terms.map(t => `<span class="cite-term-chip">${t}</span>`).join('');
-
-  if (terms.length === 0) {
-    setCiteStatus('Could not extract search terms. Try more specific language.', true);
-    citeRunning = false;
-    document.getElementById('citeRunBtn').disabled = false;
-    return;
-  }
-
-  const all = [];
-  for (const term of terms) {
-    setCiteStatus(`Querying CrossRef for "${term}"...`);
-    const cr = await citeCrossRef(term);
-    all.push(...cr);
-    await delay(CITE_DELAY);
-    if (cr.length < 3) {
-      setCiteStatus(`Querying Semantic Scholar for "${term}"...`);
-      const s2 = await citeS2(term);
-      all.push(...s2);
-      await delay(CITE_DELAY);
-    }
-    const hits = all.filter(c => citeNormTitle(c.title).includes(citeNormTitle(term))).length;
-    if (hits < 3) {
-      setCiteStatus(`Querying OpenAlex for "${term}"...`);
-      const oa = await citeOpenAlex(term);
-      all.push(...oa);
-      await delay(CITE_DELAY);
-    }
-  }
-
-  const deduped = citeDedup(all);
-
-  if (deduped.length === 0) {
-    document.getElementById('citeEmpty').style.display = 'block';
-    setCiteStatus('No candidate papers found.', true);
-  } else {
-    document.getElementById('citeResultsCount').textContent = `${deduped.length} candidate papers`;
-    document.getElementById('citeResultsBody').innerHTML = deduped.map((c, i) => {
-      const authors = c.authors.length > 0
-        ? citeTrunc(c.authors.slice(0,2).join(', ') + (c.authors.length > 2 ? ' et al.' : ''), 38)
-        : '—';
-      const titleEl = c.url
-        ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="cite-link" style="font-family:var(--font-body);font-size:0.84rem;color:var(--ink);font-weight:500">${citeTrunc(c.title, 88)||'—'}</a>`
-        : `<span>${citeTrunc(c.title, 88)||'—'}</span>`;
-      const linkEl = c.url
-        ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer" class="cite-link">open</a>`
-        : '<span style="color:var(--ink-4)">—</span>';
-      return `<tr>
-        <td style="font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-4);width:32px">${i+1}</td>
-        <td>${titleEl}</td>
-        <td style="font-size:0.78rem;color:var(--ink-3);max-width:170px">${authors}</td>
-        <td style="font-family:var(--font-mono);font-size:0.75rem;width:48px">${c.year??'—'}</td>
-        <td style="width:80px">${citeBadge(c.sourceApi)}</td>
-        <td style="width:52px">${linkEl}</td>
-      </tr>`;
-    }).join('');
-    document.getElementById('citeResultsWrap').style.display = 'block';
-    setCiteStatus(`Found ${deduped.length} candidate papers across CrossRef, Semantic Scholar, and OpenAlex.`, true);
-  }
-
-  citeRunning = false;
-  document.getElementById('citeRunBtn').disabled = false;
-}
-
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-</script>
+</footer>
 </body>
 </html>
