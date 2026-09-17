@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Scarce Resource Isn't Information. It's Attention, Epistamate</title>
+  <meta name="description" content="A consultant, an analyst, a journalist and a researcher work from different sources and different assurance standards, but share one increasingly scarce resource: human attention. What a maintained research corpus can and can't do about it.">
+  <meta name="keywords" content="research corpus, attention allocation, evidence provenance, active learning screening, maintained research corpus, AI research tools, professional research workflow">
+  <link rel="canonical" href="https://epistamate.com/blog/scarce-resource-is-attention.html">
+  <meta property="og:title" content="The Scarce Resource Isn't Information. It's Attention.">
+  <meta property="og:description" content="A consultant, an analyst, a journalist and a researcher work from different sources and different assurance standards, but share one increasingly scarce resource: human attention. What a maintained research corpus can and can't do about it.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="article:published_time" content="2026-09-16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-subtitle { font-family: var(--font-body); font-size: 1rem; color: var(--ink-3); font-weight: 500; margin: -8px 0 var(--space-m); }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .article-body ul { margin: 0 0 var(--space-m) 1.25rem; }
+    .article-body li { margin-bottom: 4px; }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; max-width: var(--text-w); }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '&minus;'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+    .article-diagram-caption { font-size: 0.85rem; color: var(--ink-4); text-align: center; font-style: italic; margin: -0.5rem 0 var(--space-l); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links">
+      <a href="../index.html#applications">Applications</a>
+      <a href="../epistamate_demo.html">Research</a>
+      <a href="../genai-control-evidence-review.html">AI Workflow Assurance</a>
+      <a href="../advisory.html">Advisory</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html" aria-current="page">Insights</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="../index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+
+  <div class="article-eyebrow">
+    <a href="index.html">&larr; Blog</a>
+    <span class="sep">&middot;</span>
+    <span>September 2026</span>
+    <span class="sep">&middot;</span>
+    <span class="article-tag">Evidence quality</span>
+    <span class="article-tag">Research infrastructure</span>
+  </div>
+
+  <h1 class="article-h1">The Scarce Resource Isn't Information. It's Attention.</h1>
+
+  <p class="article-subtitle">Different professions, different sources, and the same attention bottleneck</p>
+
+  <div class="article-byline">By Abhishek Sinha</div>
+
+  <p class="article-lede">A consultant tracking a market, an analyst following an industry and a journalist investigating a story face a problem that academic researchers know well: potentially relevant information arrives faster than anyone can examine it properly.</p>
+
+  <div class="article-body">
+
+    <p>The sources are different.</p>
+
+    <p>A researcher may be working through journal articles and preprints. A consultant may need government policy, regulation, industry reports, planning documents, company filings and specialist research. An analyst may be watching earnings calls, product releases, market data and regulatory decisions. A journalist may need court filings, public records, interviews, company statements and previous reporting.</p>
+
+    <p>Their standards of evidence are different too.</p>
+
+    <p>But they share one increasingly scarce resource:</p>
+
+    <p><strong>human attention.</strong></p>
+
+    <p>Search itself has become easier. Databases are larger. Alerts are ubiquitous. AI can retrieve, rank and summarise information at a scale that would have been impractical only a few years ago.</p>
+
+    <p>That does not necessarily make the underlying research problem easier.</p>
+
+    <p>In some ways, it makes the next problem more important: deciding what actually deserves attention, what can be trusted, what needs verification, what should be retained and what should still be available months later when the question changes.</p>
+
+    <p>I ran into this problem while trying to keep a fast-moving body of technical research useful for later analytical work.</p>
+
+    <p>I did not need a formal systematic review every few weeks. I did not need an autonomous research system that claimed to decide what was true. I needed something more modest: a way to remain reasonably current, preserve material that might matter, understand where it came from and make the accumulated research useful when I returned to a specific problem.</p>
+
+    <p>What became useful was a <strong>maintained research corpus</strong>.</p>
+
+    <p>Not a perfect record of the field. Not a truth machine. Not a substitute for a systematic review.</p>
+
+    <p>A working body of evidence that is current enough, structured enough and traceable enough to support the actual work I want to do.</p>
+
+    <h2>The corpus is not the task</h2>
+
+    <p>That distinction matters.</p>
+
+    <p>A consultant does not maintain research because maintaining research is the objective. The objective may be advising a client whether to enter a market.</p>
+
+    <p>An analyst may be trying to understand whether a company's competitive position has changed.</p>
+
+    <p>A journalist may be investigating whether a public claim survives contact with the underlying documents.</p>
+
+    <p>A policy specialist may need to know whether a regulatory position is shifting.</p>
+
+    <p>In each case, the corpus sits <strong>upstream</strong> of the real task.</p>
+
+    <p>Its value comes from making that later work better informed.</p>
+
+    <p>That changes how I think about completeness.</p>
+
+    <p>For some kinds of work, completeness is itself a major methodological requirement. A systematic review, clinical guideline, regulatory submission or other high-assurance evidence product may reasonably demand formal search strategies, explicit eligibility criteria, independent review and careful risk-of-bias assessment.</p>
+
+    <p>A maintained corpus for continuing professional research makes a narrower claim.</p>
+
+    <p>It is meant to help someone stay sufficiently informed for a defined purpose.</p>
+
+    <p>That does not make accuracy or provenance optional. It does mean the right balance between coverage, speed and researcher effort can be different.</p>
+
+    <p>Someone with a different purpose should make different choices.</p>
+
+    <h2>What counts as useful evidence changes with the job</h2>
+
+    <p>One reason I am reluctant to treat this as a universal research methodology is that the source landscape can change completely from one use case to another.</p>
+
+    <p>Consider a consultant evaluating a possible data-centre investment.</p>
+
+    <p>Relevant material might include:</p>
+
+    <ul>
+      <li>grid and infrastructure plans;</li>
+      <li>regulation and tax policy;</li>
+      <li>planning records;</li>
+      <li>corporate disclosures;</li>
+      <li>specialist research;</li>
+      <li>relevant academic work.</li>
+    </ul>
+
+    <p>Now consider a journalist investigating a company's claims.</p>
+
+    <p>The useful hierarchy may look very different: regulatory filings, original documents, court records, interviews, public statements, archived webpages and corroborated reporting may matter far more than academic papers.</p>
+
+    <p>The structure of the research problem survives even though the sources do not.</p>
+
+    <p>You still need to know:</p>
+
+    <p><strong>What am I looking for?<br>What has changed?<br>What is this source?<br>How credible is it for this particular claim?<br>Does it duplicate or supersede something I already have?<br>Is it important enough to deserve attention now?<br>What should I retain?<br>What will I need to revisit later?</strong></p>
+
+    <p>That is why I think of the maintained corpus less as a research product than as a piece of working infrastructure.</p>
+
+    <p>The implementation may vary enormously.</p>
+
+    <p>The attention problem does not.</p>
+
+    <h2>More information does not automatically produce more knowledge</h2>
+
+    <p>One response to information overload is simply to collect more.</p>
+
+    <p>That is easy now.</p>
+
+    <p>Alerts can accumulate indefinitely. Search engines can return thousands of records. AI systems can produce long summaries of large document sets. Reference managers can store everything.</p>
+
+    <p>But collection and knowledge are not the same thing.</p>
+
+    <p>A corpus that grows without discipline can become another form of overload.</p>
+
+    <p>You eventually have hundreds or thousands of items, many of them overlapping, outdated, superseded or only marginally relevant. The effort required to understand the corpus begins competing with the work the corpus was meant to support.</p>
+
+    <p>That leads to a different objective:</p>
+
+    <p><strong>The goal is not maximum accumulation. It is to allocate limited attention to the evidence most likely to matter, while preserving enough provenance to revisit what was deprioritised.</strong></p>
+
+    <p>The aim is to retain enough of the evidence landscape that later work can be informed by it, while avoiding the fiction that every potentially relevant source deserves equal attention.</p>
+
+    <p>That is where prioritisation becomes useful.</p>
+
+    <h2>Prioritisation is not the same as completeness</h2>
+
+    <p>Machine-assisted screening and active learning have become increasingly useful because they can move likely relevant material towards the front of a review queue, though that distinction matters more than it first appears.</p>
+
+    <p>A system can be very good at helping you find relevant material early without being able to tell you safely that nothing important remains.</p>
+
+    <p>A <a href="https://link.springer.com/article/10.1186/s12874-026-02866-5" target="_blank" rel="noopener">2026 study of active-learning stopping rules in ASReview</a> illustrates the problem. Across five datasets and 35,000 simulated screenings, the amount of material that had to be screened before finding the final relevant record varied enormously, from an average of 2.9% to 76.9% depending on the dataset. None of the tested stopping approaches consistently guaranteed that every relevant study had been found.</p>
+
+    <p>The practical lesson is simple:</p>
+
+    <p><strong>ranking can work even when stopping remains uncertain.</strong></p>
+
+    <p>For a systematic review, that residual uncertainty may be unacceptable. For a maintained professional corpus, prioritisation can still be extremely valuable.</p>
+
+    <p>The objective may not be to certify that nothing important exists outside the corpus. It may be to make the most consequential new material visible early enough that a human can decide whether it changes the work, a different promise, and for many professional uses, a more honest one.</p>
+
+    <h2>Large language models are useful when the task is bounded</h2>
+
+    <p>LLMs make this more interesting because they can work on the content itself.</p>
+
+    <p>They can screen abstracts, classify documents, identify passages, extract structured information and summarise material.</p>
+
+    <p>Recent evidence suggests some of these tasks are becoming genuinely useful. A <a href="https://pubmed.ncbi.nlm.nih.gov/41831731/" target="_blank" rel="noopener">2026 systematic review</a> found promising performance for screening, particularly with newer models, but much greater variability as tasks became more interpretive. A <a href="https://pubmed.ncbi.nlm.nih.gov/42309363/" target="_blank" rel="noopener">separate review</a> of how LLMs are being evaluated found that reproducibility-critical safeguards against problems such as leakage and overfitting were often difficult to verify.</p>
+
+    <p>That should not be surprising.</p>
+
+    <p>Extracting a stated sample size from a paper is one kind of task.</p>
+
+    <p>Deciding whether the study design makes the conclusion credible is another.</p>
+
+    <p>Finding the date a policy came into force is different from deciding whether it meaningfully changes a client's exposure.</p>
+
+    <p>Identifying what a company said is different from deciding whether the available evidence supports what it implied.</p>
+
+    <p>The useful question is therefore not:</p>
+
+    <p><strong>Can AI do research?</strong></p>
+
+    <p>It is:</p>
+
+    <p><strong>Which parts of this research process are bounded enough that automation can reduce routine work without silently becoming the authority?</strong></p>
+
+    <p>That question travels well across domains.</p>
+
+    <p>The answer will not be identical for a journalist, consultant, academic researcher or compliance analyst.</p>
+
+    <p>But the underlying principle can remain the same.</p>
+
+    <h2>The scarce thing is not human presence. It is human attention.</h2>
+
+    <p>The obvious response is to say that AI can help, provided a human stays in the loop.</p>
+
+    <p>I have become increasingly sceptical of that phrase.</p>
+
+    <p>It can describe almost anything.</p>
+
+    <p>If a machine classifies 500 items and a human is required to click &ldquo;approve&rdquo; 500 times, there is technically a human in the loop.</p>
+
+    <p>That does not mean the resulting process is good.</p>
+
+    <p>Humans make mistakes. Reviewers disagree. Attention declines with repetitive work. People can become overly trusting of plausible automated recommendations.</p>
+
+    <p>There is <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0227742" target="_blank" rel="noopener">research showing that human reviewers make screening errors</a>: one analysis of 25 systematic reviews found a total error rate of roughly 11% at abstract screening. There is also a substantial human-factors literature around automation bias and over-reliance.</p>
+
+    <p>So the goal cannot simply be to maximise the number of human approvals.</p>
+
+    <p>The harder question is:</p>
+
+    <p><strong>Where does human attention add enough value that it should not be automated away?</strong></p>
+
+    <p>That question changed how I thought about the corpus.</p>
+
+    <p>Human effort is most valuable where ambiguity, interpretation or consequence is high.</p>
+
+    <p>Routine discovery, initial prioritisation, structured extraction and other repetitive tasks may be increasingly suitable for assistance.</p>
+
+    <p>A surprising source, conflicting evidence, an important methodological limitation or a finding that could materially alter later analysis deserves more attention.</p>
+
+    <p>The objective is not to remove the researcher.</p>
+
+    <p>It is to stop spending the researcher's scarce attention as though every item were equally important.</p>
+
+    <h2>A maintained corpus is a compromise</h2>
+
+    <p>For my purposes, a maintained corpus became a useful compromise.</p>
+
+    <p>At a high level, the pattern looks something like this:</p>
+
+    <p><strong>Define the question &rarr; discover broadly enough &rarr; establish source and status &rarr; prioritise and inspect &rarr; preserve provenance &rarr; apply judgment and retain &rarr; refresh as the evidence changes.</strong></p>
+
+    <p>None of those steps is particularly novel.</p>
+
+    <p>What matters is how they are balanced around the use case.</p>
+
+    <p>A different profession may use different sources.</p>
+
+    <p>A different decision may require much stronger verification.</p>
+
+    <p>A higher-consequence use may justify substantially more human review.</p>
+
+    <p>A rapidly changing field may need frequent refreshes. A slower domain may not.</p>
+
+    <p>The general pattern remains adaptable because the <strong>authority of the evidence is contextual</strong>.</p>
+
+    <p>A peer-reviewed meta-analysis, a company press release, a court filing and an anonymous source do not deserve the same treatment merely because they all appear in the same corpus.</p>
+
+    <p>The corpus has to preserve those distinctions rather than flatten them.</p>
+
+    <figure class="article-diagram" style="margin: 3rem 0; text-align: center;">
+      <figcaption style="font-family: 'DM Mono', 'Courier New', monospace; font-size: 0.78rem; color: #888; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1.25rem;">Different evidence, same attention problem</figcaption>
+      <svg viewBox="0 0 960 290" xmlns="http://www.w3.org/2000/svg" style="max-width: 960px; width: 100%; height: auto; display: inline-block;" role="img" aria-label="Diagram: incoming evidence flows into a stage that allocates scarce human attention, built from six sub-steps that refresh on a loop, and feeds a downstream task">
+        <defs>
+          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#3a4a63"/>
+          </marker>
+          <marker id="arrowLoop2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#8a6d3b"/>
+          </marker>
+        </defs>
+        <style>
+          .macro { fill: #1a2b4a; }
+          .micro { fill: #2b3f66; }
+          .lbl { fill: #ffffff; font-family: sans-serif; font-size: 13px; text-anchor: middle; }
+          .mlbl { fill: #ffffff; font-family: sans-serif; font-size: 11px; text-anchor: middle; }
+          .line { stroke: #3a4a63; stroke-width: 2; fill: none; }
+          .loop { stroke: #8a6d3b; stroke-width: 2; fill: none; stroke-dasharray: 5,4; }
+          .looplbl { fill: #8a6d3b; font-family: sans-serif; font-size: 12px; font-style: italic; text-anchor: middle; }
+          .note { fill: #5a6b85; font-family: sans-serif; font-size: 11px; font-style: italic; text-anchor: middle; }
+        </style>
+
+        <rect class="macro" x="15" y="15" width="260" height="65" rx="6"/>
+        <text class="lbl" x="145" y="42">Incoming evidence</text>
+        <text class="mlbl" x="145" y="60">research &middot; filings &middot; reporting &middot; data</text>
+
+        <rect class="macro" x="350" y="15" width="260" height="65" rx="6"/>
+        <text class="lbl" x="480" y="42">Allocate scarce</text>
+        <text class="lbl" x="480" y="58">human attention</text>
+
+        <rect class="macro" x="685" y="15" width="260" height="65" rx="6"/>
+        <text class="lbl" x="815" y="42">Use the corpus for</text>
+        <text class="lbl" x="815" y="58">the actual task</text>
+
+        <path class="line" d="M275,47 H350" marker-end="url(#arrow2)"/>
+        <path class="line" d="M610,47 H685" marker-end="url(#arrow2)"/>
+
+        <path class="line" d="M480,80 V125" marker-end="url(#arrow2)"/>
+        <text class="note" x="480" y="105">expands to:</text>
+
+        <rect class="micro" x="15" y="150" width="145" height="55" rx="5"/>
+        <text class="mlbl" x="87" y="180">Discover</text>
+
+        <rect class="micro" x="172" y="150" width="145" height="55" rx="5"/>
+        <text class="mlbl" x="244" y="174">Establish source</text>
+        <text class="mlbl" x="244" y="188">&amp; status</text>
+
+        <rect class="micro" x="329" y="150" width="145" height="55" rx="5"/>
+        <text class="mlbl" x="401" y="174">Inspect &amp;</text>
+        <text class="mlbl" x="401" y="188">extract</text>
+
+        <rect class="micro" x="486" y="150" width="145" height="55" rx="5"/>
+        <text class="mlbl" x="558" y="174">Preserve</text>
+        <text class="mlbl" x="558" y="188">provenance</text>
+
+        <rect class="micro" x="643" y="150" width="145" height="55" rx="5"/>
+        <text class="mlbl" x="715" y="180">Apply judgment</text>
+
+        <rect class="micro" x="800" y="150" width="145" height="55" rx="5"/>
+        <text class="mlbl" x="872" y="180">Retain</text>
+
+        <path class="line" d="M160,177 H172" marker-end="url(#arrow2)"/>
+        <path class="line" d="M317,177 H329" marker-end="url(#arrow2)"/>
+        <path class="line" d="M474,177 H486" marker-end="url(#arrow2)"/>
+        <path class="line" d="M631,177 H643" marker-end="url(#arrow2)"/>
+        <path class="line" d="M788,177 H800" marker-end="url(#arrow2)"/>
+
+        <path class="loop" d="M872,205 C872,245 87,245 87,205" marker-end="url(#arrowLoop2)"/>
+        <text class="looplbl" x="480" y="260">Refresh as information changes</text>
+      </svg>
+    </figure>
+    <p class="article-diagram-caption">Source types and assurance requirements change by use case. The attention problem does not.</p>
+
+    <h2>Provenance matters because sources change</h2>
+
+    <p>Keeping the original source attached to a finding sounds obvious until the source itself starts changing.</p>
+
+    <p>Academic publishing provides a good example.</p>
+
+    <p>A preprint may later become a journal article. Findings may be revised. Corrections may appear. In rare cases, papers are retracted.</p>
+
+    <p>Research methodology has learned to take these relationships seriously. <a href="https://www.crossref.org/documentation/principles-practices/best-practices/versioning/" target="_blank" rel="noopener">Crossref, for example, explicitly supports</a> links between preprints, accepted manuscripts, versions of record, updates, corrections and retractions.</p>
+
+    <p>The same general problem exists outside academia.</p>
+
+    <p>A regulation can be amended.</p>
+
+    <p>A government consultation can become final guidance.</p>
+
+    <p>A planning proposal can be approved, rejected or revised.</p>
+
+    <p>A company's preliminary result can later be replaced by an audited filing.</p>
+
+    <p>A public statement can be corrected.</p>
+
+    <p>A journalist can discover that two apparently separate claims trace back to the same original source.</p>
+
+    <p>This is why provenance is not merely clerical metadata around the research.</p>
+
+    <p>It affects the meaning of the evidence.</p>
+
+    <p>A useful corpus should make it possible to ask not only:</p>
+
+    <p><strong>What do I know?</strong></p>
+
+    <p>but also:</p>
+
+    <p><strong>Why do I think I know it, which source did it come from, what status did that source have at the time, and has anything happened since that should change my view?</strong></p>
+
+    <p>That is a much higher bar than saving a URL.</p>
+
+    <p>But it is also a much more useful foundation for later analytical work.</p>
+
+    <h2>The trade-off does not disappear</h2>
+
+    <p>There is an uncomfortable part to all of this.</p>
+
+    <p>No workflow makes completeness, speed, accuracy and researcher burden optimal at the same time.</p>
+
+    <p>Exhaustive human review consumes enormous effort and does not eliminate human error.</p>
+
+    <p>Aggressive automation reduces burden but raises the possibility of silent misses.</p>
+
+    <p>Prioritisation helps surface likely relevant information but does not guarantee that nothing important remains unseen.</p>
+
+    <p>LLMs can accelerate screening and extraction but become less dependable as judgment becomes more interpretive.</p>
+
+    <p>Sampling can help detect whether a process has gone wrong, but checking a few examples does not prove that everything unchecked is correct.</p>
+
+    <p>And retaining everything &ldquo;just in case&rdquo; eventually creates its own research debt.</p>
+
+    <p>These are not necessarily problems that disappear when the next model arrives.</p>
+
+    <p>Some are features of the underlying work.</p>
+
+    <p>Research means making decisions while knowledge is incomplete, evidence changes and attention is finite.</p>
+
+    <p>Any system supporting that work inherits those constraints.</p>
+
+    <h2>The assurance level should follow the use</h2>
+
+    <p>This is why I would not prescribe one level of human review or one corpus design for everybody.</p>
+
+    <p>A medical systematic review should have different assurance requirements from an analyst tracking a technology market.</p>
+
+    <p>A journalist making a serious allegation may require stronger corroboration than when monitoring a developing story.</p>
+
+    <p>A consultant preparing high-level market intelligence may tolerate uncertainty that would be unacceptable in technical due diligence supporting a billion-dollar investment.</p>
+
+    <p>The corpus should therefore be understood in relation to what comes after it.</p>
+
+    <p>The more consequential the downstream decision, and the more heavily it relies on the corpus, the stronger the research controls should become.</p>
+
+    <p>For my own use, the corpus is deliberately upstream.</p>
+
+    <p>It helps determine what I should examine and what existing research may matter to a particular question.</p>
+
+    <p>It does not make the final decision for me.</p>
+
+    <p>That boundary is important.</p>
+
+    <h2>From information overload to attention allocation</h2>
+
+    <p>I started with what looked like an information-overload problem.</p>
+
+    <p>I now think that description misses the more useful point.</p>
+
+    <p>Access to information is already extraordinary.</p>
+
+    <p>The harder problem is deciding where serious attention should go.</p>
+
+    <p>A maintained corpus can help turn an undifferentiated stream into something more workable.</p>
+
+    <p>It can help surface evidence likely to matter.</p>
+
+    <p>It can keep a preprint distinguishable from a later version.</p>
+
+    <p>It can preserve where a conclusion came from.</p>
+
+    <p>It can retain uncertainty instead of turning every extracted statement into a fact.</p>
+
+    <p>It can let repetitive machine assistance remain assistance rather than silently becoming judgment.</p>
+
+    <p>And, perhaps most importantly, it can stop scarce human attention being spent uniformly across work whose value is anything but uniform.</p>
+
+    <p>That does not solve information overload; it does something more modest. For the kinds of work I care about, it makes a changing evidence landscape manageable enough that the actual analysis can remain informed by research.</p>
+
+    <p>Sometimes that is all the infrastructure needs to do.</p>
+
+  </div>
+
+  <div class="prev-next">
+    <div class="prev-next-label">Previously in this series</div>
+    <a href="when-evidence-does-not-converge.html">Read the previous article &rarr;</a>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Is a maintained research corpus the same as a living systematic review?</summary>
+      <p>No. A living systematic review remains a systematic review and therefore carries the methodological expectations that come with that claim: explicit protocols, reproducible searching and screening, defined eligibility criteria, transparent updates and formal reporting of what changed. A maintained research corpus makes a narrower promise. It is intended to keep a defined area sufficiently current, organised and traceable for the work it supports. For use cases that require systematic-review-level completeness and assurance, a maintained corpus should not be presented as a substitute.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Who might find this approach useful?</summary>
+      <p>Potentially anyone whose professional work depends on a changing body of evidence: consultants, analysts, journalists, policy specialists, assurance professionals, technical researchers and others doing continuing domain research. The sources and assurance requirements will differ substantially between those roles. The common problem is deciding how to allocate limited attention across an evidence stream that is larger and more dynamic than one person can comfortably examine.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How often should a corpus be refreshed?</summary>
+      <p>There is no universal interval. The right cadence depends on how quickly the domain changes, how much new material appears, the cost of missing an important development and what the corpus is ultimately being used for. A fast-moving technology area might warrant frequent surveillance. A stable regulatory question may require attention only when a known trigger occurs.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens when the corpus is wrong?</summary>
+      <p>A maintained corpus should make correction possible rather than pretend error will never occur. That means preserving source identity, provenance, publication or document status and enough history to revisit an earlier conclusion when new information appears. The objective is not a corpus that cannot be wrong. It is a corpus whose mistakes and outdated assumptions can be found, understood and corrected.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does automation replace professional judgment?</summary>
+      <p>Not in the way I am describing it here. Automation is most useful where work is repetitive, high-volume and sufficiently bounded: discovery, prioritisation, preliminary classification or structured extraction are obvious candidates. Judgments about credibility, transferability, significance and consequence require stronger human involvement. The exact boundary will differ by use case. The aim is not to remove human judgment. It is to reserve human attention for the places where judgment matters most.</p>
+    </details>
+  </div>
+
+  <div class="article-about">
+    <strong>Sources</strong> Kempny, Annac, Wahidie, Yilmaz-Aslan, Brzoska, "When to stop reviewing: validation of stop criteria in ASReview," BMC Medical Research Methodology, 2026 -- Laignelot et al., "Large language models show promising performance for some systematic review tasks but call for cautious implementation: a systematic review," Journal of Clinical Epidemiology, 2026 -- Lai, Sousa-Pinto, Cao, Moher, et al., "Large language models for systematic reviews were reported to perform well but rarely with verifiable safeguards: a cross-sectional study," Journal of Clinical Epidemiology, 2026 -- Wang, Nayfeh, Tetzlaff, O'Blenis, Murad, "Error rates of human reviewers during abstract screening in systematic reviews," PLOS ONE, 2020 -- Crossref, "Version control, corrections, and retractions," best-practices documentation
+  </div>
+
+  <div class="article-footer-nav">
+    <a href="index.html">&larr; All articles</a>
+    <a href="../index.html#contact">Get in touch with Epistamate &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../landscape.html">Who it's for</a>
+      <a href="../engine.html">The Engine</a>
+      <a href="index.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
