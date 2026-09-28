@@ -4,16 +4,18 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <title>Epistamate Governed Research Workspace — Evidence control for AI-assisted research</title>
-<meta name="description" content="Epistamate is a local-first governed research workspace: frontier intelligence, governed research state and human authority for evidence-intensive professional work, assurance and advisory.">
+<meta name="description" content="Epistamate traces consequential claims in AI-assisted research to the evidence that supports, qualifies or contradicts them, while preserving what people reviewed and decided.">
 <meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta property="og:title" content="Epistamate Governed Research Workspace"><meta property="og:description" content="Frontier intelligence. Governed research state. Human authority."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
+<meta property="og:title" content="Epistamate Governed Research Workspace"><meta property="og:description" content="Trace consequential AI-assisted research claims to evidence, uncertainty and human decisions."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
 <link rel="canonical" href="https://epistamate.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="distilapp.css">
 <style>
   .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
   .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
   .hero-proof>div{border-top:3px solid var(--accent)}
@@ -40,7 +42,7 @@
   .home-page .hero .hero-proof>div{padding:var(--space-m)}
   .home-page .hero .hero-ctas{margin-top:1rem!important}
   @media(max-width:720px){
-    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip{grid-template-columns:1fr}.app-card{min-height:0}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.home-proof-detail,.home-persona-grid{grid-template-columns:1fr}.app-card{min-height:0}
     .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
     .home-page .nav-logo>span:last-child{display:none}
     .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
@@ -65,86 +67,90 @@
   <div class="hero-eyebrow">EPISTAMATE GOVERNED RESEARCH WORKSPACE</div>
   <h1 class="hero-h1">Frontier intelligence.<br><em>Governed research state.</em><br>Human authority.</h1>
   <div class="stakes-block" style="max-width:900px">
-    <p class="stakes-kicker">Epistamate is a local-first governed research workspace for evidence-intensive professional work.</p>
-    <p>Built for analysts, consultants, policy and regulatory teams doing evidence-intensive work: frontier models provide intelligence, Epistamate governs research state, and you retain authority over consequential decisions.</p>
+    <p class="stakes-kicker">Epistamate traces consequential claims in AI-assisted research to the evidence that supports, qualifies or contradicts them — and records what people actually reviewed and decided.</p>
+    <p>Use frontier models for search, reading and reasoning. Use Epistamate when the answer has to hold up later — in consulting, policy, regulatory or other evidence-intensive professional work.</p>
   </div>
   <div class="hero-proof" aria-label="Epistamate value proposition">
     <div><strong>Evidence you can defend</strong><span>Trace a consequential proposition to the material that actually supports, qualifies or contradicts it — not just to a bibliography entry.</span></div>
-    <div><strong>Knowledge that compounds</strong><span>Carry evidence and review state forward with lineage and revalidation instead of starting from zero.</span></div>
-    <div><strong>Decisions you can audit</strong><span>Keep model suggestions, evidentiary authority and human judgement separate so a later reviewer can reconstruct what happened.</span></div>
+    <div><strong>Research you can continue</strong><span>Keep sources, gaps and review decisions attached to the work so the next iteration does not start from zero.</span></div>
+    <div><strong>Decisions you can reconstruct</strong><span>Keep model suggestions, evidence and human judgement separate so a later reviewer can see what was proposed, checked and decided.</span></div>
   </div>
   <div class="hero-ctas" style="margin-top:var(--space-xl)">
-    <a href="#proof" class="btn-primary">See it in practice →</a>
-    <a href="#personas" class="btn-secondary">Who is it for? →</a>
-    <a href="#applications" class="btn-secondary">Explore applications →</a>
+    <a href="#problem" class="btn-primary">Why this matters ↓</a>
+    <a href="#proof" class="btn-secondary">See a real example →</a>
+    <a href="#applications" class="btn-secondary">What can I use today? →</a>
+  </div>
+</section>
+
+<section class="hallucination-section" id="problem">
+  <div class="section-inner">
+    <div class="section-tag">The problem in plain language</div>
+    <h2>A polished AI-assisted answer can still fail<br><em>in six different ways.</em></h2>
+    <p class="section-sub">Before you need an evidence architecture, you usually notice one of these practical problems.</p>
+    <div class="control-strip">
+      <div><strong>Does the source support the claim?</strong><span>A real citation can still be attached to a claim it does not establish.</span></div>
+      <div><strong>Are these really independent sources?</strong><span>Ten articles may all trace back to one study, dataset or announcement.</span></div>
+      <div><strong>Does this apply to our case?</strong><span>A valid result may not transfer to your jurisdiction, population, workflow or implementation context.</span></div>
+      <div><strong>What contradicts or qualifies it?</strong><span>A fluent synthesis can smooth away disagreement, caveats and alternative explanations.</span></div>
+      <div><strong>What did a person actually review?</strong><span>“Human in the loop” means little if nobody can reconstruct what was inspected and decided.</span></div>
+      <div><strong>What changed later?</strong><span>New evidence can weaken, strengthen or stale earlier conclusions without making that change obvious.</span></div>
+    </div>
   </div>
 </section>
 
 <section class="diff-section" id="proof">
   <div class="section-inner">
-    <div class="section-tag">Tested in practice</div>
-    <h2>Not just an architecture diagram.<br><em>Observed behaviour from founder-run experiments.</em></h2>
-    <p class="section-sub">These are product-behaviour observations from founder-run research and workflow experiments. They are not client outcome claims, accuracy benchmarks or proof of superiority.</p>
-    <div class="proof-grid" style="margin-top:var(--space-xl)">
-      <article class="proof-card"><div class="label">Document-led research · Citation integrity</div><h3>A reachable source was not automatically trusted.</h3><p>In a founder run against a withdrawn industry fraud/cyber paper, Epistamate parsed and checked 27 citations: 10 routes were reachable and 17 failed or were blocked. The run kept route reachability separate from citation identity, claim support and substantive validity, then analysed 11 unique preserved source contents after de-duplication.</p><p style="margin-top:10px"><a href="epistamate_demo.html#tested-in-practice" style="color:var(--accent)">See the research example →</a></p></article>
-      <article class="proof-card"><div class="label">AI coding-assistant productivity · Partial corpus</div><h3>Research continued without pretending collection was complete.</h3><p>In a controlled first-pass run, 14 planned targets produced 12 acquired sources while 2 remained explicitly unresolved or deferred. Forty-one candidate claims were admitted for analysis; synthesis still retained 11 knowledge gaps and 5 validation leads instead of forcing a complete answer.</p><p style="margin-top:10px"><a href="epistamate_demo.html#tested-in-practice" style="color:var(--accent)">See what the workbench preserved →</a></p></article>
-      <article class="proof-card"><div class="label">Advisory workflow · Synthetic engagement</div><h3>New information did not silently rewrite the recommendation.</h3><p>In a specialist advisory-method experiment, a new client artefact was represented locally, consequential passages were surfaced for review, and accepted evidence propagated through affected propositions, diagnostics, findings, recommendations and deliverables in causal order. The consultant remained the authority at each transition.</p><p style="margin-top:10px"><a href="advisory.html#tested-in-practice" style="color:var(--accent)">See the advisory experiment →</a></p></article>
+    <div class="section-tag">A controlled research run</div>
+    <h2>Twenty-seven citations did not mean<br><em>twenty-seven usable evidence points.</em></h2>
+    <p class="section-sub">A supplied industry fraud/cyber paper looked well-supported on the surface. Epistamate treated each step separately instead of assuming that a working link meant a supported claim.</p>
+    <div class="proof-grid home-proof-detail" style="margin-top:var(--space-xl)">
+      <article class="proof-card"><div class="label">What happened</div><h3>The bibliography looked stronger than the inspectable evidence.</h3><p>The run parsed 27 citations. Ten routes were reachable; 17 failed or were blocked. After preserving and de-duplicating what could actually be obtained, 11 unique source contents remained for analysis.</p></article>
+      <article class="proof-card"><div class="label">What Epistamate preserved</div><h3>A reachable citation was still not automatically treated as support.</h3><p>Route reachability, citation identity, claim support and substantive validity remained separate questions. Duplicate source content was not counted as independent corroboration, and unresolved support questions survived into the research record rather than disappearing into fluent prose.</p></article>
     </div>
-  </div>
-</section>
-
-<section class="personas-section" id="personas">
-  <div class="section-inner">
-    <div class="section-tag">Who should care</div><h2>For work that may be<br><em>challenged by someone informed.</em></h2>
-    <div class="persona-grid">
-      <a href="persona-policy.html" class="persona-card"><h3>Policy &amp; think tanks</h3><p>Evidence synthesis where authority, applicability, disagreement and known unknowns must survive the brief.</p><div class="persona-link">Policy use case →</div></a>
-      <a href="persona-professional-services.html" class="persona-card"><h3>Professional services</h3><p>AI-assisted work product where a partner or client needs an inspectable basis, not only a confident deck.</p><div class="persona-link">Professional services →</div></a>
-      <a href="persona-legal.html" class="persona-card"><h3>Regulatory &amp; compliance</h3><p>Work where binding status, jurisdiction, effective date and applicability cannot be flattened into “sources.”</p><div class="persona-link">Regulatory use case →</div></a>
-      <a href="persona-consultant.html" class="persona-card"><h3>Consulting &amp; advisory</h3><p>Decisions that evolve through documents, research, specialist input and diligence without losing recommendation dependencies.</p><div class="persona-link">Consulting use case →</div></a>
+    <div class="hero-ctas" style="margin-top:var(--space-l)">
+      <a href="epistamate_demo.html#tested-in-practice" class="btn-primary">See the full research examples →</a>
+      <a href="engine.html#observed" class="btn-secondary">See more observed behaviour →</a>
     </div>
+    <p class="fine-print" style="margin-top:var(--space-m)">Controlled product-validation example, not a client outcome claim or comparative accuracy benchmark.</p>
   </div>
 </section>
 
 <section class="hallucination-section" id="applications">
   <div class="section-inner">
-    <div class="section-tag">One evidence discipline · three applications</div>
-    <h2>Different work products.<br><em>The same evidentiary control problem.</em></h2>
-    <p class="section-sub">Research, workflow assurance and advisory produce different work products, but they face the same evidentiary question: what does the evidence actually warrant, and who decided?</p>
+    <div class="section-tag">What is available today</div>
+    <h2>One software workspace.<br><em>Two service applications built on the same evidence discipline.</em></h2>
     <div class="app-grid" style="margin-top:var(--space-xl)">
-      <article class="app-card"><div class="label">Research workspace · Current build</div><h3>Epistamate Governed Research Workspace</h3><p>For question-led, primary-document-led and hybrid evidence-room research where a fluent answer is not enough. Keep support, applicability, unresolved state, review decisions and iteration lineage inspectable.</p><p style="margin-top:12px"><span class="status-chip">Local-first · single-user current build</span></p><div class="app-links"><a href="epistamate_demo.html">Explore the workspace →</a><a href="landscape.html">Compare the landscape →</a></div></article>
-      <article class="app-card"><div class="label">Service · Workflow-specific</div><h3>GenAI Workflow Assurance</h3><p>For a consequential GenAI workflow where management relies on claims such as “human review catches errors” or “the evaluator is effective.” Test those claims against the controls, operational evidence and relevant current research.</p><p style="margin-top:12px"><span class="status-chip">Workflow evidence · reassessment</span></p><div class="app-links"><a href="genai-control-evidence-review.html">Explore Workflow Assurance →</a></div></article>
-      <article class="app-card"><div class="label">Service · Method-aware adaptation</div><h3>Consulting &amp; Advisory</h3><p>Your method. Your workflow. A governed workspace around it. Map existing stages, propositions, evidence types, review gates, deliverables and decision rights without replacing the organisation’s methodology with a generic AI workflow.</p><p style="margin-top:12px"><span class="status-chip">Workflow mapping · human authority</span></p><div class="app-links"><a href="advisory.html">Explore Consulting &amp; Advisory →</a></div></article>
+      <article class="app-card"><div class="label">Software · Early access</div><h3>Governed Research Workspace</h3><p>A local-first, single-user current build for question-led, document-led and hybrid research. Use it to add or acquire evidence, review claim/support relationships, preserve unresolved state and carry research forward through iterations.</p><div class="app-links"><a href="epistamate_demo.html">See the workspace →</a></div></article>
+      <article class="app-card"><div class="label">Service · Available now</div><h3>GenAI Workflow Assurance</h3><p>A bounded review of one consequential GenAI workflow: what claims management relies on, what controls and operational evidence actually exist, and what current research says about those assumptions.</p><div class="app-links"><a href="genai-control-evidence-review.html">See validation examples →</a></div></article>
+      <article class="app-card"><div class="label">Service · Method-aware</div><h3>Consulting &amp; Advisory</h3><p>Map an existing advisory method into a governed workspace so new evidence, clarification, findings, recommendations and decisions remain connected without replacing the consultant’s methodology or judgement.</p><div class="app-links"><a href="advisory.html#tested-in-practice">See the advisory experiment →</a></div></article>
+    </div>
+    <p class="fine-print" style="margin-top:var(--space-l)"><strong>Local-first in the current workspace:</strong> research state is stored locally; external model assistance is a bounded, explicit step rather than an invisible authority path.</p>
+  </div>
+</section>
+
+<section class="personas-section" id="personas">
+  <div class="section-inner">
+    <div class="section-tag">Who this is for</div>
+    <h2>Evidence-intensive professional work<br><em>where someone may challenge the answer later.</em></h2>
+    <div class="persona-grid home-persona-grid">
+      <a href="persona-consultant.html" class="persona-card"><h3>Consulting &amp; advisory</h3><p>Recommendations built from research, client documents, interviews and specialist input where dependencies and later changes matter.</p><div class="persona-link">Consulting use case →</div></a>
+      <a href="persona-policy.html" class="persona-card"><h3>Policy &amp; regulatory research</h3><p>Work where source authority, jurisdiction, applicability, disagreement and known unknowns must survive the brief.</p><div class="persona-link">Policy use case →</div></a>
+      <a href="persona-professional-services.html" class="persona-card"><h3>Professional research &amp; analysis</h3><p>AI-assisted work product where a reviewer, partner or client needs to inspect the basis — not only receive a confident answer.</p><div class="persona-link">Professional-services use case →</div></a>
     </div>
   </div>
 </section>
 
 <section class="diff-section" id="difference">
   <div class="section-inner">
-    <div class="section-tag">Where the distinction actually is</div>
-    <h2>“Evidence” and “auditability” are not enough.<br><em>The unit of control matters.</em></h2>
-    <p class="section-sub">Research agents, scholarly evidence tools and governance platforms already solve important parts of the problem. Epistamate is aimed at the interface between a consequential proposition and the authority you are willing to give it.</p>
+    <div class="section-tag">Why add another layer?</div>
+    <h2>Already using ChatGPT, Claude or Gemini for deep research?<br><em>Keep using them.</em></h2>
+    <p class="section-sub">Epistamate is not trying to out-search or out-reason frontier models. It is for the part that becomes difficult after the answer is produced: what actually supports it, what remains uncertain, what you reviewed, and what changed later.</p>
     <div class="diff-grid" style="margin-top:var(--space-xl)">
-      <article class="diff-card"><div class="label">Frontier research agents</div><h3>Excellent cognition</h3><p>Search, read, reason and draft at a level Epistamate should exploit rather than imitate. The remaining problem is durable evidentiary state and review authority.</p></article>
-      <article class="diff-card"><div class="label">Scholarly evidence tools</div><h3>Deep literature workflows</h3><p>Strong paper discovery, sentence-level grounding and systematic-review mechanics. Epistamate targets mixed professional evidence and continuing decision state beyond literature alone.</p></article>
-      <article class="diff-card"><div class="label">AI governance platforms</div><h3>Strong governance systems of record</h3><p>Inventory, policy, risk, controls, testing and audit artifacts. Epistamate asks the narrower proposition-level question: what does this evidence establish about the control in this actual workflow?</p></article>
-      <article class="diff-card"><div class="label">Epistamate</div><h3>Evidentiary adjudication</h3><p>Claim-to-support, source/work/family lineage, transferability, unresolved challenge, named human judgement and revalidation are kept as one connected state.</p></article>
+      <article class="diff-card"><div class="label">Frontier research tools</div><h3>Search, read, reason and draft</h3><p>Use the strongest model available for cognition. Epistamate treats model output as proposed research work, not as self-authorising evidence.</p></article>
+      <article class="diff-card"><div class="label">Epistamate adds</div><h3>An inspectable evidence-and-decision layer</h3><p>Connect important claims to exact support, keep repeated source families from masquerading as independent corroboration, preserve applicability and contradiction, and record what a person actually accepted or deferred.</p></article>
+      <article class="diff-card"><div class="label">When it matters</div><h3>When the answer may be challenged later</h3><p>Client recommendations, policy briefs, regulatory analysis and other consequential professional work where “the model said so” is not a sufficient basis.</p></article>
+      <article class="diff-card"><div class="label">When it probably does not</div><h3>Brainstorming and low-consequence drafting</h3><p>If you mainly need ideas, creative drafting or a quick answer, the extra evidence discipline may be unnecessary.</p></article>
     </div>
-  </div>
-</section>
-
-<section class="hallucination-section" id="method">
-  <div class="section-inner">
-    <div class="section-tag">The controls underneath the prose</div>
-    <h2>A polished answer can hide six<br><em>different evidence failures.</em></h2>
-    <div class="control-strip">
-      <div><strong>Support</strong><span>Does the cited/acquired material actually support the exact proposition?</span></div>
-      <div><strong>Lineage</strong><span>Are apparently different sources one underlying work, dataset or evidence family?</span></div>
-      <div><strong>Applicability</strong><span>Does a real finding transfer to this population, jurisdiction, configuration or workflow?</span></div>
-      <div><strong>Challenge</strong><span>What contradicts, qualifies or offers a plausible alternative explanation?</span></div>
-      <div><strong>Review</strong><span>What did AI propose, and what did the researcher actually inspect and decide?</span></div>
-      <div><strong>Change</strong><span>What became stale, weakened or stronger when later evidence or context changed?</span></div>
-    </div>
-    <div class="evidence-chain">frontier intelligence proposes → Epistamate constrains / verifies / records → researcher authorises consequential transitions</div>
   </div>
 </section>
 
@@ -181,7 +187,7 @@
 </section>
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div>
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
     <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
     <div class="footer-refs">
       <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
