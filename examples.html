@@ -34,6 +34,13 @@
 .example-visual-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-l);margin-top:var(--space-l)}
 .example-visual-grid .example-visual{margin:0}
 .example-visual-grid .example-visual img{width:100%;height:auto}
+.example-visual img[data-expandable]{cursor:zoom-in}
+.example-lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh}
+.example-lightbox::backdrop{background:rgba(15,15,15,.82)}
+.example-lightbox-inner{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(1rem,3vw,2.5rem)}
+.example-lightbox img{display:block;max-width:min(96vw,1600px);max-height:90vh;width:auto;height:auto;object-fit:contain;background:var(--paper);box-shadow:0 20px 70px rgba(0,0,0,.35)}
+.example-lightbox-close{position:absolute;top:16px;right:20px;border:1px solid rgba(255,255,255,.35);background:rgba(15,15,15,.7);color:#fff;border-radius:999px;width:42px;height:42px;font-size:1.65rem;line-height:1;cursor:pointer}
+.example-lightbox-close:focus-visible,.example-visual img[data-expandable]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:800px){.example-visual-grid{grid-template-columns:1fr}.examples-wrap{padding:var(--space-l) var(--space-m) var(--space-xl)}.example-hero,.example-grid{grid-template-columns:1fr}.examples-tabs{gap:6px}.example-tab{flex:1 1 calc(50% - 6px)}}
 </style>
 </head>
@@ -97,11 +104,11 @@
     </div>
     <div class="example-visual-grid" aria-label="Research controlled-run evidence states">
       <figure class="example-visual">
-        <img src="assets/examples/research-citation-audit.png" loading="lazy" alt="Epistamate citation audit showing 27 cited routes checked, 10 reachable and 17 failed or blocked, with source identity reviewed separately from reachability.">
+        <img src="assets/examples/research-citation-audit.png" loading="lazy" alt="Epistamate citation audit showing 27 cited routes checked, 10 reachable and 17 failed or blocked, with source identity reviewed separately from reachability." data-expandable tabindex="0" role="button" aria-label="Epistamate citation audit showing 27 cited routes checked, 10 reachable and 17 failed or blocked, with source identity reviewed separately from reachability. Click to expand.">
         <figcaption><strong>1 · Citation routes were checked without being promoted to evidence.</strong> Epistamate recorded 27 route checks, including 10 reachable routes and 17 failures or blocks, while keeping citation identity and claim support as separate questions. A working route still required human review before it could carry evidentiary weight.</figcaption>
       </figure>
       <figure class="example-visual">
-        <img src="assets/examples/research-governed-corpus.png" loading="lazy" alt="Epistamate governed research corpus showing acquired sources alongside an explicit reviewer decision not to pursue one source further.">
+        <img src="assets/examples/research-governed-corpus.png" loading="lazy" alt="Epistamate governed research corpus showing acquired sources alongside an explicit reviewer decision not to pursue one source further." data-expandable tabindex="0" role="button" aria-label="Epistamate governed research corpus showing acquired sources alongside an explicit reviewer decision not to pursue one source further. Click to expand.">
         <figcaption><strong>2 · The usable corpus preserved both acquisitions and a deliberate limitation.</strong> Acquired source material remained inspectable alongside a target marked “not pursued — reviewer decision.” Epistamate preserved that choice rather than silently treating the corpus as complete; the researcher still had to decide whether the remaining limitation was acceptable for this run.</figcaption>
       </figure>
     </div>
@@ -128,19 +135,19 @@
     </div>
     <div class="example-visual-grid" aria-label="EU–India FTA controlled policy-research states">
       <figure class="example-visual">
-        <img src="assets/examples/policy-decision-framing.png" loading="lazy" alt="Epistamate policy research framing for an EU–India FTA manufacturing assessment, showing the research question, intended use, scope and current iteration state.">
+        <img src="assets/examples/policy-decision-framing.png" loading="lazy" alt="Epistamate policy research framing for an EU–India FTA manufacturing assessment, showing the research question, intended use, scope and current iteration state." data-expandable tabindex="0" role="button" aria-label="Epistamate policy research framing for an EU–India FTA manufacturing assessment, showing the research question, intended use, scope and current iteration state. Click to expand.">
         <figcaption><strong>1 · Start from the decision, not just the topic.</strong> The run defined the manufacturing decision, sectors, time horizon and intended use before analysis. It also required FTA-attributable effects to remain distinct from broader India manufacturing conditions. Epistamate preserved those boundaries; the researcher still owned the framing.</figcaption>
       </figure>
       <figure class="example-visual">
-        <img src="assets/examples/policy-evidence-state.png" loading="lazy" alt="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved.">
+        <img src="assets/examples/policy-evidence-state.png" loading="lazy" alt="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved." data-expandable tabindex="0" role="button" aria-label="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved. Click to expand.">
         <figcaption><strong>2 · Incomplete acquisition remained explicit.</strong> Of 10 planned external targets, 7 were acquired and 3 were deliberately deferred by the reviewer, leaving 0 unresolved retrievals. Epistamate carried the deferred targets forward as corpus limitations rather than presenting the evidence base as complete.</figcaption>
       </figure>
       <figure class="example-visual">
-        <img src="assets/examples/policy-legally-operative-boundary.png" loading="lazy" alt="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative, with researcher judgement still required.">
+        <img src="assets/examples/policy-legally-operative-boundary.png" loading="lazy" alt="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative, with researcher judgement still required." data-expandable tabindex="0" role="button" aria-label="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative, with researcher judgement still required. Click to expand.">
         <figcaption><strong>3 · Negotiated opportunity was kept separate from legal effect.</strong> The provisional finding treated the FTA benefits as prospective because procedural steps still separated the negotiated agreement from entry into force. The interface also kept “researcher judgement still required” visible; Epistamate did not turn a provisional synthesis into an accepted policy conclusion.</figcaption>
       </figure>
       <figure class="example-visual">
-        <img src="assets/examples/policy-iteration-delta.png" loading="lazy" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings in an EU–India FTA research run.">
+        <img src="assets/examples/policy-iteration-delta.png" loading="lazy" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings in an EU–India FTA research run." data-expandable tabindex="0" role="button" aria-label="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings in an EU–India FTA research run. Click to expand.">
         <figcaption><strong>4 · Iteration changed the research position visibly.</strong> Iteration 2 recorded what strengthened, narrowed or qualified, reframed, or appeared for the first time, while persistent and new gaps remained visible. The delta showed cumulative governed research rather than replacing the prior state with a fresh one-shot brief.</figcaption>
       </figure>
     </div>
@@ -184,6 +191,13 @@
   </div>
 </footer>
 
+<dialog class="example-lightbox" id="example-lightbox" aria-label="Expanded product screenshot">
+  <div class="example-lightbox-inner">
+    <button class="example-lightbox-close" type="button" aria-label="Close expanded screenshot">&times;</button>
+    <img src="" alt="">
+  </div>
+</dialog>
+
 <script>
 (function(){
   const tabs=[...document.querySelectorAll('.example-tab')], panels=[...document.querySelectorAll('.example-panel')];
@@ -199,6 +213,31 @@
   const initialId=location.hash.replace('#','')||'research';
   activate(initialId,false,Boolean(location.hash));
   window.addEventListener('hashchange',()=>activate(location.hash.replace('#','')||'research',false,true));
+
+  const lightbox=document.getElementById('example-lightbox');
+  const lightboxImage=lightbox.querySelector('img');
+  const lightboxClose=lightbox.querySelector('.example-lightbox-close');
+  let lastExpanded=null;
+  function openLightbox(img){
+    lastExpanded=img;
+    lightboxImage.src=img.currentSrc||img.src;
+    lightboxImage.alt=img.alt;
+    lightbox.showModal();
+    lightboxClose.focus();
+  }
+  document.querySelectorAll('.example-visual img[data-expandable]').forEach(img=>{
+    img.addEventListener('click',()=>openLightbox(img));
+    img.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(img);}
+    });
+  });
+  lightboxClose.addEventListener('click',()=>lightbox.close());
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox) lightbox.close();});
+  lightbox.addEventListener('close',()=>{
+    lightboxImage.src='';
+    lightboxImage.alt='';
+    if(lastExpanded){lastExpanded.focus();lastExpanded=null;}
+  });
 })();
 </script>
 </body>
