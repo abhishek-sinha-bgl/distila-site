@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="distilapp.css">
 <style>
   .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
   .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
   .hero-proof>div{border-top:3px solid var(--accent)}
@@ -40,7 +42,7 @@
   .home-page .hero .hero-proof>div{padding:var(--space-m)}
   .home-page .hero .hero-ctas{margin-top:1rem!important}
   @media(max-width:720px){
-    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip{grid-template-columns:1fr}.app-card{min-height:0}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.home-proof-detail,.home-persona-grid{grid-template-columns:1fr}.app-card{min-height:0}
     .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
     .home-page .nav-logo>span:last-child{display:none}
     .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
@@ -70,8 +72,8 @@
   </div>
   <div class="hero-proof" aria-label="Epistamate value proposition">
     <div><strong>Evidence you can defend</strong><span>Trace a consequential proposition to the material that actually supports, qualifies or contradicts it — not just to a bibliography entry.</span></div>
-    <div><strong>Knowledge that compounds</strong><span>Carry evidence and review state forward with lineage and revalidation instead of starting from zero.</span></div>
-    <div><strong>Decisions you can audit</strong><span>Keep model suggestions, evidentiary authority and human judgement separate so a later reviewer can reconstruct what happened.</span></div>
+    <div><strong>Research you can continue</strong><span>Keep sources, gaps and review decisions attached to the work so the next iteration does not start from zero.</span></div>
+    <div><strong>Decisions you can reconstruct</strong><span>Keep model suggestions, evidence and human judgement separate so a later reviewer can see what was proposed, checked and decided.</span></div>
   </div>
   <div class="hero-ctas" style="margin-top:var(--space-xl)">
     <a href="#problem" class="btn-primary">Why this matters ↓</a>
@@ -101,7 +103,7 @@
     <div class="section-tag">A controlled research run</div>
     <h2>Twenty-seven citations did not mean<br><em>twenty-seven usable evidence points.</em></h2>
     <p class="section-sub">A supplied industry fraud/cyber paper looked well-supported on the surface. Epistamate treated each step separately instead of assuming that a working link meant a supported claim.</p>
-    <div class="proof-grid" style="margin-top:var(--space-xl);grid-template-columns:repeat(2,minmax(0,1fr))">
+    <div class="proof-grid home-proof-detail" style="margin-top:var(--space-xl)">
       <article class="proof-card"><div class="label">What happened</div><h3>The bibliography looked stronger than the inspectable evidence.</h3><p>The run parsed 27 citations. Ten routes were reachable; 17 failed or were blocked. After preserving and de-duplicating what could actually be obtained, 11 unique source contents remained for analysis.</p></article>
       <article class="proof-card"><div class="label">What Epistamate preserved</div><h3>A reachable citation was still not automatically treated as support.</h3><p>Route reachability, citation identity, claim support and substantive validity remained separate questions. Duplicate source content was not counted as independent corroboration, and unresolved support questions survived into the research record rather than disappearing into fluent prose.</p></article>
     </div>
@@ -122,6 +124,7 @@
       <article class="app-card"><div class="label">Service · Available now</div><h3>GenAI Workflow Assurance</h3><p>A bounded review of one consequential GenAI workflow: what claims management relies on, what controls and operational evidence actually exist, and what current research says about those assumptions.</p><div class="app-links"><a href="genai-control-evidence-review.html">See validation examples →</a></div></article>
       <article class="app-card"><div class="label">Service · Method-aware</div><h3>Consulting &amp; Advisory</h3><p>Map an existing advisory method into a governed workspace so new evidence, clarification, findings, recommendations and decisions remain connected without replacing the consultant’s methodology or judgement.</p><div class="app-links"><a href="advisory.html#tested-in-practice">See the advisory experiment →</a></div></article>
     </div>
+    <p class="fine-print" style="margin-top:var(--space-l)"><strong>Local-first in the current workspace:</strong> research state is stored locally; external model assistance is a bounded, explicit step rather than an invisible authority path.</p>
   </div>
 </section>
 
@@ -129,7 +132,7 @@
   <div class="section-inner">
     <div class="section-tag">Who this is for</div>
     <h2>Evidence-intensive professional work<br><em>where someone may challenge the answer later.</em></h2>
-    <div class="persona-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+    <div class="persona-grid home-persona-grid">
       <a href="persona-consultant.html" class="persona-card"><h3>Consulting &amp; advisory</h3><p>Recommendations built from research, client documents, interviews and specialist input where dependencies and later changes matter.</p><div class="persona-link">Consulting use case →</div></a>
       <a href="persona-policy.html" class="persona-card"><h3>Policy &amp; regulatory research</h3><p>Work where source authority, jurisdiction, applicability, disagreement and known unknowns must survive the brief.</p><div class="persona-link">Policy use case →</div></a>
       <a href="persona-professional-services.html" class="persona-card"><h3>Professional research &amp; analysis</h3><p>AI-assisted work product where a reviewer, partner or client needs to inspect the basis — not only receive a confident answer.</p><div class="persona-link">Professional-services use case →</div></a>
