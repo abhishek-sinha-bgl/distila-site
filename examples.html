@@ -13,7 +13,7 @@
 <style>
 .examples-wrap{max-width:1120px;margin:0 auto;padding:var(--space-xl) var(--space-l) var(--space-2xl)}
 .examples-intro{max-width:850px}
-.examples-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:var(--space-xl) 0 var(--space-l)}
+.examples-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:var(--space-xl) 0 var(--space-l);scroll-margin-top:90px}
 .example-tab{border:1px solid var(--border);background:var(--paper);color:var(--ink-3);padding:10px 16px;border-radius:var(--radius-m);font:600 .88rem var(--font-body);cursor:pointer}
 .example-tab.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .example-panel{display:none}
@@ -152,15 +152,18 @@
 <script>
 (function(){
   const tabs=[...document.querySelectorAll('.example-tab')], panels=[...document.querySelectorAll('.example-panel')];
-  function activate(id,updateHash){
+  const tabBar=document.querySelector('.examples-tabs');
+  function activate(id,updateHash,alignTabs){
     if(!panels.some(p=>p.id===id)) id='consulting';
     tabs.forEach(t=>{const on=t.dataset.tab===id;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
     panels.forEach(p=>p.classList.toggle('active',p.id===id));
     if(updateHash) history.replaceState(null,'','#'+id);
+    if(alignTabs) requestAnimationFrame(()=>tabBar.scrollIntoView({block:'start'}));
   }
-  tabs.forEach(t=>t.addEventListener('click',()=>activate(t.dataset.tab,true)));
-  activate(location.hash.replace('#','')||'consulting',false);
-  window.addEventListener('hashchange',()=>activate(location.hash.replace('#','')||'consulting',false));
+  tabs.forEach(t=>t.addEventListener('click',()=>activate(t.dataset.tab,true,false)));
+  const initialId=location.hash.replace('#','')||'consulting';
+  activate(initialId,false,Boolean(location.hash));
+  window.addEventListener('hashchange',()=>activate(location.hash.replace('#','')||'consulting',false,true));
 })();
 </script>
 </body>
