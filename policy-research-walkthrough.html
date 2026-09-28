@@ -25,19 +25,24 @@
 .walk-context h3{margin-bottom:var(--space-s)}
 .walk-context p{color:var(--ink-3)}
 .walk-disclaimer{margin-top:var(--space-m);font-size:.86rem;color:var(--ink-4);max-width:900px}
-.walk-progress{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:var(--space-xl) 0 var(--space-l)}
+.walk-start{margin-top:var(--space-l)}
+.walk-mode{scroll-margin-top:60px}
+.walk-mode-nav{position:sticky;top:60px;z-index:90;background:rgba(250,249,247,.97);backdrop-filter:blur(12px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;margin:0 0 var(--space-m)}
+.walk-mode-nav-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-m);align-items:center}
+.walk-progress{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:0}
 .walk-progress button{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:10px 6px;font:500 .72rem var(--font-mono);color:var(--ink-3);cursor:pointer;min-height:58px}
 .walk-progress button.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .walk-progress .num{display:block;font-size:.65rem;opacity:.7;margin-bottom:3px}
+.walk-exit{white-space:nowrap;font:600 .82rem var(--font-body);padding:10px 14px;border:1px solid var(--ink);border-radius:var(--radius);background:var(--paper);color:var(--ink)}
 .walk-stage{display:none}
 .walk-stage.active{display:block}
-.walk-stage-head{display:grid;grid-template-columns:1fr auto;gap:var(--space-m);align-items:start;margin-bottom:var(--space-m)}
-.walk-stage-head h2{font-size:clamp(1.8rem,3.3vw,2.8rem);max-width:760px}
+.walk-stage-head{display:grid;grid-template-columns:1fr auto;gap:var(--space-m);align-items:start;margin-bottom:12px}
+.walk-stage-head h2{font-size:clamp(1.55rem,2.5vw,2.15rem);max-width:850px}
 .walk-stage-kicker{font:500 .72rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .walk-stage-count{font:500 .72rem var(--font-mono);color:var(--ink-4);padding-top:8px}
-.walk-shot{margin:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--paper)}
-.walk-shot img{display:block;width:100%;height:auto;cursor:zoom-in}
-.walk-shot figcaption{padding:1rem 1.1rem;border-top:1px solid var(--border);font-size:.9rem;color:var(--ink-3);line-height:1.6}
+.walk-shot{margin:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.walk-shot img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 255px);height:auto;object-fit:contain;margin:0 auto;cursor:zoom-in}
+.walk-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.88rem;color:var(--ink-3);line-height:1.55}
 .walk-shot figcaption strong{color:var(--ink)}
 .walk-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m);margin-top:var(--space-l)}
 .walk-note{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:var(--space-m)}
@@ -61,8 +66,11 @@
 .walk-shot img:focus-visible,.walk-progress button:focus-visible,.walk-controls button:focus-visible,.walk-lightbox-close:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:900px){
  .walk-context,.walk-notes{grid-template-columns:1fr}
+ .walk-mode-nav-inner{grid-template-columns:1fr}
  .walk-progress{display:flex;overflow-x:auto;padding-bottom:6px}
  .walk-progress button{min-width:118px}
+ .walk-exit{justify-self:end}
+ .walk-shot img{max-height:calc(100vh - 330px)}
 }
 @media(max-width:620px){
  .walk-wrap{padding:var(--space-l) var(--space-m) var(--space-xl)}
@@ -71,6 +79,9 @@
  .walk-controls{align-items:stretch;flex-direction:column}
  .walk-controls .control-buttons{display:grid;grid-template-columns:1fr 1fr}
  .walk-controls button{width:100%}
+ .walk-mode-nav{top:60px}
+ .walk-exit{justify-self:stretch;text-align:center}
+ .walk-shot img{max-height:calc(100vh - 360px)}
 }
 </style>
 </head>
@@ -100,9 +111,13 @@
       </div>
     </div>
     <p class="walk-disclaimer">Controlled product experiment, not a client case study, investment recommendation, policy recommendation or comparative accuracy benchmark. The EU and India concluded FTA negotiations on 27 January 2026; as of this experiment, completion of the parties’ legal procedures still separated the negotiated agreement from entry into force.</p>
+    <div class="walk-start"><a href="#walkthrough" class="btn-primary" id="start-walkthrough">Start walkthrough →</a></div>
   </header>
 
-  <nav class="walk-progress" aria-label="Walkthrough stages">
+  <section class="walk-mode" id="walkthrough" aria-label="Policy research walkthrough">
+    <div class="walk-mode-nav">
+      <div class="walk-mode-nav-inner">
+        <nav class="walk-progress" aria-label="Walkthrough stages">
     <button class="active" data-stage="0"><span class="num">01</span>Framing</button>
     <button data-stage="1"><span class="num">02</span>Plan</button>
     <button data-stage="2"><span class="num">03</span>Evidence</button>
@@ -111,7 +126,10 @@
     <button data-stage="5"><span class="num">06</span>Readiness</button>
     <button data-stage="6"><span class="num">07</span>Delta</button>
     <button data-stage="7"><span class="num">08</span>Next focus</button>
-  </nav>
+        </nav>
+        <a class="walk-exit" href="examples.html#policy">Exit walkthrough</a>
+      </div>
+    </div>
 
   <section class="walk-stage active" data-stage="0">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 1 · Policy question</div><h2>Start from the decision, not just the topic.</h2></div><div class="walk-stage-count">1 / 8</div></div>
@@ -192,6 +210,7 @@
       <button type="button" class="next" id="next-stage">Next stage →</button>
     </div>
   </div>
+  </section>
 
   <section class="walk-end">
     <h2>The output was not the only product.</h2>
@@ -223,6 +242,8 @@
   const next=document.getElementById('next-stage');
   const position=document.getElementById('stage-position');
   let active=0;
+  const walkthrough=document.getElementById('walkthrough');
+  const start=document.getElementById('start-walkthrough');
   function showStage(index,scroll){
     active=Math.max(0,Math.min(stages.length-1,index));
     stages.forEach((stage,i)=>stage.classList.toggle('active',i===active));
@@ -231,8 +252,9 @@
     next.disabled=active===stages.length-1;
     next.textContent=active===stages.length-1?'Walkthrough complete':'Next stage →';
     position.textContent='Stage '+(active+1)+' of '+stages.length;
-    if(scroll) document.querySelector('.walk-progress').scrollIntoView({behavior:'smooth',block:'start'});
+    if(scroll) walkthrough.scrollIntoView({behavior:'smooth',block:'start'});
   }
+  start.addEventListener('click',()=>{showStage(0,false);});
   stageButtons.forEach((button,i)=>button.addEventListener('click',()=>showStage(i,false)));
   prev.addEventListener('click',()=>showStage(active-1,true));
   next.addEventListener('click',()=>{if(active<stages.length-1)showStage(active+1,true);});
