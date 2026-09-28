@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU–India FTA Research Walkthrough | Epistamate</title>
+<meta name="description" content="Walk through one controlled Epistamate policy-research iteration from framing and evidence acquisition through source-bounded analysis, findings, readiness, iteration delta and next research focus.">
+<link rel="canonical" href="https://epistamate.com/policy-research-walkthrough.html">
+<meta property="og:title" content="Inside a governed policy-research iteration | Epistamate">
+<meta property="og:description" content="A controlled EU–India FTA research walkthrough showing how evidence, unresolved state and researcher decisions persist through an iteration.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://epistamate.com/policy-research-walkthrough.html">
+<meta property="og:image" content="https://epistamate.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="distilapp.css">
+<style>
+.walk-wrap{max-width:1120px;margin:0 auto;padding:var(--space-xl) var(--space-l) var(--space-2xl)}
+.walk-hero{max-width:900px;margin-bottom:var(--space-xl)}
+.walk-hero .hero-h1{margin-bottom:var(--space-m)}
+.walk-context{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-l);margin-top:var(--space-l)}
+.walk-context>div{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:var(--space-l)}
+.walk-context h3{margin-bottom:var(--space-s)}
+.walk-context p{color:var(--ink-3)}
+.walk-disclaimer{margin-top:var(--space-m);font-size:.86rem;color:var(--ink-4);max-width:900px}
+.walk-start{margin-top:var(--space-l)}
+.walk-mode{scroll-margin-top:60px}
+.walk-mode-nav{position:sticky;top:60px;z-index:90;background:rgba(250,249,247,.97);backdrop-filter:blur(12px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;margin:0 0 var(--space-m)}
+.walk-mode-nav-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-m);align-items:center}
+.walk-progress{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:0}
+.walk-progress button{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:10px 6px;font:500 .72rem var(--font-mono);color:var(--ink-3);cursor:pointer;min-height:58px}
+.walk-progress button.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.walk-progress .num{display:block;font-size:.65rem;opacity:.7;margin-bottom:3px}
+.walk-exit{white-space:nowrap;font:600 .82rem var(--font-body);padding:10px 14px;border:1px solid var(--ink);border-radius:var(--radius);background:var(--paper);color:var(--ink)}
+.walk-stage{display:none}
+.walk-stage.active{display:block}
+.walk-stage-head{display:grid;grid-template-columns:1fr auto;gap:var(--space-m);align-items:start;margin-bottom:12px}
+.walk-stage-head h2{font-size:clamp(1.55rem,2.5vw,2.15rem);max-width:850px}
+.walk-stage-kicker{font:500 .72rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.walk-stage-count{font:500 .72rem var(--font-mono);color:var(--ink-4);padding-top:8px}
+.walk-visual-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:var(--space-m);align-items:start}
+.walk-shot{position:relative;margin:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.walk-shot img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 270px);height:auto;object-fit:contain;margin:0 auto;cursor:zoom-in}
+.walk-shot figcaption{padding:.8rem 1rem;border-top:1px solid var(--border);font-size:.86rem;color:var(--ink-3);line-height:1.5}
+.walk-shot figcaption strong{color:var(--ink)}
+.walk-shot-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:42px;height:42px;border-radius:999px;border:1px solid rgba(15,15,15,.18);background:rgba(250,249,247,.9);backdrop-filter:blur(8px);color:var(--ink);font-size:1.45rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.walk-shot-nav:hover{background:var(--paper)}
+.walk-shot-nav.prev{left:12px}
+.walk-shot-nav.next{right:12px}
+.walk-shot-nav:disabled{opacity:.25;cursor:default}
+.walk-shot-nav:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.walk-notes{display:flex;flex-direction:column;gap:var(--space-s);margin:0}
+.walk-notes::before{content:"What this screen conveys";font:500 .7rem var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);padding:2px 2px 0}
+.walk-note{border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-m);background:var(--paper-2);padding:var(--space-m)}
+.walk-note .label{font:500 .68rem var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.walk-note p{font-size:.94rem;color:var(--ink-3)}
+.walk-controls{display:flex;align-items:center;justify-content:space-between;gap:var(--space-s);margin-top:var(--space-l);padding-top:var(--space-l);border-top:1px solid var(--border)}
+.walk-controls .stage-position{font:400 .78rem var(--font-mono);color:var(--ink-4)}
+.walk-controls .control-buttons{display:flex;gap:var(--space-s)}
+.walk-controls button{border:1px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:11px 18px;font:600 .9rem var(--font-body);cursor:pointer}
+.walk-controls button.next{background:var(--ink);color:var(--paper)}
+.walk-controls button:disabled{opacity:.35;cursor:not-allowed}
+.walk-end{margin-top:var(--space-xl);padding:var(--space-l);border-left:3px solid var(--accent);background:var(--paper-2);border-radius:0 var(--radius-m) var(--radius-m) 0}
+.walk-end h2{margin-bottom:var(--space-s)}
+.walk-end p{max-width:800px;color:var(--ink-3)}
+.walk-end .hero-ctas{margin-top:var(--space-m)}
+.walk-lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh}
+.walk-lightbox::backdrop{background:rgba(15,15,15,.84)}
+.walk-lightbox-inner{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(1rem,3vw,2.5rem)}
+.walk-lightbox img{display:block;max-width:min(96vw,1700px);max-height:91vh;width:auto;height:auto;object-fit:contain;background:var(--paper);box-shadow:0 20px 70px rgba(0,0,0,.4)}
+.walk-lightbox-close{position:absolute;top:16px;right:20px;border:1px solid rgba(255,255,255,.35);background:rgba(15,15,15,.72);color:#fff;border-radius:999px;width:42px;height:42px;font-size:1.65rem;line-height:1;cursor:pointer}
+.walk-shot img:focus-visible,.walk-progress button:focus-visible,.walk-controls button:focus-visible,.walk-lightbox-close:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:900px){
+ .walk-context{grid-template-columns:1fr}
+ .walk-visual-row{grid-template-columns:1fr}
+ .walk-mode-nav-inner{grid-template-columns:1fr}
+ .walk-progress{display:flex;overflow-x:auto;padding-bottom:6px}
+ .walk-progress button{min-width:118px}
+ .walk-exit{justify-self:end}
+ .walk-shot img{max-height:calc(100vh - 330px)}
+ .walk-notes{margin-top:0}
+}
+@media(max-width:620px){
+ .walk-wrap{padding:var(--space-l) var(--space-m) var(--space-xl)}
+ .walk-stage-head{grid-template-columns:1fr}
+ .walk-stage-count{padding-top:0}
+ .walk-controls{align-items:stretch;flex-direction:column}
+ .walk-controls .control-buttons{display:grid;grid-template-columns:1fr 1fr}
+ .walk-controls button{width:100%}
+ .walk-mode-nav{top:60px}
+ .walk-exit{justify-self:stretch;text-align:center}
+ .walk-shot img{max-height:calc(100vh - 360px)}
+ .walk-shot-nav{width:36px;height:36px;font-size:1.2rem}
+ .walk-shot-nav.prev{left:8px}
+ .walk-shot-nav.next{right:8px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="blog/index.html">Insights</a></div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<main class="walk-wrap">
+  <header class="walk-hero">
+    <div class="hero-eyebrow">Controlled product walkthrough · Policy research</div>
+    <h1 class="hero-h1">Inside a governed research iteration.<br><em>EU–India FTA, Iteration 2.</em></h1>
+    <p class="section-sub">This walkthrough follows one Epistamate policy-research run from decision framing through evidence acquisition, source-bounded analysis, findings and the next research agenda. It shows research state changing over time rather than presenting only the final brief.</p>
+    <div class="walk-start"><a href="#walkthrough" class="btn-primary" id="start-walkthrough">Start walkthrough →</a></div>
+    <div class="walk-context">
+      <div>
+        <h3>The research question</h3>
+        <p>What opportunities could the concluded EU–India Free Trade Agreement create for German/EU manufacturers considering India manufacturing expansion in automotive and pharmaceuticals, and what material commercial, regulatory, supply-chain and implementation challenges would remain?</p>
+      </div>
+      <div>
+        <h3>The governing boundary</h3>
+        <p>FTA-attributable effects were kept separate from broader India manufacturing conditions, and negotiated provisions were kept separate from rules not yet legally in force. The researcher retained authority over framing, evidence admission and whether the current state was sufficient to continue.</p>
+      </div>
+    </div>
+    <p class="walk-disclaimer">Controlled product experiment, not a client case study, investment recommendation, policy recommendation or comparative accuracy benchmark. The EU and India concluded FTA negotiations on 27 January 2026; as of this experiment, completion of the parties’ legal procedures still separated the negotiated agreement from entry into force.</p>
+  </header>
+
+  <section class="walk-mode" id="walkthrough" aria-label="Policy research walkthrough">
+    <div class="walk-mode-nav">
+      <div class="walk-mode-nav-inner">
+        <nav class="walk-progress" aria-label="Walkthrough stages">
+    <button class="active" data-stage="0"><span class="num">01</span>Framing</button>
+    <button data-stage="1"><span class="num">02</span>Plan</button>
+    <button data-stage="2"><span class="num">03</span>Evidence</button>
+    <button data-stage="3"><span class="num">04</span>Analysis</button>
+    <button data-stage="4"><span class="num">05</span>Findings</button>
+    <button data-stage="5"><span class="num">06</span>Readiness</button>
+    <button data-stage="6"><span class="num">07</span>Delta</button>
+    <button data-stage="7"><span class="num">08</span>Next focus</button>
+        </nav>
+        <a class="walk-exit" href="examples.html#policy">Exit walkthrough</a>
+      </div>
+    </div>
+
+  <section class="walk-stage active" data-stage="0">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 1 · Policy question</div><h2>Start from the decision, not just the topic.</h2></div><div class="walk-stage-count">1 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-decision-framing.png" alt="Epistamate policy research framing for an EU–India FTA manufacturing assessment." tabindex="0" role="button" aria-label="Expand policy research framing screenshot."><figcaption><strong>Actual Iteration 2 framing state.</strong> The question, intended use, scope and evidence route are explicit before analysis begins.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate preserved</div><p>The manufacturing decision, 3–5 year horizon, automotive/pharmaceutical scope and the requirement to distinguish FTA effects from broader India conditions.</p></article>
+        <article class="walk-note"><div class="label">Human authority</div><p>The framing is not inferred from later findings. The researcher owns the question, intended use and boundaries that subsequent evidence must answer.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="1">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 2 · External research</div><h2>Turn the framing into an explicit evidence plan.</h2></div><div class="walk-stage-count">2 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-evidence-plan.png" alt="Epistamate Iteration 2 policy evidence plan showing the accepted research question, intent, scope and external research state." tabindex="0" role="button" aria-label="Expand policy evidence-plan screenshot."><figcaption><strong>Accepted Iteration 2 planning state.</strong> External research remains a bounded response to the question and scope rather than an open-ended search for persuasive material.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What happened</div><p>The accepted plan carried 10 external targets. At this point 7 had been acquired; the plan itself remained visible as the reference for what the iteration set out to obtain.</p></article>
+        <article class="walk-note"><div class="label">What remained open</div><p>Plan acceptance did not imply complete acquisition, sufficient evidence or a finding. Those later transitions remained separate.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="2">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 3 · Policy evidence</div><h2>Continue with an incomplete corpus without pretending completeness.</h2></div><div class="walk-stage-count">3 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-evidence-state.png" alt="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved." tabindex="0" role="button" aria-label="Expand policy evidence-state screenshot."><figcaption><strong>Explicit acquisition state.</strong> Seven of ten targets were acquired; three were deliberately deferred by the reviewer; no retrieval remained unresolved.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate did</div><p>Preserved the acquired material and the reviewer’s decision to stop pursuing three targets, instead of converting “work stopped” into “corpus complete.”</p></article>
+        <article class="walk-note"><div class="label">What the researcher decided</div><p>Whether those explicit limitations were acceptable for the present iteration, or whether acquisition should resume.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="3">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 4 · Source-bounded analysis</div><h2>Let frontier reasoning propose claims; keep admission separate.</h2></div><div class="walk-stage-count">4 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-candidate-review.png" alt="Epistamate policy analysis showing 27 candidates from 7 represented sources with researcher admission required." tabindex="0" role="button" aria-label="Expand policy candidate-review screenshot."><figcaption><strong>Candidate review state.</strong> The run produced 27 candidates from 7 represented sources. Lineage was validated, but researcher admission was still required.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">Division of responsibility</div><p>Frontier supplied candidate semantics; Epistamate kept them source-bounded and used structured research state to route attention.</p></article>
+        <article class="walk-note"><div class="label">Authority boundary</div><p>A model-generated candidate did not become admitted evidence merely because it was plausible or well written. Admission remained a researcher action.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="4">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 5 · Findings</div><h2>Keep negotiated opportunity separate from legal effect.</h2></div><div class="walk-stage-count">5 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-legally-operative-boundary.png" alt="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative." tabindex="0" role="button" aria-label="Expand policy findings screenshot."><figcaption><strong>Provisional finding, not automatic conclusion.</strong> The synthesis treated negotiated market-access benefits as prospective while the required legal procedures still separated the agreement from entry into force.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">Evidence characterization</div><p>The interface exposed that this procedural point rested on direct official EU evidence but a single source path, rather than flattening it into a generic confidence number.</p></article>
+        <article class="walk-note"><div class="label">Human authority</div><p>“Researcher judgement still required” remained visible. Importing a structured synthesis did not silently turn it into an accepted finding.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="5">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 6 · Decision readiness</div><h2>Ask whether the research is usable — and show what was lost or deferred.</h2></div><div class="walk-stage-count">6 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-readiness-next-iteration.png" alt="Epistamate further-analysis state showing current research usable, 15 agenda items and a first-loss audit." tabindex="0" role="button" aria-label="Expand policy readiness screenshot."><figcaption><strong>Usable did not mean complete.</strong> The first-loss audit exposed 7/10 acquired targets, 7 sources and 67 passages, 27/27 admitted claims, and a synthesis of 10 findings with 9 gaps.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate routed</div><p>The accepted synthesis was converted into 15 further-analysis agenda items rather than disappearing into the final prose.</p></article>
+        <article class="walk-note"><div class="label">What the researcher still chose</div><p>Whether to generate a cited report from the current state or strengthen the research with another iteration.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="6">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 7 · Iteration delta</div><h2>Make the change in research position inspectable.</h2></div><div class="walk-stage-count">7 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-iteration-delta.png" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings." tabindex="0" role="button" aria-label="Expand policy iteration-delta screenshot."><figcaption><strong>Iteration 2 did not overwrite Iteration 1.</strong> The delta recorded 3 strengthened findings, 3 narrowed or qualified, 1 reframed and 3 new findings, alongside 5 persistent/refined gaps and 4 new gaps.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">Why this matters</div><p>A new report can hide how the underlying research position moved. The delta preserves that evolution as research state rather than asking a later reviewer to infer it from two pieces of prose.</p></article>
+        <article class="walk-note"><div class="label">What remained unresolved</div><p>Strengthening some findings did not erase open gaps. Persistent and newly discovered uncertainty stayed attached to the iteration.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walk-stage" data-stage="7">
+    <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 8 · Next research focus</div><h2>Turn residual uncertainty into the smallest useful next research actions.</h2></div><div class="walk-stage-count">8 / 8</div></div>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-next-research-focus.png" alt="Epistamate recommended next research focus showing 15 further-investigation items and explicit authority limits." tabindex="0" role="button" aria-label="Expand policy next-research-focus screenshot."><figcaption><strong>The next agenda was routed, not declared authoritative.</strong> Epistamate identified 15 further-investigation items from accepted synthesis and review state while explicitly stating that this deterministic routing did not create a new finding or evidence authority.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate did</div><p>Prioritized where additional evidence could most improve the current research position, including finding-specific validation needs.</p></article>
+        <article class="walk-note"><div class="label">Human authority</div><p>The researcher still decides whether to continue, which validation actions to pursue and whether the expected value of another iteration justifies the work.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <div class="walk-controls">
+    <div class="stage-position" id="stage-position">Stage 1 of 8</div>
+    <div class="control-buttons">
+      <button type="button" id="prev-stage" disabled>← Previous</button>
+      <button type="button" class="next" id="next-stage">Next stage →</button>
+    </div>
+  </div>
+  </section>
+
+  <section class="walk-end">
+    <h2>The output was not the only product.</h2>
+    <p>The experiment produced a research position that could be inspected, challenged and continued: evidence acquisition limits remained visible, model-proposed claims stayed separate from researcher admission, procedural status constrained the findings, and unresolved gaps became explicit next-research work.</p>
+    <div class="hero-ctas"><a href="examples.html#policy" class="btn-primary">Back to the Policy example →</a><a href="engine.html" class="btn-secondary">How the evidence model works →</a></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
+    <div class="footer-refs"><a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a><a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a></div>
+  </div>
+</footer>
+
+<dialog class="walk-lightbox" id="walk-lightbox" aria-label="Expanded product screenshot">
+  <div class="walk-lightbox-inner">
+    <button class="walk-lightbox-close" type="button" aria-label="Close expanded screenshot">&times;</button>
+    <img src="" alt="">
+  </div>
+</dialog>
+
+<script>
+(function(){
+  const stages=[...document.querySelectorAll('.walk-stage')];
+  const stageButtons=[...document.querySelectorAll('.walk-progress button')];
+  const prev=document.getElementById('prev-stage');
+  const next=document.getElementById('next-stage');
+  const position=document.getElementById('stage-position');
+  let active=0;
+  const walkthrough=document.getElementById('walkthrough');
+  const start=document.getElementById('start-walkthrough');
+  function showStage(index,scroll){
+    active=Math.max(0,Math.min(stages.length-1,index));
+    stages.forEach((stage,i)=>stage.classList.toggle('active',i===active));
+    stageButtons.forEach((button,i)=>{button.classList.toggle('active',i===active);button.setAttribute('aria-current',i===active?'step':'false');});
+    prev.disabled=active===0;
+    next.disabled=active===stages.length-1;
+    next.textContent=active===stages.length-1?'Walkthrough complete':'Next stage →';
+    position.textContent='Stage '+(active+1)+' of '+stages.length;
+    if(scroll) walkthrough.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  start.addEventListener('click',()=>{showStage(0,false);});
+  stageButtons.forEach((button,i)=>button.addEventListener('click',()=>showStage(i,false)));
+
+  document.querySelectorAll('.walk-shot').forEach((shot,i)=>{
+    const back=document.createElement('button');
+    back.type='button';
+    back.className='walk-shot-nav prev';
+    back.setAttribute('aria-label','Previous walkthrough stage');
+    back.innerHTML='&#8592;';
+    back.disabled=i===0;
+    back.addEventListener('click',e=>{e.stopPropagation();showStage(i-1,true);});
+
+    const forward=document.createElement('button');
+    forward.type='button';
+    forward.className='walk-shot-nav next';
+    forward.setAttribute('aria-label','Next walkthrough stage');
+    forward.innerHTML='&#8594;';
+    forward.disabled=i===stages.length-1;
+    forward.addEventListener('click',e=>{e.stopPropagation();showStage(i+1,true);});
+
+    shot.append(back,forward);
+  });
+
+  prev.addEventListener('click',()=>showStage(active-1,true));
+  next.addEventListener('click',()=>{if(active<stages.length-1)showStage(active+1,true);});
+
+  const lightbox=document.getElementById('walk-lightbox');
+  const lightboxImage=lightbox.querySelector('img');
+  const close=lightbox.querySelector('.walk-lightbox-close');
+  let last=null;
+  function open(img){last=img;lightboxImage.src=img.currentSrc||img.src;lightboxImage.alt=img.alt;lightbox.showModal();close.focus();}
+  document.querySelectorAll('.walk-shot img').forEach(img=>{
+    img.addEventListener('click',()=>open(img));
+    img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(img);}});
+  });
+  close.addEventListener('click',()=>lightbox.close());
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+  lightbox.addEventListener('close',()=>{lightboxImage.src='';lightboxImage.alt='';if(last){last.focus();last=null;}});
+  showStage(0,false);
+})();
+</script>
+</body>
+</html>
