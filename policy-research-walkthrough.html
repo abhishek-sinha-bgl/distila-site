@@ -41,10 +41,16 @@
 .walk-stage-kicker{font:500 .72rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .walk-stage-count{font:500 .72rem var(--font-mono);color:var(--ink-4);padding-top:8px}
 .walk-visual-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:var(--space-m);align-items:start}
-.walk-shot{margin:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.walk-shot{position:relative;margin:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
 .walk-shot img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 270px);height:auto;object-fit:contain;margin:0 auto;cursor:zoom-in}
 .walk-shot figcaption{padding:.8rem 1rem;border-top:1px solid var(--border);font-size:.86rem;color:var(--ink-3);line-height:1.5}
 .walk-shot figcaption strong{color:var(--ink)}
+.walk-shot-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:42px;height:42px;border-radius:999px;border:1px solid rgba(15,15,15,.18);background:rgba(250,249,247,.9);backdrop-filter:blur(8px);color:var(--ink);font-size:1.45rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.walk-shot-nav:hover{background:var(--paper)}
+.walk-shot-nav.prev{left:12px}
+.walk-shot-nav.next{right:12px}
+.walk-shot-nav:disabled{opacity:.25;cursor:default}
+.walk-shot-nav:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .walk-notes{display:flex;flex-direction:column;gap:var(--space-s);margin:0}
 .walk-notes::before{content:"What this screen conveys";font:500 .7rem var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);padding:2px 2px 0}
 .walk-note{border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-m);background:var(--paper-2);padding:var(--space-m)}
@@ -86,6 +92,9 @@
  .walk-mode-nav{top:60px}
  .walk-exit{justify-self:stretch;text-align:center}
  .walk-shot img{max-height:calc(100vh - 360px)}
+ .walk-shot-nav{width:36px;height:36px;font-size:1.2rem}
+ .walk-shot-nav.prev{left:8px}
+ .walk-shot-nav.next{right:8px}
 }
 </style>
 </head>
@@ -104,6 +113,7 @@
     <div class="hero-eyebrow">Controlled product walkthrough · Policy research</div>
     <h1 class="hero-h1">Inside a governed research iteration.<br><em>EU–India FTA, Iteration 2.</em></h1>
     <p class="section-sub">This walkthrough follows one Epistamate policy-research run from decision framing through evidence acquisition, source-bounded analysis, findings and the next research agenda. It shows research state changing over time rather than presenting only the final brief.</p>
+    <div class="walk-start"><a href="#walkthrough" class="btn-primary" id="start-walkthrough">Start walkthrough →</a></div>
     <div class="walk-context">
       <div>
         <h3>The research question</h3>
@@ -115,7 +125,6 @@
       </div>
     </div>
     <p class="walk-disclaimer">Controlled product experiment, not a client case study, investment recommendation, policy recommendation or comparative accuracy benchmark. The EU and India concluded FTA negotiations on 27 January 2026; as of this experiment, completion of the parties’ legal procedures still separated the negotiated agreement from entry into force.</p>
-    <div class="walk-start"><a href="#walkthrough" class="btn-primary" id="start-walkthrough">Start walkthrough →</a></div>
   </header>
 
   <section class="walk-mode" id="walkthrough" aria-label="Policy research walkthrough">
@@ -276,6 +285,27 @@
   }
   start.addEventListener('click',()=>{showStage(0,false);});
   stageButtons.forEach((button,i)=>button.addEventListener('click',()=>showStage(i,false)));
+
+  document.querySelectorAll('.walk-shot').forEach((shot,i)=>{
+    const back=document.createElement('button');
+    back.type='button';
+    back.className='walk-shot-nav prev';
+    back.setAttribute('aria-label','Previous walkthrough stage');
+    back.innerHTML='&#8592;';
+    back.disabled=i===0;
+    back.addEventListener('click',e=>{e.stopPropagation();showStage(i-1,true);});
+
+    const forward=document.createElement('button');
+    forward.type='button';
+    forward.className='walk-shot-nav next';
+    forward.setAttribute('aria-label','Next walkthrough stage');
+    forward.innerHTML='&#8594;';
+    forward.disabled=i===stages.length-1;
+    forward.addEventListener('click',e=>{e.stopPropagation();showStage(i+1,true);});
+
+    shot.append(back,forward);
+  });
+
   prev.addEventListener('click',()=>showStage(active-1,true));
   next.addEventListener('click',()=>{if(active<stages.length-1)showStage(active+1,true);});
 
