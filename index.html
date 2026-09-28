@@ -22,6 +22,18 @@
   .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
   .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
   .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
   .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
   .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
   .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
@@ -122,7 +134,7 @@
   <div class="section-inner">
     <div class="section-tag">What is available today</div>
     <h2>One software workspace.<br><em>Two service applications built on the same evidence discipline.</em></h2>
-    <div class="app-grid" style="margin-top:var(--space-xl)">
+    <div class="app-grid offer-strip" style="margin-top:var(--space-l)">
       <article class="app-card"><div class="label">Software · Early access</div><h3>Governed Research Workspace</h3><p>A local-first, single-user current build for question-led, document-led and hybrid research. Use it to add or acquire evidence, review claim/support relationships, preserve unresolved state and carry research forward through iterations.</p><div class="app-links"><a href="epistamate_demo.html">See the workspace →</a></div></article>
       <article class="app-card"><div class="label">Service · Available now</div><h3>GenAI Workflow Assurance</h3><p>A bounded review of one consequential GenAI workflow: what claims management relies on, what controls and operational evidence actually exist, and what current research says about those assumptions.</p><div class="app-links"><a href="genai-control-evidence-review.html">See validation examples →</a></div></article>
       <article class="app-card"><div class="label">Service · Method-aware</div><h3>Consulting &amp; Advisory</h3><p>Map an existing advisory method into a governed workspace so new evidence, clarification, findings, recommendations and decisions remain connected without replacing the consultant’s methodology or judgement.</p><div class="app-links"><a href="advisory.html#tested-in-practice">See the advisory experiment →</a></div></article>
@@ -153,6 +165,21 @@
       <article class="diff-card"><div class="label">Epistamate adds</div><h3>An inspectable evidence-and-decision layer</h3><p>Connect important claims to exact support, keep repeated source families from masquerading as independent corroboration, preserve applicability and contradiction, and record what a person actually accepted or deferred.</p></article>
       <article class="diff-card"><div class="label">When it matters</div><h3>When the answer may be challenged later</h3><p>Client recommendations, policy briefs, regulatory analysis and other consequential professional work where “the model said so” is not a sufficient basis.</p></article>
       <article class="diff-card"><div class="label">When it probably does not</div><h3>Brainstorming and low-consequence drafting</h3><p>If you mainly need ideas, creative drafting or a quick answer, the extra evidence discipline may be unnecessary.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="diff-section" id="faq">
+  <div class="section-inner">
+    <div class="section-tag">Common questions</div>
+    <h2>What people usually want to know<br><em>before going deeper.</em></h2>
+    <div class="faq-list">
+      <details><summary>Is Epistamate software or a service?</summary><p>Both, but they are distinct. The Governed Research Workspace is the current software product in early access. GenAI Workflow Assurance and Consulting &amp; Advisory are bounded service applications that use the same evidence-control architecture.</p></details>
+      <details><summary>Does Epistamate replace ChatGPT, Claude or Gemini Deep Research?</summary><p>No. Epistamate is designed to use strong frontier models for search, reading, reasoning and challenge. Its role is to preserve the evidence, unresolved state and human decisions around that model-assisted work.</p></details>
+      <details><summary>What does “local-first” mean?</summary><p>In the current Research Workspace, canonical research state is stored locally. External model or web assistance is an explicit step rather than an invisible authority path. The exact privacy boundary depends on which external services you choose to use.</p></details>
+      <details><summary>Can I use confidential material?</summary><p>The architecture is designed around local research state and bounded external assistance, but you should not send confidential material to an external model unless your own policy and provider terms allow it. Closed-source and more tightly bounded workflows remain an important product direction.</p></details>
+      <details><summary>What does “human authority” actually mean?</summary><p>Models can propose plans, interpretations, challenges and drafts. A human decides what to accept, qualify, defer, reject or carry forward. That decision is recorded, but human approval does not make weak evidence stronger.</p></details>
+      <details><summary>When is Epistamate probably unnecessary?</summary><p>For brainstorming, casual research or low-consequence drafting, the extra evidence discipline may be more overhead than value. It is aimed at work where someone may later ask: what supported this, what was uncertain, and who decided?</p></details>
     </div>
   </div>
 </section>
