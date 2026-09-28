@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="distilapp.css">
 <style>
  .engine-grid,.authority-grid,.profile-grid,.pub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+ .pub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
  .e-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
  .e-card h3{margin-bottom:var(--space-s)}.e-card p{color:var(--ink-3);font-size:.92rem;line-height:1.7}
  .num{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.09em;color:var(--accent);margin-bottom:var(--space-s)}
@@ -38,7 +39,7 @@
  <div class="section-tag">Six co-present properties</div><h2>The contribution is not one technique.<br><em>It is the architecture around them.</em></h2>
  <div class="engine-grid" style="margin-top:var(--space-xl)">
   <article class="e-card"><div class="num">01 · ADDRESSABLE CLAIMS</div><h3>Control below the report level.</h3><p>Consequential propositions remain durable objects that can be supported, qualified, contradicted, reviewed and reused independently of the prose around them.</p></article>
-  <article class="e-card"><div class="num">02 · EVIDENCE POSTURE</div><h3>No magic confidence number.</h3><p>Directness, source role, exact support, independence, applicability, contradiction, recency and sufficiency remain inspectable dimensions.</p></article>
+  <article class="e-card"><div class="num">02 · EVIDENCE POSTURE</div><h3>No magic confidence number.</h3><p>Directness, source role, exact support, independence, applicability, contradiction, recency and sufficiency remain inspectable dimensions.</p><p style="margin-top:10px">Epistamate does not calculate a universal confidence score or source-independence score. Evidence posture remains multidimensional and inspectable rather than collapsed into a single number.</p></article>
   <article class="e-card"><div class="num">03 · ADVERSARIAL CHALLENGE</div><h3>Try to break the conclusion.</h3><p>Models can surface counterevidence and alternative explanations, but challenge changes canonical posture only when the evidence justifies it.</p></article>
   <article class="e-card"><div class="num">04 · PERSISTENT GAPS</div><h3>Unknowns survive synthesis.</h3><p>Missing evidence is a durable research object and possible Research Further target, not a disclaimer that disappears after drafting.</p></article>
   <article class="e-card"><div class="num">05 · CUMULATIVE STATE</div><h3>Reuse without laundering old answers.</h3><p>Inherited evidence can be reconsidered for freshness, applicability and contradiction. Inherited answer authority is not automatically reusable.</p></article>
@@ -72,10 +73,11 @@
 
 <section class="hallucination-section" id="publication"><div class="section-inner">
  <div class="section-tag">Published architecture</div><h2>The original thesis is public.<br><em>The implementation doctrine has become stricter.</em></h2>
- <p class="section-sub">The DCBR paper and defensive disclosure document the six-property architecture. Direct publication links below avoid the fragile redirect/deep-link paths that previously produced blank pages.</p>
+ <p class="section-sub">The DCBR paper, RegWatch paper and defensive disclosure document the architecture and its regulatory-intelligence extension. Direct publication links below avoid the fragile redirect/deep-link paths that previously produced blank pages.</p>
  <div class="pub-grid" style="margin-top:var(--space-xl)">
   <article class="e-card pub-card"><div class="num">ZENODO</div><h3>DCBR Engine paper</h3><p>Canonical record for the published architecture.</p><div class="publication-id">10.5281/zenodo.19204972</div><div class="hero-ctas"><a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener" class="btn-primary">Open Zenodo record ↗</a></div></article>
   <article class="e-card pub-card"><div class="num">IP.COM</div><h3>Defensive disclosure</h3><p>IP.com changed its public retrieval surface. Use its prior-art search and the publication identifier shown here rather than the old fragile deep link.</p><div class="publication-id">IPCOM/000277741</div><div class="hero-ctas"><a href="https://priorart.ip.com/" target="_blank" rel="noopener" class="btn-secondary">Open IP.com search ↗</a></div></article>
+  <article class="e-card pub-card"><div class="num">ZENODO</div><h3>RegWatch paper</h3><p>Published paper on domain-configurable bidirectional reasoning for regulatory intelligence and epistemic infrastructure.</p><div class="publication-id">10.5281/zenodo.19301680</div><div class="hero-ctas"><a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener" class="btn-primary">Open Zenodo record ↗</a></div></article>
   <article class="e-card pub-card"><div class="num">CONTEXT</div><h3>Prior art &amp; adjacent systems</h3><p>Where Epistamate sits relative to frontier research agents, scholarly tools, RAG, knowledge graphs and AI governance.</p><div class="hero-ctas"><a href="landscape.html" class="btn-ghost">Research landscape →</a></div></article>
  </div>
 </div></section>
@@ -85,6 +87,7 @@
     <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
     <div class="footer-refs">
       <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
       <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
       <a href="landscape.html">Prior art and open problems</a>
     </div>
