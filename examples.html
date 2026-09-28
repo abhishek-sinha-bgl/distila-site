@@ -31,7 +31,10 @@
 .example-visual img{display:block;width:100%;height:auto;background:var(--paper-2)}
 .example-visual figcaption{padding:.9rem 1rem;font-size:.84rem;line-height:1.55;color:var(--ink-3);border-top:1px solid var(--border)}
 .example-visual figcaption strong{color:var(--ink)}
-@media(max-width:800px){.examples-wrap{padding:var(--space-l) var(--space-m) var(--space-xl)}.example-hero,.example-grid{grid-template-columns:1fr}.examples-tabs{gap:6px}.example-tab{flex:1 1 calc(50% - 6px)}}
+.example-visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m);margin-top:var(--space-l)}
+.example-visual-grid .example-visual{margin:0}
+.example-visual-grid .example-visual img{width:100%;height:auto}
+@media(max-width:800px){.example-visual-grid{grid-template-columns:1fr}.examples-wrap{padding:var(--space-l) var(--space-m) var(--space-xl)}.example-hero,.example-grid{grid-template-columns:1fr}.examples-tabs{gap:6px}.example-tab{flex:1 1 calc(50% - 6px)}}
 </style>
 </head>
 <body>
@@ -92,10 +95,16 @@
         <p>All 27 routes were checked: 10 were reachable and 17 failed or were blocked. After preservation and content de-duplication, the later analysis worked from 11 unique source contents rather than counting citation volume as independent corroboration.</p>
       </aside>
     </div>
-    <figure class="example-visual">
-      <img src="assets/examples/research-citation-audit.png" loading="lazy" alt="Epistamate citation audit showing 27 cited routes checked, 10 reachable and 17 failed or blocked, with source identity reviewed separately from reachability.">
-      <figcaption><strong>Actual Workbench state from the controlled run.</strong> The interface makes the distinction visible: a reachable route proves only that a route responds; it does not establish citation identity or claim support.</figcaption>
-    </figure>
+    <div class="example-visual-grid" aria-label="Research controlled-run evidence states">
+      <figure class="example-visual">
+        <img src="assets/examples/research-citation-audit.png" loading="lazy" alt="Epistamate citation audit showing 27 cited routes checked, 10 reachable and 17 failed or blocked, with source identity reviewed separately from reachability.">
+        <figcaption><strong>1 · Citation routes were checked without being promoted to evidence.</strong> Epistamate recorded 27 route checks, including 10 reachable routes and 17 failures or blocks, while keeping citation identity and claim support as separate questions. A working route still required human review before it could carry evidentiary weight.</figcaption>
+      </figure>
+      <figure class="example-visual">
+        <img src="assets/examples/research-governed-corpus.png" loading="lazy" alt="Epistamate governed research corpus showing acquired sources alongside an explicit reviewer decision not to pursue one source further.">
+        <figcaption><strong>2 · The usable corpus preserved both acquisitions and a deliberate limitation.</strong> Acquired source material remained inspectable alongside a target marked “not pursued — reviewer decision.” Epistamate preserved that choice rather than silently treating the corpus as complete; the researcher still had to decide whether the remaining limitation was acceptable for this run.</figcaption>
+      </figure>
+    </div>
     <div class="example-grid">
       <article class="example-step"><div class="example-label">Citation integrity</div><h3>Route ≠ support</h3><p>A live URL could still resolve to the wrong edition or fail to support the nearby claim. Those questions remained separate review states.</p></article>
       <article class="example-step"><div class="example-label">Corpus construction</div><h3>Repeated material did not become repeated corroboration</h3><p>Preserved source contents were de-duplicated before later analysis so citation volume did not masquerade as evidentiary independence.</p></article>
@@ -117,10 +126,24 @@
         <p>The governed synthesis treated the FTA as a potentially material improvement in market access whose value still depended on legal implementation, tariff schedules, quotas, phase-ins, rules of origin, product status, regulation and operating conditions.</p>
       </aside>
     </div>
-    <figure class="example-visual">
-      <img src="assets/examples/policy-iteration-delta.png" loading="lazy" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings in an EU–India FTA research run.">
-      <figcaption><strong>Actual Iteration 2 delta from the EU–India FTA run.</strong> Instead of generating a fresh brief and hiding the change, Epistamate shows which findings strengthened, narrowed, reframed or appeared for the first time — while persistent and new gaps remain visible.</figcaption>
-    </figure>
+    <div class="example-visual-grid" aria-label="EU–India FTA controlled policy-research states">
+      <figure class="example-visual">
+        <img src="assets/examples/policy-decision-framing.png" loading="lazy" alt="Epistamate policy research framing for an EU–India FTA manufacturing assessment, showing the research question, intended use, scope and current iteration state.">
+        <figcaption><strong>1 · Start from the decision, not just the topic.</strong> The run defined the manufacturing decision, sectors, time horizon and intended use before analysis. It also required FTA-attributable effects to remain distinct from broader India manufacturing conditions. Epistamate preserved those boundaries; the researcher still owned the framing.</figcaption>
+      </figure>
+      <figure class="example-visual">
+        <img src="assets/examples/policy-evidence-state.png" loading="lazy" alt="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved.">
+        <figcaption><strong>2 · Incomplete acquisition remained explicit.</strong> Of 10 planned external targets, 7 were acquired and 3 were deliberately deferred by the reviewer, leaving 0 unresolved retrievals. Epistamate carried the deferred targets forward as corpus limitations rather than presenting the evidence base as complete.</figcaption>
+      </figure>
+      <figure class="example-visual">
+        <img src="assets/examples/policy-legally-operative-boundary.png" loading="lazy" alt="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative, with researcher judgement still required.">
+        <figcaption><strong>3 · Negotiated opportunity was kept separate from legal effect.</strong> The provisional finding treated the FTA benefits as prospective because procedural steps still separated the negotiated agreement from entry into force. The interface also kept “researcher judgement still required” visible; Epistamate did not turn a provisional synthesis into an accepted policy conclusion.</figcaption>
+      </figure>
+      <figure class="example-visual">
+        <img src="assets/examples/policy-iteration-delta.png" loading="lazy" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings in an EU–India FTA research run.">
+        <figcaption><strong>4 · Iteration changed the research position visibly.</strong> Iteration 2 recorded what strengthened, narrowed or qualified, reframed, or appeared for the first time, while persistent and new gaps remained visible. The delta showed cumulative governed research rather than replacing the prior state with a fresh one-shot brief.</figcaption>
+      </figure>
+    </div>
     <div class="example-grid">
       <article class="example-step"><div class="example-label">Automotive</div><h3>Access depended on conditions</h3><p>Tariff gains could not be read independently of quotas, phase-ins, classification and origin eligibility.</p></article>
       <article class="example-step"><div class="example-label">Pharmaceuticals</div><h3>Tariffs were only one layer</h3><p>Potential tariff savings coexisted with approval, pricing, regulatory and product-status constraints.</p></article>
