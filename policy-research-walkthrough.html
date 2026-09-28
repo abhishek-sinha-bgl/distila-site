@@ -40,12 +40,14 @@
 .walk-stage-head h2{font-size:clamp(1.55rem,2.5vw,2.15rem);max-width:850px}
 .walk-stage-kicker{font:500 .72rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .walk-stage-count{font:500 .72rem var(--font-mono);color:var(--ink-4);padding-top:8px}
+.walk-visual-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:var(--space-m);align-items:start}
 .walk-shot{margin:0;border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
-.walk-shot img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 255px);height:auto;object-fit:contain;margin:0 auto;cursor:zoom-in}
-.walk-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.88rem;color:var(--ink-3);line-height:1.55}
+.walk-shot img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 270px);height:auto;object-fit:contain;margin:0 auto;cursor:zoom-in}
+.walk-shot figcaption{padding:.8rem 1rem;border-top:1px solid var(--border);font-size:.86rem;color:var(--ink-3);line-height:1.5}
 .walk-shot figcaption strong{color:var(--ink)}
-.walk-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m);margin-top:var(--space-l)}
-.walk-note{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:var(--space-m)}
+.walk-notes{display:flex;flex-direction:column;gap:var(--space-s);margin:0}
+.walk-notes::before{content:"What this screen conveys";font:500 .7rem var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);padding:2px 2px 0}
+.walk-note{border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-m);background:var(--paper-2);padding:var(--space-m)}
 .walk-note .label{font:500 .68rem var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
 .walk-note p{font-size:.94rem;color:var(--ink-3)}
 .walk-controls{display:flex;align-items:center;justify-content:space-between;gap:var(--space-s);margin-top:var(--space-l);padding-top:var(--space-l);border-top:1px solid var(--border)}
@@ -65,12 +67,14 @@
 .walk-lightbox-close{position:absolute;top:16px;right:20px;border:1px solid rgba(255,255,255,.35);background:rgba(15,15,15,.72);color:#fff;border-radius:999px;width:42px;height:42px;font-size:1.65rem;line-height:1;cursor:pointer}
 .walk-shot img:focus-visible,.walk-progress button:focus-visible,.walk-controls button:focus-visible,.walk-lightbox-close:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:900px){
- .walk-context,.walk-notes{grid-template-columns:1fr}
+ .walk-context{grid-template-columns:1fr}
+ .walk-visual-row{grid-template-columns:1fr}
  .walk-mode-nav-inner{grid-template-columns:1fr}
  .walk-progress{display:flex;overflow-x:auto;padding-bottom:6px}
  .walk-progress button{min-width:118px}
  .walk-exit{justify-self:end}
  .walk-shot img{max-height:calc(100vh - 330px)}
+ .walk-notes{margin-top:0}
 }
 @media(max-width:620px){
  .walk-wrap{padding:var(--space-l) var(--space-m) var(--space-xl)}
@@ -133,73 +137,89 @@
 
   <section class="walk-stage active" data-stage="0">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 1 · Policy question</div><h2>Start from the decision, not just the topic.</h2></div><div class="walk-stage-count">1 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-decision-framing.png" alt="Epistamate policy research framing for an EU–India FTA manufacturing assessment." tabindex="0" role="button" aria-label="Expand policy research framing screenshot."><figcaption><strong>Actual Iteration 2 framing state.</strong> The question, intended use, scope and evidence route are explicit before analysis begins.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">What Epistamate preserved</div><p>The manufacturing decision, 3–5 year horizon, automotive/pharmaceutical scope and the requirement to distinguish FTA effects from broader India conditions.</p></article>
-      <article class="walk-note"><div class="label">Human authority</div><p>The framing is not inferred from later findings. The researcher owns the question, intended use and boundaries that subsequent evidence must answer.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-decision-framing.png" alt="Epistamate policy research framing for an EU–India FTA manufacturing assessment." tabindex="0" role="button" aria-label="Expand policy research framing screenshot."><figcaption><strong>Actual Iteration 2 framing state.</strong> The question, intended use, scope and evidence route are explicit before analysis begins.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate preserved</div><p>The manufacturing decision, 3–5 year horizon, automotive/pharmaceutical scope and the requirement to distinguish FTA effects from broader India conditions.</p></article>
+        <article class="walk-note"><div class="label">Human authority</div><p>The framing is not inferred from later findings. The researcher owns the question, intended use and boundaries that subsequent evidence must answer.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="1">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 2 · External research</div><h2>Turn the framing into an explicit evidence plan.</h2></div><div class="walk-stage-count">2 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-evidence-plan.png" alt="Epistamate Iteration 2 policy evidence plan showing the accepted research question, intent, scope and external research state." tabindex="0" role="button" aria-label="Expand policy evidence-plan screenshot."><figcaption><strong>Accepted Iteration 2 planning state.</strong> External research remains a bounded response to the question and scope rather than an open-ended search for persuasive material.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">What happened</div><p>The accepted plan carried 10 external targets. At this point 7 had been acquired; the plan itself remained visible as the reference for what the iteration set out to obtain.</p></article>
-      <article class="walk-note"><div class="label">What remained open</div><p>Plan acceptance did not imply complete acquisition, sufficient evidence or a finding. Those later transitions remained separate.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-evidence-plan.png" alt="Epistamate Iteration 2 policy evidence plan showing the accepted research question, intent, scope and external research state." tabindex="0" role="button" aria-label="Expand policy evidence-plan screenshot."><figcaption><strong>Accepted Iteration 2 planning state.</strong> External research remains a bounded response to the question and scope rather than an open-ended search for persuasive material.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What happened</div><p>The accepted plan carried 10 external targets. At this point 7 had been acquired; the plan itself remained visible as the reference for what the iteration set out to obtain.</p></article>
+        <article class="walk-note"><div class="label">What remained open</div><p>Plan acceptance did not imply complete acquisition, sufficient evidence or a finding. Those later transitions remained separate.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="2">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 3 · Policy evidence</div><h2>Continue with an incomplete corpus without pretending completeness.</h2></div><div class="walk-stage-count">3 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-evidence-state.png" alt="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved." tabindex="0" role="button" aria-label="Expand policy evidence-state screenshot."><figcaption><strong>Explicit acquisition state.</strong> Seven of ten targets were acquired; three were deliberately deferred by the reviewer; no retrieval remained unresolved.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">What Epistamate did</div><p>Preserved the acquired material and the reviewer’s decision to stop pursuing three targets, instead of converting “work stopped” into “corpus complete.”</p></article>
-      <article class="walk-note"><div class="label">What the researcher decided</div><p>Whether those explicit limitations were acceptable for the present iteration, or whether acquisition should resume.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-evidence-state.png" alt="Epistamate policy Evidence Room showing 10 planned targets, 7 acquired, 3 deferred by reviewer and 0 unresolved." tabindex="0" role="button" aria-label="Expand policy evidence-state screenshot."><figcaption><strong>Explicit acquisition state.</strong> Seven of ten targets were acquired; three were deliberately deferred by the reviewer; no retrieval remained unresolved.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate did</div><p>Preserved the acquired material and the reviewer’s decision to stop pursuing three targets, instead of converting “work stopped” into “corpus complete.”</p></article>
+        <article class="walk-note"><div class="label">What the researcher decided</div><p>Whether those explicit limitations were acceptable for the present iteration, or whether acquisition should resume.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="3">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 4 · Source-bounded analysis</div><h2>Let frontier reasoning propose claims; keep admission separate.</h2></div><div class="walk-stage-count">4 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-candidate-review.png" alt="Epistamate policy analysis showing 27 candidates from 7 represented sources with researcher admission required." tabindex="0" role="button" aria-label="Expand policy candidate-review screenshot."><figcaption><strong>Candidate review state.</strong> The run produced 27 candidates from 7 represented sources. Lineage was validated, but researcher admission was still required.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">Division of responsibility</div><p>Frontier supplied candidate semantics; Epistamate kept them source-bounded and used structured research state to route attention.</p></article>
-      <article class="walk-note"><div class="label">Authority boundary</div><p>A model-generated candidate did not become admitted evidence merely because it was plausible or well written. Admission remained a researcher action.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-candidate-review.png" alt="Epistamate policy analysis showing 27 candidates from 7 represented sources with researcher admission required." tabindex="0" role="button" aria-label="Expand policy candidate-review screenshot."><figcaption><strong>Candidate review state.</strong> The run produced 27 candidates from 7 represented sources. Lineage was validated, but researcher admission was still required.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">Division of responsibility</div><p>Frontier supplied candidate semantics; Epistamate kept them source-bounded and used structured research state to route attention.</p></article>
+        <article class="walk-note"><div class="label">Authority boundary</div><p>A model-generated candidate did not become admitted evidence merely because it was plausible or well written. Admission remained a researcher action.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="4">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 5 · Findings</div><h2>Keep negotiated opportunity separate from legal effect.</h2></div><div class="walk-stage-count">5 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-legally-operative-boundary.png" alt="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative." tabindex="0" role="button" aria-label="Expand policy findings screenshot."><figcaption><strong>Provisional finding, not automatic conclusion.</strong> The synthesis treated negotiated market-access benefits as prospective while the required legal procedures still separated the agreement from entry into force.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">Evidence characterization</div><p>The interface exposed that this procedural point rested on direct official EU evidence but a single source path, rather than flattening it into a generic confidence number.</p></article>
-      <article class="walk-note"><div class="label">Human authority</div><p>“Researcher judgement still required” remained visible. Importing a structured synthesis did not silently turn it into an accepted finding.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-legally-operative-boundary.png" alt="Epistamate provisional policy finding stating that EU–India FTA benefits remained prospective rather than legally operative." tabindex="0" role="button" aria-label="Expand policy findings screenshot."><figcaption><strong>Provisional finding, not automatic conclusion.</strong> The synthesis treated negotiated market-access benefits as prospective while the required legal procedures still separated the agreement from entry into force.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">Evidence characterization</div><p>The interface exposed that this procedural point rested on direct official EU evidence but a single source path, rather than flattening it into a generic confidence number.</p></article>
+        <article class="walk-note"><div class="label">Human authority</div><p>“Researcher judgement still required” remained visible. Importing a structured synthesis did not silently turn it into an accepted finding.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="5">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 6 · Decision readiness</div><h2>Ask whether the research is usable — and show what was lost or deferred.</h2></div><div class="walk-stage-count">6 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-readiness-next-iteration.png" alt="Epistamate further-analysis state showing current research usable, 15 agenda items and a first-loss audit." tabindex="0" role="button" aria-label="Expand policy readiness screenshot."><figcaption><strong>Usable did not mean complete.</strong> The first-loss audit exposed 7/10 acquired targets, 7 sources and 67 passages, 27/27 admitted claims, and a synthesis of 10 findings with 9 gaps.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">What Epistamate routed</div><p>The accepted synthesis was converted into 15 further-analysis agenda items rather than disappearing into the final prose.</p></article>
-      <article class="walk-note"><div class="label">What the researcher still chose</div><p>Whether to generate a cited report from the current state or strengthen the research with another iteration.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-readiness-next-iteration.png" alt="Epistamate further-analysis state showing current research usable, 15 agenda items and a first-loss audit." tabindex="0" role="button" aria-label="Expand policy readiness screenshot."><figcaption><strong>Usable did not mean complete.</strong> The first-loss audit exposed 7/10 acquired targets, 7 sources and 67 passages, 27/27 admitted claims, and a synthesis of 10 findings with 9 gaps.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate routed</div><p>The accepted synthesis was converted into 15 further-analysis agenda items rather than disappearing into the final prose.</p></article>
+        <article class="walk-note"><div class="label">What the researcher still chose</div><p>Whether to generate a cited report from the current state or strengthen the research with another iteration.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="6">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 7 · Iteration delta</div><h2>Make the change in research position inspectable.</h2></div><div class="walk-stage-count">7 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-iteration-delta.png" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings." tabindex="0" role="button" aria-label="Expand policy iteration-delta screenshot."><figcaption><strong>Iteration 2 did not overwrite Iteration 1.</strong> The delta recorded 3 strengthened findings, 3 narrowed or qualified, 1 reframed and 3 new findings, alongside 5 persistent/refined gaps and 4 new gaps.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">Why this matters</div><p>A new report can hide how the underlying research position moved. The delta preserves that evolution as research state rather than asking a later reviewer to infer it from two pieces of prose.</p></article>
-      <article class="walk-note"><div class="label">What remained unresolved</div><p>Strengthening some findings did not erase open gaps. Persistent and newly discovered uncertainty stayed attached to the iteration.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-iteration-delta.png" alt="Epistamate policy research iteration delta showing strengthened, narrowed or qualified, reframed and new findings." tabindex="0" role="button" aria-label="Expand policy iteration-delta screenshot."><figcaption><strong>Iteration 2 did not overwrite Iteration 1.</strong> The delta recorded 3 strengthened findings, 3 narrowed or qualified, 1 reframed and 3 new findings, alongside 5 persistent/refined gaps and 4 new gaps.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">Why this matters</div><p>A new report can hide how the underlying research position moved. The delta preserves that evolution as research state rather than asking a later reviewer to infer it from two pieces of prose.</p></article>
+        <article class="walk-note"><div class="label">What remained unresolved</div><p>Strengthening some findings did not erase open gaps. Persistent and newly discovered uncertainty stayed attached to the iteration.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="walk-stage" data-stage="7">
     <div class="walk-stage-head"><div><div class="walk-stage-kicker">Stage 8 · Next research focus</div><h2>Turn residual uncertainty into the smallest useful next research actions.</h2></div><div class="walk-stage-count">8 / 8</div></div>
-    <figure class="walk-shot"><img src="assets/examples/policy-next-research-focus.png" alt="Epistamate recommended next research focus showing 15 further-investigation items and explicit authority limits." tabindex="0" role="button" aria-label="Expand policy next-research-focus screenshot."><figcaption><strong>The next agenda was routed, not declared authoritative.</strong> Epistamate identified 15 further-investigation items from accepted synthesis and review state while explicitly stating that this deterministic routing did not create a new finding or evidence authority.</figcaption></figure>
-    <div class="walk-notes">
-      <article class="walk-note"><div class="label">What Epistamate did</div><p>Prioritized where additional evidence could most improve the current research position, including finding-specific validation needs.</p></article>
-      <article class="walk-note"><div class="label">Human authority</div><p>The researcher still decides whether to continue, which validation actions to pursue and whether the expected value of another iteration justifies the work.</p></article>
+    <div class="walk-visual-row">
+      <figure class="walk-shot"><img src="assets/examples/policy-next-research-focus.png" alt="Epistamate recommended next research focus showing 15 further-investigation items and explicit authority limits." tabindex="0" role="button" aria-label="Expand policy next-research-focus screenshot."><figcaption><strong>The next agenda was routed, not declared authoritative.</strong> Epistamate identified 15 further-investigation items from accepted synthesis and review state while explicitly stating that this deterministic routing did not create a new finding or evidence authority.</figcaption></figure>
+      <div class="walk-notes">
+        <article class="walk-note"><div class="label">What Epistamate did</div><p>Prioritized where additional evidence could most improve the current research position, including finding-specific validation needs.</p></article>
+        <article class="walk-note"><div class="label">Human authority</div><p>The researcher still decides whether to continue, which validation actions to pursue and whether the expected value of another iteration justifies the work.</p></article>
+      </div>
     </div>
   </section>
 
