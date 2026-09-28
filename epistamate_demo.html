@@ -45,9 +45,17 @@
   .research-boundary{
     margin-top:.5rem;font-size:.7rem;color:var(--ink-4);line-height:1.4;max-width:980px;
   }
+  .research-run-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m);margin-top:var(--space-xl)}
+  .research-run-card{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-l)}
+  .research-run-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .research-run-card h3{margin-bottom:var(--space-s)}
+  .research-run-card p{font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .research-run-card p+p{margin-top:.65rem}
+  .research-run-note{margin-top:var(--space-l);font-size:.8rem;color:var(--ink-4);max-width:860px}
   @media(max-width:900px){
     .research-page .research-landing{padding-top:1.75rem;padding-bottom:1.75rem}
     .research-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .research-run-grid{grid-template-columns:1fr}
   }
   @media(max-width:620px){
     .research-page .research-landing{padding:2rem var(--space-m)}
