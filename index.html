@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <title>Epistamate Governed Research Workspace — Evidence control for AI-assisted research</title>
-<meta name="description" content="Epistamate traces consequential claims in AI-assisted research to the evidence that supports, qualifies or contradicts them, while preserving what people reviewed and decided.">
+<meta name="description" content="Epistamate builds on the information and research you already have, supplements it with targeted search, and keeps AI-assisted evidence, reasoning, changes and human decisions traceable.">
 <meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta property="og:title" content="Epistamate Governed Research Workspace"><meta property="og:description" content="Trace consequential AI-assisted research claims to evidence, uncertainty and human decisions."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
@@ -44,10 +44,15 @@
   .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
   .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
   .control-strip>div{background:var(--paper);padding:var(--space-m)}
   .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
   .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
-  @media(max-width:980px){.diff-grid,.control-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
   .home-page #applications .section-inner{padding-top:3.25rem}
   .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
@@ -61,7 +66,7 @@
   .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
   .home-page .hero .hero-ctas{margin-top:.7rem!important}
   @media(max-width:720px){
-    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.home-proof-detail,.home-persona-grid{grid-template-columns:1fr}.app-card{min-height:0}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid{grid-template-columns:1fr}.app-card{min-height:0}
     .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
     .home-page .nav-logo>span:last-child{display:none}
     .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
@@ -87,7 +92,7 @@
   <h1 class="hero-h1">Frontier intelligence.<br><em>Governed research state.</em><br>Human authority.</h1>
   <div class="stakes-block" style="max-width:900px">
     <p class="stakes-kicker">Epistamate traces consequential claims in AI-assisted research to the evidence that supports, qualifies or contradicts them — and records what people actually reviewed and decided.</p>
-    <p>Use frontier models for search, reading and reasoning. Use Epistamate when the answer has to hold up later — in consulting, policy, regulatory or other evidence-intensive professional work.</p>
+    <p>Bring the information and research you already have, supplement it with targeted search when needed, and use frontier models for search, reading and reasoning. Use Epistamate when the answer has to hold up later — in consulting, policy, regulatory or other evidence-intensive professional work.</p>
   </div>
   <div class="hero-proof" aria-label="Epistamate value proposition">
     <div><strong>Evidence you can defend</strong><span>Trace a consequential proposition to the material that actually supports, qualifies or contradicts it — not just to a bibliography entry.</span></div>
@@ -98,6 +103,26 @@
     <a href="#problem" class="btn-primary">Why this matters ↓</a>
     <a href="examples.html" class="btn-secondary">See a real example →</a>
     <a href="#applications" class="btn-secondary">What can I use today? →</a>
+  </div>
+</section>
+
+<section class="diff-section" id="research-corpus">
+  <div class="section-inner">
+    <div class="section-tag">From information overload to attention allocation</div>
+    <h2>The problem is no longer access to information.<br><em>It is deciding what deserves attention.</em></h2>
+    <p class="section-sub">Professional research can start with client documents, internal research, enterprise RAG, licensed analyst material, scholarly or official sources — and then add targeted external search where the question still needs it. Epistamate is designed to build on that information landscape, not replace it.</p>
+    <div class="source-flow" aria-label="How information and research flow through Epistamate">
+      <div><span class="flow-arrow">Start with what you have</span><strong>Your information &amp; research</strong><span>Evidence Room · internal material · enterprise search/RAG · licensed research · scholarly and official sources</span></div>
+      <div><span class="flow-arrow">Supplement selectively</span><strong>Targeted discovery</strong><span>Question-led external search and source recovery when the current corpus leaves material gaps.</span></div>
+      <div><span class="flow-arrow">Use strong models</span><strong>Frontier intelligence</strong><span>Bounded search, reading, reasoning and challenge over selected material.</span></div>
+      <div><span class="flow-arrow">Preserve the state</span><strong>Governed research state</strong><span>Evidence lineage · claims · gaps · contradictions · decisions · iterations · what changed</span></div>
+      <div><span class="flow-arrow">Spend attention where it matters</span><strong>Human authority</strong><span>Review · qualify · defer · proceed · strengthen · publish or export.</span></div>
+    </div>
+    <p class="fine-print" style="margin-top:var(--space-m)">Epistamate does not assume every source deserves equal human effort. Bounded machine assistance can reduce repetitive work while consequential claims, contradictions, gaps and changes are brought to the researcher’s attention.</p>
+    <div class="hero-ctas" style="margin-top:var(--space-l)">
+      <a href="policy-research-walkthrough.html" class="btn-primary">See attention allocation in a real workflow →</a>
+      <a href="blog/scarce-resource-is-attention.html" class="btn-secondary">Read the information-overload essay →</a>
+    </div>
   </div>
 </section>
 
