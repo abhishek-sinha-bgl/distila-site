@@ -78,7 +78,7 @@
 
     image.setAttribute("title", "View full size");
     image.addEventListener("click", function () {
-      if (!finePointer || finePointer.matches) openFigure(figure, image);
+      if (!finePointer || finePointer.matches) openFigure(figure, button);
     });
   });
 
