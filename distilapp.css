@@ -94,10 +94,33 @@ section,section.visible{opacity:1!important;transform:none!important}
 .architecture-figure figcaption{padding:.75rem 1rem;border-top:1px solid var(--border);font-size:.8rem;line-height:1.55;color:var(--ink-3)}
 .architecture-figure figcaption strong{color:var(--ink)}
 .architecture-figure.compact{margin-top:var(--space-l)}
+.architecture-figure--expandable{position:relative}
+.architecture-expand{display:block;margin:.55rem .75rem .55rem auto;padding:6px 10px;border:1px solid var(--border-2);border-radius:var(--radius);background:var(--paper-2);color:var(--ink-2);font:600 .74rem var(--font-body);cursor:pointer}
+.architecture-expand:hover{border-color:var(--ink-3);background:var(--paper-3)}
+.architecture-expand:focus-visible,.architecture-lightbox__close:focus-visible{outline:3px solid rgba(200,67,47,.22);outline-offset:2px}
+@media(hover:hover) and (pointer:fine){.architecture-figure--expandable .architecture-scroll img{cursor:zoom-in}}
+body.diagram-lightbox-open{overflow:hidden}
+.architecture-lightbox[hidden]{display:none}
+.architecture-lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(15,15,15,.82);opacity:0;transition:opacity .14s ease}
+.architecture-lightbox.is-open{opacity:1}
+.architecture-lightbox__panel{width:min(1700px,calc(100vw - 32px));height:min(940px,calc(100vh - 32px));display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius-m);background:var(--paper);box-shadow:0 24px 70px rgba(0,0,0,.34)}
+.architecture-lightbox__bar{display:flex;align-items:center;gap:var(--space-s);padding:.6rem .75rem;border-bottom:1px solid var(--border);background:var(--paper-2)}
+.architecture-lightbox__hint{flex:1;font:400 .72rem var(--font-mono);letter-spacing:.03em;color:var(--ink-3)}
+.architecture-lightbox__close{flex-shrink:0;padding:7px 10px;border:1px solid var(--border-2);border-radius:var(--radius);background:var(--paper);color:var(--ink);font:600 .78rem var(--font-body);cursor:pointer}
+.architecture-lightbox__close:hover{background:var(--paper-3)}
+.architecture-lightbox__viewport{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--paper);touch-action:pan-x pan-y pinch-zoom}
+.architecture-lightbox__image{display:block;width:min(1600px,calc(100vw - 64px));max-width:none;height:auto;margin:0 auto}
+.architecture-lightbox__caption{padding:.65rem .85rem;border-top:1px solid var(--border);background:var(--paper-2);font-size:.78rem;line-height:1.5;color:var(--ink-3)}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:720px){
   .architecture-scroll img{width:900px;max-width:none}
   .architecture-figure figcaption::before{content:"Swipe to explore · ";font-weight:600;color:var(--ink)}
+  .architecture-expand{width:calc(100% - 1.5rem);margin:.6rem .75rem;text-align:center}
+  .architecture-lightbox{padding:8px}
+  .architecture-lightbox__panel{width:calc(100vw - 16px);height:calc(100vh - 16px)}
+  .architecture-lightbox__hint{font-size:.66rem}
+  .architecture-lightbox__image{width:1200px;margin:0}
+  .architecture-lightbox__caption{font-size:.72rem}
 }
 
 /* Tables / process / legacy reusable pieces */
