@@ -553,3 +553,35 @@ For now:
 - do not modify homepage, Examples, walkthrough, CSS, screenshot assets or navigation;
 - do not deploy or promote a Vercel build;
 - do not add an 'ERA compliant' or 'ALLEA compliant' banner/claim.
+
+
+## 2026-10-07 — Methods disclosure presentation refined before website tranche
+
+The Research Workspace Methods & AI-use Disclosure has now been redesigned from a long default ledger into a **summary-first, proof-on-demand** artifact. Website implementation remains paused pending founder validation of the new real FTA presentation.
+
+The disclosure now supports five product views:
+- Summary;
+- Methods;
+- AI use;
+- Human review;
+- Full log.
+
+The AI-use view includes an Iteration × workflow-stage matrix so a visitor can see where AI/model assistance entered the research without reading every log event. Human review is shown separately from model activity, reinforcing the core product distinction between model assistance and researcher authority.
+
+The disclosure now has one prominent Download disclosure control with four deterministic outputs:
+- AI-use statement (.md);
+- Methodology note (.md);
+- Full disclosure (.md);
+- machine-readable record (.json).
+
+These outputs are derived from the same immutable disclosure record and do not require another model call.
+
+Potential public message remains:
+> **Show how AI was used — and where human authority remained.**
+
+Possible supporting line:
+> **Use the summary to understand the method. Use the full record when someone needs the proof.**
+
+Website acceptance remains contingent on founder review of the real three-iteration FTA disclosure after pull/relaunch. If the first viewport is strong, this becomes a likely fourth proof artifact after Research state, History Recap and Governance Audit.
+
+Implementation hold remains unchanged: no homepage, Examples, walkthrough, CSS, screenshot-asset, navigation or deployment changes until explicitly resumed.
