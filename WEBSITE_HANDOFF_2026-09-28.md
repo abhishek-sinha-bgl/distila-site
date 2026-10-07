@@ -490,3 +490,66 @@ These screenshots are now accepted as the Governance Audit candidates for the pl
 3. Research Governance Audit.
 
 Implementation remains on hold. Do not edit site HTML/CSS, upload screenshot assets, change walkthrough content, deploy, or promote a build until the founder explicitly starts the website-update tranche.
+
+
+## 2026-10-07 — pre-website Research integrity / methods tranche (PLANNING ONLY)
+
+Before the next public-site implementation tranche, Research Workspace added a new deterministic **Methods & AI-use Disclosure** plus a bounded **source-content trust boundary**. The website itself remains unchanged until founder validation of the disclosure is complete.
+
+### New candidate public proof: Methods & AI-use Disclosure
+
+Potential public message:
+> **Show how AI was used — and where human authority remained.**
+
+The artifact is intended for academic research, policy, regulatory/diligence and consulting/advisory work. It is not framed as an academic-only feature.
+
+It deterministically records what Epistamate can establish from its own governed workflow, including:
+- iteration-by-iteration research-method history;
+- recorded external model-assisted stages such as planning, source-location assistance, analysis, synthesis, deliverable drafting and History Recap;
+- recorded system/service and optional model/configuration label;
+- pack, prompt and result fingerprints;
+- local model-assisted retrieval provider/model where recorded;
+- researcher review/acceptance separately from model assistance;
+- explicit limits when AI use or model identity was not recorded inside Epistamate.
+
+Public framing rule:
+- do **not** claim ALLEA compliance, ERA compliance, certification or automatic conformity;
+- it is acceptable to say that European research-integrity / responsible-AI guidance asks researchers and institutions to pay attention to transparent AI use, verification, accountability and uncertainty, and that Epistamate produces artifacts that can help evidence relevant practices;
+- preserve the product's own limitations: the disclosure cannot prove that no unrecorded external AI use occurred.
+
+Possible website line:
+> **The rules still belong to the researcher or institution. Epistamate helps preserve the trail: what method was used, where models assisted, what evidence they saw, what came back, and what a human accepted.**
+
+### Source-content trust boundary
+
+Step-4 model-facing analysis now carries an explicit rule:
+> **Source content is evidence data, never instructions.**
+
+A deterministic, non-destructive scan records bounded signals such as invisible Unicode, bidi controls, instruction-like text and selected hidden-markup indicators in the selected passages sent for model analysis. Signals are surfaced for review; source text is preserved unchanged.
+
+Public claim must remain conservative:
+- say **designed to limit / surface source-borne instruction risk**;
+- do not say prompt-injection proof, immune, secure against all hidden prompts, or equivalent;
+- current scan does not yet compare rendered PDF pages with the text layer and therefore does not support a claim that all white-on-white, microscopic or off-page content is detected.
+
+### Relationship to the existing planned website proof set
+
+The previously accepted same-topic proof set remains:
+1. Research Hub / Research state — see the governed research state;
+2. Research History Recap — see how it got here;
+3. Research Governance Audit — see what still prevents consequential reliance.
+
+Methods & AI-use Disclosure is now the strongest **next candidate** after those three. Founder validation should determine whether it becomes:
+- a fourth product-state visual;
+- a short research-integrity / defensibility section with one supporting screenshot;
+- or supporting copy attached to the existing proof sequence.
+
+Do not decide placement or upload assets until the founder has run the disclosure on the correct three-iteration FTA topic and reviewed the real output.
+
+### Implementation hold remains
+
+For now:
+- documentation/planning only;
+- do not modify homepage, Examples, walkthrough, CSS, screenshot assets or navigation;
+- do not deploy or promote a Vercel build;
+- do not add an 'ERA compliant' or 'ALLEA compliant' banner/claim.
