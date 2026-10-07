@@ -585,3 +585,58 @@ Possible supporting line:
 Website acceptance remains contingent on founder review of the real three-iteration FTA disclosure after pull/relaunch. If the first viewport is strong, this becomes a likely fourth proof artifact after Research state, History Recap and Governance Audit.
 
 Implementation hold remains unchanged: no homepage, Examples, walkthrough, CSS, screenshot-asset, navigation or deployment changes until explicitly resumed.
+
+
+## 2026-10-07 — Methods & AI-use Disclosure real-FTA validation update (WEBSITE STILL ON HOLD)
+
+Founder validation on the correct three-iteration EU–India FTA topic has now confirmed the layered disclosure concept in real product state.
+
+Reviewed screenshots:
+- `image(20261007-101245).png` — Summary first viewport;
+- `image(20261007-101707).png` — Methods;
+- `image(20261007-101723).png` — AI use matrix;
+- `image(20261007-101738).png` — Human review;
+- `image(20261007-101756).png` — Full log collapsed.
+
+Public-proof judgement so far:
+- Summary is already a strong fourth-proof candidate: it makes recorded AI/model use, human acceptance posture and disclosure gaps understandable without exposing a long ledger first;
+- AI use matrix is strong supporting proof because it shows how assistance changed across Iterations 1–3;
+- Human review is strong supporting proof because model interactions and researcher authority are visibly separate records;
+- Full log is correctly proof-on-demand rather than the primary marketing visual;
+- Methods received a final readability polish after the screenshot (humanised method/stopping/appraisal labels and less implementation-shaped presentation), so use a fresh capture later if that tab becomes a public asset.
+
+Validated real-topic numbers:
+- 20 recorded external AI/model-assisted interactions;
+- 3 research iterations;
+- 2 external systems;
+- 17 researcher acceptance events;
+- 16 explicit fast-path / 1 detailed-review;
+- role counts: Planning 3, Source location 2, Analysis 7, Synthesis 6, Deliverable drafting 1, History recap 1;
+- model/config labels complete;
+- prompt fingerprints complete;
+- current research/evidence cutoff not recorded;
+- AI use outside Epistamate cannot be established;
+- no local automated/model-assisted run recorded for this topic.
+
+The founder also reviewed the deterministic AI-use statement export and found it concise/reusable. Its prose has been polished to use natural external-system lists and human-readable method/review terminology while preserving the same governed facts.
+
+### Remaining gate before website implementation
+
+The founder will next supply the deterministic **Methodology note (.md)** from this same disclosure. Review that note before final website placement decisions.
+
+The Methodology note should work beyond academic research. It should read credibly as a methods/AI-use artefact for policy, consulting, diligence or regulatory work as well as a research appendix/methods section.
+
+Only after that note is judged strong should this disclosure tranche be marked founder-validated for website use.
+
+Likely public proof stack if it passes:
+1. Research state — what is the governed position now;
+2. Research History Recap — how did it get here;
+3. Governance Audit — what still prevents consequential reliance;
+4. Methods & AI-use Disclosure — where did AI assist and where did human authority remain.
+
+Possible public message remains:
+> **Show how AI was used — and where human authority remained.**
+
+Do not claim ERA/ALLEA compliance. Framing remains: research-integrity / responsible-AI guidance exists and asks professionals to pay attention to transparency, verification, accountability and uncertainty; Epistamate can generate artefacts that help evidence relevant practices.
+
+Implementation remains explicitly on hold. Do not edit homepage, Examples, walkthrough, CSS, screenshot assets, navigation or deployment until the founder explicitly resumes website work after the Methodology-note review.
