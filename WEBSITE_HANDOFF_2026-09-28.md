@@ -366,3 +366,96 @@ Then inspect:
 Only after the images visibly render should the repair be merged to `main`.
 
 After that, pause and let the founder continue external website reviews before another structural rework.
+
+
+## 2026-10-07 — pending Research Workspace website additions (TRACK ONLY; DO NOT IMPLEMENT YET)
+
+A new three-image proof set is planned for the next epistamate.com update. The website itself must not be changed until the founder explicitly resumes website implementation.
+
+All three visuals must come from the SAME validated three-iteration EU–India FTA topic. Do not mix screenshots from similarly named FTA topics.
+
+### 1. Research Hub / Research state
+
+Public message:
+> **Governed research state at a glance.**
+
+What the visual should show:
+- the six-step research state in one composed view;
+- accepted outcomes and unresolved state remain visible together;
+- accepted professional baseline is preserved even when newer governed state makes downstream work stale;
+- the researcher can resume from the current governed position rather than reconstructing the project from chat history.
+
+### 2. Research History Recap
+
+Public message:
+> **Return months later — or hand the work to someone else — without losing how the research got here.**
+
+What the visual should show:
+- bounded external-LLM recap over governed state;
+- iteration-to-iteration progression from Iteration 1 → 2 → 3;
+- changing evidence, review posture, accepted baseline and reassessment/staleness state;
+- clearly non-authoritative handover narrative rather than a new research conclusion.
+
+This visual is useful specifically because the three-iteration FTA case demonstrates cumulative governed research rather than a one-shot answer.
+
+### 3. Research Governance Audit
+
+Public message:
+> **See which governance checks are actually satisfied before relying on a consequential deliverable.**
+
+Preferred visual:
+- compact attention-first first viewport;
+- Consequential Deliverable Readiness;
+- status totals that reconcile to All checks;
+- Required before reliance open by default;
+- Recommended follow-up open by default;
+- Passed controls and All checks collapsed.
+
+Validated correct-topic state for the preferred website capture:
+- 20 total checks;
+- 9 passed;
+- 5 needs attention;
+- 2 not established;
+- 2 not applicable;
+- 2 informational;
+- 5 required consequential-reliance blockers.
+
+The five current blockers in that correct three-iteration run are:
+1. current analysis acceptance is not current;
+2. accepted synthesis requires reassessment;
+3. no current sufficiency decision is aligned to that synthesis;
+4. the selected deliverable is stale;
+5. no current researcher-accepted deliverable is available.
+
+The live explanatory wording should say **required governance blocker**, not **required gate**, because workflow gating and consequential-deliverable readiness are intentionally distinct concepts.
+
+### Screenshot acceptance rule
+
+Two screenshots supplied later on 2026-10-07 looked visually good but MUST NOT be used as final website assets. They showed the shorter research question:
+> “What opportunities does the EU–India Free Trade Agreement create for German companies considering establishment or expansion of manufacturing capacity in India, and what material challenges remain?”
+
+and the older audit state with 14 passed / 2 required blockers. Those belong to the other similarly named FTA topic.
+
+The final website set must instead use the three-iteration FTA topic whose framing begins:
+> “What opportunities could the concluded EU–India Free Trade Agreement create for German companies considering establishment or expansion of manufacturing capacity in India in the automotive and pharmaceutical sectors…”
+
+Do not use Iteration number alone as the topic-identity check; both topics may show Iteration 3.
+
+### Website implementation hold
+
+For now:
+- update planning/handoff only;
+- do not edit homepage, Examples, walkthrough, CSS, screenshot assets, navigation or deployment configuration;
+- do not upload screenshots yet;
+- do not deploy or promote a Vercel build;
+- retain the existing public site unchanged until the founder explicitly starts the website update tranche.
+
+When website implementation resumes, review whether this new three-image set should:
+- replace or augment the older Policy Iteration-2 proof sequence;
+- appear on the homepage, Examples/Policy page, walkthrough, or a combination;
+- use click-to-expand screenshots plus crawlable explanatory copy.
+
+The likely public narrative is:
+> **See the research state. See how it got here. See what still prevents reliance.**
+
+This is intentionally a planning item only, not an instruction to modify production.
