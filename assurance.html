@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>AI Research Assurance &amp; Audit Trail | Epistamate</title>
+<meta name="description" content="Methods and AI-use disclosure, research governance audit, research history, human review records and provenance for AI-assisted research, policy, diligence and professional analysis.">
+<meta name="keywords" content="AI research audit trail, AI use disclosure research, responsible generative AI research, research integrity AI, research governance audit, human oversight AI research, research provenance, ALLEA research integrity, ERA generative AI guidelines">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://epistamate.com/assurance.html">
+<meta property="og:title" content="Assurance &amp; Audit Trail | Epistamate"><meta property="og:description" content="Show how the work reached its current state, where AI assisted, what a human accepted and what still prevents consequential reliance."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/assurance.html"><meta property="og:image" content="https://epistamate.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="distilapp.css">
+<style>
+.assure-grid,.artifact-grid,.reference-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+.use-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-m)}
+.assure-card,.artifact-card,.use-card,.reference-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+.artifact-card{display:flex;flex-direction:column}.artifact-card .hero-ctas{margin-top:auto;padding-top:var(--space-m)}
+.assure-card h3,.artifact-card h3,.use-card h3,.reference-card h3{margin-bottom:var(--space-s)}
+.assure-card p,.artifact-card p,.use-card p,.reference-card p{color:var(--ink-3);font-size:.92rem;line-height:1.7}
+.label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+.lifecycle{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+.lifecycle>div{background:var(--paper);padding:var(--space-m);min-width:0}.lifecycle strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}.lifecycle span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+.expect-table{width:100%;border-collapse:collapse;margin-top:var(--space-xl);font-size:.9rem}.expect-table th,.expect-table td{text-align:left;vertical-align:top;border-bottom:1px solid var(--border);padding:.9rem 1rem}.expect-table th{font:500 .72rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}.expect-table td:first-child{width:45%;font-weight:600;color:var(--ink)}
+.reference-card a{color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}.boundary{border-left:3px solid var(--accent);padding:var(--space-l);background:var(--paper-2);margin-top:var(--space-xl)}.boundary p+p{margin-top:var(--space-s)}
+@media(max-width:980px){.use-grid,.lifecycle{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.assure-grid,.artifact-grid,.reference-grid,.use-grid,.lifecycle{grid-template-columns:1fr}.expect-table,.expect-table tbody,.expect-table tr,.expect-table td{display:block}.expect-table thead{display:none}.expect-table td{width:100%!important;padding:.65rem 0}.expect-table tr{padding:.7rem 0;border-bottom:1px solid var(--border)}.expect-table td{border:0}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Epistamate Assurance & Audit Trail","url":"https://epistamate.com/assurance.html","description":"Assurance artifacts and audit-trail projections from governed analytical state, including research history, governance audit, methods and AI-use disclosure, and human review records.","isPartOf":{"@type":"WebSite","name":"Epistamate","url":"https://epistamate.com/"}}</script>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+<div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html" aria-current="page">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+<a href="index.html#contact" class="nav-cta">Get in touch</a>
+</div></nav>
+
+<section class="hero">
+<div class="hero-eyebrow">Assurance &amp; audit trail · Governed analytical work</div>
+<h1 class="hero-h1">The conclusion is only one deliverable.<br><em>Preserve the trail behind it.</em></h1>
+<div class="stakes-block"><p class="stakes-kicker">A professional work product may later need to survive a handover, senior review, release decision, peer challenge, institutional inquiry or audit. Reconstructing that history from a finished document or chat transcript is a weak control.</p><p>Epistamate preserves evidence identity, model-assisted work, unresolved state, human decisions and change as governed state. From that record it can produce different assurance views for different questions: what the position is now, how it got there, what still prevents reliance, and how AI was used.</p></div>
+<div class="hero-ctas" style="margin-top:var(--space-xl)"><a href="#artifacts" class="btn-primary">See the assurance artefacts ↓</a><a href="#guidance" class="btn-secondary">Responsible-AI references ↓</a></div>
+</section>
+
+<section class="diff-section" id="lifecycle"><div class="section-inner">
+<div class="section-tag">Use the trail throughout the lifecycle</div><h2>Not just after something goes wrong.<br><em>Use it before the work leaves the room.</em></h2>
+<p class="section-sub">The same governed state can support different consumers without changing who owns the substantive judgement.</p>
+<div class="lifecycle">
+<div><strong>Work in progress</strong><span>Check the current accepted state, unresolved questions and evidence that needs attention.</span></div>
+<div><strong>Internal checkpoint</strong><span>Review what has changed and whether the present research position is ready to continue.</span></div>
+<div><strong>Handover</strong><span>Give a new analyst or researcher a bounded account of why the current state exists.</span></div>
+<div><strong>Pre-release review</strong><span>Surface governance blockers and follow-up before a consequential deliverable is relied upon.</span></div>
+<div><strong>Peer / management challenge</strong><span>Inspect method, evidence lineage, model assistance and human decisions without relying on the prose alone.</span></div>
+<div><strong>Audit / regulatory input</strong><span>Provide frozen records to the institution, auditor or regulator conducting its own assessment.</span></div>
+</div>
+<div class="boundary"><p><strong>Boundary:</strong> Epistamate does not decide whether an organisation complies with an external code, regulation, institutional policy or professional standard. It can preserve evidence about the recorded workflow that those reviewers may use.</p></div>
+</div></section>
+
+<section class="hallucination-section" id="artifacts"><div class="section-inner">
+<div class="section-tag">Four questions · four projections</div><h2>Different reviewers need<br><em>different views of the same governed state.</em></h2>
+<p class="section-sub">These are deterministic or governed projections of recorded work. The exhaustive ledger remains available when someone needs proof; normal users do not have to read the whole log first.</p>
+<div class="artifact-grid" style="margin-top:var(--space-xl)">
+<article class="artifact-card"><div class="label">01 · Research state</div><h3>What is the governed position now?</h3><p>Current accepted findings, unresolved dependencies, evidence posture, pending attention and the clearest place to resume. Useful for internal checkpoints and ongoing research management.</p><div class="hero-ctas"><a href="epistamate_demo.html" class="btn-ghost">See the Research Workspace →</a></div></article>
+<article class="artifact-card"><div class="label">02 · Research History Recap</div><h3>How did it get here?</h3><p>A bounded handover narrative over the recorded research history: iterations, material changes, major decisions and the progression to the current state. It is a zero-authority recap, not a mechanism for rewriting accepted findings.</p><div class="hero-ctas"><a href="policy-research-walkthrough.html" class="btn-ghost">See an iterative research run →</a></div></article>
+<article class="artifact-card"><div class="label">03 · Research Governance Audit</div><h3>What still prevents consequential reliance?</h3><p>An attention-first audit over the recorded governance state: required blockers, recommended follow-up, not-established items and passed controls. It is designed as a release/checkpoint aid, not an external compliance certificate.</p></article>
+<article class="artifact-card"><div class="label">04 · Methods &amp; AI-use Disclosure</div><h3>Where did AI assist — and where did human authority remain?</h3><p>Method and iteration history, recorded model-assisted workflow stages, system/model identity where recorded, pack/prompt/result fingerprints and separate researcher acceptance posture. Concise and full exports can serve different review needs.</p></article>
+</div>
+<div class="stakes-block" style="margin-top:var(--space-xl)"><p><strong>Controlled FTA founder validation.</strong> In the three-iteration EU–India FTA research case, the disclosure recorded 20 external AI/model-assisted interactions across planning, source location, analysis, synthesis, deliverable drafting and history recap, alongside 17 separate researcher acceptance events. Sixteen were explicit fast-path decisions to advance without detailed review; one was a detailed-review acceptance. The artifact also reported that the research/evidence cutoff was not recorded and that AI use outside Epistamate could not be established.</p></div>
+</div></section>
+
+<section class="diff-section" id="guidance"><div class="section-inner">
+<div class="section-tag">Research integrity &amp; responsible GenAI</div><h2>External guidance creates expectations.<br><em>The researcher or institution still owns them.</em></h2>
+<p class="section-sub">The references below explain why transparent AI use, human responsibility, methodological traceability and careful treatment of model interactions increasingly matter. They are context for the product, not a claim that Epistamate certifies conformity with them.</p>
+<div class="reference-grid" style="margin-top:var(--space-xl)">
+<article class="reference-card"><div class="label">European Research Area · 2026</div><h3>Living Guidelines on the responsible use of generative AI in research</h3><p>The European Commission's 8 May 2026 update describes accountability, transparency and responsibility as research-integrity principles adapted to current GenAI use. It also highlights organisational awareness of hidden prompts—AI instructions hidden from human oversight.</p><p style="margin-top:var(--space-m)"><a href="https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/updated-era-living-guidelines-responsible-use-generative-ai-research-2026-05-08_en" target="_blank" rel="noopener">European Commission update ↗</a><br><a href="https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf" target="_blank" rel="noopener">2026 Living Guidelines ↗</a></p></article>
+<article class="reference-card"><div class="label">ALLEA · 2023 revised edition</div><h3>European Code of Conduct for Research Integrity</h3><p>ALLEA describes the Code as a framework for self-regulation across scientific and scholarly disciplines and research settings. The 2023 edition addresses evolving research practices; ALLEA states that the European Commission recognises it as the reference document for research integrity for EU-funded research projects.</p><p style="margin-top:var(--space-m)"><a href="https://allea.org/code-of-conduct/" target="_blank" rel="noopener">ALLEA European Code of Conduct ↗</a></p></article>
+</div>
+<table class="expect-table"><thead><tr><th>Review question / expectation</th><th>What Epistamate can preserve</th></tr></thead><tbody>
+<tr><td>Was AI/model assistance disclosed transparently?</td><td>Methods &amp; AI-use Disclosure, recorded systems/models where available, workflow role counts and lineage fingerprints.</td></tr>
+<tr><td>Can human responsibility be distinguished from model activity?</td><td>Separate researcher acceptance/review records; importing a model result does not itself create research authority.</td></tr>
+<tr><td>Can the method and its evolution be reconstructed?</td><td>Research profile, method basis, iteration history, evidence strategy, coverage mode and recorded cutoff where available.</td></tr>
+<tr><td>Were limitations and unresolved matters preserved?</td><td>Current research state, explicit gaps/dependencies, sufficiency decisions and Governance Audit attention.</td></tr>
+<tr><td>Can a later reviewer understand why the present position exists?</td><td>Research History Recap plus underlying lineage and iteration delta.</td></tr>
+<tr><td>Can source-borne AI instruction risk be surfaced for review?</td><td>Source-content trust-boundary signals on selected model-facing passages, while preserving original evidence unchanged.</td></tr>
+</tbody></table>
+<p class="fine-print" style="margin-top:var(--space-m)">This mapping is illustrative. The cited frameworks have their own scope, language and requirements. Institutions, funders, auditors and regulators determine what evidence they require.</p>
+</div></section>
+
+<section class="hallucination-section" id="source-trust"><div class="section-inner">
+<div class="section-tag">Source-content trust boundary</div><h2>Disclosure is only half the problem.<br><em>The material shown to a model can also carry instructions.</em></h2>
+<p class="section-sub">The 2026 ERA Living Guidelines specifically highlight hidden prompts as an emerging concern. Epistamate's current analysis path therefore carries a simple authority rule: source content is evidence data, never instructions.</p>
+<div class="assure-grid" style="margin-top:var(--space-xl)">
+<article class="assure-card"><div class="label">Deterministic signal scan</div><h3>Surface bounded warning signals.</h3><p>Selected model-facing passages can be scanned non-destructively for signals such as zero-width Unicode, bidirectional controls, Unicode tag characters, instruction-like source text and selected hidden-markup indicators.</p></article>
+<article class="assure-card"><div class="label">Preserve the boundary</div><h3>Flags are review signals, not verdicts.</h3><p>Original evidence remains unchanged. A flag is not proof of malicious intent, and absence of a flag is not proof of safety. The current scanner does not claim full visual PDF-layer detection or prompt-injection immunity.</p></article>
+</div>
+</div></section>
+
+<section class="diff-section"><div class="section-inner">
+<div class="section-tag">Beyond academic research</div><h2>The same review problem appears<br><em>wherever consequential analysis must be defended later.</em></h2>
+<div class="use-grid" style="margin-top:var(--space-xl)">
+<article class="use-card"><h3>Research &amp; academia</h3><p>Methods sections, AI-use disclosure, peer review, research-integrity review, handover and reproducibility-oriented context.</p></article>
+<article class="use-card"><h3>Policy &amp; regulatory work</h3><p>Checkpoint reviews, evidence provenance, unresolved implementation questions and a defensible trail behind policy analysis.</p></article>
+<article class="use-card"><h3>Consulting &amp; diligence</h3><p>Senior review, recommendation challenge, inherited engagements, evidence-sensitive issue lists and decision records.</p></article>
+<article class="use-card"><h3>Internal governance</h3><p>Pre-release validation and evidence packages for risk, legal, compliance, audit or other second-line review without making those functions subordinate to the model.</p></article>
+</div>
+<div class="hero-ctas" style="margin-top:var(--space-xl)"><a href="index.html#contact" class="btn-primary">Discuss an assurance workflow →</a><a href="engine.html" class="btn-secondary">See the governance architecture →</a></div>
+</div></section>
+
+<footer class="footer"><div class="footer-inner">
+<div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+<div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
+<div class="footer-refs"><a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a><a href="https://allea.org/code-of-conduct/" target="_blank" rel="noopener">ALLEA European Code of Conduct ↗</a><a href="https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/updated-era-living-guidelines-responsible-use-generative-ai-research-2026-05-08_en" target="_blank" rel="noopener">ERA Living Guidelines update ↗</a></div>
+</div></footer>
+<script src="architecture-diagrams.js" defer></script>
+</body></html>

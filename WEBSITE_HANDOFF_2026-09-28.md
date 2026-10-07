@@ -683,3 +683,39 @@ The positioning remains non-compliance and cross-professional:
 - keep policy, consulting, diligence and regulatory uses alongside academic research.
 
 Website implementation remains explicitly **ON HOLD**. Do not edit homepage, Examples, walkthrough, CSS, screenshot assets, navigation, deploy, or promote a build until the founder explicitly resumes the website tranche.
+
+
+## 2026-10-07 — Assurance & Audit Trail website tranche implemented in one batch
+
+Founder explicitly resumed website implementation after the Methods & AI-use Disclosure founder-validation gate.
+
+Implementation intent:
+- avoid repeated GitHub pushes because each main-branch update may trigger a Vercel deployment and the project has previously hit daily deployment limits;
+- implement this tranche as one batched site commit, with a second deployment only if the first build/deployment requires correction.
+
+### New canonical page
+
+New page: `assurance.html`.
+
+The page treats assurance as a projection of governed analytical state, not a bolt-on compliance product. It covers lifecycle uses from internal checkpoints and handover through pre-release review and later audit/regulatory input; Research state, Research History Recap, Research Governance Audit and Methods & AI-use Disclosure; cross-professional uses; and the source-content trust boundary.
+
+### External guidance references
+
+The page links directly to:
+- the European Commission 8 May 2026 update to the ERA Living Guidelines on the responsible use of generative AI in research;
+- the 2026 ERA Living Guidelines document;
+- ALLEA's 2023 Revised Edition of the European Code of Conduct for Research Integrity.
+
+Framing remains non-compliance. Epistamate preserves recorded workflow evidence relevant to transparency, accountability, human responsibility, methodological traceability and careful treatment of AI interactions; it does not determine compliance, certify conformity or replace the institution/auditor/regulator applying its own rules.
+
+The page may accurately state that the 2026 ERA update highlights hidden prompts and connect that to Epistamate's source-content trust boundary. Product limits remain explicit: warning signals are not proof of malicious intent, absence of a flag is not proof of safety, there is no full visual PDF-layer detection claim, and no prompt-injection immunity claim.
+
+### SEO / navigation
+
+Assurance is a top-level navigation destination. The new page carries indexable metadata and a sitemap entry with natural-language terms around AI-use disclosure, AI-assisted research transparency, research governance audit, human oversight, research integrity, provenance, ALLEA and ERA GenAI guidance.
+
+Homepage gets a compact bridge, not a duplicate page. How-it-works gets an architecture-level assurance projection. The FTA walkthrough remains nine stages and its closing section links to assurance as a post-research / pre-release use of governed state.
+
+### Deployment discipline
+
+This tranche is intentionally batched. Do not follow it with serial cosmetic commits. Founder validation of the deployed page should be collected first; only then make a second batched correction if materially needed.
