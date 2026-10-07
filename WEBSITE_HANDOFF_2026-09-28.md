@@ -459,3 +459,34 @@ The likely public narrative is:
 > **See the research state. See how it got here. See what still prevents reliance.**
 
 This is intentionally a planning item only, not an instruction to modify production.
+
+
+## 2026-10-07 — accepted Governance Audit website-candidate screenshots
+
+The founder supplied the corrected screenshots from the intended three-iteration EU–India FTA topic. These supersede the previously rejected similarly named FTA screenshots.
+
+Accepted audit screenshot identities:
+- `image(20261007-091002).png` — Research Hub / History & detail context with CURRENT CHECKPOINT, correct long-form FTA question and consequential-deliverable summary;
+- `image(20261007-091020).png` — attention-first audit view with the five Required before reliance blockers visible;
+- `image(20261007-091038).png` — Recommended follow-up plus collapsed Passed controls / All checks.
+
+Visible validation markers:
+- topic question begins: **“What opportunities could the concluded EU–India Free Trade Agreement create…”** and explicitly covers automotive and pharmaceutical sectors;
+- Iteration 3;
+- CURRENT CHECKPOINT;
+- 20 checks partition as 9 passed / 5 needs attention / 2 not established / 2 not applicable / 2 informational;
+- 5 required blockers;
+- readiness explanation uses **required governance blocker**, not required gate.
+
+Website-use recommendation:
+- use the first or second screenshot as the primary Governance Audit visual;
+- the second is strongest for the plain-language message **which governance checks still prevent consequential reliance** because the five blockers are directly visible;
+- the first is strongest when surrounding product context / Research Hub identity matters;
+- the third is supporting proof that recommended attention and the exhaustive checklist remain available without dominating the first viewport.
+
+These screenshots are now accepted as the Governance Audit candidates for the planned three-image set:
+1. Research Hub / Research state;
+2. Research History Recap;
+3. Research Governance Audit.
+
+Implementation remains on hold. Do not edit site HTML/CSS, upload screenshot assets, change walkthrough content, deploy, or promote a build until the founder explicitly starts the website-update tranche.
