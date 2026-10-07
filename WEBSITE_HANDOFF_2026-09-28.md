@@ -640,3 +640,46 @@ Possible public message remains:
 Do not claim ERA/ALLEA compliance. Framing remains: research-integrity / responsible-AI guidance exists and asks professionals to pay attention to transparency, verification, accountability and uncertainty; Epistamate can generate artefacts that help evidence relevant practices.
 
 Implementation remains explicitly on hold. Do not edit homepage, Examples, walkthrough, CSS, screenshot assets, navigation or deployment until the founder explicitly resumes website work after the Methodology-note review.
+
+
+## 2026-10-07 — Methods & AI-use Disclosure founder-validated (WEBSITE STILL ON HOLD)
+
+The final pre-website gate has now been completed on the correct three-iteration EU–India FTA topic.
+
+The founder-supplied deterministic **Methodology note (.md)** and **Full disclosure (.md)** were reviewed against the governed record. The Methodology note is accepted as a useful professional/academic artefact rather than another ledger: it gives the method/iteration story, recorded AI/model-assisted roles, separate researcher authority/review posture, and disclosure limits in a compact form. The exhaustive event-level Full disclosure remains proof-on-demand.
+
+One final product-wide wording clarification was implemented in the Research Workspace before closing the tranche:
+- fast-path acceptance is now explicitly described as a researcher decision to advance **without detailed review**;
+- the note warns that fast-path acceptance should not be read as evidence that the underlying output received detailed substantive review.
+
+Research commit:
+- `0214835eff951cabb4cf13c6328e483468e9fcbc`
+
+Green gate:
+- 1,130 tests passed in 63.697s;
+- backend/server compile passed;
+- Research JavaScript syntax passed.
+
+The uploaded Methodology export was generated before the final deterministic presentation polish, so raw tokens such as `selective_attention` visible in that supplied file are not the current renderer state. The current renderer humanises method labels and natural-language system lists.
+
+### Website planning implication
+
+The **Methods & AI-use Disclosure is now accepted as the fourth public-proof candidate** in the planned stack:
+
+1. **Research state** — what is the governed position now;
+2. **Research History Recap** — how did it get here;
+3. **Research Governance Audit** — what still prevents consequential reliance;
+4. **Methods & AI-use Disclosure** — where did AI assist and where did human authority remain.
+
+Preferred public line:
+> **Show how AI was used — and where human authority remained.**
+
+The Summary screenshot remains the strongest primary visual for this fourth proof because it communicates model-use volume, iteration count, systems, human acceptance posture and disclosure gaps in the first viewport. AI use and Human review are strong supporting views. If the Methods tab is used publicly, take a fresh capture after the final presentation polish rather than using the earlier implementation-shaped screenshot.
+
+The positioning remains non-compliance and cross-professional:
+- do not claim ERA/ALLEA compliance, certification or automatic conformity;
+- it is acceptable to say that responsible-AI / research-integrity guidance asks professionals to pay attention to transparency, verification, accountability, uncertainty and disclosure;
+- Epistamate can show recorded methods, model assistance, lineage and human decisions, while explicitly stating what it cannot establish;
+- keep policy, consulting, diligence and regulatory uses alongside academic research.
+
+Website implementation remains explicitly **ON HOLD**. Do not edit homepage, Examples, walkthrough, CSS, screenshot assets, navigation, deploy, or promote a build until the founder explicitly resumes the website tranche.
