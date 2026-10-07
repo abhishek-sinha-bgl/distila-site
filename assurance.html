@@ -24,12 +24,31 @@
 .lifecycle>div{background:var(--paper);padding:var(--space-m);min-width:0}.lifecycle strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}.lifecycle span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
 .expect-table{width:100%;border-collapse:collapse;margin-top:var(--space-xl);font-size:.9rem}.expect-table th,.expect-table td{text-align:left;vertical-align:top;border-bottom:1px solid var(--border);padding:.9rem 1rem}.expect-table th{font:500 .72rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}.expect-table td:first-child{width:45%;font-weight:600;color:var(--ink)}
 .reference-card a{color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}.boundary{border-left:3px solid var(--accent);padding:var(--space-l);background:var(--paper-2);margin-top:var(--space-xl)}.boundary p+p{margin-top:var(--space-s)}
-@media(max-width:980px){.use-grid,.lifecycle{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.assure-grid,.artifact-grid,.reference-grid,.use-grid,.lifecycle{grid-template-columns:1fr}.expect-table,.expect-table tbody,.expect-table tr,.expect-table td{display:block}.expect-table thead{display:none}.expect-table td{width:100%!important;padding:.65rem 0}.expect-table tr{padding:.7rem 0;border-bottom:1px solid var(--border)}.expect-table td{border:0}}
+.assurance-page .hero{padding-top:4rem;padding-bottom:3.25rem}
+.assurance-page .hero-h1{margin-bottom:1.5rem}
+.assurance-page .hero .stakes-block{margin-bottom:1.25rem}
+.assurance-page .hero .hero-ctas{margin-top:0!important}
+.proof-gallery-head{margin-top:var(--space-xl)}
+.proof-gallery-head h3{font-size:1.55rem;margin-bottom:.45rem}
+.proof-gallery-head p{max-width:760px;color:var(--ink-3);font-size:.92rem;line-height:1.65}
+.proof-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m);margin-top:var(--space-l)}
+.proof-figure{margin:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 10px 28px rgba(15,15,15,.035)}
+.proof-shot{display:grid;place-items:center;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:0;background:#fff;overflow:hidden;cursor:zoom-in}
+.proof-shot img{display:block;width:100%;height:100%;object-fit:contain;object-position:center top}
+.proof-shot:focus-visible,.proof-lightbox-close:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.proof-figure figcaption{padding:.9rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+.proof-figure figcaption strong{color:var(--ink)}
+.proof-lightbox{max-width:min(94vw,1100px);max-height:94vh;padding:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);box-shadow:0 24px 80px rgba(0,0,0,.25)}
+.proof-lightbox::backdrop{background:rgba(15,15,15,.72)}
+.proof-lightbox-inner{position:relative;padding:1rem;background:var(--paper)}
+.proof-lightbox img{display:block;max-width:calc(94vw - 2rem);max-height:calc(94vh - 2rem);width:auto;height:auto;margin:auto}
+.proof-lightbox-close{position:absolute;right:.55rem;top:.55rem;z-index:2;width:38px;height:38px;border:1px solid var(--border-2);border-radius:50%;background:var(--paper);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.12)}
+@media(max-width:980px){.use-grid,.lifecycle{grid-template-columns:repeat(2,minmax(0,1fr))}.assurance-page .hero{padding-top:3.25rem;padding-bottom:3rem}}
+@media(max-width:720px){.assure-grid,.artifact-grid,.reference-grid,.use-grid,.lifecycle,.proof-gallery{grid-template-columns:1fr}.assurance-page .hero{padding-top:2.75rem;padding-bottom:2.75rem}.expect-table,.expect-table tbody,.expect-table tr,.expect-table td{display:block}.expect-table thead{display:none}.expect-table td{width:100%!important;padding:.65rem 0}.expect-table tr{padding:.7rem 0;border-bottom:1px solid var(--border)}.expect-table td{border:0}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Epistamate Assurance & Audit Trail","url":"https://epistamate.com/assurance.html","description":"Assurance artifacts and audit-trail projections from governed analytical state, including research history, governance audit, methods and AI-use disclosure, and human review records.","isPartOf":{"@type":"WebSite","name":"Epistamate","url":"https://epistamate.com/"}}</script>
 </head>
-<body>
+<body class="assurance-page">
 <nav class="nav"><div class="nav-inner">
 <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
 <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html" aria-current="page">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
@@ -41,7 +60,7 @@
 <div class="hero-eyebrow">Assurance &amp; audit trail · Governed analytical work</div>
 <h1 class="hero-h1">The conclusion is only one deliverable.<br><em>Preserve the trail behind it.</em></h1>
 <div class="stakes-block"><p class="stakes-kicker">A professional work product may later need to survive a handover, senior review, release decision, peer challenge, institutional inquiry or audit. Reconstructing that history from a finished document or chat transcript is a weak control.</p><p>Epistamate preserves evidence identity, model-assisted work, unresolved state, human decisions and change as governed state. From that record it can produce different assurance views for different questions: what the position is now, how it got there, what still prevents reliance, and how AI was used.</p></div>
-<div class="hero-ctas" style="margin-top:var(--space-xl)"><a href="#artifacts" class="btn-primary">See the assurance artefacts ↓</a><a href="#guidance" class="btn-secondary">Responsible-AI references ↓</a></div>
+<div class="hero-ctas"><a href="#artifacts" class="btn-primary">See the assurance artefacts ↓</a><a href="#guidance" class="btn-secondary">Responsible-AI references ↓</a></div>
 </section>
 
 <section class="diff-section" id="lifecycle"><div class="section-inner">
@@ -67,6 +86,38 @@
 <article class="artifact-card"><div class="label">03 · Research Governance Audit</div><h3>What still prevents consequential reliance?</h3><p>An attention-first audit over the recorded governance state: required blockers, recommended follow-up, not-established items and passed controls. It is designed as a release/checkpoint aid, not an external compliance certificate.</p></article>
 <article class="artifact-card"><div class="label">04 · Methods &amp; AI-use Disclosure</div><h3>Where did AI assist — and where did human authority remain?</h3><p>Method and iteration history, recorded model-assisted workflow stages, system/model identity where recorded, pack/prompt/result fingerprints and separate researcher acceptance posture. Concise and full exports can serve different review needs.</p></article>
 </div>
+<div class="proof-gallery-head">
+  <div class="section-tag">Four views of one governed state</div>
+  <h3>See the checkpoint, the history, the blockers and the AI-use trail.</h3>
+  <p>These visuals come from the same validated three-iteration EU–India FTA research topic. They show four different review questions over one governed record rather than four disconnected reports.</p>
+</div>
+<div class="proof-gallery" aria-label="Validated Epistamate assurance views from the EU–India FTA research case">
+  <figure class="proof-figure">
+    <button class="proof-shot" type="button" data-full="assets/examples/assurance-research-state.webp" aria-label="Expand Research state screenshot">
+      <img src="assets/examples/assurance-research-state.webp" width="440" height="282" loading="lazy" alt="Epistamate Research state for the three-iteration EU–India FTA case, showing the six workflow stages, accepted baseline, reassessment pending state, admitted claims, accepted findings, gaps and divergences.">
+    </button>
+    <figcaption><strong>Research state.</strong> The current workflow position, accepted analytical baseline and unresolved/reassessment state remain visible together.</figcaption>
+  </figure>
+  <figure class="proof-figure">
+    <button class="proof-shot" type="button" data-full="assets/examples/assurance-history-recap.webp" aria-label="Expand Research History Recap screenshot">
+      <img src="assets/examples/assurance-history-recap.webp" width="440" height="139" loading="lazy" alt="Executive Research History Recap for the three-iteration EU–India FTA case, describing how the research progressed and which accepted state became stale.">
+    </button>
+    <figcaption><strong>Research History Recap.</strong> A handover-oriented executive recap preserves how three iterations produced the current position without becoming a new research conclusion.</figcaption>
+  </figure>
+  <figure class="proof-figure">
+    <button class="proof-shot" type="button" data-full="assets/examples/assurance-governance-audit.webp" aria-label="Expand Research Governance Audit screenshot">
+      <img src="assets/examples/assurance-governance-audit.webp" width="520" height="260" loading="lazy" alt="Epistamate Research Governance Audit showing Attention Required, nine passed checks and five required governance blockers before consequential reliance.">
+    </button>
+    <figcaption><strong>Research Governance Audit.</strong> Five required governance blockers are visible before a consequential deliverable is treated as ready for reliance.</figcaption>
+  </figure>
+  <figure class="proof-figure">
+    <button class="proof-shot" type="button" data-full="assets/examples/assurance-methods-ai-use.webp" aria-label="Expand Methods and AI-use Disclosure screenshot">
+      <img src="assets/examples/assurance-methods-ai-use.webp" width="440" height="269" loading="lazy" alt="Epistamate Methods and AI-use Disclosure summary showing 20 recorded model-assisted interactions, three iterations, two external systems, 17 researcher acceptance events and disclosure attention items.">
+    </button>
+    <figcaption><strong>Methods &amp; AI-use Disclosure.</strong> Recorded model assistance, human acceptance posture and disclosure gaps are visible as separate parts of the governed trail.</figcaption>
+  </figure>
+</div>
+<p class="fine-print" style="margin-top:var(--space-m)">Controlled product-validation case. Screenshots are evidence of observed product state, not a compliance certificate, client outcome or comparative accuracy claim.</p>
 <div class="stakes-block" style="margin-top:var(--space-xl)"><p><strong>Controlled FTA founder validation.</strong> In the three-iteration EU–India FTA research case, the disclosure recorded 20 external AI/model-assisted interactions across planning, source location, analysis, synthesis, deliverable drafting and history recap, alongside 17 separate researcher acceptance events. Sixteen were explicit fast-path decisions to advance without detailed review; one was a detailed-review acceptance. The artifact also reported that the research/evidence cutoff was not recorded and that AI use outside Epistamate could not be established.</p></div>
 </div></section>
 
@@ -113,5 +164,36 @@
 <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
 <div class="footer-refs"><a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a><a href="https://allea.org/code-of-conduct/" target="_blank" rel="noopener">ALLEA European Code of Conduct ↗</a><a href="https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/updated-era-living-guidelines-responsible-use-generative-ai-research-2026-05-08_en" target="_blank" rel="noopener">ERA Living Guidelines update ↗</a></div>
 </div></footer>
+<dialog class="proof-lightbox" id="proof-lightbox" aria-label="Expanded assurance screenshot">
+  <div class="proof-lightbox-inner">
+    <button class="proof-lightbox-close" type="button" aria-label="Close expanded screenshot">&times;</button>
+    <img src="" alt="">
+  </div>
+</dialog>
+<script>
+(function(){
+  const lightbox=document.getElementById('proof-lightbox');
+  const image=lightbox.querySelector('img');
+  const close=lightbox.querySelector('.proof-lightbox-close');
+  let last=null;
+  document.querySelectorAll('.proof-shot').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const source=button.querySelector('img');
+      last=button;
+      image.src=button.dataset.full||source.src;
+      image.alt=source.alt;
+      lightbox.showModal();
+      close.focus();
+    });
+  });
+  close.addEventListener('click',()=>lightbox.close());
+  lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close();});
+  lightbox.addEventListener('close',()=>{
+    image.src='';
+    image.alt='';
+    if(last){last.focus();last=null;}
+  });
+})();
+</script>
 <script src="architecture-diagrams.js" defer></script>
 </body></html>

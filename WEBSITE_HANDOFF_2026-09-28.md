@@ -719,3 +719,35 @@ Homepage gets a compact bridge, not a duplicate page. How-it-works gets an archi
 ### Deployment discipline
 
 This tranche is intentionally batched. Do not follow it with serial cosmetic commits. Founder validation of the deployed page should be collected first; only then make a second batched correction if materially needed.
+
+
+## 2026-10-07 — Assurance visual proof / viewport correction (second batched deployment)
+
+Founder review of the live Assurance page identified two presentation issues:
+- on a 1491 × 906 desktop viewport, redundant hero spacing pushed the two primary CTAs just below the first viewport;
+- the first implementation described the four assurance artefacts but did not yet include the accepted product screenshots.
+
+This second website batch corrects both issues together rather than using serial deployments.
+
+### Viewport correction
+- Assurance hero now uses page-specific desktop spacing rather than the generic 6rem top/bottom hero padding;
+- the redundant 4rem CTA top margin is removed;
+- the heading-to-summary and summary-to-CTA spacing is tightened without compressing mobile into an artificial above-the-fold target;
+- mobile retains normal stacked CTA/scroll behaviour.
+
+### Four-view visual proof
+A 2 × 2 desktop / single-column mobile gallery is added immediately after the four assurance artefact explanations:
+1. Research state — correct three-iteration FTA Research Hub state;
+2. Research History Recap — executive recap crop from the same FTA topic;
+3. Research Governance Audit — accepted correct-topic view with five required blockers;
+4. Methods & AI-use Disclosure — accepted summary-first view.
+
+Each screenshot is a real product capture, has crawlable explanatory caption/alt text and supports click-to-expand. The page explicitly labels the set as controlled product-validation evidence, not a compliance certificate, client outcome or comparative accuracy claim.
+
+Asset files:
+- `assets/examples/assurance-research-state.webp`
+- `assets/examples/assurance-history-recap.webp`
+- `assets/examples/assurance-governance-audit.webp`
+- `assets/examples/assurance-methods-ai-use.webp`
+
+This is intended to be the second and final deployment for the current Assurance website tranche unless founder review finds a material issue.
