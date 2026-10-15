@@ -59,3 +59,13 @@ Advisory page: evolving diagnoses, recommendations, professional authority and t
 ## Follow-up review
 
 After deployment, inspect desktop/mobile layout, links, metadata and section hierarchy. Consider later whether existing diagrams should be re-illustrated for the new message rather than editing images without substantive benefit. Revisit website positioning as real workflow experiments validate or falsify reuse, continuity and active-time savings.
+
+## Illustrated, search-accessible professional workflow pages (2026-10-15)
+
+- `account-management-intelligence.html`: hypothetical monthly account review showing why client portals and SLA dashboards do not eliminate the need to interpret trends, carry forward commitments, surface affected account reasoning and prepare manager-approved slides/talking points. SLA percentages and commitments are invented examples, not observations or benchmarks.
+- `market-intelligence-refresh.html`: hypothetical recurring industry/segment assessment with previous priorities, new competitor/regulatory developments, provisional impact, context-specific applicability and next management insights. Not an operational market-monitoring service.
+- Homepage application cards and How It Works link to both examples. Sitemap entries and descriptive canonical/OG metadata are provided so non-research professional audiences can discover the ideas via ordinary search.
+- Homepage workflow questions are now phrased around the user's familiar recurring tasks: what changed, what still holds, what is unresolved, what needs attention, what the next deliverable can use, and who decides.
+- Both pages prominently identify exploratory status and do not claim customer deployment, automated refresh, integration, performance improvements or a ready-made application.
+
+**Distribution expectation:** Search-engine indexing, snippet selection and AI-generated descriptions are outside the website's direct control. The sitemap and normal internal links improve discoverability but do not guarantee search ranking. Validate after deployment using direct page checks and, if desired, Search Console indexing status. Do not repeatedly revise copy solely in reaction to one generated summary.
