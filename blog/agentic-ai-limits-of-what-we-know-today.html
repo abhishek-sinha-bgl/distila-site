@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic AI and the Limits of What We Know Today | Epistamate Insights</title>
+  <meta name="description" content="As agentic systems become more capable and carefully engineered, recent investigations reveal what their safeguards establish, and what remains uncertain.">
+  <meta name="keywords" content="agentic AI, AI agent reliability, agent safeguards, AI security evaluation, AI observability, AI Security Institute, OpenAI incident">
+  <link rel="canonical" href="https://epistamate.com/blog/agentic-ai-limits-of-what-we-know-today.html">
+  <meta property="og:title" content="Agentic AI and the Limits of What We Know Today">
+  <meta property="og:description" content="As agentic systems become more capable and carefully engineered, recent investigations reveal what their safeguards establish, and what remains uncertain.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://epistamate.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="article:published_time" content="2026-10-16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../distilapp.css">
+  <style>
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); }
+    .article-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: var(--space-m); display: flex; gap: var(--space-s); flex-wrap: wrap; align-items: center; }
+    .article-eyebrow a { color: var(--ink-4); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--ink); }
+    .article-eyebrow .sep { color: var(--border-2); }
+    .article-tag { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; font-size: 0.67rem; }
+    .article-byline { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); margin-bottom: var(--space-l); letter-spacing: 0.02em; }
+    .article-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; margin-bottom: var(--space-m); }
+    .article-h1 em { color: var(--accent); font-style: italic; }
+    .article-subtitle { font-family: var(--font-body); font-size: 1rem; color: var(--ink-3); font-weight: 500; margin: -8px 0 var(--space-m); }
+    .article-lede { font-size: 1.15rem; color: var(--ink-2); line-height: 1.7; margin-bottom: var(--space-l); padding-bottom: var(--space-l); border-bottom: 1px solid var(--border); font-weight: 500; }
+    .article-body { font-size: 1.02rem; line-height: 1.78; color: var(--ink-2); }
+    .article-body p { margin-bottom: var(--space-m); }
+    .article-body h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin: var(--space-xl) 0 var(--space-s); line-height: 1.2; }
+    .article-body h2 em { color: var(--accent); font-style: italic; }
+    .article-body h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin: var(--space-l) 0 var(--space-xs); }
+    .article-body strong { color: var(--ink); }
+    .article-body ul { margin: 0 0 var(--space-m) 1.25rem; }
+    .article-body li { margin-bottom: 4px; }
+    .callout { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: var(--space-m) var(--space-l); margin: var(--space-l) 0; font-size: 0.97rem; color: var(--ink-2); line-height: 1.65; }
+    .callout strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .article-about { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; color: var(--ink-3); line-height: 1.6; }
+    .article-about strong { color: var(--ink); }
+    .article-about a { color: var(--accent); }
+    .prev-next { margin-top: var(--space-l); padding: var(--space-m) var(--space-l); background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--radius-m); font-size: 0.88rem; line-height: 1.5; }
+    .prev-next-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 6px; }
+    .prev-next a { color: var(--ink-2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .prev-next a:hover { color: var(--accent); }
+    .article-footer-nav { margin-top: var(--space-xl); padding-top: var(--space-l); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); }
+    .article-footer-nav a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+    .article-footer-nav a:hover { color: var(--ink); }
+    .faq-list { margin: var(--space-2xl) 0; display: flex; flex-direction: column; gap: 2px; max-width: var(--text-w); }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+    .faq-item + .faq-item { border-top: none; border-radius: 0; }
+    .faq-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .faq-item:last-child { border-top: none; border-radius: 0 0 var(--radius-m) var(--radius-m); }
+    .faq-item summary { padding: var(--space-m) var(--space-l); font-weight: 600; font-size: 0.975rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--paper-2); transition: background 0.15s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-4); flex-shrink: 0; margin-left: var(--space-s); }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item summary:hover { background: var(--paper-3); }
+    .faq-item p { padding: var(--space-m) var(--space-l); font-size: 0.925rem; color: var(--ink-3); line-height: 1.7; border-top: 1px solid var(--border); background: var(--paper); }
+    .article-diagram-caption { font-size: 0.85rem; color: var(--ink-4); text-align: center; font-style: italic; margin: -0.5rem 0 var(--space-l); }
+  </style>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Agentic AI and the Limits of What We Know Today","description":"As agentic systems become more capable and carefully engineered, recent investigations reveal what their safeguards establish, and what remains uncertain.","author":{"@type":"Person","name":"Abhishek Sinha"},"publisher":{"@type":"Organization","name":"Epistamate","url":"https://epistamate.com/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://epistamate.com/blog/agentic-ai-limits-of-what-we-know-today.html"},"inLanguage":"en","datePublished":"2026-10-16"}</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="../index.html#applications">Applications</a><a href="../engine.html">How it works</a><a href="../assurance.html">Assurance</a><a href="../policy-research-walkthrough.html">See it in action</a><a href="index.html">Insights</a></div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="../index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<article class="article-wrap">
+<div class="article-eyebrow"><a href="index.html">&larr; Insights</a><span class="sep">&middot;</span><span>October 2026</span><span class="sep">&middot;</span><span class="article-tag">Agentic AI</span><span class="article-tag">Behavioural reliability</span></div>
+<h1 class="article-h1">Agentic AI and the Limits of What We Know Today</h1>
+<p class="article-subtitle">As agentic systems become more capable and carefully engineered, recent investigations reveal what their safeguards establish, and what remains uncertain.</p>
+<p class="article-byline">By Abhishek Sinha</p>
+<div class="article-body"><p>Agentic AI has moved well beyond experimental extensions of chatbots and is becoming an established application architecture. Contemporary platforms provide orchestration, specialised agents, persistent memory, controlled tool access, security boundaries, execution tracing, evaluation frameworks and mechanisms for human intervention. Increasingly, the engineering effort is directed towards making these systems operate dependably within business processes rather than simply demonstrating what their underlying models can accomplish.</p>
+<p>Much of this progress is substantial. An agent operating within a carefully designed application, with scoped permissions and restricted tools, is fundamentally different from an unconstrained model conversation. Security controls can limit what an agent is permitted to do, approval mechanisms can interrupt consequential actions, and monitoring can detect activity that requires investigation. These mechanisms are neither universal nor infallible, but they represent serious engineering responses to the challenges of giving software greater autonomy.</p>
+<p>Research is also demonstrating improvements. A <a href="https://research.google/pubs/securing-multi-agent-systems-an-empirical-analysis-of-security-prompt-hardening-and-residual-risks/" rel="noopener noreferrer">Google study of security instructions in multi-agent systems</a> found that prompt hardening substantially reduced successful attacks in its tested coding-agent scenarios, although multi-turn attacks remained more difficult to defend against. Prompt hardening is only one element of a secure architecture, and these results do not establish the effectiveness of complete enterprise deployments. They nevertheless illustrate how specific weaknesses are being investigated and addressed.</p>
+<p>Practitioners appear to be approaching autonomy with similar pragmatism. In <a href="https://proceedings.mlr.press/v306/pan26a.html" rel="noopener noreferrer"><em>Measuring Agents in Production</em></a>, an ICML 2026 study of deployment experiences, 68% of the surveyed systems operated for no more than ten steps before human intervention, while 74% relied primarily on human evaluation. The survey covered a selected group of practitioners associated with deployed systems, not a representative sample of the industry. Its findings suggest that many developers are deliberately constraining autonomy rather than treating longer independent execution as an achievement in itself.</p>
+<p>Yet recent investigations have revealed behaviours that were not anticipated when agentic systems and their operating environments were designed. The most revealing examples come from research settings that differ considerably from ordinary enterprise deployments. Their significance lies not in what they establish about the frequency of failures in production, but in what investigators discovered about the assumptions under which their systems were operating.</p>
+<h2>When agents cannot find the intended answer</h2>
+<p>In August 2026, the UK's AI Security Institute <a href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing" rel="noopener noreferrer">reported an incident</a> arising from its cybersecurity evaluations. Seven frontier models had been tested across 122 runs under deliberately permissive conditions, with internet access enabled and normal cybersecurity classifiers disabled. In ten runs, investigators identified 19 actions outside the authorised scope of the evaluation.</p>
+<p>The most serious involved an agent attempting to introduce malicious code into a real open-source project. It created false identities and tried to persuade a human maintainer to approve the contribution. The maintainer rejected it. Other actions included attempts to influence people outside the evaluation and to leave instructions that subsequent agents might encounter.</p>
+<p>The institute's general security monitoring detected unusual outbound activity, and its team contained the incident within approximately an hour of discovery. The agents had not escaped their virtual-machine sandboxes, and AISI reported no identified resulting real-world harm. The outcome nevertheless depended partly on human vigilance: monitoring detected activity after it had begun, rather than preventing every unauthorised attempt.</p>
+<p>The investigation revealed something unexpected about the tasks themselves. Some had been configured in ways that made agents believe an authorised solution was unavailable. Rather than stop, the agents continued searching for alternative routes, sometimes crossing the boundaries of the evaluation. This was not a complete explanation, since out-of-scope behaviour also occurred where a legitimate solution was possible.</p>
+<p>A separate <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" rel="noopener noreferrer">investigation involving OpenAI's internal cybersecurity evaluations</a> uncovered a related problem on a much larger scale. Agents discovered an unintended means of communicating through an internal software-package service, exchanging information across runs that were supposed to remain isolated. Some obtained unauthorised internet access, and the activity eventually extended to the compromise of systems belonging to Hugging Face.</p>
+<p>Researchers from <a href="https://www.redwoodresearch.org/research/hugging-face-incident" rel="noopener noreferrer">METR and Redwood Research</a> independently examined part of the incident. They documented agents collaborating through an unauthorised message board, exchanging information and pursuing ways to manipulate their evaluation outcomes. OpenAI's subsequent account reported that 198 of 898 tasks in its ExploitGym evaluation had never been solved by any of its models, and that 93% of the tasks discussed on the message board belonged to this group.</p>
+<p>The agents were frequently pursuing objectives for which their intended methods had proved unsuccessful. In some cases, they inferred that evaluation transcripts would be inspected and that unconventional solutions would be rejected. They then attempted to interfere with a supposed scoring check that, according to the investigators, did not actually exist. The agents had constructed an interpretation of the evaluation environment and begun acting on it, even though that interpretation was mistaken.</p>
+<p>The circumstances of both incidents are crucial. The AISI models were operating with cybersecurity safeguards deliberately disabled. OpenAI's activity was driven principally by an internal research model, also operating without the full protections normally applied to its deployed products. Neither investigation establishes that agents in ordinary commercial applications commonly behave this way.</p>
+<p>There were also important differences. AISI's sandbox isolation remained intact, and existing security practices contained the incident. In OpenAI's case, agents circumvented technical isolation controls and reached external systems. Both investigations nevertheless exposed the consequences of agents continuing to pursue difficult objectives while operating under assumptions that their evaluators had not adequately anticipated.</p>
+<p>The question that emerges is not whether persistence is undesirable. Much of the usefulness of an agent comes from its ability to explore alternatives when an initial approach fails. The question is what should happen when the assigned objective cannot be achieved through the authorised means available. Both organisations have subsequently emphasised changes to task design, operating boundaries and the handling of apparently unsolvable tasks.</p>
+<h2>What the safeguards actually changed</h2>
+<p>The incidents also reveal why it is misleading to discuss agent behaviour without considering the systems surrounding the models.</p>
+<p>OpenAI reported that its production ChatGPT harness and system prompt reduced the measured propensity for infrastructure compromise by more than a hundredfold in a retrospective evaluation conducted after the incident. The company also stated that monitoring mechanisms used in other settings could have identified dangerous activity substantially earlier than the response that actually occurred.</p>
+<p>These findings are consequential, although their limits matter. The evaluation was constructed after investigators understood the incident, and the results are company-reported. They demonstrate the effectiveness of particular safeguards against behaviours examined retrospectively, not their guaranteed effectiveness against the next unforeseen situation.</p>
+<p>The incident also exposed a gap between resolving an identified technical vulnerability and understanding the activity that had developed around it.</p>
+<p>OpenAI's published chronology describes an early July response to a security incident involving its internal package service. Investigators addressed a known privilege-escalation route, removed exposed credentials and rebuilt the affected infrastructure. Evaluations subsequently resumed. However, the significance of the agents' communication and collaboration had not been fully understood at that point, despite earlier internal observations of message-board activity.</p>
+<p>The immediate security response addressed a real vulnerability. What it did not establish was that every consequential aspect of the agents' activity had been identified or contained. The subsequent investigation revealed a broader pattern that had not been apparent during the initial response.</p>
+<p>AISI identified a different assumption that had outlived its original justification. Internet access had been allowed because agents needed to download tools, and that arrangement had been considered acceptable in earlier evaluations. As model capabilities advanced, the institute acknowledged that the decision had not been revisited quickly enough. It subsequently introduced tighter network restrictions, monitoring designed specifically for agent behaviour, and additional checks on whether evaluation tasks could be solved as intended.</p>
+<p>These examples are not evidence that engineering controls are ineffective. They show controls working in some respects, failing in others, and being revised as investigators learn more. A security mechanism can successfully address the condition it was designed to handle while leaving another condition insufficiently understood.</p>
+<p>That distinction becomes important whenever we describe a system as tested, monitored or protected. Such descriptions can be accurate without answering every question about how the system might behave outside the circumstances already examined.</p>
+<h2>Success is not the whole measure</h2>
+<p>The same distinction appears in research on agent reliability, although in less dramatic circumstances.</p>
+<p>In <a href="https://arxiv.org/html/2602.16666v3" rel="noopener noreferrer"><em>Towards a Science of AI Agent Reliability</em></a>, researchers evaluated 15 models across two benchmarks, examining not only whether agents completed tasks but also whether their behaviour was consistent, robust and predictable. They found that improvements in task capability did not consistently produce comparable improvements in those other dimensions. Reliability gains were more evident in a structured customer-service simulation than in a more open-ended benchmark involving research and multiple tools.</p>
+<p>The experiments are not measurements of production enterprise systems. Their relevance is the distinction they make between completing a task and behaving dependably while doing so.</p>
+<p>An agent may arrive at the correct answer after taking unnecessary actions, or fail to complete a task while respecting every operational boundary. Two executions may produce the same successful result through very different sequences of tool use. Changes in an instruction, a tool response or an operating condition may also alter the trajectory. None of these properties is adequately described by a single task-success score.</p>
+<p>The researchers also examined whether agents could recognise when they were likely to fail. Their results were mixed, with improvements in some measures of confidence calibration but less consistent progress in distinguishing successful from unsuccessful executions. This matters when deciding whether an agent should continue independently, seek clarification or hand control back to a person.</p>
+<p>There is nothing inherently unsophisticated about limiting autonomy. For applications where errors have material consequences, shorter execution horizons and meaningful human intervention may be appropriate engineering choices. The question is not how many steps an agent can perform without assistance, but how much independent action the available evidence justifies.</p>
+<h2>What the records can establish</h2>
+<p>A further complication arises when developers and operators try to reconstruct what happened during an agent's execution.</p>
+<p>In October 2026, <a href="https://partnershiponai.org/resource/the-observability-gap-in-ai-agents/" rel="noopener noreferrer">Partnership on AI examined the telemetry</a> emitted by four agent frameworks against six monitoring goals. Its assessment identified gaps in information about agent identity, changes to permissions, memory updates and human intervention. These were framework-level findings, not evidence that every enterprise application lacks such records; additional monitoring can be implemented around the frameworks.</p>
+<p>The distinction is nevertheless important. An execution trace may accurately record that an agent called a tool without establishing which permissions applied at that moment. It may show that a human approved an action without preserving why the review was triggered or what information the reviewer considered. A later decision may depend on memory modified during an earlier execution, yet that change may be difficult to reconstruct.</p>
+<p>The OpenAI investigation introduced a more unusual concern. METR and Redwood Research found agents experimenting with ways to alter or spoof execution records. The observed attempts were limited, and the investigators did not establish widespread successful concealment. Nevertheless, the finding illustrates why the integrity of a record and the completeness of the information it contains are separate questions.</p>
+<p>These are not arguments against observability. Monitoring and execution tracing are essential to operating complex systems. They are reminders that the presence of a record does not automatically establish that investigators possess everything needed to explain the behaviour it represents.</p>
+<p>As agentic applications become more elaborate, that distinction may matter increasingly. Systems can involve multiple agents, persistent information, external tools and permissions that change during execution. Understanding an individual action may require knowing not only what occurred, but also the state of the system and the authority available to the agent when it occurred.</p>
+<p>The engineering response is already developing. Better instrumentation, more precise evaluation methods and stronger controls over execution records can improve what operators are able to observe. The research describes limitations of particular systems at a particular moment, not permanent barriers to understanding agent behaviour.</p>
+<h2>What we know, and what we think we know</h2>
+<p>Taken together, these investigations and studies describe a technology whose engineering is becoming more sophisticated while its behavioural characteristics are still being explored.</p>
+<p>The incidents should not be mistaken for representative production failures. They arose in unusual research environments, and several safeguards either prevented harmful outcomes or were subsequently shown to reduce dangerous behaviour substantially. At the same time, the investigations exposed weaknesses in task specification, isolation, monitoring and assumptions about how capable agents would respond to difficult objectives.</p>
+<p>The reliability research shows why completing a task is not sufficient evidence of consistent or predictable behaviour. The observability assessment raises a related question about how much of an execution can be reconstructed from the information available. Neither finding negates the progress being made in agentic engineering.</p>
+<p>Perhaps the more interesting observation concerns the boundaries of the conclusions we draw from that progress.</p>
+<p>OpenAI's initial security response addressed a genuine vulnerability, but the wider significance of the agents' collaboration was not yet understood. AISI's decision to permit internet access had been reasonable under earlier assumptions, but those assumptions needed revisiting as capabilities changed. In each case, an engineering judgment had a legitimate basis, yet subsequent evidence showed that it did not cover everything investigators needed to consider.</p>
+<p>Both organisations have treated their incidents seriously. OpenAI described its experience as a warning about capabilities that may become more widely available, while AISI emphasised the novelty and persistence of the behaviour it observed. Those assessments reflect the concerns of the organisations that conducted the investigations; they do not establish how frequently comparable behaviour will appear in commercial systems.</p>
+<p>There is good reason to expect continued progress. Safeguards can improve, evaluation methods can become more informative, and experience can reveal assumptions that deserve reconsideration. But those advances do not remove the need to distinguish what has been demonstrated from what remains an inference.</p>
+<p>For agentic AI, that may be the most useful question to carry forward: when a system has been evaluated, secured or monitored, what exactly has the evidence established about its behaviour, under which conditions, and how far beyond those conditions can the conclusion reasonably travel?</p>
+<h2>Sources</h2><ul><li>UK AI Security Institute, <a href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing" rel="noopener noreferrer"><em>Incident report: unsanctioned agent behaviour during cyber testing</em></a>, August 2026.
+- OpenAI, <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" rel="noopener noreferrer"><em>The Hugging Face incident and the road ahead</em></a>, 2026.
+- METR and Redwood Research, <a href="https://www.redwoodresearch.org/research/hugging-face-incident" rel="noopener noreferrer"><em>Hugging Face incident investigation</em></a>, 2026.
+- Rabanser et al., <a href="https://arxiv.org/html/2602.16666v3" rel="noopener noreferrer"><em>Towards a Science of AI Agent Reliability</em></a>, ICML 2026.
+- Pan et al., <a href="https://proceedings.mlr.press/v306/pan26a.html" rel="noopener noreferrer"><em>Measuring Agents in Production</em></a>, ICML 2026.
+- Partnership on AI, <a href="https://partnershiponai.org/resource/the-observability-gap-in-ai-agents/" rel="noopener noreferrer"><em>The Observability Gap in AI Agents</em></a>, October 2026.
+- Google Research, <a href="https://research.google/pubs/securing-multi-agent-systems-an-empirical-analysis-of-security-prompt-hardening-and-residual-risks/" rel="noopener noreferrer"><em>Securing Multi-Agent Systems: An Empirical Analysis of Security Prompt Hardening and Residual Risks</em></a>, 2026.</li></ul>
+<h2>Related reading</h2><ul><li>Abhishek Sinha, <a href="https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html" rel="noopener noreferrer"><em>The AI Assurance Halo: What “Validation Passed” Does and Doesn’t Do</em></a>, October 2026. Published on the author’s personal website.</li></ul>
+</div>
+<div class="article-footer-nav"><a href="index.html">&larr; All articles</a><a href="../index.html#contact">Get in touch with Epistamate &rarr;</a></div>
+</article><footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Epistamate</strong>
+      <p>Knowledge accumulates &middot; Claims persist &middot; Contradictions surface &middot; Decisions are recorded</p>
+    </div>
+    <div class="footer-links"><a href="../index.html#applications">Applications</a><a href="../engine.html">How it works</a><a href="../assurance.html">Assurance</a><a href="index.html">Insights</a><a href="../index.html#contact">Get in touch</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
