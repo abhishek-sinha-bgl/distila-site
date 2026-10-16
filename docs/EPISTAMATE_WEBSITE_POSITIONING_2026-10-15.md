@@ -97,3 +97,23 @@ This revision consolidates discussions about GTMAtlas, Account Management, marke
 - Homepage application cards and intro align with the new differentiation; sitemap dates reflect changes. No claim of proven financial impact or deployed integrations.
 
 **Future product validation, not build authorization:** A controlled comparative test would measure whether the system helps teams surface *verified* opportunities or make better-informed recurring decisions with less effort than existing methods, including how often an apparent cross-account pattern fails applicability checks.
+
+## Contact journey review and positioning correction (2026-10-16)
+
+### Defect discovered
+
+The successful form-submit page still prominently invited readers to learn about a "confidence scoring engine" and described the product through an obsolete research-only lens. This contradicts Epistamate's current explicit rejection of a universal opaque evidence confidence score. The homepage contact dropdown and starting prompts were also weighted to research profiles rather than the broader architecture and its different maturity expressions. The saved human reply template still promised June travel updates and an imminent generic desktop release.
+
+### Site and template corrections
+
+- `index.html#contact`: broadened "good starting points" and changed the **existing** optional `domain` dropdown to reflect Governed Research Workspace (early access), GenAI Workflow Assurance (service), Consulting & Advisory (experiment), Market/competitive intelligence (concept), Account/portfolio intelligence (concept), Policy/strategic reassessment, shared architecture/recurring analytical workflows, and "Other / Not sure yet." Prompt asks what the visitor is trying to improve. The form still discourages confidential or licensed evidence.
+- Form implementation left intact: existing name/email/organisation/domain/problem/source payload keys, Web3Forms access configuration, auxiliary Apps Script logger POST and success-page redirect are unchanged. Changing dropdown labels changes their submitted `domain` string, which is stored as free text by the existing logger. No schema migration.
+- `contact-success.html`: removed confidence-scoring wording and put six understandable destination links to the foundation, Research, Advisory, Assurance, Market and Account examples, with truthful maturity descriptors. Kept `noindex`.
+- `reply-template.txt`: removed stale early-release timing and confidence scoring; added appropriate lifecycle/maturity boundaries and direct links.
+- `epistamate-contact-logger.gs`: updated **repository source** of the internal notification / draft reply text only, without changing receiving function or sheet columns. **The deployed Google Apps Script is not updated by the GitHub commit**: an editor with Apps Script deployment access must copy/save and publish a new version of the existing deployment if those internal notification drafts should change. Do not create a second endpoint. The user-visible confirmation page is part of the deployed website and does not require updating Apps Script.
+
+### Verification boundaries
+
+- Static checks should verify the form still has the same field names, destination and redirect, matching option maturity labels, no legacy confidence-scoring strings in the contact/thank-you or reply templates, valid anchors and page markup.
+- A live form-submit test requires an authorized test enquiry; do not generate real contact emails or Google Sheets entries as a side effect of checking website copy.
+- This is a website journey fix, **not** a new Epistamate product capability or a claim that all mentions of historical scoring research have been removed from every archived page.
