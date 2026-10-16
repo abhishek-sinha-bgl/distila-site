@@ -19,7 +19,7 @@
       padding: 80px 24px;
     }
     .success-inner {
-      max-width: 560px;
+      max-width: 720px;
       width: 100%;
       text-align: center;
     }
@@ -59,15 +59,16 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink-4);
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
     .success-links ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 24px;
+      row-gap: 12px;
     }
     .success-links a {
       color: var(--ink-2);
@@ -75,7 +76,16 @@
       font-size: 0.95rem;
       transition: color 0.2s;
     }
-    .success-links a:hover { color: var(--accent); }
+    .success-links a:hover, .success-links a:focus-visible { color: var(--accent); }
+    .success-links li { min-width: 0; }
+    .success-links a { display: block; line-height: 1.55; }
+    .success-links a strong { display: block; font-weight: 600; }
+    .success-links a span { display: block; margin-top: 2px; font-size: .81rem; color: var(--ink-3); }
+    @media (max-width: 660px) {
+      .success-wrap { padding: 56px 20px; }
+      .success-links { padding: 22px; }
+      .success-links ul { grid-template-columns: 1fr; }
+    }
   </style>
   <link rel="canonical" href="https://epistamate.com/contact-success.html">
   <meta property="og:image" content="https://epistamate.com/og-image.png">
@@ -88,8 +98,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
-    <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a></div>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
         <a href="index.html#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
@@ -99,16 +109,19 @@
     <div class="success-tag">Message received</div>
     <h1 class="success-h1">Thanks for reaching out.</h1>
     <p class="success-p">
-      Your message has been received and I will be in touch personally within a week.
-      If anything is time-sensitive, email us directly at
+      We've received your enquiry and aim to respond within a week.
+      If your message is time-sensitive, you can email us at
       <a href="mailto:hello@epistamate.com">hello@epistamate.com</a>.
     </p>
     <div class="success-links">
-      <div class="success-links-label">While you wait</div>
+      <div class="success-links-label">Explore Epistamate</div>
       <ul>
-        <li><a href="engine.html">Read how the confidence scoring engine works →</a></li>
-        <li><a href="epistamate_demo.html">Try the interactive demo →</a></li>
-        <li><a href="blog/index.html">Read the blog on AI evidence quality →</a></li>
+        <li><a href="engine.html"><strong>How the shared architecture works →</strong><span>Persistent evidence, reasoning and professional decisions</span></a></li>
+        <li><a href="epistamate_demo.html"><strong>Research Workspace →</strong><span>Current early-access software</span></a></li>
+        <li><a href="advisory.html"><strong>Consulting &amp; Advisory →</strong><span>Controlled method-aware experiment</span></a></li>
+        <li><a href="assurance.html"><strong>GenAI Workflow Assurance →</strong><span>Bounded service offering</span></a></li>
+        <li><a href="market-intelligence-refresh.html"><strong>Market intelligence →</strong><span>Illustrative research and reassessment workflow</span></a></li>
+        <li><a href="account-management-intelligence.html"><strong>Account intelligence →</strong><span>Illustrative evidence-backed growth workflow</span></a></li>
       </ul>
     </div>
     <a href="index.html" class="btn-ghost">Back to Epistamate</a>
@@ -119,7 +132,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <strong>Epistamate</strong>
-      <p>Knowledge accumulates · Claims persist · Contradictions surface · Decisions are recorded</p>
+      <p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p>
     </div>
     <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
   </div>
