@@ -69,3 +69,31 @@ After deployment, inspect desktop/mobile layout, links, metadata and section hie
 - Both pages prominently identify exploratory status and do not claim customer deployment, automated refresh, integration, performance improvements or a ready-made application.
 
 **Distribution expectation:** Search-engine indexing, snippet selection and AI-generated descriptions are outside the website's direct control. The sitemap and normal internal links improve discoverability but do not guarantee search ranking. Validate after deployment using direct page checks and, if desired, Search Console indexing status. Do not repeatedly revise copy solely in reaction to one generated summary.
+
+## Revised portfolio intelligence positioning and Evidence Room opportunity (2026-10-16)
+
+This revision consolidates discussions about GTMAtlas, Account Management, market intelligence, and restricted analyst data. It is **website concept positioning only**; no new workflow product or connector has been built.
+
+### Core differentiation
+
+- Frontier AI enables more capable first-pass investigation, but Epistamate's proposed distinctive role is **persistent evidence-linked reasoning and professional authority** across time. It is not merely another account-intelligence, CRM, report generator or market-news dashboard.
+- The commercial goal for a services enterprise would be proactive, evidence-qualified within-account and cross-account opportunity development, not simply monthly account-review convenience. Routine review preparation is a small secondary benefit where accumulated state already exists.
+- Preserve reasons, assumptions, alternatives, unresolved gaps, reviewer decisions, accepted positions, prospective opportunities and later outcomes. A successful intervention in Account A becomes, at most, a permissioned hypothesis to test in Account B; account-specific applicability and confidentiality are mandatory.
+- An organization whose existing CRM, Frontier AI workflows, document systems and coordination practices work well may have little reason to adopt a new layer. The business case must exceed adoption and maintenance cost; prospective growth and productivity benefits remain unvalidated.
+
+### Evidence Room and non-public sources
+
+- Existing Research Workspace Evidence Room demonstrates a durable research-inventory mechanism. Extension to account and market intelligence with full licensed-corpus governance, large-document processing and impact routing is an **illustrative proposed workflow** only.
+- Professionals may have access to proprietary vendor-spend/IT-budget dashboards (including IDC-type datasets exposed through BI tools), third-party industry analyst libraries (e.g. Northern Light-hosted or other licensed analyst reports), competitive analysis, internal reports, authorized news and long PDFs. This is a **source example**, not an access claim, partnership or integration.
+- Any permitted new item needs original source/publisher, license and access rights, document identity/version/date, relevant sections/data scope, quality/applicability limitations and provenance. Some subscriptions prohibit copying, uploads, model processing, storing full text, quotation or cross-account disclosure. Where appropriate, an approved extract or source reference rather than the whole report may be the input.
+- The conceptual flow is: authorized material supplied → identity and access check → targeted extraction/relevance review → likely affected existing hypotheses/findings/recommendations → provisional impact → human inspection and disposition → preserved earlier state and change rationale. Never claim auto-updating accepted conclusions.
+- Long reports, figures, analyst quadrants and tabular estimates raise extraction and interpretation limitations; source-category/date/rights checks and bounded human review are necessary. Evidence-derived numerical estimates do not become audited fact by admission to the room.
+- Model provider terms and permissions must be considered separately from local document storage. No unrestricted sending proprietary material to Frontier AI, no invented connectors, no claims of zero network traffic.
+
+### Website scope
+
+- `account-management-intelligence.html` foregrounds client-lifecycle and cross-portfolio growth hypotheses, with review convenience expressly subordinate; adds prospective Evidence Room intake for licensed research and spend data and permissioned reuse boundaries.
+- `market-intelligence-refresh.html` foregrounds preserved reasoning, an Evidence Room scenario for analyst reports/spend intelligence, targeted impact, revised assessments only on human authority, source and license boundaries.
+- Homepage application cards and intro align with the new differentiation; sitemap dates reflect changes. No claim of proven financial impact or deployed integrations.
+
+**Future product validation, not build authorization:** A controlled comparative test would measure whether the system helps teams surface *verified* opportunities or make better-informed recurring decisions with less effort than existing methods, including how often an apparent cross-account pattern fails applicability checks.
