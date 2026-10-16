@@ -1,55 +1,74 @@
 EPISTAMATE — ENQUIRY REPLY TEMPLATE
-Use this as a starting point. Personalise the first paragraph based on what they said in the form.
+Starting point only. Tailor the reply to the question and to what Epistamate actually offers.
 ────────────────────────────────────────────────────────────────
 
 SUBJECT: Re: Epistamate — your enquiry
 
 Hi [First name],
 
-Thanks for reaching out. [One sentence acknowledging their specific domain or problem if they mentioned one — e.g. "Policy research under time pressure is exactly the kind of workflow we've been building for." If they left the problem blank, skip this line.]
+Thank you for contacting Epistamate about [the workflow or challenge they described].
 
-I'm travelling for part of June, but I wanted to acknowledge your message and confirm I'll be in touch personally within a week to set up a short conversation.
+[One or two sentences reflecting their current method, what persists from one cycle to the next,
+and whether maintaining evidence-backed reasoning would add value. Do not assume they need a tool.]
 
-A few things that might be useful in the meantime:
+Epistamate is a shared architecture for maintaining evidence, reasoning, uncertainty and
+professional decisions as analytical work continues. Frontier AI can support the
+investigation; the governed state preserves what was established, why, and what new
+information may affect. The right approach depends on the workflow and current practices.
 
-- The engine page explains how confidence scoring works and what the pipeline actually does: https://epistamate.com/engine.html
-- The interactive demo gives a feel for the output on a real research question: https://epistamate.com/distila_demo.html
-- If you're interested in the evidence quality problem more broadly, I've been writing about it here: https://epistamate.com/blog/
+It would be useful to understand how you work today and what would justify changing it.
+I'm happy to arrange a short conversation.
 
-The first release is a single-domain Windows desktop application for General Research — a few weeks out. I'd like to understand your specific workflow before the conversation so we can make the most of the time.
+Depending on your interest, these may be useful:
+- Shared architecture: https://epistamate.com/engine.html
+- Governed Research Workspace (early access): https://epistamate.com/epistamate_demo.html
+- Consulting & Advisory (controlled experiment): https://epistamate.com/advisory.html
+- GenAI Workflow Assurance (bounded service): https://epistamate.com/assurance.html
+- Market intelligence (illustrative application): https://epistamate.com/market-intelligence-refresh.html
+- Account intelligence (illustrative application): https://epistamate.com/account-management-intelligence.html
 
-Looking forward to speaking.
-
+Best,
 Abhishek
 Epistamate | hello@epistamate.com | https://epistamate.com
 
+────────────────────────────────────────────────────────────────
+OPTIONAL NOTES FOR DIFFERENT ENQUIRIES — do not copy uncritically
+
+RESEARCH WORKSPACE
+The early-access Research Workspace is our most mature software implementation.
+It preserves inspectable evidence, review decisions, uncertainty and research history.
+
+CONSULTING & ADVISORY
+We have tested a methodology-aware advisory workflow. The broader product idea is
+maintained diagnoses and recommendations that remain linked to their evidence and
+professional authority; a general advisory product is not yet available.
+
+GENAI WORKFLOW ASSURANCE
+We offer a bounded GenAI workflow evidence review. Discuss the specific controls,
+evidence obligations and scope rather than implying formal certification.
+
+MARKET INTELLIGENCE
+The proposed benefit is selective reassessment of accumulated industry/segment
+reasoning, including permitted research inputs. Licensed data access and enterprise
+integrations are not automatically available.
+
+ACCOUNT MANAGEMENT
+The exploratory proposition is evidence-backed proactive growth and permissioned
+reuse of relevant opportunity patterns across accounts. Monthly-review convenience
+would be secondary. This is not shipped account management software.
+
+OTHER / NOT SURE
+Invite a description of recurring decisions, current tools, what changes over time,
+and why existing methods may or may not be sufficient. A saved Frontier AI prompt
+could be the right answer for a one-off task.
 
 ────────────────────────────────────────────────────────────────
-VARIANTS FOR SPECIFIC DOMAINS
+SHEET STATUS VALUES — update as enquiries progress
 
-POLICY / THINK TANK:
-"Policy research under deadline pressure, with evidence that needs to hold up to scrutiny, is exactly the gap we've been building for."
-
-REGULATORY / COMPLIANCE:
-"The distinction between binding law, guidance, and draft regulation is something most tools don't enforce structurally. That's one of the things we've built in from the start."
-
-CONSULTING / ADVISORY:
-"The problem of engagement knowledge evaporating at project end — and the next engagement starting from zero — is one of the core things the compounding knowledge graph is designed to address."
-
-RESEARCH / INVESTIGATION:
-"The difference between corroboration and amplification is something most research tools are structurally blind to. That's a good starting point for our conversation."
-
-ENTERPRISE:
-"Licensed databases that sit in a shared drive rather than an evidence pipeline is exactly the problem the enterprise configuration is designed to solve."
-
-
-────────────────────────────────────────────────────────────────
-SHEET STATUS VALUES — update as you work through enquiries
-
-New             → just received, not yet replied
-Ack sent        → acknowledgement email sent
+New             → received, not yet replied
+Ack sent        → acknowledgement sent
 Call scheduled  → conversation booked
-Demo given      → shown the product
-Waitlist        → interested, waiting for release
-Not a fit       → wrong domain, wrong stage, or declined
-Closed          → conversation complete, outcome logged
+Demo given      → shown an available implementation
+Waitlist        → interested, waiting for an appropriate release
+Not a fit       → existing practices sufficient / outside scope / declined
+Closed          → discussion concluded and outcome logged
