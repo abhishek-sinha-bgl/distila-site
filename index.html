@@ -71,7 +71,9 @@
   .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
   .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
   .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
   @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
     .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
     .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
     .home-page .nav-logo>span:last-child{display:none}
@@ -99,12 +101,25 @@
   <div class="stakes-block" style="max-width:900px">
     <p class="stakes-kicker">What valuable new intelligence, opportunities or decisions could your organization produce if its accumulated understanding could be reused and extended more effectively?</p>
     <p>Your teams already have research, client experience, established methods and capable tools. Frontier AI opens additional ways to explore markets, companies and emerging questions. Epistamate's foundational architecture is designed to keep the <strong>evidence, reasoning and professional decisions</strong> behind that work usable as new information arrives—without replacing your methods, systems or judgement.</p>
-    <p>The opportunity is not simply to repeat earlier analysis faster. It is to <strong>discover new connections, investigate promising possibilities and make the next decision better informed</strong>—while preserving why an earlier conclusion was reached and what might change it.</p>
+    <p>Epistamate can be explored in two ways: <strong>make familiar research and advisory work more enduring</strong>, or <strong>investigate a valuable new capability</strong> your organization has not yet been able to sustain. Both begin with your questions, methods and decision makers—not a prescribed AI workflow.</p>
   </div>
   <div class="hero-ctas" style="margin-top:var(--space-xl)">
-    <a href="#applications" class="btn-primary">Explore workflow applications →</a>
-    <a href="engine.html#cycle" class="btn-secondary">How the foundation works →</a>
+    <a href="#ways-to-work" class="btn-primary">Two ways to explore Epistamate ↓</a>
+    <a href="#applications" class="btn-secondary">See current work and applications ↓</a>
     <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener" class="btn-secondary">Research implementation paper ↗</a>
+  </div>
+</section>
+
+<section class="diff-section" id="ways-to-work">
+  <div class="section-inner">
+    <div class="section-tag">A practical starting point · An ambitious possibility</div>
+    <h2>Start with the work you know.<br><em>Or explore what has not yet been possible.</em></h2>
+    <p class="section-sub">A familiar analytical workflow and a novel organizational question need different kinds of engagement. Both can draw on the same evidence-and-reasoning principles; neither requires abandoning systems and methods that already work.</p>
+    <div class="engagement-paths offer-strip" style="margin-top:var(--space-l)">
+      <article class="app-card"><div class="label">01 · Extend familiar professional work</div><h3>Make research and advice easier to continue</h3><p>Investigate a market, review evidence, maintain findings or revisit a recommendation without rebuilding the previous assessment. Our early-access Research Workspace and controlled advisory experiment demonstrate parts of this approach; a customer's method and outputs still require suitable adaptation.</p><div class="app-links"><a href="epistamate_demo.html">Explore the Research Workspace →</a><a href="advisory.html">See the advisory experiment →</a></div></article>
+      <article class="app-card"><div class="label">02 · Co-explore a new organizational capability</div><h3>Turn accumulated learning into new possibilities</h3><p>Perhaps delivery lessons across accounts could improve future solutions, or separate research efforts could reveal a strategic opportunity. Start with an unmet ambition, the decision it would change and the information available. Together we can assess fit and define a <strong>bounded, client-specific experiment</strong> around the organization's terminology, responsibilities and workflows.</p><div class="app-links"><a href="#contact">Discuss a possibility →</a><a href="engine.html#method-profiles">See how the foundation adapts →</a></div></article>
+    </div>
+    <p class="fine-print" style="margin-top:var(--space-l)"><strong>What exists and what is proposed:</strong> governed research is implemented in an early-access workspace; advisory has been exercised in a controlled synthetic case. Organization-wide reasoning and qualified cross-context knowledge transfer are architectural directions, not a released enterprise platform. A substantial discovery, prototype or implementation would be separately scoped and agreed.</p>
   </div>
 </section>
 
@@ -159,7 +174,7 @@
 
 <section class="hallucination-section" id="applications">
   <div class="section-inner">
-    <div class="section-tag">One architecture · workflow-specific implementations</div>
+    <div class="section-tag">Existing experiments and illustrative applications</div>
     <h2>Shared epistemic principles.<br><em>Your methods and deliverables.</em></h2>
     <p class="section-sub">Epistamate is a foundational architecture, not one generic workflow imposed on every profession. Provenance, uncertainty, accumulated reasoning, dependencies, impact, history and human authority remain common. Source authority and trust tiers, assessment frameworks, refresh patterns, quick-pass versus detailed-inspection defaults and deliverable formats are tuned to the organization and its work.</p>
     <div class="app-grid offer-strip" style="margin-top:var(--space-l)">
@@ -253,7 +268,7 @@
   <div class="section-inner">
     <div class="section-tag">Get in touch</div>
     <h2>What would you like your team to accomplish?<br><em>What makes it difficult today?</em></h2>
-    <p class="contact-sub">Start with a valuable question, decision or opportunity your organization would like to pursue, what currently makes it difficult, and why it matters. Your existing methods may already work well; we can explore whether Frontier AI and maintained reasoning would add meaningful value. We aim to respond within a week. Please do not submit confidential or licensed source material.</p>
+    <p class="contact-sub">Bring a familiar analytical workflow you want to strengthen, or a valuable question your organization has not yet been able to pursue. Tell us what makes it difficult and why resolving it matters. We can discuss fit with the Epistamate foundation; substantive discovery and implementation would be separately scoped and agreed. We aim to respond within a week. Please do not submit confidential or licensed source material.</p>
     <div class="contact-options">
       <div class="contact-what"><h4>What could we explore?</h4><ul><li>Research that needs evidence lineage, uncertainty and a reviewable history</li><li>An advisory or strategic workflow where assumptions and recommendations evolve</li><li>Account or market intelligence that should build on prior, evidence-backed decisions</li><li>A bounded GenAI workflow assurance review, or another consequential AI-assisted process</li></ul><p class="contact-note" style="margin-top:var(--space-m)">The Research Workspace is early-access software; Advisory is experimental; Assurance is a service. Other workflow examples are conceptual, not packaged products.</p></div>
       <div class="contact-form-block">
