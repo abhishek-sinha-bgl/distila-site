@@ -117,3 +117,37 @@ The successful form-submit page still prominently invited readers to learn about
 - Static checks should verify the form still has the same field names, destination and redirect, matching option maturity labels, no legacy confidence-scoring strings in the contact/thank-you or reply templates, valid anchors and page markup.
 - A live form-submit test requires an authorized test enquiry; do not generate real contact emails or Google Sheets entries as a side effect of checking website copy.
 - This is a website journey fix, **not** a new Epistamate product capability or a claim that all mentions of historical scoring research have been removed from every archived page.
+
+## Opportunity-first positioning and enterprise-fit hypothesis (2026-10-17)
+
+**Guiding question (founder-approved):**
+
+> What valuable new intelligence, opportunities or decisions could your organization produce if its accumulated understanding could be reused and extended more effectively?
+
+### Messaging hierarchy
+
+1. **Show what becomes possible:** a promising market question, a relevant insight crossing team or segment boundaries, a qualified client opportunity, or a more useful subsequent decision. Respect organizations' existing expertise and investments. Do not imply that a potential customer currently makes poor decisions, lacks professional rigor, or must discard its existing methods.
+2. **Describe the enabler:** Frontier AI can extend investigation and generate new questions; Epistamate's intended contribution is persistent, linked evidence, hypotheses, uncertainties, decisions, applicability and historical reasoning. Opportunity-first language must still explain this architectural difference rather than rebranding Epistamate as a generic intelligence or CRM product.
+3. **Explain why it is safe and defensible:** exact evidence, permissions, provenance, proportional review, source applicability, changed-state awareness, and retained human authority are the means by which a useful possibility can become a considered decision. These remain central, but broad homepage/product-introduction copy should not lead with a catastrophe catalogue.
+
+### Commercial-fit discipline
+
+- A one-off saved prompt, well-run human process, CRM, analyst subscription, BI dashboard or other existing tool may already solve the customer's problem adequately. Do not characterize adoption as a correction of inadequate customer practice.
+- Seek situations with meaningfully distributed, recurring, related analytical work—such as services enterprises with many account teams or established market-intelligence groups—**provided** there is a sponsor, budget and an identifiable outcome. Large size alone is insufficient; procurement, privacy and integration can also make adoption harder.
+- Do not pursue unbounded feature development as a substitute for paid market validation. Bound experiments, clarify scope and intellectual-property/confidentiality terms, and compare against a credible existing workflow.
+- Primary proposed Account Management outcome is proactive, evidence-qualified incremental growth through within-account opportunities and context-tested cross-account reuse. Monthly-review convenience stays a secondary by-product.
+- For Market Intelligence, emphasize connecting authorized existing research and Frontier AI to new questions and possibilities while preserving accountable reasoning. No proven new commercial outcome, automatic cross-context transfer, licensed-data integration or shipped market-intelligence product is claimed.
+- Do not describe any private prospect, its motivations, internal tools, or commercial status on the public website. This note states generalized product/positioning principles only.
+
+### Implemented website changes in this revision
+
+- `index.html`: retain the enduring-reasoning headline but lead with the approved question, a hypothetical insight-to-another-account example, and opportunities enabled by accumulated understanding. Adapt the problem and application-section copy to respect existing methods.
+- `market-intelligence-refresh.html`: replace reassessment-first opening with the potential to discover further uses for existing intelligence. Keep source rights, Evidence Room boundaries, professional authority and implementation maturity clearly stated.
+- `account-management-intelligence.html`: continue the existing proactive-growth message, revise the first section to stress portable learning with source rationale rather than a defensive "another dashboard" comparison.
+- `engine.html`: briefly connect the shared epistemic architecture to the professional possibilities it is meant to enable.
+- Leave `assurance.html` and the technical/product evidence unchanged: people looking for bounded assurance need appropriately direct risk and governance explanations.
+- Preserve all conceptual/experimental/early-access maturity labels and use language of *possible*, *proposed* and *hypothetical* for unbuilt market/account workflows.
+
+### Validation and stop rule
+
+This is a focused copy change, **not** approval to construct a new Market Intelligence variant, resume bespoke GTMAtlas development, claim new revenue outcomes, or remove governance checks. Validate with an actual multi-cycle use case and a plausible existing-tools baseline before claiming incremental business benefit.
