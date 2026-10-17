@@ -186,3 +186,30 @@ The need for human checkpoints, explicit source support and proper handling of c
 - Existing products and methods may already be sufficient. Buyer size alone is not a fit test; recurrent/related consequential work, an economic sponsor and permissioned data access matter.
 - Client-specific methods and implementation requests should be scoped, commercial and subject to explicit confidentiality/IP agreements. Preserve cross-variant conceptual learnings without publishing private prospect facts.
 - Before another website iteration, seek real evidence that buyers recognize an important **unmet aspiration and cost** rather than merely expressing curiosity about a generated brief.
+
+## 2026-10-17 — Two complementary engagement paths; reusable reasoning substrate
+
+Founder clarification: Epistamate is not aiming to provide one generic SaaS workflow to many customers. We should invite organizations to **co-explore** problems they wish they could solve, using a durable and governed foundation with a context-specific wrapper. At the same time, make the relatively mature, familiar Research and controlled Advisory work visible, credible and approachable.
+
+### Public message
+
+1. **Familiar work:** Extend recognizable research, market assessment or advisory workflows so reasoning, supporting sources, human decisions and changes endure. Research Workspace is early access; GTMAtlas-style Advisory was exercised in a synthetic controlled case. An illustrative Market Intelligence adaptation is not an available packaged product.
+2. **Explore a new capability together:** Begin with a customer's difficult consequential question, existing workflow, economic stakes, recurring input availability and actual professional decision rights. Candidate examples include cross-account service-delivery learning and new questions emerging from research across teams. Determine whether the Epistamate architecture helps more than familiar tools, then shape a **bounded** client-specific pilot, model/Frontier packs and output wrapper.
+3. **One architecture:** Reusable evidence/decision integrity components should have opt-in, stable versioned callable contracts. Domain-specific languages, evidence roles, review policies, authority and deliverables belong in adapters and the professional UI. The architecture and some relevant integrity mechanisms exist; **general executable context-graph APIs and cross-context organizational knowledge transfer are NOT implemented**.
+
+### Site changes
+
+- `index.html#ways-to-work`: show two paths beside each other with maturity/engagement boundaries and links to tested software and contact.
+- Preserve the homepage's existing principal promise, user-approved headline, evidence and example sections.
+- `engine.html#method-profiles`: clarify reusable **API-like architecture direction** while keeping the implemented-versus-proposed distinction.
+- `index.html#contact`: invitation for familiar or new possibilities; substantive discovery and implementation separately scoped and agreed.
+- Do not change the underlying contact handler, create service subscriptions or suggest unrestricted complimentary discovery.
+
+### Architectural handoff
+
+The precise internal proposal is in Epistamate's canonical shared-core repository:
+`docs/architecture/REUSABLE_REASONING_CAPABILITIES_API_BOUNDARIES_2026-10-17.md` on `feature/evidence-frontier-state`. It defines versioned transport-neutral capability operations, opt-in adapters, fail-conservative permission/review boundaries, proposed conformance tests, and the requirement not to mistake a design for deployed shared code. Architecture commits to reusable contracts, **not** universal domain inference or a giant untargeted graph build.
+
+### Validation
+
+No new software or client outcome is claimed. Assess the new messaging as an invitation to discover client demand, not a replacement for technical maturity disclosures. Product and website future claims must remain tied to controlled empirical validation.
