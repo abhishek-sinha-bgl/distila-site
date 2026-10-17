@@ -151,3 +151,38 @@ The successful form-submit page still prominently invited readers to learn about
 ### Validation and stop rule
 
 This is a focused copy change, **not** approval to construct a new Market Intelligence variant, resume bespoke GTMAtlas development, claim new revenue outcomes, or remove governance checks. Validate with an actual multi-cycle use case and a plausible existing-tools baseline before claiming incremental business benefit.
+
+## Customer ambition → commercial consequence → bounded opportunity (2026-10-17)
+
+**Source:** Founder-provided professional exchange about value propositions. Generalize the insights; do not quote or identify private prospects in public site copy.
+
+The opportunity-first message alone is not enough. A buyer can admire a Frontier AI demonstration without wanting or funding another system. Start with something valuable the organization **has wished it could do or sustain**. Understand what holds it back, what that limitation costs or what opportunity remains unrealized, and only then propose a credible path to improvement.
+
+### Customer discovery sequence
+
+1. **Desired outcome:** What has the customer wanted to investigate, achieve or sustain but not yet been able to?
+2. **Constraint:** Is the blocker capacity, time, dispersed knowledge, lack of continuity, licensing, access, coordination, or something else? Do not invent a deficiency.
+3. **Value at stake:** What would change if the limitation were addressed? Is there a consequential decision, revenue opportunity, avoided delay, or demonstrable staff-time cost? Interest in a demo is not evidence of a budget.
+4. **Respect existing expertise:** Experienced people often have good processes. Domain experts help identify useful possibilities and applicability limits. Do not lead with criticism of the customer's professionalism or imply automatic AI superiority.
+5. **Frontier AI's potential:** Use quick research, exploration and targeted investigation to make previously impractical work feasible at reasonable effort; avoid claiming earlier human execution was impossible.
+6. **Epistamate's distinct mechanism:** Persist evidence-linked reasoning, accepted versus provisional hypotheses, source permissions, professional decisions and history across new questions and data so the opportunity can be investigated and revised responsibly.
+7. **Bounded commercial test:** Compare against credible existing prompts, documents, BI/CRM, analyst tools and skilled teams. Define sponsor, intended outcome, success criteria, permission and scope; do not enter an unbounded unpaid implementation arrangement.
+
+The need for human checkpoints, explicit source support and proper handling of confidential or licensed evidence remains. **Safety and defensibility should enable an attractive capability, not dominate the opening conversation with a catastrophe catalogue** (except where the user is specifically purchasing assurance).
+
+### Website examples introduced
+
+- `index.html#problem`: three **illustrative customer ambitions** for market intelligence, account portfolio learning, and recurring policy research, each with a potential business consequence and an honest qualification. The homepage links to each more detailed example.
+- `index.html#contact`: invitation asks what the visitor wants to accomplish, what limits it and why it matters. No new mandatory form fields, changes to the submission endpoint, or implied qualification score.
+- `market-intelligence-refresh.html`: hypothetical team has analyst and spending intelligence but wants to explore adjacent segments at repeatable effort. Test whether the resulting better-informed prioritization is valuable enough to justify a maintained state. Not a claim of automated proprietary ingestion or better actual market outcomes.
+- `account-management-intelligence.html`: hypothetical portfolio leader wants to test permissioned transfer of validated patterns between account teams. The commercial test is **qualified incremental opportunities**, not counts of generated suggestions and not automatic revenue.
+- `persona-policy.html`: forward-looking question about recurring policy research and a hypothetical response to later official developments, linking to the real **controlled EU–India FTA walkthrough** without asserting the hypothetical enterprise process is deployed. Existing evidence and applicability caveats remain.
+- `policy-research-walkthrough.html` remains an unchanged historical controlled research case, not a fictional sales outcome.
+- Assurance/GenAI Workflow Assurance remains oriented to risk, evidence and controls for buyers who expressly want that service.
+
+### Claims, adoption and IP boundaries
+
+- No customer result, revenue uplift, externally integrated corpus, cross-account automated propagation, agentic workflow, completed central repository, policy production validation or quantitative cost saving is claimed.
+- Existing products and methods may already be sufficient. Buyer size alone is not a fit test; recurrent/related consequential work, an economic sponsor and permissioned data access matter.
+- Client-specific methods and implementation requests should be scoped, commercial and subject to explicit confidentiality/IP agreements. Preserve cross-variant conceptual learnings without publishing private prospect facts.
+- Before another website iteration, seek real evidence that buyers recognize an important **unmet aspiration and cost** rather than merely expressing curiosity about a generated brief.
