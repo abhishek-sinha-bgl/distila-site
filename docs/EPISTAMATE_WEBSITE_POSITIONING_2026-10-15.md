@@ -213,3 +213,26 @@ The precise internal proposal is in Epistamate's canonical shared-core repositor
 ### Validation
 
 No new software or client outcome is claimed. Assess the new messaging as an invitation to discover client demand, not a replacement for technical maturity disclosures. Product and website future claims must remain tied to controlled empirical validation.
+
+## Research-informed, evolving core and open possibilities (2026-10-17)
+
+This public-message update follows the founder's settled architecture and customer-discovery discussion. **Epistamate is a research-informed analytical foundation with different professional expressions**, not a finished universal AI enterprise platform.
+
+"Research-informed" applies in **two inseparable ways**:
+1. **Analytical capability:** improving evidence acquisition, coverage, retrieval/selection, extraction, claim analysis, reasoning, synthesis, challenge, continuity and potential cross-context reuse through literature/SOTA monitoring and controlled evaluations.
+2. **Evidence/safety integrity:** improving source/provenance support, uncertainty, applicability and contradiction handling, model/human authority separation, revision history, review discipline, compatibility and safe evolution. Avoid blanket guarantees of safety, validity or technical superiority.
+
+The architecture should be **modular and selectively adoptable**: variants may use relevant stable common capabilities and shape their own professional language, sources, stages, review depth, lenses, decision rights and outputs. Improvements to the core should have compatibility gates before a variant adopts them; previous professional acceptance must not silently change. This describes a design and research discipline; it does not imply that a complete shared executable analytical framework, knowledge graph, enterprise-RAG integration or general component deployment system exists today.
+
+**The unfinished-AI-enterprise insight** is that valuable future uses are not all known in advance. Rather than promising every possible workflow, invite the client to bring its unmet ambitions, evidence, current systems and decision practices; jointly investigate whether a **targeted** application of the Epistamate foundation would make something new practical. Preserve the simpler path of familiar Research/Advisory work, which has actual product experiments behind it. Do not claim client outcomes, completed cross-enterprise transfer, proven competitive superiority or free/open-ended consultancy.
+
+### Website changes in this tranche
+
+- `index.html`: retain the founder-approved headline and guiding question. Describe the foundation as **research-informed** in both capability and safeguards; say some useful applications remain unknown; emphasize co-exploration with the professional's own methods. Add a compact research-informed explanation near the existing two engagement paths, linking to How It Works.
+- `engine.html#research-informed`: new explicit section with three complementary themes: stronger analytical methods; evidence/safety discipline; tested, compatible and optional adoption of future advances. Link to existing controlled observations and the Version 2 technical paper while retaining their stated limitations.
+- Existing application pages, product-maturity statements, lead form processing, Assurance positioning and core repository implementation remain unchanged.
+- The reference to the **unfinished AI enterprise** is conceptual and paraphrases the founder's framing; no unverified article URL or invented quotation was introduced.
+
+### Claim standard
+
+Do not use the phrase "technically superior" without independent, task-relevant comparative evaluation. "Research-informed, designed to evolve" accurately describes the intended development discipline when accompanied by the existing published implementation and bounded experimental evidence. A research paper, architecture plan or experimental test alone is not a claim that the evolving core is commercially proven in every setting.
