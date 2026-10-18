@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><base href="/"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Epistamate — Accumulated reasoning for work that endures</title>
+<meta name="description" content="Epistamate brings a research-informed, evolving foundation for evidence-backed professional work. Explore familiar workflows or co-design new possibilities with your organization.">
+<meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Epistamate — When the work continues, the reasoning should too"><meta property="og:description" content="New possibilities from accumulated understanding—supported by persistent, evidence-backed reasoning and professional judgement."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="distilapp.css">
+<style>
+  .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-product-shot{margin:var(--space-l) 0 0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 12px 32px rgba(15,15,15,.045)}
+  .home-product-shot img{display:block;width:100%;height:auto}
+  .home-product-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+  .home-product-shot figcaption strong{color:var(--ink)}
+  .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
+  .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+  .hero-proof>div{border-top:3px solid var(--accent)}
+  .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
+  .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
+  .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+  .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+  .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+  .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .continuity-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-s);margin-top:var(--space-xl)}
+  .continuity-flow>div{min-width:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-m)}
+  .continuity-flow .label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .continuity-flow strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:5px}
+  .continuity-flow span{font-size:.8rem;line-height:1.55;color:var(--ink-3)}
+  .continuity-note{margin-top:var(--space-l);border-left:3px solid var(--accent);padding:var(--space-s) var(--space-m);color:var(--ink-3);line-height:1.7}
+  .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .control-strip>div{background:var(--paper);padding:var(--space-m)}
+  .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+  .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow,.continuity-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
+  .home-page #applications .section-inner{padding-top:3.25rem}
+  .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
+  .home-page .hero .hero-h1{font-size:clamp(2.8rem,4.45vw,3.65rem);line-height:1.02;margin-bottom:.7rem}
+  .home-page .hero .stakes-block{margin-bottom:.35rem;padding:.7rem 1.1rem}
+  .home-page .hero .stakes-block p{font-size:.9rem;line-height:1.32}
+  .home-page .hero .stakes-block p+p{margin-top:.6rem}
+  .home-page .hero .hero-proof{margin-top:.35rem}
+  .home-page .hero .hero-proof>div{padding:.9rem 1rem}
+  .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
+  .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
+  .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+  @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
+    .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
+    .home-page .nav-logo>span:last-child{display:none}
+    .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
+    .home-page .nav-toggle{margin-left:.5rem}
+    .home-page .hero,.home-page .stakes-block,.home-page .hero-proof{width:100%;max-width:100%}
+    .home-page .hero-proof>div{min-width:0}
+  }
+  .possibility-stories{display:grid;gap:1.25rem;margin-top:2rem}
+  .possibility-story{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:clamp(1rem,3vw,2rem)}
+  .possibility-heading{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+  .possibility-heading .label{font:500 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+  .possibility-heading h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.9rem);margin-bottom:.35rem}
+  .possibility-heading p,.story-payoff{color:var(--ink-3);line-height:1.65}
+  .possibility-number{font:500 .75rem var(--font-mono);color:var(--accent);border:1px solid var(--border);border-radius:50%;width:2rem;height:2rem;flex-shrink:0;display:grid;place-items:center}
+  .possibility-visual{display:grid;gap:.75rem;margin:1rem 0}
+  .possibility-visual.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .signal-card,.report-card{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+  .signal-card strong,.report-card strong{font-size:.95rem}
+  .signal-card span,.report-card>span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+  .signal-icon{font-size:1.3rem!important;color:var(--accent)!important}
+  .possibility-convergence{text-align:center;color:var(--ink-3);font:.75rem var(--font-mono);padding:.35rem}
+  .possibility-convergence span{color:var(--accent)}
+  .possibility-question{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper)}
+  .possibility-question p{margin:.4rem 0;line-height:1.55}
+  .possibility-question small{color:var(--ink-3)}
+  .reporting-visual{max-width:750px;margin:1.25rem auto}
+  .report-card strong{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .status-good{color:#20754b;font:.72rem var(--font-mono)}
+  .report-bridge{text-align:center;font:.75rem var(--font-mono);color:var(--ink-3);padding:.3rem}
+  .warning-card{border-left:3px solid var(--accent)}
+  .learning-visual{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch}
+  .loop-arrow{align-self:center;color:var(--accent);font-size:1.25rem}
+  .next-deal{border-color:var(--accent)}
+  .story-payoff{margin-top:1rem}
+  .story-payoff strong{color:var(--ink)}
+  .possibility-invitation{margin-top:2.5rem;padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+  .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
+  @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
+  @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"A foundational architecture for consequential analytical workflows that endure, preserving accumulated evidence and reasoning for change-aware insights and deliverables."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}}]}</script>
+<!-- build:2026-09-06-site-convergence-final-density -->
+</head>
+<body class="home-page">
+<div style="position:sticky;top:0;z-index:9999;background:#203b39;color:#fff;text-align:center;padding:9px 14px;font:600 13px Arial,sans-serif">DESIGN PREVIEW · Not the live homepage</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-eyebrow">EPISTAMATE · NEW POSSIBILITIES FROM ACCUMULATED UNDERSTANDING</div>
+  <h1 class="hero-h1">What could your organization discover<br><em>if its knowledge worked together?</em></h1>
+  <div class="stakes-block" style="max-width:900px">
+    <p class="stakes-kicker">Your people notice things dashboards miss. Your teams learn things that rarely travel. And each review can lose the reasoning behind the last.</p>
+    <p>What if those observations, decisions and lessons could inform one another—and help reveal opportunities nobody had thought to look for? Epistamate explores that possibility with evidence-backed reasoning, professional judgement and the advancing capabilities of Frontier AI.</p>
+    <p>Start with work you already do, or an ambition that does not yet have a ready-made solution.</p>
+  </div>
+  <div class="hero-ctas" style="margin-top:var(--space-xl)">
+    <a href="#ways-to-work" class="btn-primary">Two ways to explore Epistamate ↓</a>
+    <a href="#applications" class="btn-secondary">See current work and applications ↓</a>
+    <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener" class="btn-secondary">Research implementation paper ↗</a>
+  </div>
+</section>
+
+<section class="diff-section" id="ways-to-work">
+  <div class="section-inner">
+    <div class="section-tag">A practical starting point · An ambitious possibility</div>
+    <h2>Start with the work you know.<br><em>Or explore what has not yet been possible.</em></h2>
+    <p class="section-sub">A familiar analytical workflow and a novel organizational question need different kinds of engagement. We do not yet know every valuable use of Frontier AI and accumulated organizational understanding. Exploring new possibilities with clients is part of the work—not a promise that one ready-made system already solves them. Neither path requires abandoning methods that work.</p>
+    <div class="engagement-paths offer-strip" style="margin-top:var(--space-l)">
+      <article class="app-card"><div class="label">01 · Extend familiar professional work</div><h3>Make research and advice easier to continue</h3><p>Investigate a market, review evidence, maintain findings or revisit a recommendation without rebuilding the previous assessment. Our early-access Research Workspace and controlled advisory experiment demonstrate parts of this approach; a customer's method and outputs still require suitable adaptation.</p><div class="app-links"><a href="epistamate_demo.html">Explore the Research Workspace →</a><a href="advisory.html">See the advisory experiment →</a></div></article>
+      <article class="app-card"><div class="label">02 · Co-explore a new organizational capability</div><h3>Turn accumulated learning into new possibilities</h3><p>Perhaps delivery lessons across accounts could improve future solutions, or separate research efforts could reveal a strategic opportunity. Start with an unmet ambition, the decision it would change and the information available. Together we can assess fit and define a <strong>bounded, client-specific experiment</strong> around the organization's terminology, responsibilities and workflows.</p><div class="app-links"><a href="#contact">Discuss a possibility →</a><a href="engine.html#method-profiles">See how the foundation adapts →</a></div></article>
+    </div>
+    <div class="stakes-block" style="margin-top:var(--space-l);max-width:980px">
+      <p><strong>Research-informed by design, in capability and in safeguards.</strong> Epistamate's foundation draws on research and controlled experiments to improve how evidence is acquired, examined, challenged and carried into later decisions—and to test provenance, uncertainty, authority and failure boundaries as methods evolve. New techniques are evaluated before becoming trusted building blocks; existing professional decisions are not silently rewritten by an upgrade. <a href="engine.html#research-informed">How the foundation evolves →</a></p>
+    </div>
+    <p class="fine-print" style="margin-top:var(--space-l)"><strong>What exists and what is proposed:</strong> governed research is implemented in an early-access workspace; advisory has been exercised in a controlled synthetic case. Organization-wide reasoning and qualified cross-context knowledge transfer are architectural directions, not a released enterprise platform. A substantial discovery, prototype or implementation would be separately scoped and agreed.</p>
+  </div>
+</section>
+
+<section class="diff-section" id="research-corpus">
+  <div class="section-inner">
+    <div class="section-tag">Three possibilities · not finished products or customer outcomes</div>
+    <h2>The information exists.<br><em>What connections are we missing?</em></h2>
+    <p class="section-sub">Reports tell part of the story. So do escalation notes, root-cause analyses, meetings and professional experience. The opportunity is not to ingest everything: it is to bring <strong>relevant, authorised evidence</strong> into a particular judgement, examine it together and carry forward what was learned.</p>
+    <div class="possibility-stories">
+      <article class="possibility-story">
+        <div class="possibility-heading"><span class="possibility-number">01</span><div><div class="label">Account and portfolio intelligence</div><h3>Three accounts. One emerging change.</h3><p>Each account looks healthy on its dashboard. But the people closest to the customers are noticing something different.</p></div></div>
+        <div class="possibility-visual three">
+          <div class="signal-card"><span class="signal-icon" aria-hidden="true">✉</span><strong>Account A</strong><span>Escalation: customer questions the service model</span></div>
+          <div class="signal-card"><span class="signal-icon" aria-hidden="true">◷</span><strong>Account B</strong><span>Meeting notes: growing interest in AI-led operations</span></div>
+          <div class="signal-card"><span class="signal-icon" aria-hidden="true">▥</span><strong>Finance</strong><span>Review: changing economics across contracts</span></div>
+        </div>
+        <div class="possibility-convergence" aria-hidden="true"><span>↓</span> Relevant evidence considered together <span>↓</span></div>
+        <div class="possibility-question"><strong>A new question emerges</strong><p>Are customers rethinking outsourcing—and could that create a new advisory opportunity rather than only a renewal risk?</p><small>A hypothesis to investigate, not an automatic conclusion.</small></div>
+      </article>
+      <article class="possibility-story">
+        <div class="possibility-heading"><span class="possibility-number">02</span><div><div class="label">Management intelligence</div><h3>The executive report is green. Is the whole picture?</h3><p>Each reporting layer makes the story shorter. Material warnings may disappear even when the summary is accurate.</p></div></div>
+        <div class="possibility-visual reporting-visual">
+          <div class="report-card"><strong>Executive summary <span class="status-good">On track</span></strong><span>Revenue on plan · SLA met · Margin stable</span></div>
+          <div class="report-bridge">↑ Successive management summaries ↑</div>
+          <div class="signal-card warning-card"><strong>Evidence behind the summary</strong><span>Recurring escalations · unresolved RCAs · changing customer sentiment</span></div>
+        </div>
+        <p class="story-payoff"><strong>What becomes possible?</strong> Keep concise reporting, but retain a route to relevant supporting evidence, unresolved concerns and the reasoning behind a judgement—without opening every employee's communications.</p>
+      </article>
+      <article class="possibility-story">
+        <div class="possibility-heading"><span class="possibility-number">03</span><div><div class="label">Commercial learning</div><h3>What if every delivery taught the next deal?</h3><p>Sales knows what was promised. Delivery knows what happened. Finance knows the outcome. The next proposal rarely benefits from all three.</p></div></div>
+        <div class="possibility-visual learning-visual">
+          <div class="signal-card"><strong>Sales</strong><span>Original assumptions</span></div><span class="loop-arrow" aria-hidden="true">→</span>
+          <div class="signal-card"><strong>Delivery</strong><span>What actually happened</span></div><span class="loop-arrow" aria-hidden="true">→</span>
+          <div class="signal-card"><strong>Finance</strong><span>Actual economics</span></div><span class="loop-arrow" aria-hidden="true">↻</span>
+          <div class="signal-card next-deal"><strong>Next proposal</strong><span>Better questions and assumptions</span></div>
+        </div>
+        <p class="story-payoff"><strong>What becomes possible?</strong> Test which commercial assumptions survived delivery, which failed, and what should change next time.</p>
+      </article>
+    </div>
+    <div class="possibility-invitation">
+      <div class="section-tag">Beyond these three examples</div>
+      <h2>And what else might<br><em>become possible?</em></h2>
+      <p>Think about the decisions that return every month or quarter, the experience that seldom reaches the next team, and the connections nobody has had the time or context to explore. What if each cycle could build on the last—and one part of the organization could learn from another?</p>
+      <p>These examples are invitations to investigate, not the limits of a product. Bring a familiar workflow, an unanswered question or a possibility worth exploring together.</p>
+      <div class="hero-ctas"><a href="#contact" class="btn-primary">Explore a possibility →</a><a href="engine.html#cycle" class="btn-secondary">How the foundation works →</a></div>
+      <p class="fine-print">The governed Research Workspace is an early-access implementation. Cross-account, portfolio and organization-wide intelligence are directions for jointly scoped exploration, not deployed enterprise capabilities. Evidence is selected for a specific question and remains subject to access and professional authority.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hallucination-section" id="problem">
+  <div class="section-inner">
+    <div class="section-tag">For the next review, assessment or decision</div>
+    <h2>New possibilities need<br><em>the right questions and decisions.</em></h2>
+    <p class="section-sub">A useful new opportunity starts with a question. Which earlier insight applies here? What new evidence changes the picture? What remains uncertain? Epistamate aims to help teams pursue those questions from accumulated understanding, with the evidence and professional authority still visible when they matter.</p>
+    <div class="section-tag" style="margin-top:var(--space-xl)">Illustrative ambitions · not customer outcomes</div>
+    <div class="app-grid offer-strip" style="margin-top:var(--space-m)">
+      <article class="app-card"><div class="label">Market intelligence</div><h3>Use research to investigate the next market</h3><p><strong>Wanted:</strong> connect industry research, market-spend estimates and segment knowledge to questions the team has not had capacity to pursue repeatedly.</p><p><strong>Potential business relevance:</strong> better choices about which markets merit scarce investigative effort, if those choices matter enough to fund a continuing process.</p><div class="app-links"><a href="market-intelligence-refresh.html">Explore the concept →</a></div></article>
+      <article class="app-card"><div class="label">Account management</div><h3>Let one team's learning inform another</h3><p><strong>Wanted:</strong> find out whether a validated service improvement in one client relationship suggests a useful question for another account, without exposing protected client material.</p><p><strong>Potential business relevance:</strong> a qualified incremental growth opportunity, not a larger list of AI-generated leads.</p><div class="app-links"><a href="account-management-intelligence.html">Explore the concept →</a></div></article>
+      <article class="app-card"><div class="label">Policy research</div><h3>Revisit policy choices as circumstances evolve</h3><p><strong>Wanted:</strong> carry earlier evidence and assumptions into a later policy question instead of reassembling the original analysis.</p><p><strong>Potential business relevance:</strong> informing a time-sensitive policy or strategic decision with an inspectable, appropriately qualified basis.</p><div class="app-links"><a href="persona-policy.html">Explore the policy workflow →</a></div></article>
+    </div>
+    <p class="fine-print" style="margin-top:var(--space-m)">The commercial question comes before a technology proposal: <strong>what has the organization wanted to accomplish, what has prevented it, and what is that limitation costing—or leaving unrealized?</strong> These are possibilities to test against capable existing methods, not promised revenue, savings or implemented cross-team automation.</p>
+    <h3 style="margin-top:var(--space-xl);margin-bottom:var(--space-m)">Keep new possibilities grounded as the work continues</h3>
+    <div class="control-strip">
+      <div><strong>What changed?</strong><span>See the material differences since the last review, not just another inventory of recent information.</span></div>
+      <div><strong>What still holds?</strong><span>Reuse earlier assessments and supporting reasons, checking whether new information actually changes their applicability.</span></div>
+      <div><strong>What is unresolved?</strong><span>Preserve open commitments, conflicting evidence and uncertainty instead of smoothing them out of the next summary.</span></div>
+      <div><strong>What needs attention?</strong><span>Bring affected diagnoses, risks, recommendations or deliverable sections to the professional—not a wall of new items.</span></div>
+      <div><strong>What can the next deliverable use?</strong><span>Prepare possible trends, insights and talking points from maintained context in familiar organizational formats.</span></div>
+      <div><strong>Who decides?</strong><span>Frontier AI suggests; the responsible professional determines what is established, what to recommend and what to communicate.</span></div>
+    </div>
+    <div class="stakes-block" style="max-width:980px;margin-top:var(--space-l)">
+      <p><strong>Build upon what your organization already does well.</strong> Earlier research, client learning and strategic decisions can become starting points for fresh investigation instead of disappearing into separate slides or folders. Epistamate aims to preserve the reasoning behind them, focus attention where circumstances have changed and support useful next insights or deliverables—without assuming existing professional practice is inadequate.</p>
+    </div>
+  </div>
+</section>
+
+<section class="hallucination-section" id="applications">
+  <div class="section-inner">
+    <div class="section-tag">Existing experiments and illustrative applications</div>
+    <h2>Shared epistemic principles.<br><em>Your methods and deliverables.</em></h2>
+    <p class="section-sub">Epistamate is a foundational architecture, not one generic workflow imposed on every profession. Provenance, uncertainty, accumulated reasoning, dependencies, impact, history and human authority remain common. Source authority and trust tiers, assessment frameworks, refresh patterns, quick-pass versus detailed-inspection defaults and deliverable formats are tuned to the organization and its work.</p>
+    <div class="app-grid offer-strip" style="margin-top:var(--space-l)">
+      <article class="app-card"><div class="label">Software · Early access</div><h3>Governed Research Workspace</h3><p>The most mature ready-to-use expression of the foundation: question-led and document-led investigations, evidence and findings, unresolved gaps, iterations and purpose-shaped research outputs. Individual research profiles can benefit from tailoring.</p><div class="app-links"><a href="epistamate_demo.html">See the workspace →</a><a href="examples.html#research">View the research evidence example →</a></div></article>
+      <article class="app-card"><div class="label">Method-aware experiment</div><h3>Consulting &amp; Advisory</h3><p>A controlled advisory implementation tests how new evidence affects established propositions, diagnoses and recommendations without replacing the consultant's method or silently rewriting professional advice.</p><div class="app-links"><a href="advisory.html#tested-in-practice">See the experiment →</a></div></article>
+      <article class="app-card"><div class="label">Service · Available now</div><h3>GenAI Workflow Assurance</h3><p>A bounded evidence review of a consequential GenAI workflow, applying the same integrity principles with assurance-specific trust rules, evidence obligations and outputs.</p><div class="app-links"><a href="genai-control-evidence-review.html">See validation examples →</a></div></article>
+    </div>
+    <div class="section-tag" style="margin-top:var(--space-xl)">Illustrative adaptations · not packaged products</div>
+    <p class="section-sub">What might become possible when industry research informs segment decisions, or a validated client insight suggests a new account question? These illustrative applications explore new connections and opportunities grounded in persistent evidence and professional judgement. They are not shipped products or demonstrated commercial outcomes.</p>
+    <div class="app-grid offer-strip" style="margin-top:var(--space-l)">
+      <article class="app-card"><div class="label">Potential application · Illustrated scenario</div><h3>Market &amp; competitive intelligence</h3><p>Explore how existing research, authorized analyst material and new market developments could combine to reveal questions and opportunities across industries, segments and companies—with evidence-linked reassessment when needed.</p><div class="app-links"><a href="market-intelligence-refresh.html">Explore continuing market intelligence →</a></div></article>
+      <article class="app-card"><div class="label">Potential application · Illustrated scenario</div><h3>Account management</h3><p>Build evidence-backed understanding across a client relationship; explore whether validated opportunity patterns and industry insights could inform proactive growth in other relevant accounts. Routine review support is secondary.</p><div class="app-links"><a href="account-management-intelligence.html">See persistent account-growth reasoning →</a></div></article>
+      <article class="app-card"><div class="label">Potential application</div><h3>Policy &amp; strategic reassessment</h3><p>Revisit enduring assessments as evidence, requirements and assumptions change, preserving the reasoning behind earlier positions.</p></article>
+    </div>
+    <p class="fine-print" style="margin-top:var(--space-l)"><strong>Current boundary:</strong> Research Workspace is local-first and in early access; advisory examples are experimental. Broad automated refresh, enterprise integrations and the illustrative workflows above are not available packaged products. Explicit external Frontier AI or web operations may send necessary material to the selected provider.</p>
+  </div>
+</section>
+
+<section class="personas-section" id="personas">
+  <div class="section-inner">
+    <div class="section-tag">Who this is for</div>
+    <h2>Consequential work<br><em>that must endure and evolve.</em></h2>
+    <div class="persona-grid home-persona-grid">
+      <a href="persona-consultant.html" class="persona-card"><h3>Consulting &amp; advisory</h3><p>Recommendations built from research, client documents, interviews and specialist input where dependencies and later changes matter.</p><div class="persona-link">Consulting use case →</div></a>
+      <a href="persona-policy.html" class="persona-card"><h3>Policy &amp; regulatory research</h3><p>Work where source authority, jurisdiction, applicability, disagreement and known unknowns must survive the brief.</p><div class="persona-link">Policy use case →</div></a>
+      <a href="persona-professional-services.html" class="persona-card"><h3>Professional research &amp; analysis</h3><p>AI-assisted work product where a reviewer, partner or client needs to inspect the basis — not only receive a confident answer.</p><div class="persona-link">Professional-services use case →</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="diff-section" id="difference">
+  <div class="section-inner">
+    <div class="section-tag">Why add another layer?</div>
+    <h2>Already using Frontier AI and familiar tools?<br><em>Build on them.</em></h2>
+    <p class="section-sub">One-off AI research and reports can already be excellent. Epistamate becomes more relevant when reasoning must remain usable over time: what supported an earlier position, what changed, what may be affected and how the next set of insights or deliverables should build on it.</p>
+    <div class="diff-grid" style="margin-top:var(--space-xl)">
+      <article class="diff-card"><div class="label">Upstream intelligence</div><h3>Search, retrieve, read and reason</h3><p>Use the Frontier AI, enterprise information sources, specialist research and operational systems appropriate to the work. Epistamate can evolve with model capabilities without making any one model its permanent system of record.</p></article>
+      <article class="diff-card"><div class="label">Epistamate adds</div><h3>Governed evidence and judgement state</h3><p>Preserve evidence and reasoning, evolving assessments, unresolved dependencies and professional judgements. Route attention to what deserves reassessment without silently rewriting history.</p></article>
+      <article class="diff-card"><div class="label">Domain adaptation</div><h3>End in the work product that matters</h3><p>Adapt source trust tiers, methodology, review defaults and familiar deliverable formats to the workflow—from research briefs to advisory recommendations, market insights and recurring account reviews.</p></article>
+      <article class="diff-card"><div class="label">Weaker fit</div><h3>Isolated, one-off analysis</h3><p>If there is no consequential reasoning to preserve, no future reassessment and no next cycle to inform, a one-time AI answer or spreadsheet may be enough.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="diff-section" id="faq">
+  <div class="section-inner">
+    <div class="section-tag">Common questions</div>
+    <h2>What people usually want to know<br><em>before going deeper.</em></h2>
+    <div class="faq-list">
+      <details><summary>Is Epistamate software or a service?</summary><p>The Governed Research Workspace is the current software product in early access. GenAI Workflow Assurance is an offered service; Consulting &amp; Advisory has a controlled method-aware experiment. Other workflow expressions are possible adaptations rather than off-the-shelf products.</p></details>
+      <details><summary>Does Epistamate replace ChatGPT, Claude, Gemini or specialist research systems?</summary><p>No. Frontier AI supplies discovery, interpretation, challenge and synthesis, and that leverage can evolve as models improve. Epistamate maintains evidence-bearing analytical continuity beyond an individual model answer.</p></details>
+      <details><summary>Is Epistamate one universal workflow for every domain?</summary><p>No. The shared epistemic foundation preserves provenance, uncertainty, accumulated state, dependencies, change and professional authority. Source authority and trust tiers, methodology, quick-pass or detailed inspection, vocabulary and deliverable formats are tailored to each workflow.</p></details>
+      <details><summary>Does Epistamate calculate a confidence score?</summary><p>No. Epistamate does not calculate a universal confidence score or source-independence score. Directness, source role, exact support, independence, applicability, contradiction, recency and sufficiency remain separate, inspectable dimensions rather than being collapsed into one number.</p></details>
+      <details><summary>How does Epistamate decide what deserves attention?</summary><p>It should not rely on a single opaque score. Attention can be driven by inspectable state such as contradiction, weak or sparse support, applicability uncertainty, missing documents or facts, stale downstream work, researcher priority or newly arrived evidence. The researcher should be able to see why an item surfaced, what evidence/state caused it, what it affects and what action could resolve it.</p></details>
+      <details><summary>Does every workflow end in the same kind of report?</summary><p>No. Durable analytical state underpins the next set of useful insights or deliverables in formats familiar to each workflow. Research briefs, advisory recommendations, market assessments and account reviews are examples with different implementation maturity.</p></details>
+      <details><summary>What does “local-first” mean?</summary><p>In the current Research Workspace, canonical research state, review decisions and locally supplied evidence are stored on the user’s machine. Explicit web acquisition or external-model operations may send the material required for that operation to the configured external service. Local-first does not mean zero-network.</p></details>
+      <details><summary>Can I use confidential material?</summary><p>The architecture is designed around local research state and bounded external assistance, but you should not send confidential material to an external model unless your own policy and provider terms allow it. Closed-source and more tightly bounded workflows remain an important product direction.</p></details>
+      <details><summary>What does “human authority” actually mean?</summary><p>Models can propose plans, interpretations, challenges and drafts. A human decides what to accept, qualify, defer, reject or carry forward. That decision is recorded, but human approval does not make weak evidence stronger.</p></details>
+      <details><summary>When is Epistamate probably unnecessary?</summary><p>For isolated research questions, casual drafting or one-off analyses without lasting reasoning or consequential reassessment, a simpler tool may be preferable. Epistamate is designed for work that continues, accumulates and may need a defensible account of what changed.</p></details>
+      <details><summary>Does Epistamate automatically refresh research or rewrite recommendations?</summary><p>An optional governed research corpus could supply relevant external developments alongside ordinary workflow inputs. Universal autonomous monitoring and packaged account-management refresh are not current features. New evidence can prompt impact assessment; it does not independently authorise a changed professional judgement.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="diff-section" id="assurance">
+  <div class="section-inner">
+    <div class="section-tag">Assurance &amp; audit trail</div>
+    <h2>The work product is not<br><em>the only thing worth preserving.</em></h2>
+    <p class="section-sub">A report, policy position or recommendation may be the visible deliverable. The governed state behind it can also support internal checkpoints, handovers, pre-release review, peer or management challenge, and later institutional, audit or regulatory scrutiny.</p>
+    <div class="proof-grid home-proof-detail" style="margin-top:var(--space-xl)">
+      <article class="proof-card"><div class="label">Research state</div><h3>What is the governed position now?</h3><p>See accepted findings, unresolved dependencies, evidence posture and the current point of researcher authority without reconstructing the project from the final prose.</p></article>
+      <article class="proof-card"><div class="label">History recap</div><h3>How did the work get here?</h3><p>Give a new researcher, reviewer or senior stakeholder a bounded account of the iterations, material changes and decisions that produced the current state.</p></article>
+      <article class="proof-card"><div class="label">Governance audit</div><h3>What still prevents consequential reliance?</h3><p>Surface required governance blockers, recommended follow-up and passed controls before a consequential deliverable is treated as ready for reliance.</p></article>
+      <article class="proof-card"><div class="label">Methods &amp; AI use</div><h3>Where did AI assist — and where did human authority remain?</h3><p>Preserve recorded methods, model-assisted stages, model/system identity where recorded, lineage and researcher acceptance posture without turning model activity into research authority.</p></article>
+    </div>
+    <div class="hero-ctas" style="margin-top:var(--space-l)"><a href="assurance.html" class="btn-primary">See the assurance &amp; audit trail →</a></div>
+    <p class="fine-print" style="margin-top:var(--space-m)">These records can support a reviewer, institution, auditor or regulator. They do not themselves determine compliance with an external code, policy, law or professional standard.</p>
+  </div>
+</section>
+
+<section class="hallucination-section" id="insights">
+  <div class="section-inner">
+    <div class="section-tag">Failure modes as product requirements</div>
+    <h2>The writing explains the problem.<br><em>The applications test the answer.</em></h2>
+    <p class="section-sub">The evidence-quality series covers citation support, amplification vs corroboration, stale evidence, human review, model-as-judge failure, unresolved disagreement and where scarce attention should go — the same failure modes the architecture is designed to preserve rather than hide.</p>
+    <div class="hero-ctas" style="margin-top:var(--space-l)"><a href="blog/index.html" class="btn-primary">Read Insights →</a><a href="landscape.html" class="btn-secondary">See the research landscape →</a></div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-tag">Get in touch</div>
+    <h2>What would you like your team to accomplish?<br><em>What makes it difficult today?</em></h2>
+    <p class="contact-sub">Bring a familiar analytical workflow you want to strengthen, or a valuable question your organization has not yet been able to pursue. Tell us what makes it difficult and why resolving it matters. We can discuss fit with the Epistamate foundation; substantive discovery and implementation would be separately scoped and agreed. We aim to respond within a week. Please do not submit confidential or licensed source material.</p>
+    <div class="contact-options">
+      <div class="contact-what"><h4>What could we explore?</h4><ul><li>Research that needs evidence lineage, uncertainty and a reviewable history</li><li>An advisory or strategic workflow where assumptions and recommendations evolve</li><li>Account or market intelligence that should build on prior, evidence-backed decisions</li><li>A bounded GenAI workflow assurance review, or another consequential AI-assisted process</li></ul><p class="contact-note" style="margin-top:var(--space-m)">The Research Workspace is early-access software; Advisory is experimental; Assurance is a service. Other workflow examples are conceptual, not packaged products.</p></div>
+      <div class="contact-form-block">
+        <form id="contact-form" novalidate>
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1">
+          <div class="form-row"><div class="form-group"><label for="cf-name">Name</label><input id="cf-name" name="name" required placeholder="Your name"></div><div class="form-group"><label for="cf-org">Organisation</label><input id="cf-org" name="organisation" placeholder="Where you work"></div></div>
+          <div class="form-group"><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-group"><label for="cf-domain">What would you like to explore?</label><select id="cf-domain" name="domain"><option value="" disabled selected>Select an area (optional)</option><option>Governed Research Workspace (early access)</option><option>GenAI Workflow Assurance (service)</option><option>Consulting &amp; Advisory (experiment)</option><option>Market &amp; competitive intelligence (concept)</option><option>Account &amp; portfolio intelligence (concept)</option><option>Policy, regulatory &amp; strategic reassessment</option><option>Shared architecture / recurring analytical workflow</option><option>Other / Not sure yet</option></select></div>
+          <div class="form-group"><label for="cf-problem">What would you like to achieve?</label><textarea id="cf-problem" name="problem" rows="4" maxlength="600" placeholder="What have you wanted to do, what makes it difficult, and what difference could it make?"></textarea></div>
+          <button type="submit" class="btn-primary btn-large" id="submit-btn">Start a conversation →</button>
+          <p class="contact-note">Or email <a href="mailto:hello@epistamate.com">hello@epistamate.com</a></p>
+          <div id="form-status" style="display:none;margin-top:var(--space-m);padding:var(--space-s) var(--space-m);border-radius:var(--radius-m);font-size:.9rem"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a>
+      <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
+      <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
+      <a href="landscape.html">Prior art and open problems</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  const form=document.getElementById('contact-form'),btn=document.getElementById('submit-btn'),status=document.getElementById('form-status');
+  const W3F_KEY='a8d3233f-1cfa-456c-add9-9922694c1cab';
+  const SHEET_URL='https://script.google.com/macros/s/AKfycbyy53sShkAF93VOHdktUzOVDIImEke1a8F_5CQcpwi8h06WXCzeh3F0_cgBTiLAnjQM9Q/exec';
+  const show=(msg,ok)=>{status.style.display='block';status.textContent=msg;status.style.color=ok?'var(--verified)':'var(--contested)';};
+  form.addEventListener('submit',async e=>{e.preventDefault();const name=document.getElementById('cf-name').value.trim(),email=document.getElementById('cf-email').value.trim();if(!name||!email){show('Please add your name and email.',false);return;}btn.disabled=true;btn.textContent='Sending…';const payload={name,organisation:document.getElementById('cf-org').value.trim(),email,domain:document.getElementById('cf-domain').value||'',problem:document.getElementById('cf-problem').value.trim(),source:'website'};try{const body=new FormData();body.append('access_key',W3F_KEY);body.append('subject','Epistamate enquiry: '+name+' / '+(payload.organisation||'no org'));body.append('from_name','Epistamate contact form');Object.entries(payload).forEach(([k,v])=>body.append(k,v));const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body});const data=await res.json();if(SHEET_URL){fetch(SHEET_URL,{method:'POST',body:JSON.stringify(payload)}).catch(()=>{});}if(data.success) location.href='/contact-success.html';else throw new Error();}catch(err){show('Something went wrong. Please email hello@epistamate.com.',false);btn.disabled=false;btn.textContent='Start a conversation →';}});
+})();
+</script>
+<script src="architecture-diagrams.js" defer></script>\n</body></html>
