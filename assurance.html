@@ -1,199 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>AI Research Assurance &amp; Audit Trail | Epistamate</title>
-<meta name="description" content="Methods and AI-use disclosure, research governance audit, research history, human review records and provenance for AI-assisted research, policy, diligence and professional analysis.">
-<meta name="keywords" content="AI research audit trail, AI use disclosure research, responsible generative AI research, research integrity AI, research governance audit, human oversight AI research, research provenance, ALLEA research integrity, ERA generative AI guidelines">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<link rel="canonical" href="https://epistamate.com/assurance.html">
-<meta property="og:title" content="Assurance &amp; Audit Trail | Epistamate"><meta property="og:description" content="Show how the work reached its current state, where AI assisted, what a human accepted and what still prevents consequential reliance."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/assurance.html"><meta property="og:image" content="https://epistamate.com/og-image.png">
+<title>Assurance — Epistamate</title>
+<meta name="description" content="Evidence, uncertainty, research history and human judgement remain inspectable.">
+<meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Epistamate — When the work continues, the reasoning should too"><meta property="og:description" content="New possibilities from accumulated understanding—supported by persistent, evidence-backed reasoning and professional judgement."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="distilapp.css">
+<link rel="stylesheet" href="/distilapp.css">
 <style>
-.assure-grid,.artifact-grid,.reference-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
-.use-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-m)}
-.assure-card,.artifact-card,.use-card,.reference-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
-.artifact-card{display:flex;flex-direction:column}.artifact-card .hero-ctas{margin-top:auto;padding-top:var(--space-m)}
-.assure-card h3,.artifact-card h3,.use-card h3,.reference-card h3{margin-bottom:var(--space-s)}
-.assure-card p,.artifact-card p,.use-card p,.reference-card p{color:var(--ink-3);font-size:.92rem;line-height:1.7}
-.label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
-.lifecycle{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
-.lifecycle>div{background:var(--paper);padding:var(--space-m);min-width:0}.lifecycle strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}.lifecycle span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
-.expect-table{width:100%;border-collapse:collapse;margin-top:var(--space-xl);font-size:.9rem}.expect-table th,.expect-table td{text-align:left;vertical-align:top;border-bottom:1px solid var(--border);padding:.9rem 1rem}.expect-table th{font:500 .72rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}.expect-table td:first-child{width:45%;font-weight:600;color:var(--ink)}
-.reference-card a{color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}.boundary{border-left:3px solid var(--accent);padding:var(--space-l);background:var(--paper-2);margin-top:var(--space-xl)}.boundary p+p{margin-top:var(--space-s)}
-.assurance-page .hero{padding-top:4rem;padding-bottom:3.25rem}
-.assurance-page .hero-h1{margin-bottom:1.5rem}
-.assurance-page .hero .stakes-block{margin-bottom:1.25rem}
-.assurance-page .hero .hero-ctas{margin-top:0!important}
-.proof-gallery-head{margin-top:var(--space-xl)}
-.proof-gallery-head h3{font-size:1.55rem;margin-bottom:.45rem}
-.proof-gallery-head p{max-width:760px;color:var(--ink-3);font-size:.92rem;line-height:1.65}
-.proof-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m);margin-top:var(--space-l)}
-.proof-figure{margin:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 10px 28px rgba(15,15,15,.035)}
-.proof-shot{display:grid;place-items:center;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:0;background:#fff;overflow:hidden;cursor:zoom-in}
-.proof-shot img{display:block;width:100%;height:100%;object-fit:contain;object-position:center top}
-.proof-shot:focus-visible,.proof-lightbox-close:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.proof-figure figcaption{padding:.9rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
-.proof-figure figcaption strong{color:var(--ink)}
-.proof-lightbox{max-width:min(94vw,1100px);max-height:94vh;padding:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);box-shadow:0 24px 80px rgba(0,0,0,.25)}
-.proof-lightbox::backdrop{background:rgba(15,15,15,.72)}
-.proof-lightbox-inner{position:relative;padding:1rem;background:var(--paper)}
-.proof-lightbox img{display:block;max-width:calc(94vw - 2rem);max-height:calc(94vh - 2rem);width:auto;height:auto;margin:auto}
-.proof-lightbox-close{position:absolute;right:.55rem;top:.55rem;z-index:2;width:38px;height:38px;border:1px solid var(--border-2);border-radius:50%;background:var(--paper);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.12)}
-@media(max-width:980px){.use-grid,.lifecycle{grid-template-columns:repeat(2,minmax(0,1fr))}.assurance-page .hero{padding-top:3.25rem;padding-bottom:3rem}}
-@media(max-width:720px){.assure-grid,.artifact-grid,.reference-grid,.use-grid,.lifecycle,.proof-gallery{grid-template-columns:1fr}.assurance-page .hero{padding-top:2.75rem;padding-bottom:2.75rem}.expect-table,.expect-table tbody,.expect-table tr,.expect-table td{display:block}.expect-table thead{display:none}.expect-table td{width:100%!important;padding:.65rem 0}.expect-table tr{padding:.7rem 0;border-bottom:1px solid var(--border)}.expect-table td{border:0}}
-</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Epistamate Assurance & Audit Trail","url":"https://epistamate.com/assurance.html","description":"Assurance artifacts and audit-trail projections from governed analytical state, including research history, governance audit, methods and AI-use disclosure, and human review records.","isPartOf":{"@type":"WebSite","name":"Epistamate","url":"https://epistamate.com/"}}</script>
-</head>
-<body class="assurance-page">
-<nav class="nav"><div class="nav-inner">
-<a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
-<div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html" aria-current="page">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
-<button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
-<a href="index.html#contact" class="nav-cta">Get in touch</a>
-</div></nav>
-
-<section class="hero">
-<div class="hero-eyebrow">Assurance &amp; audit trail · Governed analytical work</div>
-<h1 class="hero-h1">The conclusion is only one deliverable.<br><em>Preserve the trail behind it.</em></h1>
-<div class="stakes-block"><p class="stakes-kicker">A professional work product may later need to survive a handover, senior review, release decision, peer challenge, institutional inquiry or audit. Reconstructing that history from a finished document or chat transcript is a weak control.</p><p>Epistamate preserves evidence identity, model-assisted work, unresolved state, human decisions and change as governed state. From that record it can produce different assurance views for different questions: what the position is now, how it got there, what still prevents reliance, and how AI was used.</p></div>
-<div class="hero-ctas"><a href="#artifacts" class="btn-primary">See the assurance artefacts ↓</a><a href="#guidance" class="btn-secondary">Responsible-AI references ↓</a></div>
-</section>
-
-<section class="diff-section" id="lifecycle"><div class="section-inner">
-<div class="section-tag">Use the trail throughout the lifecycle</div><h2>Not just after something goes wrong.<br><em>Use it before the work leaves the room.</em></h2>
-<p class="section-sub">The same governed state can support different consumers without changing who owns the substantive judgement.</p>
-<div class="lifecycle">
-<div><strong>Work in progress</strong><span>Check the current accepted state, unresolved questions and evidence that needs attention.</span></div>
-<div><strong>Internal checkpoint</strong><span>Review what has changed and whether the present research position is ready to continue.</span></div>
-<div><strong>Handover</strong><span>Give a new analyst or researcher a bounded account of why the current state exists.</span></div>
-<div><strong>Pre-release review</strong><span>Surface governance blockers and follow-up before a consequential deliverable is relied upon.</span></div>
-<div><strong>Peer / management challenge</strong><span>Inspect method, evidence lineage, model assistance and human decisions without relying on the prose alone.</span></div>
-<div><strong>Audit / regulatory input</strong><span>Provide frozen records to the institution, auditor or regulator conducting its own assessment.</span></div>
-</div>
-<div class="boundary"><p><strong>Boundary:</strong> Epistamate does not decide whether an organisation complies with an external code, regulation, institutional policy or professional standard. It can preserve evidence about the recorded workflow that those reviewers may use.</p></div>
-</div></section>
-
-<section class="hallucination-section" id="artifacts"><div class="section-inner">
-<div class="section-tag">Four questions · four projections</div><h2>Different reviewers need<br><em>different views of the same governed state.</em></h2>
-<p class="section-sub">These are deterministic or governed projections of recorded work. The exhaustive ledger remains available when someone needs proof; normal users do not have to read the whole log first.</p>
-<div class="artifact-grid" style="margin-top:var(--space-xl)">
-<article class="artifact-card"><div class="label">01 · Research state</div><h3>What is the governed position now?</h3><p>Current accepted findings, unresolved dependencies, evidence posture, pending attention and the clearest place to resume. Useful for internal checkpoints and ongoing research management.</p><div class="hero-ctas"><a href="epistamate_demo.html" class="btn-ghost">See the Research Workspace →</a></div></article>
-<article class="artifact-card"><div class="label">02 · Research History Recap</div><h3>How did it get here?</h3><p>A bounded handover narrative over the recorded research history: iterations, material changes, major decisions and the progression to the current state. It is a zero-authority recap, not a mechanism for rewriting accepted findings.</p><div class="hero-ctas"><a href="policy-research-walkthrough.html" class="btn-ghost">See an iterative research run →</a></div></article>
-<article class="artifact-card"><div class="label">03 · Research Governance Audit</div><h3>What still prevents consequential reliance?</h3><p>An attention-first audit over the recorded governance state: required blockers, recommended follow-up, not-established items and passed controls. It is designed as a release/checkpoint aid, not an external compliance certificate.</p></article>
-<article class="artifact-card"><div class="label">04 · Methods &amp; AI-use Disclosure</div><h3>Where did AI assist — and where did human authority remain?</h3><p>Method and iteration history, recorded model-assisted workflow stages, system/model identity where recorded, pack/prompt/result fingerprints and separate researcher acceptance posture. Concise and full exports can serve different review needs.</p></article>
-</div>
-<div class="proof-gallery-head">
-  <div class="section-tag">Four views of one governed state</div>
-  <h3>See the checkpoint, the history, the blockers and the AI-use trail.</h3>
-  <p>These visuals come from the same validated three-iteration EU–India FTA research topic. They show four different review questions over one governed record rather than four disconnected reports.</p>
-</div>
-<div class="proof-gallery" aria-label="Validated Epistamate assurance views from the EU–India FTA research case">
-  <figure class="proof-figure">
-    <button class="proof-shot" type="button" data-full="assets/examples/assurance-research-state.webp" aria-label="Expand Research state screenshot">
-      <img src="assets/examples/assurance-research-state.webp" width="440" height="282" loading="lazy" alt="Epistamate Research state for the three-iteration EU–India FTA case, showing the six workflow stages, accepted baseline, reassessment pending state, admitted claims, accepted findings, gaps and divergences.">
-    </button>
-    <figcaption><strong>Research state.</strong> The current workflow position, accepted analytical baseline and unresolved/reassessment state remain visible together.</figcaption>
-  </figure>
-  <figure class="proof-figure">
-    <button class="proof-shot" type="button" data-full="assets/examples/assurance-history-recap.webp" aria-label="Expand Research History Recap screenshot">
-      <img src="assets/examples/assurance-history-recap.webp" width="440" height="139" loading="lazy" alt="Executive Research History Recap for the three-iteration EU–India FTA case, describing how the research progressed and which accepted state became stale.">
-    </button>
-    <figcaption><strong>Research History Recap.</strong> A handover-oriented executive recap preserves how three iterations produced the current position without becoming a new research conclusion.</figcaption>
-  </figure>
-  <figure class="proof-figure">
-    <button class="proof-shot" type="button" data-full="assets/examples/assurance-governance-audit.webp" aria-label="Expand Research Governance Audit screenshot">
-      <img src="assets/examples/assurance-governance-audit.webp" width="520" height="260" loading="lazy" alt="Epistamate Research Governance Audit showing Attention Required, nine passed checks and five required governance blockers before consequential reliance.">
-    </button>
-    <figcaption><strong>Research Governance Audit.</strong> Five required governance blockers are visible before a consequential deliverable is treated as ready for reliance.</figcaption>
-  </figure>
-  <figure class="proof-figure">
-    <button class="proof-shot" type="button" data-full="assets/examples/assurance-methods-ai-use.webp" aria-label="Expand Methods and AI-use Disclosure screenshot">
-      <img src="assets/examples/assurance-methods-ai-use.webp" width="440" height="269" loading="lazy" alt="Epistamate Methods and AI-use Disclosure summary showing 20 recorded model-assisted interactions, three iterations, two external systems, 17 researcher acceptance events and disclosure attention items.">
-    </button>
-    <figcaption><strong>Methods &amp; AI-use Disclosure.</strong> Recorded model assistance, human acceptance posture and disclosure gaps are visible as separate parts of the governed trail.</figcaption>
-  </figure>
-</div>
-<p class="fine-print" style="margin-top:var(--space-m)">Controlled product-validation case. Screenshots are evidence of observed product state, not a compliance certificate, client outcome or comparative accuracy claim.</p>
-<div class="stakes-block" style="margin-top:var(--space-xl)"><p><strong>Controlled FTA founder validation.</strong> In the three-iteration EU–India FTA research case, the disclosure recorded 20 external AI/model-assisted interactions across planning, source location, analysis, synthesis, deliverable drafting and history recap, alongside 17 separate researcher acceptance events. Sixteen were explicit fast-path decisions to advance without detailed review; one was a detailed-review acceptance. The artifact also reported that the research/evidence cutoff was not recorded and that AI use outside Epistamate could not be established.</p></div>
-</div></section>
-
-<section class="diff-section" id="guidance"><div class="section-inner">
-<div class="section-tag">Research integrity &amp; responsible GenAI</div><h2>External guidance creates expectations.<br><em>The researcher or institution still owns them.</em></h2>
-<p class="section-sub">The references below explain why transparent AI use, human responsibility, methodological traceability and careful treatment of model interactions increasingly matter. They are context for the product, not a claim that Epistamate certifies conformity with them.</p>
-<div class="reference-grid" style="margin-top:var(--space-xl)">
-<article class="reference-card"><div class="label">European Research Area · 2026</div><h3>Living Guidelines on the responsible use of generative AI in research</h3><p>The European Commission's 8 May 2026 update describes accountability, transparency and responsibility as research-integrity principles adapted to current GenAI use. It also highlights organisational awareness of hidden prompts—AI instructions hidden from human oversight.</p><p style="margin-top:var(--space-m)"><a href="https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/updated-era-living-guidelines-responsible-use-generative-ai-research-2026-05-08_en" target="_blank" rel="noopener">European Commission update ↗</a><br><a href="https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf" target="_blank" rel="noopener">2026 Living Guidelines ↗</a></p></article>
-<article class="reference-card"><div class="label">ALLEA · 2023 revised edition</div><h3>European Code of Conduct for Research Integrity</h3><p>ALLEA describes the Code as a framework for self-regulation across scientific and scholarly disciplines and research settings. The 2023 edition addresses evolving research practices; ALLEA states that the European Commission recognises it as the reference document for research integrity for EU-funded research projects.</p><p style="margin-top:var(--space-m)"><a href="https://allea.org/code-of-conduct/" target="_blank" rel="noopener">ALLEA European Code of Conduct ↗</a></p></article>
-</div>
-<table class="expect-table"><thead><tr><th>Review question / expectation</th><th>What Epistamate can preserve</th></tr></thead><tbody>
-<tr><td>Was AI/model assistance disclosed transparently?</td><td>Methods &amp; AI-use Disclosure, recorded systems/models where available, workflow role counts and lineage fingerprints.</td></tr>
-<tr><td>Can human responsibility be distinguished from model activity?</td><td>Separate researcher acceptance/review records; importing a model result does not itself create research authority.</td></tr>
-<tr><td>Can the method and its evolution be reconstructed?</td><td>Research profile, method basis, iteration history, evidence strategy, coverage mode and recorded cutoff where available.</td></tr>
-<tr><td>Were limitations and unresolved matters preserved?</td><td>Current research state, explicit gaps/dependencies, sufficiency decisions and Governance Audit attention.</td></tr>
-<tr><td>Can a later reviewer understand why the present position exists?</td><td>Research History Recap plus underlying lineage and iteration delta.</td></tr>
-<tr><td>Can source-borne AI instruction risk be surfaced for review?</td><td>Source-content trust-boundary signals on selected model-facing passages, while preserving original evidence unchanged.</td></tr>
-</tbody></table>
-<p class="fine-print" style="margin-top:var(--space-m)">This mapping is illustrative. The cited frameworks have their own scope, language and requirements. Institutions, funders, auditors and regulators determine what evidence they require.</p>
-</div></section>
-
-<section class="hallucination-section" id="source-trust"><div class="section-inner">
-<div class="section-tag">Source-content trust boundary</div><h2>Disclosure is only half the problem.<br><em>The material shown to a model can also carry instructions.</em></h2>
-<p class="section-sub">The 2026 ERA Living Guidelines specifically highlight hidden prompts as an emerging concern. Epistamate's current analysis path therefore carries a simple authority rule: source content is evidence data, never instructions.</p>
-<div class="assure-grid" style="margin-top:var(--space-xl)">
-<article class="assure-card"><div class="label">Deterministic signal scan</div><h3>Surface bounded warning signals.</h3><p>Selected model-facing passages can be scanned non-destructively for signals such as zero-width Unicode, bidirectional controls, Unicode tag characters, instruction-like source text and selected hidden-markup indicators.</p></article>
-<article class="assure-card"><div class="label">Preserve the boundary</div><h3>Flags are review signals, not verdicts.</h3><p>Original evidence remains unchanged. A flag is not proof of malicious intent, and absence of a flag is not proof of safety. The current scanner does not claim full visual PDF-layer detection or prompt-injection immunity.</p></article>
-</div>
-</div></section>
-
-<section class="diff-section"><div class="section-inner">
-<div class="section-tag">Beyond academic research</div><h2>The same review problem appears<br><em>wherever consequential analysis must be defended later.</em></h2>
-<div class="use-grid" style="margin-top:var(--space-xl)">
-<article class="use-card"><h3>Research &amp; academia</h3><p>Methods sections, AI-use disclosure, peer review, research-integrity review, handover and reproducibility-oriented context.</p></article>
-<article class="use-card"><h3>Policy &amp; regulatory work</h3><p>Checkpoint reviews, evidence provenance, unresolved implementation questions and a defensible trail behind policy analysis.</p></article>
-<article class="use-card"><h3>Consulting &amp; diligence</h3><p>Senior review, recommendation challenge, inherited engagements, evidence-sensitive issue lists and decision records.</p></article>
-<article class="use-card"><h3>Internal governance</h3><p>Pre-release validation and evidence packages for risk, legal, compliance, audit or other second-line review without making those functions subordinate to the model.</p></article>
-</div>
-<div class="hero-ctas" style="margin-top:var(--space-xl)"><a href="index.html#contact" class="btn-primary">Discuss an assurance workflow →</a><a href="engine.html" class="btn-secondary">See the governance architecture →</a></div>
-</div></section>
-
-<footer class="footer"><div class="footer-inner">
-<div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
-<div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
-<div class="footer-refs"><a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a><a href="https://allea.org/code-of-conduct/" target="_blank" rel="noopener">ALLEA European Code of Conduct ↗</a><a href="https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/updated-era-living-guidelines-responsible-use-generative-ai-research-2026-05-08_en" target="_blank" rel="noopener">ERA Living Guidelines update ↗</a></div>
-</div></footer>
-<dialog class="proof-lightbox" id="proof-lightbox" aria-label="Expanded assurance screenshot">
-  <div class="proof-lightbox-inner">
-    <button class="proof-lightbox-close" type="button" aria-label="Close expanded screenshot">&times;</button>
-    <img src="" alt="">
+  .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-product-shot{margin:var(--space-l) 0 0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 12px 32px rgba(15,15,15,.045)}
+  .home-product-shot img{display:block;width:100%;height:auto}
+  .home-product-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+  .home-product-shot figcaption strong{color:var(--ink)}
+  .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
+  .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+  .hero-proof>div{border-top:3px solid var(--accent)}
+  .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
+  .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
+  .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+  .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+  .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+  .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .continuity-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-s);margin-top:var(--space-xl)}
+  .continuity-flow>div{min-width:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-m)}
+  .continuity-flow .label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .continuity-flow strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:5px}
+  .continuity-flow span{font-size:.8rem;line-height:1.55;color:var(--ink-3)}
+  .continuity-note{margin-top:var(--space-l);border-left:3px solid var(--accent);padding:var(--space-s) var(--space-m);color:var(--ink-3);line-height:1.7}
+  .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .control-strip>div{background:var(--paper);padding:var(--space-m)}
+  .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+  .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow,.continuity-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
+  .home-page #applications .section-inner{padding-top:3.25rem}
+  .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
+  .home-page .hero .hero-h1{font-size:clamp(2.8rem,4.45vw,3.65rem);line-height:1.02;margin-bottom:.7rem}
+  .home-page .hero .stakes-block{margin-bottom:.35rem;padding:.7rem 1.1rem}
+  .home-page .hero .stakes-block p{font-size:.9rem;line-height:1.32}
+  .home-page .hero .stakes-block p+p{margin-top:.6rem}
+  .home-page .hero .hero-proof{margin-top:.35rem}
+  .home-page .hero .hero-proof>div{padding:.9rem 1rem}
+  .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
+  .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
+  .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+  @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
+    .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
+    .home-page .nav-logo>span:last-child{display:none}
+    .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
+    .home-page .nav-toggle{margin-left:.5rem}
+    .home-page .hero,.home-page .stakes-block,.home-page .hero-proof{width:100%;max-width:100%}
+    .home-page .hero-proof>div{min-width:0}
+  }
+  .possibility-stories{display:grid;gap:1.25rem;margin-top:2rem}
+  .possibility-story{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:clamp(1rem,3vw,2rem)}
+  .possibility-heading{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+  .possibility-heading .label{font:500 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+  .possibility-heading h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.9rem);margin-bottom:.35rem}
+  .possibility-heading p,.story-payoff{color:var(--ink-3);line-height:1.65}
+  .possibility-number{font:500 .75rem var(--font-mono);color:var(--accent);border:1px solid var(--border);border-radius:50%;width:2rem;height:2rem;flex-shrink:0;display:grid;place-items:center}
+  .possibility-visual{display:grid;gap:.75rem;margin:1rem 0}
+  .possibility-visual.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .signal-card,.report-card{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+  .signal-card strong,.report-card strong{font-size:.95rem}
+  .signal-card span,.report-card>span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+  .signal-icon{font-size:1.3rem!important;color:var(--accent)!important}
+  .possibility-convergence{text-align:center;color:var(--ink-3);font:.75rem var(--font-mono);padding:.35rem}
+  .possibility-convergence span{color:var(--accent)}
+  .possibility-question{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper)}
+  .possibility-question p{margin:.4rem 0;line-height:1.55}
+  .possibility-question small{color:var(--ink-3)}
+  .reporting-visual{max-width:750px;margin:1.25rem auto}
+  .report-card strong{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .status-good{color:#20754b;font:.72rem var(--font-mono)}
+  .report-bridge{text-align:center;font:.75rem var(--font-mono);color:var(--ink-3);padding:.3rem}
+  .warning-card{border-left:3px solid var(--accent)}
+  .learning-visual{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch}
+  .loop-arrow{align-self:center;color:var(--accent);font-size:1.25rem}
+  .next-deal{border-color:var(--accent)}
+  .story-payoff{margin-top:1rem}
+  .story-payoff strong{color:var(--ink)}
+  .possibility-invitation{margin-top:2.5rem;padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+  .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
+  @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
+  @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+  .story-art{margin:1.3rem 0;border-radius:16px;overflow:hidden;padding:clamp(.35rem,1.5vw,1rem);border:1px solid var(--border)}
+  .story-art svg{display:block;width:100%;height:auto}
+  .art-connections{background:#f5e9df}.art-depth{background:#e8f0eb}.art-loop{background:#e7f0f3}
+  .possibility-story:nth-child(1){border-top:5px solid #b96348}
+  .possibility-story:nth-child(2){border-top:5px solid #3a926e}
+  .possibility-story:nth-child(3){border-top:5px solid #4d8d9a}
+  .possibility-story:nth-child(2) .possibility-number,.possibility-story:nth-child(2) .label{color:#317c60}
+  .possibility-story:nth-child(3) .possibility-number,.possibility-story:nth-child(3) .label{color:#356e7d}
+  @media(max-width:600px){.story-art{margin:1rem -.2rem;padding:.15rem}.story-art svg{min-height:145px}.possibility-story{padding:1.05rem}}
+.assurance-grid{counter-reset:assurance}.assurance-grid .preview-tile{position:relative;padding-left:4.4rem;min-height:155px;background:#edf2ec}.assurance-grid .preview-tile:before{counter-increment:assurance;content:"0" counter(assurance);position:absolute;left:1.15rem;top:1.45rem;color:#36725d;font:600 1rem var(--font-mono,monospace)}@media(max-width:600px){.assurance-grid .preview-tile{padding-left:3.7rem}}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"A foundational architecture for consequential analytical workflows that endure, preserving accumulated evidence and reasoning for change-aware insights and deliverables."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}}]}</script>
+<!-- build:2026-09-06-site-convergence-final-density -->
+<style>
+.preview-page{background:var(--paper,#faf8f4);color:var(--ink,#23332f)}.preview-ribbon{background:#244c44;color:#fff;text-align:center;font-size:.72rem;letter-spacing:.07em;padding:9px 12px}.preview-ribbon a{color:#fff;text-decoration:underline}.preview-main{max-width:1120px;margin:auto;padding:0 26px 90px}.preview-hero{padding:clamp(55px,9vw,120px) 0 48px;max-width:900px}.preview-hero h1{font-family:var(--font-display,Georgia,serif);font-size:clamp(3.2rem,7vw,6.5rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;margin:18px 0 26px}.preview-hero h1 em,.preview-main h2 em{color:var(--accent,#bd6447);font-weight:400}.preview-hero p{max-width:760px;font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.65;color:var(--ink-3,#52635c)}.preview-figure{background:var(--paper-2,#f4f0e9);border:1px solid var(--border,#ddd);border-radius:18px;overflow:hidden;margin:0 0 70px}.preview-figure img{width:100%;height:auto;max-height:440px;object-fit:contain;display:block;padding:clamp(8px,2vw,25px)}.preview-figure figcaption{font-size:.86rem;color:var(--ink-3,#5c6b63);border-top:1px solid var(--border,#ddd);padding:16px 23px}.preview-section{margin:60px 0;max-width:1040px}.preview-section h2{font-family:var(--font-display,Georgia,serif);font-size:clamp(2.3rem,4vw,4rem);line-height:1.12;font-weight:400;margin:12px 0 28px}.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preview-tile{background:var(--paper-2,#f7f4ef);border:1px solid var(--border,#ddd);border-radius:12px;padding:25px;min-height:135px}.preview-tile h3{font-size:1.14rem;margin:0 0 9px}.preview-tile p{color:var(--ink-3,#59665f);line-height:1.6;margin:0;font-size:.96rem}.preview-note{border-left:3px solid var(--accent,#b65d42);padding:16px 24px;max-width:790px;line-height:1.7;color:var(--ink-3,#52635c);background:var(--paper-2,#f5f1ea)}.preview-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.preview-actions a{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;padding:13px 20px;font-size:.92rem;font-weight:600}.preview-actions .primary{background:var(--ink,#23483e);color:#fff}.preview-actions .secondary{border:1px solid var(--border,#aaa);color:var(--ink,#23483e)}.preview-end{border-top:1px solid var(--border,#ddd);padding-top:35px}.preview-figure-abstract{padding:35px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.preview-figure-abstract div{border-top:4px solid var(--accent,#b75c43);padding:20px 12px;background:#fff;border-radius:5px;font-weight:600;text-align:center;min-height:90px}@media(max-width:680px){.preview-main{padding:0 19px 55px}.preview-hero{padding:55px 0 28px}.preview-grid{grid-template-columns:1fr}.preview-tile{min-height:0;padding:19px}.preview-figure{margin-bottom:45px}.preview-figure-abstract{grid-template-columns:repeat(2,1fr);padding:14px;gap:8px}.preview-figure-abstract div{padding:14px 8px;font-size:.82rem;min-height:75px}.preview-section{margin:44px 0}.preview-actions{flex-direction:column;align-items:stretch}.preview-actions a{justify-content:center}}
+</style></head><body><nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="/epistamate_demo.html">Current work</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/policy-research-walkthrough.html">See it in action</a><a href="/blog/">Insights</a></div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="mailto:hello@epistamate.com" class="nav-cta">Get in touch</a>
   </div>
-</dialog>
-<script>
-(function(){
-  const lightbox=document.getElementById('proof-lightbox');
-  const image=lightbox.querySelector('img');
-  const close=lightbox.querySelector('.proof-lightbox-close');
-  let last=null;
-  document.querySelectorAll('.proof-shot').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const source=button.querySelector('img');
-      last=button;
-      image.src=button.dataset.full||source.src;
-      image.alt=source.alt;
-      lightbox.showModal();
-      close.focus();
-    });
-  });
-  close.addEventListener('click',()=>lightbox.close());
-  lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close();});
-  lightbox.addEventListener('close',()=>{
-    image.src='';
-    image.alt='';
-    if(last){last.focus();last=null;}
-  });
-})();
-</script>
-<script src="architecture-diagrams.js" defer></script>
-</body></html>
+</nav><main class="preview-main"><header class="preview-hero"><div class="section-tag">RESEARCH ASSURANCE</div><h1>A conclusion is not<br><em>the whole record.</em></h1><p>When research informs a consequential decision, reviewers need more than a polished answer. They need to see the evidence, the unresolved issues and who exercised judgement.</p></header><figure class="preview-figure"><img src="/assets/examples/assurance-research-state.webp" alt="Actual governed research state screenshot from Epistamate" loading="lazy"><figcaption>An example from the existing research assurance interface, showing the state behind the work.</figcaption></figure><section class="preview-section"><div class="section-tag">The practical difference</div><h2>What a reviewer should be able to examine.</h2><div class="preview-grid assurance-grid"><article class="preview-tile"><h3>The current position</h3><p>What is supported, qualified or unresolved?</p></article><article class="preview-tile"><h3>The history</h3><p>What changed between iterations, and why?</p></article><article class="preview-tile"><h3>The gaps</h3><p>What prevents stronger reliance on a conclusion?</p></article><article class="preview-tile"><h3>AI and human roles</h3><p>Where did models assist and where was a professional decision made?</p></article></div></section><section class="preview-section"><div class="section-tag">Scope and confidence</div><p class="preview-note">An inspectable trail improves accountability; it does not automatically validate weak evidence or replace expert review.</p></section><section class="preview-section preview-end"><div class="section-tag">Explore further</div><h2>Go deeper where it matters.</h2><div class="preview-actions"><a class="primary" href="/policy-research-walkthrough.html">See an actual research iteration →</a><a class="secondary" href="/engine.html">Understand the assurance architecture →</a><a class="secondary" href="mailto:hello@epistamate.com">Discuss a possibility ↗</a></div></section></main><footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="/advisory.html">Applications</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/blog/">Insights</a><a href="mailto:hello@epistamate.com">Get in touch</a></div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a>
+      <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
+      <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
+      <a href="/landscape.html">Prior art and open problems</a>
+    </div>
+  </div>
+</footer><script>document.querySelectorAll('a[href="/#organisational-pattern"]').forEach(a=>a.setAttribute('href','/#research-corpus'))</script></body></html>
