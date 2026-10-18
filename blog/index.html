@@ -1,45 +1,150 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>Epistamate Insights — Evidence quality, AI and research integrity</title>
-<meta name="description" content="Essays on claim support, evidence independence, AI-assisted research, reviewer oversight, stale evidence, conflicting evidence and evidence-decision architecture.">
-<meta name="robots" content="index,follow"><link rel="canonical" href="https://epistamate.com/blog/">
-<meta property="og:title" content="Epistamate Insights"><meta property="og:description" content="Evidence quality, AI and the failure modes that polished synthesis hides."><meta property="og:image" content="https://epistamate.com/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="../distilapp.css">
-<style>
- .blog-hero,.blog-list{max-width:var(--max-w);margin:0 auto;padding-left:var(--space-l);padding-right:var(--space-l)}.blog-hero{padding-top:var(--space-2xl);padding-bottom:var(--space-xl)}.blog-list{padding-bottom:var(--space-2xl)}.blog-hero .eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:var(--space-s)}.blog-hero h1{max-width:780px;margin-bottom:var(--space-m)}.blog-hero h1 em{color:var(--accent)}.blog-hero p{max-width:690px;color:var(--ink-3);font-size:1.05rem}.article-card{display:grid;grid-template-columns:1fr auto;gap:var(--space-l);padding:var(--space-l) 0;border-top:1px solid var(--border)}.article-card:hover .article-title{color:var(--accent)}.article-meta{font-family:var(--font-mono);font-size:.67rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-4);margin-bottom:7px}.article-title{font-family:var(--font-display);font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:6px}.article-excerpt{max-width:760px;color:var(--ink-3);font-size:.93rem;line-height:1.62}.article-read{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-4);white-space:nowrap;padding-top:6px}@media(max-width:620px){.blog-hero,.blog-list{padding-left:var(--space-m);padding-right:var(--space-m)}.blog-hero{padding-top:3rem}.article-card{grid-template-columns:1fr;gap:8px}.article-read{display:none}}
-</style><!-- build:2026-09-16-attention-allocation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Insights and research — Epistamate</title>
+<meta name="description" content="Essays on enterprise AI, research integrity, organisational learning and technical foundations.">
+<meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Epistamate — When the work continues, the reasoning should too"><meta property="og:description" content="New possibilities from accumulated understanding—supported by persistent, evidence-backed reasoning and professional judgement."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://epistamate.com/blog/#collection","url":"https://epistamate.com/blog/","name":"Epistamate Insights — Evidence quality, AI and research integrity","isPartOf":{"@id":"https://epistamate.com/#website"},"publisher":{"@id":"https://epistamate.com/#organization"}}</script>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://epistamate.com/blog/">
-<meta name="twitter:card" content="summary_large_image">
-</head><body><nav class="nav"><div class="nav-inner">
-<a href="../index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
-<div class="nav-links"><a href="../index.html#applications">Applications</a><a href="../engine.html">How it works</a><a href="../assurance.html">Assurance</a><a href="../policy-research-walkthrough.html">See it in action</a><a href="index.html">Insights</a></div>
-<button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
-<a href="../index.html#contact" class="nav-cta">Get in touch</a>
-</div></nav>
-<header class="blog-hero"><div class="eyebrow">Epistamate · Insights</div><h1>Evidence, AI, and what<br><em>survives scrutiny.</em></h1><p>The failure modes behind the product: when a citation does not support the claim, apparent consensus is one evidence family, a human reviewer is treated as a checkbox, evidence goes stale, or credible sources simply do not converge.</p><p>Need to locate candidate research first? Try the <a href="../scholarly-source-check.html">free Scholarly Source Checker</a> to search academic papers by claim, topic or DOI. Finding a paper does not establish that it supports a claim.</p></header>
-<main class="blog-list"><a href="agentic-ai-limits-of-what-we-know-today.html" class="article-card"><div><div class="article-meta"><span>October 2026</span><span>Agentic AI · Behavioural reliability</span></div><div class="article-title">Agentic AI and the Limits of What We Know Today</div><p class="article-excerpt">As agentic systems become more capable and carefully engineered, recent investigations reveal what their safeguards establish, and what remains uncertain.</p></div><div class="article-read">Read →</div></a>
-<a href="scarce-resource-is-attention.html" class="article-card"><div><div class="article-meta"><span>September 2026</span><span>Evidence quality · Research infrastructure</span></div><div class="article-title">The Scarce Resource Isn't Information. It's Attention.</div><p class="article-excerpt">Different professions run on different sources and different assurance standards, but they share one increasingly scarce resource: human attention.</p></div><div class="article-read">Read →</div></a>
-<a href="when-evidence-does-not-converge.html" class="article-card"><div><div class="article-meta"><span>August 2026</span><span>Evidence quality · Research methodology</span></div><div class="article-title">When Evidence Does Not Converge</div><p class="article-excerpt">A synthesized answer can read smoothly while credible evidence still points in different directions. How to diagnose disagreement before resolving it.</p></div><div class="article-read">Read →</div></a>
-<a href="claim-correct-not-current.html" class="article-card"><div><div class="article-meta"><span>August 2026</span><span>Evidence quality · Currentness</span></div><div class="article-title">A claim can be correct, well-sourced, and no longer true</div><p class="article-excerpt">Citation accuracy and corroboration are not the same property as currency. A taxonomy for how claims expire.</p></div><div class="article-read">Read →</div></a>
-<a href="human-ai-collaboration-evidence.html" class="article-card"><div><div class="article-meta"><span>July 2026</span><span>Human-AI collaboration · Oversight</span></div><div class="article-title">When humans and AI work together, what the evidence actually shows</div><p class="article-excerpt">A human reviewer being present is not the same as oversight working. What controlled research says about the combination.</p></div><div class="article-read">Read →</div></a>
-<a href="human-reviewer-not-one-variable.html" class="article-card"><div><div class="article-meta"><span>July 2026</span><span>AI governance · Human review</span></div><div class="article-title">A human reviewer is not one variable. AI oversight requirements treat it like one.</div><p class="article-excerpt">Availability, competence and state fail independently. Oversight needs a more precise model of the human reviewer.</p></div><div class="article-read">Read →</div></a>
-<a href="ai-research-verification-mainframe-case-study.html" class="article-card"><div><div class="article-meta"><span>July 2026</span><span>AI verification · Case study</span></div><div class="article-title">A careful AI research process still missed the story that mattered most</div><p class="article-excerpt">A structured research process can still flatten evidence tiers and miss a market-moving fact.</p></div><div class="article-read">Read →</div></a>
-<a href="ai-judging-ai-reliability-problem.html" class="article-card"><div><div class="article-meta"><span>July 2026</span><span>AI verification · Model-as-judge</span></div><div class="article-title">AI judging AI has a reliability problem</div><p class="article-excerpt">Repeated judge trials reveal why evaluator output is useful process evidence but not authority by itself.</p></div><div class="article-read">Read →</div></a>
-<a href="model-agreement-is-not-verification.html" class="article-card"><div><div class="article-meta"><span>July 2026</span><span>Evidence quality · Verification architecture</span></div><div class="article-title">A model agreeing with another model is not the same as a claim being verified.</div><p class="article-excerpt">Cross-model agreement can improve robustness without becoming independent corroboration.</p></div><div class="article-read">Read →</div></a>
-<a href="ai-consulting-output-confidence-checking.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Professional services · Evidence quality</span></div><div class="article-title">In AI-assisted consulting work, the most confident output may need the most checking</div><p class="article-excerpt">When AI moves outside its capability frontier, surface confidence is a poor guide to correctness.</p></div><div class="article-read">Read →</div></a>
-<a href="compounding-evidence-problem-agentic-pipelines.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Agentic AI · Evidence quality</span></div><div class="article-title">The compounding evidence problem: why agentic research pipelines fail quietly</div><p class="article-excerpt">Dynamic pipelines inherit, transform and propagate evidence errors across stages.</p></div><div class="article-read">Read →</div></a>
-<a href="cited-source-vs-supporting-source.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Evidence quality · Citation support</span></div><div class="article-title">A cited source and a supporting source are not the same thing</div><p class="article-excerpt">A citation resolving correctly does not establish that the cited material supports the proposition attached to it.</p></div><div class="article-read">Read →</div></a>
-<a href="binding-law-vs-non-binding-guidance.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Policy · Compliance</span></div><div class="article-title">Binding law vs non-binding guidance</div><p class="article-excerpt">For compliance work, source authority and legal status cannot be flattened into topical relevance.</p></div><div class="article-read">Read →</div></a>
-<a href="verification-trap-expertise-atrophy.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Expertise · Verification</span></div><div class="article-title">AI research tools erode the expertise that can catch what they get wrong</div><p class="article-excerpt">The verification capacity of the reviewer can decline as the tool substitutes for the work that built it.</p></div><div class="article-read">Read →</div></a>
-<a href="model-collapse-evidence-base.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Evidence quality · AI governance</span></div><div class="article-title">The internet is eating itself: model collapse and the evidence base</div><p class="article-excerpt">Synthetic content changes the evidence environment that future models and researchers depend on.</p></div><div class="article-read">Read →</div></a>
-<a href="confident-and-wrong.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Uncertainty · Research methodology</span></div><div class="article-title">Confident and wrong: why AI can't tell you when it doesn't know</div><p class="article-excerpt">Output confidence is a property of generation, not an inspectable measure of the underlying evidence.</p></div><div class="article-read">Read →</div></a>
-<a href="peer-review-loop-breaking.html" class="article-card"><div><div class="article-meta"><span>June 2026</span><span>Academic publishing · AI governance</span></div><div class="article-title">The peer review loop is breaking</div><p class="article-excerpt">When AI participates in both production and review, the provenance of the evidence base matters more.</p></div><div class="article-read">Read →</div></a>
-<a href="fragility-is-not-falsehood.html" class="article-card"><div><div class="article-meta"><span>May 2026</span><span>Evidence quality · Research methodology</span></div><div class="article-title">Fragility is not falsehood. That's the harder problem.</div><p class="article-excerpt">A claim can be true and correctly cited while resting on an evidential base too fragile for the decision being made.</p></div><div class="article-read">Read →</div></a>
-<a href="ai-fabricated-citations-reference-integrity.html" class="article-card"><div><div class="article-meta"><span>May 2026</span><span>Reference integrity · Academic publishing</span></div><div class="article-title">A citation used to be evidence. It isn't anymore.</div><p class="article-excerpt">Fabricated and misbound references make source identity and claim support separate verification problems.</p></div><div class="article-read">Read →</div></a>
-<a href="ai-amplification-vs-corroboration.html" class="article-card"><div><div class="article-meta"><span>May 2026</span><span>Evidence quality · Independence</span></div><div class="article-title">Forty sources, one claim: corroboration vs amplification</div><p class="article-excerpt">Source count can disguise one underlying evidence path. Independence is an evidence-lineage problem.</p></div><div class="article-read">Read →</div></a></main>
-<footer class="footer"><div class="footer-inner"><div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div><div class="footer-links"><a href="../index.html#applications">Applications</a><a href="../engine.html">How it works</a><a href="../assurance.html">Assurance</a><a href="index.html">Insights</a><a href="../index.html#contact">Get in touch</a></div><div class="footer-refs"><a href="../landscape.html">Research landscape</a><a href="../index.html#contact">Contact</a></div></div></footer>
-</body></html>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/distilapp.css">
+<style>
+  .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-product-shot{margin:var(--space-l) 0 0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 12px 32px rgba(15,15,15,.045)}
+  .home-product-shot img{display:block;width:100%;height:auto}
+  .home-product-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+  .home-product-shot figcaption strong{color:var(--ink)}
+  .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
+  .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+  .hero-proof>div{border-top:3px solid var(--accent)}
+  .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
+  .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
+  .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+  .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+  .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+  .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .continuity-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-s);margin-top:var(--space-xl)}
+  .continuity-flow>div{min-width:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-m)}
+  .continuity-flow .label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .continuity-flow strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:5px}
+  .continuity-flow span{font-size:.8rem;line-height:1.55;color:var(--ink-3)}
+  .continuity-note{margin-top:var(--space-l);border-left:3px solid var(--accent);padding:var(--space-s) var(--space-m);color:var(--ink-3);line-height:1.7}
+  .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .control-strip>div{background:var(--paper);padding:var(--space-m)}
+  .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+  .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow,.continuity-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
+  .home-page #applications .section-inner{padding-top:3.25rem}
+  .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
+  .home-page .hero .hero-h1{font-size:clamp(2.8rem,4.45vw,3.65rem);line-height:1.02;margin-bottom:.7rem}
+  .home-page .hero .stakes-block{margin-bottom:.35rem;padding:.7rem 1.1rem}
+  .home-page .hero .stakes-block p{font-size:.9rem;line-height:1.32}
+  .home-page .hero .stakes-block p+p{margin-top:.6rem}
+  .home-page .hero .hero-proof{margin-top:.35rem}
+  .home-page .hero .hero-proof>div{padding:.9rem 1rem}
+  .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
+  .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
+  .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+  @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
+    .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
+    .home-page .nav-logo>span:last-child{display:none}
+    .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
+    .home-page .nav-toggle{margin-left:.5rem}
+    .home-page .hero,.home-page .stakes-block,.home-page .hero-proof{width:100%;max-width:100%}
+    .home-page .hero-proof>div{min-width:0}
+  }
+  .possibility-stories{display:grid;gap:1.25rem;margin-top:2rem}
+  .possibility-story{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:clamp(1rem,3vw,2rem)}
+  .possibility-heading{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+  .possibility-heading .label{font:500 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+  .possibility-heading h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.9rem);margin-bottom:.35rem}
+  .possibility-heading p,.story-payoff{color:var(--ink-3);line-height:1.65}
+  .possibility-number{font:500 .75rem var(--font-mono);color:var(--accent);border:1px solid var(--border);border-radius:50%;width:2rem;height:2rem;flex-shrink:0;display:grid;place-items:center}
+  .possibility-visual{display:grid;gap:.75rem;margin:1rem 0}
+  .possibility-visual.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .signal-card,.report-card{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+  .signal-card strong,.report-card strong{font-size:.95rem}
+  .signal-card span,.report-card>span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+  .signal-icon{font-size:1.3rem!important;color:var(--accent)!important}
+  .possibility-convergence{text-align:center;color:var(--ink-3);font:.75rem var(--font-mono);padding:.35rem}
+  .possibility-convergence span{color:var(--accent)}
+  .possibility-question{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper)}
+  .possibility-question p{margin:.4rem 0;line-height:1.55}
+  .possibility-question small{color:var(--ink-3)}
+  .reporting-visual{max-width:750px;margin:1.25rem auto}
+  .report-card strong{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .status-good{color:#20754b;font:.72rem var(--font-mono)}
+  .report-bridge{text-align:center;font:.75rem var(--font-mono);color:var(--ink-3);padding:.3rem}
+  .warning-card{border-left:3px solid var(--accent)}
+  .learning-visual{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch}
+  .loop-arrow{align-self:center;color:var(--accent);font-size:1.25rem}
+  .next-deal{border-color:var(--accent)}
+  .story-payoff{margin-top:1rem}
+  .story-payoff strong{color:var(--ink)}
+  .possibility-invitation{margin-top:2.5rem;padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+  .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
+  @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
+  @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+  .story-art{margin:1.3rem 0;border-radius:16px;overflow:hidden;padding:clamp(.35rem,1.5vw,1rem);border:1px solid var(--border)}
+  .story-art svg{display:block;width:100%;height:auto}
+  .art-connections{background:#f5e9df}.art-depth{background:#e8f0eb}.art-loop{background:#e7f0f3}
+  .possibility-story:nth-child(1){border-top:5px solid #b96348}
+  .possibility-story:nth-child(2){border-top:5px solid #3a926e}
+  .possibility-story:nth-child(3){border-top:5px solid #4d8d9a}
+  .possibility-story:nth-child(2) .possibility-number,.possibility-story:nth-child(2) .label{color:#317c60}
+  .possibility-story:nth-child(3) .possibility-number,.possibility-story:nth-child(3) .label{color:#356e7d}
+  @media(max-width:600px){.story-art{margin:1rem -.2rem;padding:.15rem}.story-art svg{min-height:145px}.possibility-story{padding:1.05rem}}
+.editorial-lead{margin:0 0 4rem;padding:clamp(1.5rem,4vw,3.3rem);background:#e8eee8;border:1px solid #cbdad0;border-radius:18px}.editorial-lead h2{font-family:var(--font-display,Georgia,serif);font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;line-height:1.1;margin:1rem 0}.editorial-lead p{max-width:760px;line-height:1.7;color:#355449;font-size:1.1rem}.editorial-lead a,.preview-tile a{display:inline-block;margin-top:1rem;color:#245c49;font-weight:600;text-underline-offset:4px}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"A foundational architecture for consequential analytical workflows that endure, preserving accumulated evidence and reasoning for change-aware insights and deliverables."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}}]}</script>
+<!-- build:2026-09-06-site-convergence-final-density -->
+<style>
+.preview-page{background:var(--paper,#faf8f4);color:var(--ink,#23332f)}.preview-ribbon{background:#244c44;color:#fff;text-align:center;font-size:.72rem;letter-spacing:.07em;padding:9px 12px}.preview-ribbon a{color:#fff;text-decoration:underline}.preview-main{max-width:1120px;margin:auto;padding:0 26px 90px}.preview-hero{padding:clamp(55px,9vw,120px) 0 48px;max-width:900px}.preview-hero h1{font-family:var(--font-display,Georgia,serif);font-size:clamp(3.2rem,7vw,6.5rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;margin:18px 0 26px}.preview-hero h1 em,.preview-main h2 em{color:var(--accent,#bd6447);font-weight:400}.preview-hero p{max-width:760px;font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.65;color:var(--ink-3,#52635c)}.preview-figure{background:var(--paper-2,#f4f0e9);border:1px solid var(--border,#ddd);border-radius:18px;overflow:hidden;margin:0 0 70px}.preview-figure img{width:100%;height:auto;max-height:440px;object-fit:contain;display:block;padding:clamp(8px,2vw,25px)}.preview-figure figcaption{font-size:.86rem;color:var(--ink-3,#5c6b63);border-top:1px solid var(--border,#ddd);padding:16px 23px}.preview-section{margin:60px 0;max-width:1040px}.preview-section h2{font-family:var(--font-display,Georgia,serif);font-size:clamp(2.3rem,4vw,4rem);line-height:1.12;font-weight:400;margin:12px 0 28px}.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preview-tile{background:var(--paper-2,#f7f4ef);border:1px solid var(--border,#ddd);border-radius:12px;padding:25px;min-height:135px}.preview-tile h3{font-size:1.14rem;margin:0 0 9px}.preview-tile p{color:var(--ink-3,#59665f);line-height:1.6;margin:0;font-size:.96rem}.preview-note{border-left:3px solid var(--accent,#b65d42);padding:16px 24px;max-width:790px;line-height:1.7;color:var(--ink-3,#52635c);background:var(--paper-2,#f5f1ea)}.preview-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.preview-actions a{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;padding:13px 20px;font-size:.92rem;font-weight:600}.preview-actions .primary{background:var(--ink,#23483e);color:#fff}.preview-actions .secondary{border:1px solid var(--border,#aaa);color:var(--ink,#23483e)}.preview-end{border-top:1px solid var(--border,#ddd);padding-top:35px}.preview-figure-abstract{padding:35px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.preview-figure-abstract div{border-top:4px solid var(--accent,#b75c43);padding:20px 12px;background:#fff;border-radius:5px;font-weight:600;text-align:center;min-height:90px}@media(max-width:680px){.preview-main{padding:0 19px 55px}.preview-hero{padding:55px 0 28px}.preview-grid{grid-template-columns:1fr}.preview-tile{min-height:0;padding:19px}.preview-figure{margin-bottom:45px}.preview-figure-abstract{grid-template-columns:repeat(2,1fr);padding:14px;gap:8px}.preview-figure-abstract div{padding:14px 8px;font-size:.82rem;min-height:75px}.preview-section{margin:44px 0}.preview-actions{flex-direction:column;align-items:stretch}.preview-actions a{justify-content:center}}
+</style></head><body><nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="/epistamate_demo.html">Current work</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/policy-research-walkthrough.html">See it in action</a><a href="/blog/">Insights</a></div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
+    <a href="mailto:hello@epistamate.com" class="nav-cta">Get in touch</a>
+  </div>
+</nav><main class="preview-main"><header class="preview-hero"><div class="section-tag">INSIGHTS AND RESEARCH</div><h1>Ideas that deserve<br><em>a closer look.</em></h1><p>Essays, research, technical disclosures and open questions about AI, evidence, professional judgement and organisational learning.</p></header><section class="editorial-lead"><div class="section-tag">Featured essay · Enterprise transformation</div><h2>The Unfinished AI Enterprise</h2><p>Successfully delivering an AI programme is not the same as exhausting the changes AI may make possible. An exploration of commitments, evolving capabilities and the discoveries that remain after a transformation is declared complete.</p><a href="https://abhishek-sinha-bgl.github.io/articles/unfinished-ai-enterprise.html" target="_blank" rel="noopener">Read the essay ↗</a></section><section class="preview-section"><div class="section-tag">A complementary perspective · AI assurance</div><h2>The AI Assurance Halo</h2><p>Why individually legitimate validation signals can create more confidence than the underlying evidence warrants—and what that means when AI-supported work reaches executive reporting.</p><div class="preview-actions"><a class="primary" href="https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html" target="_blank" rel="noopener">Read the essay ↗</a></div></section><section class="preview-section"><div class="section-tag">The technical foundation</div><h2>Ideas open to scrutiny.</h2><p>Published research and technical disclosures examine the architecture, governance and workflow-specific applications behind Epistamate.</p><div class="preview-grid"><article class="preview-tile"><h3>Governed Research State</h3><p>Evidence, interpretation, professional authority and research continuity.</p><a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Read the paper ↗</a></article><article class="preview-tile"><h3>DCBR Engine</h3><p>The architectural approach and its boundaries.</p><a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">Read the paper ↗</a></article><article class="preview-tile"><h3>RegWatch</h3><p>A domain-specific expression of the underlying research principles.</p><a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">Read the paper ↗</a></article><article class="preview-tile"><h3>More perspectives</h3><p>Browse the complete existing editorial archive.</p><a href="/blog/archive.html">Explore the archive →</a></article></div></section><section class="preview-section preview-end"><div class="section-tag">Beyond the published work</div><h2>What questions should we explore next?</h2><p>Research, working implementations and enterprise experience inform one another. New possibilities can begin with a consequential question rather than a finished product specification.</p><div class="preview-actions"><a class="primary" href="mailto:hello@epistamate.com?subject=Exploring%20an%20enterprise%20possibility">Start a conversation ↗</a><a class="secondary" href="/engine.html">Explore the architecture →</a></div></section></main><footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="/advisory.html">Applications</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/blog/">Insights</a><a href="mailto:hello@epistamate.com">Get in touch</a></div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a>
+      <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
+      <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
+      <a href="/landscape.html">Prior art and open problems</a>
+    </div>
+  </div>
+</footer><script>document.querySelectorAll('a[href="/#organisational-pattern"]').forEach(a=>a.setAttribute('href','/#research-corpus'))</script></body></html>
