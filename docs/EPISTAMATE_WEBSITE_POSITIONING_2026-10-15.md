@@ -236,3 +236,13 @@ The architecture should be **modular and selectively adoptable**: variants may u
 ### Claim standard
 
 Do not use the phrase "technically superior" without independent, task-relevant comparative evaluation. "Research-informed, designed to evolve" accurately describes the intended development discipline when accompanied by the existing published implementation and bounded experimental evidence. A research paper, architecture plan or experimental test alone is not a claim that the evolving core is commercially proven in every setting.
+
+## 2026-10-18 — Shared kernel, professional expression, workflow and deployment boundaries
+
+Founder-confirmed architecture: the research-informed, independently evolving Epistamate kernel provides **selectively callable modular analytical capabilities** and governed evidence/reasoning-state integrity. Professional expressions configure framing, taxonomy, analysis methods, Frontier AI prompt packs, professional source/acceptance rules and outputs. Expression workflows decide ordering, Quick Pass/detailed review, human checkpoints and user experience. Organizational deployment supplies trusted identities, source access, permissions and integrations. Professional policy is defined by the expression; a mature kernel should enforce integrity and validated policy-bound transitions, not make domain judgments itself.
+
+Long-term interface direction is **transport-neutral versioned capability contracts** that can be invoked in-process initially and optionally via authenticated local/private/network service APIs if actual multi-application or enterprise requirements justify one. No premature HTTP microservices or universal system are claimed operational. The Core Laboratory currently contains isolated capability experiments; it is not a deployed shared API.
+
+**Website change:** add one compact, responsive three-layer explanation to `engine.html#shared-kernel` preceding evidence/interpretation/authority/output principles. Keep the founder-approved opportunity-first homepage intact. The explanation explicitly distinguishes shared capabilities, selectively configured expressions and workflow/decision checkpoints; governance is split between core integrity, domain rules and organization permissions. It states the API idea as future architecture rather than an existing endpoint. The Research Workspace remains labeled early access.
+
+**Implementation scope:** `engine.html` and this positioning ledger only, batched into one pull request and one merge. No homepage rewrites, published performance claims, enterprise connectivity assertions, or changes to product code.
