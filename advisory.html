@@ -1,97 +1,150 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>Consulting &amp; Advisory — Method-aware governed workflows | Epistamate</title>
-<meta name="description" content="Epistamate Consulting &amp; Advisory maps an organisation’s existing methodology into a governed workspace without replacing its terminology, workflow or decision rights.">
-<meta name="robots" content="index,follow"><link rel="canonical" href="https://epistamate.com/advisory.html">
-<meta property="og:title" content="Consulting &amp; Advisory | Epistamate"><meta property="og:description" content="Your method. Your workflow. A governed workspace around it."><meta property="og:image" content="https://epistamate.com/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Epistamate Consulting & Advisory","serviceType":"Method-aware governed workflow adaptation","provider":{"@type":"Organization","name":"Epistamate","url":"https://epistamate.com/"},"url":"https://epistamate.com/advisory.html","description":"Mapping an organisation’s existing methodology into a governed workspace without replacing its terminology, workflow or decision rights."}</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Advisory applications — Epistamate</title>
+<meta name="description" content="Method-aware advisory workflows built on evidence, judgement and continuing research.">
+<meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Epistamate — When the work continues, the reasoning should too"><meta property="og:description" content="New possibilities from accumulated understanding—supported by persistent, evidence-backed reasoning and professional judgement."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="distilapp.css">
+<link rel="stylesheet" href="/distilapp.css">
 <style>
-  .ad-grid,.deliver-grid,.fit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
-  .ad-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
-  .ad-card h3{margin-bottom:var(--space-s)}.ad-card p{color:var(--ink-3);font-size:.92rem;line-height:1.7}
-  .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
-  .deliver-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
-  @media(max-width:1000px){.deliver-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:760px){.ad-grid,.fit-grid,.deliver-grid{grid-template-columns:1fr}}
-</style><!-- build:2026-09-06-advisory-convergence -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://epistamate.com/advisory.html">
-<meta name="twitter:card" content="summary_large_image">
-</head><body>
-<nav class="nav">
+  .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-product-shot{margin:var(--space-l) 0 0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 12px 32px rgba(15,15,15,.045)}
+  .home-product-shot img{display:block;width:100%;height:auto}
+  .home-product-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+  .home-product-shot figcaption strong{color:var(--ink)}
+  .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
+  .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+  .hero-proof>div{border-top:3px solid var(--accent)}
+  .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
+  .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
+  .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+  .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+  .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+  .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .continuity-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-s);margin-top:var(--space-xl)}
+  .continuity-flow>div{min-width:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-m)}
+  .continuity-flow .label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .continuity-flow strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:5px}
+  .continuity-flow span{font-size:.8rem;line-height:1.55;color:var(--ink-3)}
+  .continuity-note{margin-top:var(--space-l);border-left:3px solid var(--accent);padding:var(--space-s) var(--space-m);color:var(--ink-3);line-height:1.7}
+  .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .control-strip>div{background:var(--paper);padding:var(--space-m)}
+  .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+  .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow,.continuity-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
+  .home-page #applications .section-inner{padding-top:3.25rem}
+  .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
+  .home-page .hero .hero-h1{font-size:clamp(2.8rem,4.45vw,3.65rem);line-height:1.02;margin-bottom:.7rem}
+  .home-page .hero .stakes-block{margin-bottom:.35rem;padding:.7rem 1.1rem}
+  .home-page .hero .stakes-block p{font-size:.9rem;line-height:1.32}
+  .home-page .hero .stakes-block p+p{margin-top:.6rem}
+  .home-page .hero .hero-proof{margin-top:.35rem}
+  .home-page .hero .hero-proof>div{padding:.9rem 1rem}
+  .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
+  .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
+  .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+  @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
+    .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
+    .home-page .nav-logo>span:last-child{display:none}
+    .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
+    .home-page .nav-toggle{margin-left:.5rem}
+    .home-page .hero,.home-page .stakes-block,.home-page .hero-proof{width:100%;max-width:100%}
+    .home-page .hero-proof>div{min-width:0}
+  }
+  .possibility-stories{display:grid;gap:1.25rem;margin-top:2rem}
+  .possibility-story{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:clamp(1rem,3vw,2rem)}
+  .possibility-heading{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+  .possibility-heading .label{font:500 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+  .possibility-heading h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.9rem);margin-bottom:.35rem}
+  .possibility-heading p,.story-payoff{color:var(--ink-3);line-height:1.65}
+  .possibility-number{font:500 .75rem var(--font-mono);color:var(--accent);border:1px solid var(--border);border-radius:50%;width:2rem;height:2rem;flex-shrink:0;display:grid;place-items:center}
+  .possibility-visual{display:grid;gap:.75rem;margin:1rem 0}
+  .possibility-visual.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .signal-card,.report-card{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+  .signal-card strong,.report-card strong{font-size:.95rem}
+  .signal-card span,.report-card>span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+  .signal-icon{font-size:1.3rem!important;color:var(--accent)!important}
+  .possibility-convergence{text-align:center;color:var(--ink-3);font:.75rem var(--font-mono);padding:.35rem}
+  .possibility-convergence span{color:var(--accent)}
+  .possibility-question{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper)}
+  .possibility-question p{margin:.4rem 0;line-height:1.55}
+  .possibility-question small{color:var(--ink-3)}
+  .reporting-visual{max-width:750px;margin:1.25rem auto}
+  .report-card strong{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .status-good{color:#20754b;font:.72rem var(--font-mono)}
+  .report-bridge{text-align:center;font:.75rem var(--font-mono);color:var(--ink-3);padding:.3rem}
+  .warning-card{border-left:3px solid var(--accent)}
+  .learning-visual{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch}
+  .loop-arrow{align-self:center;color:var(--accent);font-size:1.25rem}
+  .next-deal{border-color:var(--accent)}
+  .story-payoff{margin-top:1rem}
+  .story-payoff strong{color:var(--ink)}
+  .possibility-invitation{margin-top:2.5rem;padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+  .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
+  @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
+  @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+  .story-art{margin:1.3rem 0;border-radius:16px;overflow:hidden;padding:clamp(.35rem,1.5vw,1rem);border:1px solid var(--border)}
+  .story-art svg{display:block;width:100%;height:auto}
+  .art-connections{background:#f5e9df}.art-depth{background:#e8f0eb}.art-loop{background:#e7f0f3}
+  .possibility-story:nth-child(1){border-top:5px solid #b96348}
+  .possibility-story:nth-child(2){border-top:5px solid #3a926e}
+  .possibility-story:nth-child(3){border-top:5px solid #4d8d9a}
+  .possibility-story:nth-child(2) .possibility-number,.possibility-story:nth-child(2) .label{color:#317c60}
+  .possibility-story:nth-child(3) .possibility-number,.possibility-story:nth-child(3) .label{color:#356e7d}
+  @media(max-width:600px){.story-art{margin:1rem -.2rem;padding:.15rem}.story-art svg{min-height:145px}.possibility-story{padding:1.05rem}}
+.advisory-grid .preview-tile{border-left:4px solid #56836e;background:#f4f2eb}.advisory-grid .preview-tile:nth-child(2){border-left-color:#bc7957}.advisory-grid .preview-tile:nth-child(3){border-left-color:#638ba0}.advisory-grid .preview-tile:nth-child(4){border-left-color:#9c8c57}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"A foundational architecture for consequential analytical workflows that endure, preserving accumulated evidence and reasoning for change-aware insights and deliverables."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}}]}</script>
+<!-- build:2026-09-06-site-convergence-final-density -->
+<style>
+.preview-page{background:var(--paper,#faf8f4);color:var(--ink,#23332f)}.preview-ribbon{background:#244c44;color:#fff;text-align:center;font-size:.72rem;letter-spacing:.07em;padding:9px 12px}.preview-ribbon a{color:#fff;text-decoration:underline}.preview-main{max-width:1120px;margin:auto;padding:0 26px 90px}.preview-hero{padding:clamp(55px,9vw,120px) 0 48px;max-width:900px}.preview-hero h1{font-family:var(--font-display,Georgia,serif);font-size:clamp(3.2rem,7vw,6.5rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;margin:18px 0 26px}.preview-hero h1 em,.preview-main h2 em{color:var(--accent,#bd6447);font-weight:400}.preview-hero p{max-width:760px;font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.65;color:var(--ink-3,#52635c)}.preview-figure{background:var(--paper-2,#f4f0e9);border:1px solid var(--border,#ddd);border-radius:18px;overflow:hidden;margin:0 0 70px}.preview-figure img{width:100%;height:auto;max-height:440px;object-fit:contain;display:block;padding:clamp(8px,2vw,25px)}.preview-figure figcaption{font-size:.86rem;color:var(--ink-3,#5c6b63);border-top:1px solid var(--border,#ddd);padding:16px 23px}.preview-section{margin:60px 0;max-width:1040px}.preview-section h2{font-family:var(--font-display,Georgia,serif);font-size:clamp(2.3rem,4vw,4rem);line-height:1.12;font-weight:400;margin:12px 0 28px}.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preview-tile{background:var(--paper-2,#f7f4ef);border:1px solid var(--border,#ddd);border-radius:12px;padding:25px;min-height:135px}.preview-tile h3{font-size:1.14rem;margin:0 0 9px}.preview-tile p{color:var(--ink-3,#59665f);line-height:1.6;margin:0;font-size:.96rem}.preview-note{border-left:3px solid var(--accent,#b65d42);padding:16px 24px;max-width:790px;line-height:1.7;color:var(--ink-3,#52635c);background:var(--paper-2,#f5f1ea)}.preview-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.preview-actions a{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;padding:13px 20px;font-size:.92rem;font-weight:600}.preview-actions .primary{background:var(--ink,#23483e);color:#fff}.preview-actions .secondary{border:1px solid var(--border,#aaa);color:var(--ink,#23483e)}.preview-end{border-top:1px solid var(--border,#ddd);padding-top:35px}.preview-figure-abstract{padding:35px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.preview-figure-abstract div{border-top:4px solid var(--accent,#b75c43);padding:20px 12px;background:#fff;border-radius:5px;font-weight:600;text-align:center;min-height:90px}@media(max-width:680px){.preview-main{padding:0 19px 55px}.preview-hero{padding:55px 0 28px}.preview-grid{grid-template-columns:1fr}.preview-tile{min-height:0;padding:19px}.preview-figure{margin-bottom:45px}.preview-figure-abstract{grid-template-columns:repeat(2,1fr);padding:14px;gap:8px}.preview-figure-abstract div{padding:14px 8px;font-size:.82rem;min-height:75px}.preview-section{margin:44px 0}.preview-actions{flex-direction:column;align-items:stretch}.preview-actions a{justify-content:center}}
+</style></head><body><nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
-    <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
+    <a href="/" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="/epistamate_demo.html">Current work</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/policy-research-walkthrough.html">See it in action</a><a href="/blog/">Insights</a></div>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
-    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="mailto:hello@epistamate.com" class="nav-cta">Get in touch</a>
   </div>
-</nav>
-<section class="hero">
-  <div class="hero-eyebrow">Consulting &amp; Advisory · Method-aware adaptation</div>
-  <h1 class="hero-h1">Your method.<br><em>Your accumulated reasoning.</em><br>The next useful deliverable.</h1>
-  <div class="stakes-block"><p>Consequential advisory work often continues beyond its first recommendation. New material can reopen a diagnosis, strengthen an earlier hypothesis, qualify advice or change what deserves the consultant’s attention. Epistamate explores how to preserve that evolving reasoning within an organisation’s existing professional method.</p><p class="stakes-kicker">The design pattern is a stable epistemic foundation with method-specific source authority and trust tiers, assessments, review posture and deliverables. Frontier AI can assist discovery, challenge and synthesis as its capabilities improve; accepted advice remains under professional authority.</p></div>
-  <div class="hero-ctas"><a href="#tested-in-practice" class="btn-primary">See the experiment ↓</a><a href="#deliverables" class="btn-secondary">How the method adapts ↓</a><a href="index.html#contact" class="btn-ghost">Discuss a workflow →</a></div>
-</section>
-
-<section class="hallucination-section" id="tested-in-practice"><div class="section-inner">
-  <div class="section-tag">Tested in practice · Synthetic engagement</div>
-  <h2>New evidence changed attention.<br><em>It did not automatically rewrite advice.</em></h2>
-  <p class="section-sub">A controlled specialist advisory-method experiment uses a synthetic engagement to test how a methodology-aware workspace behaves when new client material arrives. This is operating-concept evidence, not a client outcome claim.</p>
-  <figure class="architecture-figure" aria-label="How new evidence affects an advisory chain">
-    <div class="architecture-scroll">
-      <img src="assets/diagrams/advisory-evidence-change.svg" width="1600" height="900" loading="lazy" alt="Advisory workflow showing new material moving through bounded attention and consultant treatment, then marking linked diagnostics, findings, recommendations and deliverables affected for review rather than rewriting them automatically.">
-    </div>
-    <figcaption><strong>New evidence changes attention before it changes advice.</strong> The consultant decides how the material may be used; downstream work is marked affected and revisited in causal order rather than silently rewritten.</figcaption>
-  </figure>
-</div></section>
-
-
-
-<section class="hallucination-section" id="deliverables"><div class="section-inner">
-    <div class="section-tag">Stable governance kernel · domain-specific workflow</div><h2>Adaptable does not mean<br><em>starting from scratch.</em></h2>
-  <p class="section-sub">The organisation-specific layer maps reusable governance capabilities to the method already in use. The common foundation preserves evidence identity, accumulated reasoning, uncertainty, authority, dependencies, history and change. The professional layer defines source trust, diagnostics, review conventions and deliverables. The aim is to prepare the next set of useful insights and outputs without reconstructing every earlier assessment.</p>
-  <div class="deliver-grid" style="margin-top:var(--space-xl)">
-    <article class="ad-card"><div class="label">Your method</div><h3>Map what already works</h3><p>Preserve the organisation’s stages, propositions, diagnostics, evidence types, review gates, deliverables and decision rights.</p></article>
-    <article class="ad-card"><div class="label">Governance kernel</div><h3>Keep the integrity contracts stable</h3><p>Use evidence inventory, provenance, bounded AI assistance, candidate-versus-accepted state, human authority, unresolved state, attention routing, dependencies and version history.</p></article>
-    <article class="ad-card"><div class="label">Your authority</div><h3>Keep judgement in place</h3><p>Define who can accept, qualify, defer, reject, approve, issue or reopen a consequential output.</p></article>
-    <article class="ad-card"><div class="label">Open diligence</div><h3>What remains unknown</h3><p>Questions, evidence gaps and decision-sensitive assumptions that should be tested or explicitly accepted.</p></article>
-    <article class="ad-card"><div class="label">Reassessment baseline</div><h3>What changed later</h3><p>A point-in-time record that makes later updates explainable instead of revisionist.</p></article>
-  </div>
-</div></section>
-
-<section class="diff-section"><div class="section-inner">
-  <div class="section-tag">How the method behaves</div><h2>Useful intelligence can stay useful<br><em>without silently becoming fact.</em></h2>
-  <div class="ad-grid" style="margin-top:var(--space-xl)">
-    <article class="ad-card"><div class="label">Mixed evidence</div><h3>Authority remains visible.</h3><p>Official records, client documents, management assertions, interviews, vendor material, public research and analyst assumptions can all matter without being treated as equivalent evidence.</p></article>
-    <article class="ad-card"><div class="label">External research</div><h3>Relevance is not client fact.</h3><p>Published research can expose failure modes, comparators or better tests. Client-specific conclusions still depend on the actual client evidence and an explicit transferability judgement.</p></article>
-    <article class="ad-card"><div class="label">AI assistance</div><h3>Reasoning remains candidate reasoning.</h3><p>Models can structure, summarize, challenge and propose. Their output does not establish evidence authority, and model agreement is not independent corroboration.</p></article>
-  </div>
-  <div class="evidence-chain">Intake → material claims → mixed evidence / public research → assessment → recommendations → controlled output → update / reassessment</div>
-</div></section>
-
-<section class="hallucination-section"><div class="section-inner">
-  <div class="section-tag">Best fit</div><h2>Where evidence-decision discipline<br><em>earns its overhead.</em></h2>
-  <div class="fit-grid" style="margin-top:var(--space-xl)">
-    <article class="ad-card"><h3>Due diligence &amp; opportunity cases</h3><p>Market, technology, operational or counterparty questions where the conclusion may need to be reconstructed after the decision.</p></article>
-    <article class="ad-card"><h3>AI / technology transformation</h3><p>Recommendations mixing vendor claims, internal readiness, external research, control assumptions and implementation dependencies.</p></article>
-    <article class="ad-card"><h3>Regulatory &amp; research-heavy advisory</h3><p>Work where authority, applicability, currentness and unresolved uncertainty matter as much as topical relevance.</p></article>
-  </div>
-  <div class="stakes-block" style="margin-top:var(--space-xl)"><p><strong>Boundary:</strong> this is not automated audit/certification, legal/tax/engineering judgement, generic engagement-management software or a promise that AI can replace specialist professional judgement.</p></div>
-  <div class="hero-ctas"><a href="index.html#contact" class="btn-primary">Start with the decision →</a><a href="genai-control-evidence-review.html" class="btn-secondary">For GenAI control questions →</a></div>
-</div></section>
-<footer class="footer">
+</nav><main class="preview-main"><header class="preview-hero"><div class="section-tag">ADVISORY APPLICATIONS</div><h1>Your method matters.<br><em>So does what it learns.</em></h1><p>A good advisory method should not disappear inside a generic AI workflow. Preserve its decision rights, evidence standards and accumulated reasoning as the work evolves.</p></header><figure class="preview-figure"><img src="/assets/diagrams/advisory-evidence-change.svg" alt="Advisory evidence and changed findings diagram" loading="lazy"><figcaption>New evidence can change what needs attention without automatically rewriting a professional recommendation.</figcaption></figure><section class="preview-section"><div class="section-tag">The practical difference</div><h2>Where the discipline earns its place.</h2><div class="preview-grid advisory-grid"><article class="preview-tile"><h3>Due diligence</h3><p>Track assumptions, evidence gaps and issues that need resolution.</p></article><article class="preview-tile"><h3>Transformation advice</h3><p>Revisit recommendations as implementation evidence changes.</p></article><article class="preview-tile"><h3>Regulatory analysis</h3><p>Keep authority, applicability and contested interpretations distinct.</p></article><article class="preview-tile"><h3>Market research</h3><p>Explore what new information means for an earlier position.</p></article></div></section><section class="preview-section"><div class="section-tag">Scope and confidence</div><p class="preview-note">Method-aware advisory workflows are an application direction. Their usefulness depends on the specific methodology, data rights and human decision process.</p></section><section class="preview-section preview-end"><div class="section-tag">Explore further</div><h2>Go deeper where it matters.</h2><div class="preview-actions"><a class="primary" href="/market-intelligence-refresh.html">Explore a market research example →</a><a class="secondary" href="/engine.html">Understand the shared foundation →</a><a class="secondary" href="mailto:hello@epistamate.com">Discuss a possibility ↗</a></div></section></main><footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div>
-    <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="/advisory.html">Applications</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/blog/">Insights</a><a href="mailto:hello@epistamate.com">Get in touch</a></div>
     <div class="footer-refs">
       <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a>
       <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
       <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
-      <a href="landscape.html">Prior art and open problems</a>
+      <a href="/landscape.html">Prior art and open problems</a>
     </div>
   </div>
-</footer>
-<script src="architecture-diagrams.js" defer></script>\n</body></html>
+</footer><script>document.querySelectorAll('a[href="/#organisational-pattern"]').forEach(a=>a.setAttribute('href','/#research-corpus'))</script></body></html>
