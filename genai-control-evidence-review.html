@@ -1,258 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>GenAI Workflow Assurance Consulting | Research-Informed Review | Epistamate</title>
-<meta name="description" content="A workflow-specific GenAI assurance consulting engagement. We examine client evidence, human–AI control joins and research-informed blind spots to identify what deserves confidence, challenge or further testing.">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><link rel="canonical" href="https://epistamate.com/genai-control-evidence-review.html">
-<meta property="og:title" content="GenAI Workflow Assurance Consulting | Beyond the Control Checklist"><meta property="og:description" content="A consulting review of the evidence, shared blind spots and handoffs between GenAI controls—not a generic audit or certification."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/genai-control-evidence-review.html"><meta property="og:image" content="https://epistamate.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="GenAI Workflow Assurance Consulting — Look Between the Controls"><meta name="twitter:description" content="A focused consulting review of evidence, control joins and blind spots in a consequential GenAI workflow.">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>AI workflow assurance — Epistamate</title>
+<meta name="description" content="AI workflow controls, evidence gaps and assurance beyond the checklist.">
+<meta name="keywords" content="evidence-backed AI research, GenAI workflow assurance, claim provenance, evidence traceability, AI research verification, decision audit trail, research audit trail, evidence-led advisory">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Epistamate — When the work continues, the reasoning should too"><meta property="og:description" content="New possibilities from accumulated understanding—supported by persistent, evidence-backed reasoning and professional judgement."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/"><meta property="og:image" content="https://epistamate.com/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="distilapp.css">
+<link rel="stylesheet" href="/distilapp.css">
 <style>
-  .assurance-page section{border-bottom:1px solid var(--border)}
-  .assurance-page .section-inner{padding-top:3.55rem;padding-bottom:3.55rem}
-  .assurance-eyebrow,.assurance-label,.assurance-step-label{font-family:var(--font-mono);font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
-  .assurance-hero{max-width:var(--max-w);margin:0 auto;padding:3rem var(--space-l) 3rem;display:grid;grid-template-columns:minmax(0,1.22fr) minmax(300px,.78fr);gap:2.2rem;align-items:center}
-  .assurance-hero h1{font-size:clamp(2.7rem,4.5vw,4.1rem);line-height:1.05;max-width:700px;margin:.85rem 0 1.1rem}
-  .assurance-hero h1 em{color:var(--accent)}
-  .assurance-lede{font-size:1rem;line-height:1.65;color:var(--ink-2);max-width:685px}
-  .assurance-outcome{margin-top:.75rem;color:var(--ink);font-weight:600}
-  .assurance-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.35rem}
-  .assurance-actions a{font-size:.91rem;padding:10px 16px}
-  .assurance-page a.assurance-text-link{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-  .assurance-panel{padding:1.35rem 1.45rem;border-radius:12px;background:var(--ink);color:var(--paper)}
-  .assurance-panel .assurance-label{color:#ccc;margin-bottom:.7rem}
-  .assurance-panel .question-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:.75rem 0;border-top:1px solid #414141}
-  .assurance-panel .question-row:first-of-type{border-top:0}
-  .assurance-panel .question-id{font:.72rem var(--font-mono);color:#ffc4a4}
-  .assurance-panel .question-row strong{font-size:.88rem;line-height:1.45;color:var(--paper)}
-  .assurance-panel .question-note{margin-top:.65rem;padding-top:.7rem;border-top:1px solid #414141;color:#d0d0d0;font-size:.74rem;line-height:1.55}
-  .assurance-intro{max-width:850px}
-  .assurance-intro p{font-size:.95rem;color:var(--ink-3);line-height:1.65;margin-top:.8rem}
-  .assurance-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:1.8rem}
-  .assurance-principle,.assurance-card,.assurance-stage,.assurance-output,.assurance-proof{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1.25rem}
-  .assurance-principle .assurance-label,.assurance-card .assurance-label,.assurance-stage .assurance-label,.assurance-output .assurance-label{color:var(--accent);margin-bottom:.55rem}
-  .assurance-principle h3,.assurance-card h3,.assurance-stage h3,.assurance-output h3{font-size:1.16rem;margin-bottom:.55rem}
-  .assurance-principle p,.assurance-card p,.assurance-stage p,.assurance-output p{font-size:.86rem;line-height:1.6;color:var(--ink-3)}
-  .assurance-illustration{margin-top:1.35rem;padding:1.05rem 1.15rem;border-left:3px solid var(--accent);background:var(--paper-2)}
-  .assurance-illustration p{font-size:.87rem;line-height:1.65}
-  .assurance-illustration strong{color:var(--ink)}
-  .assurance-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.7rem}
-  .assurance-source{padding:1.35rem;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
-  .assurance-source h3{font-size:1.37rem;margin:.35rem 0 .7rem}
-  .assurance-source p,.assurance-source li{font-size:.86rem;line-height:1.65;color:var(--ink-3)}
-  .assurance-source ul{padding-left:1.2rem;margin-top:.7rem}
-  .assurance-source li+li{margin-top:.25rem}
-  .assurance-diagnosis{margin-top:1rem;border:1px solid var(--border-2);background:var(--paper-2);padding:1.2rem 1.4rem;border-radius:var(--radius-m)}
-  .assurance-diagnosis h3{font-size:1.18rem;margin-bottom:.45rem}
-  .assurance-diagnosis p{font-size:.88rem;color:var(--ink-2);line-height:1.55}
-  .assurance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;margin-top:1.7rem}
-  .assurance-card .assurance-question{display:block;font-weight:600;color:var(--ink);margin-top:.55rem;font-size:.85rem}
-  .assurance-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:1.7rem}
-  .assurance-stage{position:relative}
-  .assurance-stage .assurance-step-label{color:var(--accent);margin-bottom:.6rem}
-  .assurance-stage strong{display:block;margin-top:.8rem;font-size:.77rem;color:var(--ink)}
-  .assurance-continuity{margin-top:1.3rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;align-items:center;padding:1.35rem;background:var(--paper-2);border-radius:var(--radius-m);border:1px solid var(--border)}
-  .assurance-continuity h3{font-size:1.3rem;margin-bottom:.55rem}
-  .assurance-continuity p,.assurance-continuity li{font-size:.85rem;color:var(--ink-3);line-height:1.6}
-  .assurance-continuity ol{padding-left:1.3rem}
-  .assurance-continuity li+li{margin-top:.4rem}
-  .assurance-continuity .assurance-label{color:var(--accent);margin-bottom:.5rem}
-  .assurance-product-status{margin-top:1.1rem;padding:1rem 1.15rem;background:var(--paper-2);border-left:3px solid var(--gold)}
-  .assurance-product-status p{font-size:.83rem;line-height:1.65;color:var(--ink-2)}
-  .assurance-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:1.6rem}
-  .assurance-proof strong{display:block;margin-bottom:.4rem;font-size:.9rem}
-  .assurance-proof p{font-size:.84rem;line-height:1.6;color:var(--ink-3)}
-  .assurance-output-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.85rem;margin-top:1.6rem}
-  .assurance-boundary{margin-top:1.4rem;padding:1rem 1.2rem;border-left:3px solid var(--accent);background:var(--paper-2);font-size:.85rem;line-height:1.6;color:var(--ink-3)}
-  .assurance-final-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.2rem}
-  .assurance-final-cta a{font-size:.9rem;padding:10px 17px}
-  @media(max-width:960px){.assurance-hero{grid-template-columns:1fr}.assurance-panel{max-width:760px}.assurance-output-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:740px){.assurance-principles,.assurance-stages,.assurance-evidence-grid,.assurance-continuity{grid-template-columns:1fr}.assurance-page .section-inner{padding-top:2.9rem;padding-bottom:2.9rem}}
-  @media(max-width:560px){.assurance-hero{padding:2.4rem var(--space-m)}.assurance-hero h1{font-size:2.55rem}.assurance-grid,.assurance-proof-grid,.assurance-output-grid{grid-template-columns:1fr}.assurance-actions a,.assurance-final-cta a{width:100%;justify-content:center}}
+  .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-product-shot{margin:var(--space-l) 0 0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 12px 32px rgba(15,15,15,.045)}
+  .home-product-shot img{display:block;width:100%;height:auto}
+  .home-product-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+  .home-product-shot figcaption strong{color:var(--ink)}
+  .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
+  .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+  .hero-proof>div{border-top:3px solid var(--accent)}
+  .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
+  .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
+  .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+  .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+  .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+  .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .continuity-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-s);margin-top:var(--space-xl)}
+  .continuity-flow>div{min-width:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-m)}
+  .continuity-flow .label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .continuity-flow strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:5px}
+  .continuity-flow span{font-size:.8rem;line-height:1.55;color:var(--ink-3)}
+  .continuity-note{margin-top:var(--space-l);border-left:3px solid var(--accent);padding:var(--space-s) var(--space-m);color:var(--ink-3);line-height:1.7}
+  .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .control-strip>div{background:var(--paper);padding:var(--space-m)}
+  .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+  .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow,.continuity-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
+  .home-page #applications .section-inner{padding-top:3.25rem}
+  .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
+  .home-page .hero .hero-h1{font-size:clamp(2.8rem,4.45vw,3.65rem);line-height:1.02;margin-bottom:.7rem}
+  .home-page .hero .stakes-block{margin-bottom:.35rem;padding:.7rem 1.1rem}
+  .home-page .hero .stakes-block p{font-size:.9rem;line-height:1.32}
+  .home-page .hero .stakes-block p+p{margin-top:.6rem}
+  .home-page .hero .hero-proof{margin-top:.35rem}
+  .home-page .hero .hero-proof>div{padding:.9rem 1rem}
+  .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
+  .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
+  .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+  @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
+    .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
+    .home-page .nav-logo>span:last-child{display:none}
+    .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
+    .home-page .nav-toggle{margin-left:.5rem}
+    .home-page .hero,.home-page .stakes-block,.home-page .hero-proof{width:100%;max-width:100%}
+    .home-page .hero-proof>div{min-width:0}
+  }
+  .possibility-stories{display:grid;gap:1.25rem;margin-top:2rem}
+  .possibility-story{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:clamp(1rem,3vw,2rem)}
+  .possibility-heading{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+  .possibility-heading .label{font:500 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+  .possibility-heading h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.9rem);margin-bottom:.35rem}
+  .possibility-heading p,.story-payoff{color:var(--ink-3);line-height:1.65}
+  .possibility-number{font:500 .75rem var(--font-mono);color:var(--accent);border:1px solid var(--border);border-radius:50%;width:2rem;height:2rem;flex-shrink:0;display:grid;place-items:center}
+  .possibility-visual{display:grid;gap:.75rem;margin:1rem 0}
+  .possibility-visual.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .signal-card,.report-card{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+  .signal-card strong,.report-card strong{font-size:.95rem}
+  .signal-card span,.report-card>span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+  .signal-icon{font-size:1.3rem!important;color:var(--accent)!important}
+  .possibility-convergence{text-align:center;color:var(--ink-3);font:.75rem var(--font-mono);padding:.35rem}
+  .possibility-convergence span{color:var(--accent)}
+  .possibility-question{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper)}
+  .possibility-question p{margin:.4rem 0;line-height:1.55}
+  .possibility-question small{color:var(--ink-3)}
+  .reporting-visual{max-width:750px;margin:1.25rem auto}
+  .report-card strong{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .status-good{color:#20754b;font:.72rem var(--font-mono)}
+  .report-bridge{text-align:center;font:.75rem var(--font-mono);color:var(--ink-3);padding:.3rem}
+  .warning-card{border-left:3px solid var(--accent)}
+  .learning-visual{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch}
+  .loop-arrow{align-self:center;color:var(--accent);font-size:1.25rem}
+  .next-deal{border-color:var(--accent)}
+  .story-payoff{margin-top:1rem}
+  .story-payoff strong{color:var(--ink)}
+  .possibility-invitation{margin-top:2.5rem;padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+  .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
+  @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
+  @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+  .story-art{margin:1.3rem 0;border-radius:16px;overflow:hidden;padding:clamp(.35rem,1.5vw,1rem);border:1px solid var(--border)}
+  .story-art svg{display:block;width:100%;height:auto}
+  .art-connections{background:#f5e9df}.art-depth{background:#e8f0eb}.art-loop{background:#e7f0f3}
+  .possibility-story:nth-child(1){border-top:5px solid #b96348}
+  .possibility-story:nth-child(2){border-top:5px solid #3a926e}
+  .possibility-story:nth-child(3){border-top:5px solid #4d8d9a}
+  .possibility-story:nth-child(2) .possibility-number,.possibility-story:nth-child(2) .label{color:#317c60}
+  .possibility-story:nth-child(3) .possibility-number,.possibility-story:nth-child(3) .label{color:#356e7d}
+  @media(max-width:600px){.story-art{margin:1rem -.2rem;padding:.15rem}.story-art svg{min-height:145px}.possibility-story{padding:1.05rem}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/"},{"@type":"Service","@id":"https://epistamate.com/genai-control-evidence-review.html#service","name":"GenAI Workflow Assurance Consulting","serviceType":"Workflow-specific GenAI assurance advisory and evidence review","description":"Consulting engagement to examine consequential GenAI workflow claims, operational evidence, research-informed control blind spots and handoffs, and to recommend focused verification and risk-informed next steps. Not a certification or regulatory compliance audit.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html","subjectOf":{"@type":"Article","name":"The AI Assurance Halo: What Validation Passed Does and Doesn't Do","url":"https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html"},"audience":{"@type":"Audience","audienceType":"AI product owners, risk leaders, professional services and governance teams"}}]}</script>
-<!-- updated:2026-10-14-genai-assurance-consulting-research-informed-joins -->
-</head>
-<body class="assurance-page">
-<nav class="nav">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"A foundational architecture for consequential analytical workflows that endure, preserving accumulated evidence and reasoning for change-aware insights and deliverables."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}}]}</script>
+<!-- build:2026-09-06-site-convergence-final-density -->
+<style>
+.preview-page{background:var(--paper,#faf8f4);color:var(--ink,#23332f)}.preview-ribbon{background:#244c44;color:#fff;text-align:center;font-size:.72rem;letter-spacing:.07em;padding:9px 12px}.preview-ribbon a{color:#fff;text-decoration:underline}.preview-main{max-width:1120px;margin:auto;padding:0 26px 90px}.preview-hero{padding:clamp(55px,9vw,120px) 0 48px;max-width:900px}.preview-hero h1{font-family:var(--font-display,Georgia,serif);font-size:clamp(3.2rem,7vw,6.5rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;margin:18px 0 26px}.preview-hero h1 em,.preview-main h2 em{color:var(--accent,#bd6447);font-weight:400}.preview-hero p{max-width:760px;font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.65;color:var(--ink-3,#52635c)}.preview-figure{background:var(--paper-2,#f4f0e9);border:1px solid var(--border,#ddd);border-radius:18px;overflow:hidden;margin:0 0 70px}.preview-figure img{width:100%;height:auto;max-height:440px;object-fit:contain;display:block;padding:clamp(8px,2vw,25px)}.preview-figure figcaption{font-size:.86rem;color:var(--ink-3,#5c6b63);border-top:1px solid var(--border,#ddd);padding:16px 23px}.preview-section{margin:60px 0;max-width:1040px}.preview-section h2{font-family:var(--font-display,Georgia,serif);font-size:clamp(2.3rem,4vw,4rem);line-height:1.12;font-weight:400;margin:12px 0 28px}.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preview-tile{background:var(--paper-2,#f7f4ef);border:1px solid var(--border,#ddd);border-radius:12px;padding:25px;min-height:135px}.preview-tile h3{font-size:1.14rem;margin:0 0 9px}.preview-tile p{color:var(--ink-3,#59665f);line-height:1.6;margin:0;font-size:.96rem}.preview-note{border-left:3px solid var(--accent,#b65d42);padding:16px 24px;max-width:790px;line-height:1.7;color:var(--ink-3,#52635c);background:var(--paper-2,#f5f1ea)}.preview-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.preview-actions a{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;padding:13px 20px;font-size:.92rem;font-weight:600}.preview-actions .primary{background:var(--ink,#23483e);color:#fff}.preview-actions .secondary{border:1px solid var(--border,#aaa);color:var(--ink,#23483e)}.preview-end{border-top:1px solid var(--border,#ddd);padding-top:35px}.preview-figure-abstract{padding:35px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.preview-figure-abstract div{border-top:4px solid var(--accent,#b75c43);padding:20px 12px;background:#fff;border-radius:5px;font-weight:600;text-align:center;min-height:90px}@media(max-width:680px){.preview-main{padding:0 19px 55px}.preview-hero{padding:55px 0 28px}.preview-grid{grid-template-columns:1fr}.preview-tile{min-height:0;padding:19px}.preview-figure{margin-bottom:45px}.preview-figure-abstract{grid-template-columns:repeat(2,1fr);padding:14px;gap:8px}.preview-figure-abstract div{padding:14px 8px;font-size:.82rem;min-height:75px}.preview-section{margin:44px 0}.preview-actions{flex-direction:column;align-items:stretch}.preview-actions a{justify-content:center}}
+</style></head><body><nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
-    <div class="nav-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="policy-research-walkthrough.html">See it in action</a><a href="blog/index.html">Insights</a></div>
+    <a href="/" class="nav-logo" aria-label="Epistamate"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a>
+    <div class="nav-links"><a href="/epistamate_demo.html">Current work</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/policy-research-walkthrough.html">See it in action</a><a href="/blog/">Insights</a></div>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button>
-    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    <a href="mailto:hello@epistamate.com" class="nav-cta">Get in touch</a>
   </div>
-</nav>
-
-<header class="assurance-hero">
-  <div>
-    <div class="assurance-eyebrow">GenAI Workflow Assurance · Focused consulting engagement</div>
-    <h1>Your AI controls may all pass.<br><em>What could still get through?</em></h1>
-    <p class="assurance-lede">A GenAI workflow can complete every required check and still produce a consequentially wrong answer or decision. We examine one real workflow with your team: what it is expected to prevent, what its evidence actually shows, and where the safeguards may share a blind spot.</p>
-    <p class="assurance-lede assurance-outcome">Not another compliance checklist. A research-informed, evidence-led review of the failure that matters.</p>
-    <div class="assurance-actions">
-      <a href="#approach" class="btn-primary">How the engagement works ↓</a>
-      <a href="#joins" class="btn-secondary">Where controls can miss ↓</a>
-    </div>
-  </div>
-  <aside class="assurance-panel" aria-label="Four diagnostic questions">
-    <div class="assurance-label">Four questions we would put to the workflow</div>
-    <div class="question-row"><span class="question-id">01</span><strong>What material evidence or exception never reached the analysis?</strong></div>
-    <div class="question-row"><span class="question-id">02</span><strong>Are the evaluator and the system it checks genuinely independent?</strong></div>
-    <div class="question-row"><span class="question-id">03</span><strong>What errors can a human reviewer detect in actual working conditions?</strong></div>
-    <div class="question-row"><span class="question-id">04</span><strong>Which qualifications are lost before management sees the result?</strong></div>
-    <p class="question-note">These are questions to investigate, not findings we presume in advance.</p>
-  </aside>
-</header>
-
-<main>
-<section class="hallucination-section" id="gap" aria-labelledby="gap-title">
-  <div class="section-inner">
-    <div class="section-tag">Why a different kind of assurance?</div>
-    <div class="assurance-intro">
-      <h2 id="gap-title">A control can operate correctly.<br><em>The conclusion can still be wrong.</em></h2>
-      <p>Policies, approvals and evaluation scores matter. But the records proving that a check occurred are not always evidence that it could detect the failure you care about. Our engagement looks beyond control presence and procedural compliance to the adequacy of the evidence and the reliability of the overall human–AI chain.</p>
-    </div>
-    <div class="assurance-principles">
-      <article class="assurance-principle"><div class="assurance-label">Process integrity</div><h3>Did the safeguards operate?</h3><p>What was retrieved, evaluated, reviewed, approved or escalated—and what do the records actually establish?</p></article>
-      <article class="assurance-principle"><div class="assurance-label">Evidential validity</div><h3>Was the right evidence examined?</h3><p>Could a missing document, incomplete sample or misleading proxy leave a material error invisible to every subsequent check?</p></article>
-      <article class="assurance-principle"><div class="assurance-label">End-to-end reliability</div><h3>Does the combination hold?</h3><p>Do automation, evaluation and human oversight work together against consequential failures under the conditions in which people actually use them?</p></article>
-    </div>
-    <div class="assurance-illustration">
-      <p><strong>Consider an omitted annex.</strong> An AI reviews a contract without receiving a material annex. Citations resolve, automated checks pass, and a reviewer approves the summary. The recorded steps may be valid while the recommendation is materially wrong. The question is: <em>which safeguard was capable of detecting what was never supplied?</em></p>
-      <p style="margin-top:.55rem">The broader argument is developed in <a class="assurance-text-link" href="https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html" target="_blank" rel="noopener noreferrer">The AI Assurance Halo: What “Validation Passed” Does and Doesn’t Do →</a>. It informs the questions we ask, rather than proving that any particular client control is ineffective.</p>
-    </div>
-  </div>
-</section>
-
-<section class="diff-section" id="research" aria-labelledby="research-title">
-  <div class="section-inner">
-    <div class="section-tag">The basis of our judgement</div>
-    <div class="assurance-intro">
-      <h2 id="research-title">Research suggests where to look.<br><em>Your evidence determines what we can say.</em></h2>
-      <p>We combine two perspectives. One is a maintained body of research on known and emerging GenAI failure mechanisms and mitigations. The other is the actual operating record of the workflow under review. We test whether findings from the first are applicable to the second, rather than substituting general research for client-specific evidence.</p>
-    </div>
-    <div class="assurance-evidence-grid">
-      <div class="assurance-source">
-        <div class="assurance-label">Research-informed challenge</div>
-        <h3>What mechanisms could matter here?</h3>
-        <p>Research into automation bias, source omission, evaluator dependence, reviewer effectiveness and human–AI collaboration can reveal questions ordinary control testing overlooks.</p>
-        <ul>
-          <li>Which mechanism might undermine a claimed safeguard?</li>
-          <li>Under what conditions would that research transfer to this workflow?</li>
-          <li>What evidence would support or disprove the concern?</li>
-        </ul>
-      </div>
-      <div class="assurance-source">
-        <div class="assurance-label">The client's operating evidence</div>
-        <h3>What actually happens in this workflow?</h3>
-        <p>We examine the relevant workflow design, configurations, evaluation data, samples, incidents, logs and reviewer practices, preserving the basis for each material judgement.</p>
-        <ul>
-          <li>What was tested—and what was outside the sample?</li>
-          <li>Which operational records support the management claim?</li>
-          <li>Where are we still relying on assumption or incomplete coverage?</li>
-        </ul>
-      </div>
-    </div>
-    <div class="assurance-diagnosis">
-      <h3>The distinction is important.</h3>
-      <p>Research may indicate that visible quality scores encourage reviewer over-reliance. That is a reason to inspect the review interface and test error detection. It does <strong>not</strong> establish that your reviewers are ineffective. We seek the narrowest conclusion that your own evidence supports.</p>
-    </div>
-  </div>
-</section>
-
-<section class="hallucination-section" id="joins" aria-labelledby="joins-title">
-  <div class="section-inner">
-    <div class="section-tag">Where we concentrate attention</div>
-    <div class="assurance-intro">
-      <h2 id="joins-title">We look at the joins.<br><em>Not just the controls in isolation.</em></h2>
-      <p>Individually well-run safeguards can share assumptions, data sources or blind spots. We examine the handoffs where confidence is transferred from one control to the next—and ask what might escape them all.</p>
-    </div>
-    <div class="assurance-grid">
-      <article class="assurance-card"><div class="assurance-label">Source → analysis</div><h3>What never entered the evidence set?</h3><p>An absent annex, unrepresentative evaluation sample or outdated retrieved passage may escape checks that operate only on what they receive.</p><span class="assurance-question">Who verifies coverage independently of the AI's selection?</span></article>
-      <article class="assurance-card"><div class="assurance-label">AI analysis → evaluator</div><h3>Do two checks share one weakness?</h3><p>An evaluator can share the generator's model family, selected sources or assumptions. A healthy score does not automatically demonstrate an independent challenge.</p><span class="assurance-question">Can evaluation catch the specific error the system might make?</span></article>
-      <article class="assurance-card"><div class="assurance-label">Evaluation → human review</div><h3>Is oversight effective or ceremonial?</h3><p>An approval record confirms a decision occurred; it does not measure what reviewers notice under realistic workload, expertise and source-access conditions.</p><span class="assurance-question">What would a representative seeded-error test reveal?</span></article>
-      <article class="assurance-card"><div class="assurance-label">Assurance → management decision</div><h3>What disappears in the summary?</h3><p>A positive management headline can conceal an unresolved exception, incomplete population coverage or a qualification that mattered to the original assessment.</p><span class="assurance-question">Do material limits survive the trip to the decision-maker?</span></article>
-    </div>
-    <div class="assurance-illustration">
-      <p><strong>Looking for blind spots is not assuming failure.</strong> The same review can identify controls that appear well designed, show why they work, and recommend only the testing needed to establish their effectiveness.</p>
-    </div>
-  </div>
-</section>
-
-<section class="diff-section" id="approach" aria-labelledby="approach-title">
-  <div class="section-inner">
-    <div class="section-tag">How an engagement works</div>
-    <div class="assurance-intro">
-      <h2 id="approach-title">An early diagnosis first.<br><em>Deeper scrutiny where it matters.</em></h2>
-      <p>We start with one consequential workflow and its intended decision, not an enterprise-wide compliance inventory. The initial pass helps us and your team identify where the real questions lie. Detailed evidence review and targeted testing follow the risks, rather than a rigid sequence of approvals.</p>
-    </div>
-    <div class="assurance-stages">
-      <article class="assurance-stage"><div class="assurance-step-label">01 · Orientation</div><h3>Understand the claims and the evidence</h3><p>Define the workflow boundary and material failure, examine available controls and records, and form an initial working view of what appears supported, disputed or unknown.</p><strong>Outcome: a focused assurance hypothesis—not a premature verdict.</strong></article>
-      <article class="assurance-stage"><div class="assurance-step-label">02 · Challenge</div><h3>Investigate the consequential joins</h3><p>Use applicable research to choose targeted samples, independence checks, incident reviews or realistic reviewer tests. Request the smallest additional evidence likely to change the assessment.</p><strong>Outcome: tested concerns, bounded findings and practical options.</strong></article>
-      <article class="assurance-stage"><div class="assurance-step-label">03 · Decision support</div><h3>State what reliance is justified</h3><p>Distinguish demonstrated effectiveness from procedural compliance, preserve material qualifications, and agree proportionate strengthening actions before the assurance position is used for an important decision.</p><strong>Outcome: an evidence-based advisory conclusion, not certification.</strong></article>
-    </div>
-    <div class="assurance-continuity">
-      <div>
-        <div class="assurance-label">When new information arrives</div>
-        <h3>The review can evolve without beginning again.</h3>
-        <p>A later incident log, changed prompt, evaluation result or meeting note may affect a particular diagnosis or recommendation. We trace the affected claims and assumptions and revisit those conclusions, keeping the earlier basis and decisions inspectable.</p>
-      </div>
-      <ol>
-        <li><strong>Record</strong> the new information and its provenance.</li>
-        <li><strong>Identify</strong> the specific evidence, controls and conclusions it may affect.</li>
-        <li><strong>Re-examine</strong> the material questions, with additional research or testing where useful.</li>
-        <li><strong>Update</strong> advice with a clear explanation of what changed and why.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section class="hallucination-section" id="example" aria-labelledby="example-title">
-  <div class="section-inner">
-    <div class="section-tag">Illustrative review question</div>
-    <div class="assurance-intro">
-      <h2 id="example-title">“A human approves every response.”<br><em>What does that actually assure?</em></h2>
-      <p>Consider a support assistant that generates responses from an approved knowledge base. A quality evaluator scores each response and a support agent must approve it before sending. Management describes the combined checks as strong protection against material factual errors.</p>
-    </div>
-    <div class="assurance-proof-grid">
-      <div class="assurance-proof"><strong>What may already be established</strong><p>Approval logs support the proposition that a human send gate operates. Model and retrieval configurations show how the workflow is intended to work. Neither alone establishes that material inaccuracies are regularly caught.</p></div>
-      <div class="assurance-proof"><strong>What we might investigate next</strong><p>Are reviewers given the underlying source passage? Do the evaluator and generator share assumptions? What happens on a poorly represented document class? How often do seeded material errors get detected under realistic conditions?</p></div>
-    </div>
-    <div class="assurance-illustration"><p><strong>This is an illustrative scenario, not a client case study.</strong> The correct conclusion might be that the safeguards are effective, need targeted strengthening, or remain insufficiently evidenced. The point of the engagement is to distinguish those outcomes—not to assume one.</p></div>
-  </div>
-</section>
-
-<section class="diff-section" id="deliverables" aria-labelledby="deliverables-title">
-  <div class="section-inner">
-    <div class="section-tag">What an engagement produces</div>
-    <div class="assurance-intro">
-      <h2 id="deliverables-title">Clarity about what to trust.<br><em>And what to test next.</em></h2>
-      <p>The emphasis is decision support, not a maturity score. The scope and depth are agreed for the workflow and the decision at hand; the output can range from an initial diagnostic view to a more detailed, evidence-supported advisory report.</p>
-    </div>
-    <div class="assurance-output-grid">
-      <article class="assurance-output"><div class="assurance-label">Assurance position</div><h3>Claims versus evidence</h3><p>Which claims are substantiated within scope, which require qualification, and what remains unknown.</p></article>
-      <article class="assurance-output"><div class="assurance-label">Material vulnerabilities</div><h3>Joins and blind spots</h3><p>Where coverage, evaluators, human oversight or reporting may fail together—and what is observed versus hypothesized.</p></article>
-      <article class="assurance-output"><div class="assurance-label">Strengthening options</div><h3>The next useful test</h3><p>Proportionate samples, evidence requests, control improvements and explicit risk decisions.</p></article>
-      <article class="assurance-output"><div class="assurance-label">Decision continuity</div><h3>Basis and qualifications</h3><p>The important evidence, unresolved limitations and material changes that should accompany future reliance.</p></article>
-    </div>
-    <div class="assurance-boundary"><strong>What this is—and is not:</strong> A focused, research-informed professional assurance and advisory engagement. It is not a statutory audit, regulatory-compliance determination, legal opinion, certification, generic AI maturity assessment, or a claim that all failures can be detected.</div>
-    <div class="assurance-final-cta">
-      <a href="index.html#contact" class="btn-primary">Discuss an assurance engagement →</a>
-      <a href="https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html" class="btn-secondary" target="_blank" rel="noopener noreferrer">Read the AI Assurance Halo article →</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="footer">
+</nav><main class="preview-main"><header class="preview-hero"><div class="section-tag">AI WORKFLOW ASSURANCE</div><h1>The controls passed.<br><em>What did they miss?</em></h1><p>An AI workflow can satisfy individual control checks while a consequential failure passes through the joins. Assurance must look at the whole chain.</p></header><div class="preview-figure preview-figure-abstract" aria-label="Look beyond the checklist."><div>What entered?</div><div>What happened?</div><div>Who decided?</div><div>What remains?</div></div><section class="preview-section"><div class="section-tag">The practical difference</div><h2>Look beyond the checklist.</h2><div class="preview-grid"><article class="preview-tile"><h3>What entered?</h3><p>Were the right inputs and evidence considered?</p></article><article class="preview-tile"><h3>What happened?</h3><p>How did model outputs and controls interact?</p></article><article class="preview-tile"><h3>Who decided?</h3><p>Was oversight meaningful or merely procedural?</p></article><article class="preview-tile"><h3>What remains?</h3><p>Which risks, unknowns and dependencies still matter?</p></article></div></section><section class="preview-section"><div class="section-tag">Scope and confidence</div><p class="preview-note">Research identifies mechanisms worth investigating. Actual assurance conclusions require evidence from the organisation's own workflow.</p></section><section class="preview-section preview-end"><div class="section-tag">Explore further</div><h2>Go deeper where it matters.</h2><div class="preview-actions"><a class="primary" href="mailto:hello@epistamate.com">Discuss a workflow review →</a><a class="secondary" href="/assurance.html">Explore research assurance →</a><a class="secondary" href="mailto:hello@epistamate.com">Discuss a possibility ↗</a></div></section></main><footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Knowledge that compounds · Decisions you can audit</p></div>
-    <div class="footer-links"><a href="index.html#applications">Applications</a><a href="engine.html">How it works</a><a href="assurance.html">Assurance</a><a href="blog/index.html">Insights</a><a href="index.html#contact">Get in touch</a></div>
-    <div class="footer-refs"><a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a><span class="publication-id">Defensive disclosure · IPCOM/000277741</span><a href="landscape.html">Prior art and open problems</a></div>
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="/advisory.html">Applications</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/blog/">Insights</a><a href="mailto:hello@epistamate.com">Get in touch</a></div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a>
+      <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
+      <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
+      <a href="/landscape.html">Prior art and open problems</a>
+    </div>
   </div>
-</footer>
-</body>
-</html>
+</footer><script>document.querySelectorAll('a[href="/#organisational-pattern"]').forEach(a=>a.setAttribute('href','/#research-corpus'))</script></body></html>
