@@ -114,6 +114,15 @@
   .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
   @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
   @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+  .story-art{margin:1.3rem 0;border-radius:16px;overflow:hidden;padding:clamp(.35rem,1.5vw,1rem);border:1px solid var(--border)}
+  .story-art svg{display:block;width:100%;height:auto}
+  .art-connections{background:#f5e9df}.art-depth{background:#e8f0eb}.art-loop{background:#e7f0f3}
+  .possibility-story:nth-child(1){border-top:5px solid #b96348}
+  .possibility-story:nth-child(2){border-top:5px solid #3a926e}
+  .possibility-story:nth-child(3){border-top:5px solid #4d8d9a}
+  .possibility-story:nth-child(2) .possibility-number,.possibility-story:nth-child(2) .label{color:#317c60}
+  .possibility-story:nth-child(3) .possibility-number,.possibility-story:nth-child(3) .label{color:#356e7d}
+  @media(max-width:600px){.story-art{margin:1rem -.2rem;padding:.15rem}.story-art svg{min-height:145px}.possibility-story{padding:1.05rem}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"A foundational architecture for consequential analytical workflows that endure, preserving accumulated evidence and reasoning for change-aware insights and deliverables."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}}]}</script>
 <!-- build:2026-09-06-site-convergence-final-density -->
@@ -149,31 +158,46 @@
     <div class="possibility-stories">
       <article class="possibility-story">
         <div class="possibility-heading"><span class="possibility-number">01</span><div><div class="label">Account and portfolio intelligence</div><h3>Three accounts. One emerging change.</h3><p>Each account looks healthy on its dashboard. But the people closest to the customers are noticing something different.</p></div></div>
-        <div class="possibility-visual three">
-          <div class="signal-card"><span class="signal-icon" aria-hidden="true">✉</span><strong>Account A</strong><span>Escalation: customer questions the service model</span></div>
-          <div class="signal-card"><span class="signal-icon" aria-hidden="true">◷</span><strong>Account B</strong><span>Meeting notes: growing interest in AI-led operations</span></div>
-          <div class="signal-card"><span class="signal-icon" aria-hidden="true">▥</span><strong>Finance</strong><span>Review: changing economics across contracts</span></div>
-        </div>
-        <div class="possibility-convergence" aria-hidden="true"><span>↓</span> Relevant evidence considered together <span>↓</span></div>
+        <div class="story-art art-connections" role="img" aria-label="Three independent customer and commercial signals converge on a new question about the outsourcing market">
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M130 126 Q130 190 340 218 M340 126 V218 M550 126 Q550 190 340 218" stroke="#ba6547" stroke-width="2.5" stroke-dasharray="6 7" fill="none"/>
+<g fill="#fffaf4" stroke="#d7b6a5" stroke-width="1.5"><rect x="22" y="34" width="216" height="92" rx="14"/><rect x="232" y="34" width="216" height="92" rx="14"/><rect x="442" y="34" width="216" height="92" rx="14"/></g>
+<g fill="#a64a31" font-family="sans-serif" font-size="13" font-weight="700"><text x="42" y="60">CUSTOMER SIGNAL</text><text x="252" y="60">SERVICE MODEL</text><text x="462" y="60">CONTRACT ECONOMICS</text></g>
+<g fill="#293d3a" font-family="sans-serif" font-size="16"><text x="42" y="88">Renewal concerns</text><text x="252" y="88">AI-led operations</text><text x="462" y="88">Changing margins</text></g>
+<circle cx="340" cy="221" r="13" fill="#c34b35"/><circle cx="340" cy="221" r="5" fill="#fff"/>
+<rect x="185" y="248" width="310" height="40" rx="20" fill="#264b47"/><text x="340" y="273" text-anchor="middle" fill="#fff" font-size="15" font-family="sans-serif" font-weight="600">Is the market changing?</text>
+</svg></div>
+        
         <div class="possibility-question"><strong>A new question emerges</strong><p>Are customers rethinking outsourcing—and could that create a new advisory opportunity rather than only a renewal risk?</p><small>A hypothesis to investigate, not an automatic conclusion.</small></div>
       </article>
       <article class="possibility-story">
         <div class="possibility-heading"><span class="possibility-number">02</span><div><div class="label">Management intelligence</div><h3>The executive report is green. Is the whole picture?</h3><p>Each reporting layer makes the story shorter. Material warnings may disappear even when the summary is accurate.</p></div></div>
-        <div class="possibility-visual reporting-visual">
-          <div class="report-card"><strong>Executive summary <span class="status-good">On track</span></strong><span>Revenue on plan · SLA met · Margin stable</span></div>
-          <div class="report-bridge">↑ Successive management summaries ↑</div>
-          <div class="signal-card warning-card"><strong>Evidence behind the summary</strong><span>Recurring escalations · unresolved RCAs · changing customer sentiment</span></div>
-        </div>
+        <div class="story-art art-depth" role="img" aria-label="A small green executive summary above a much larger layer of unresolved operational evidence">
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<rect x="190" y="12" width="300" height="68" rx="12" fill="#fff" stroke="#9dbdb3" stroke-width="2"/>
+<circle cx="218" cy="45" r="10" fill="#3a926e"/><path d="m213 45 4 4 7-9" stroke="#fff" stroke-width="2.5" fill="none"/>
+<text x="239" y="39" fill="#254d40" font-family="sans-serif" font-size="16" font-weight="700">Executive report</text><text x="239" y="60" fill="#487464" font-family="sans-serif" font-size="13">On track · Targets met</text>
+<path d="M340 81 V123" stroke="#829f9a" stroke-width="2" stroke-dasharray="5 5"/><path d="m332 115 8 9 8-9" stroke="#829f9a" stroke-width="2" fill="none"/>
+<path d="M42 136 H638" stroke="#bd7864" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="52" y="127" fill="#9d5948" font-size="12" font-family="sans-serif" font-weight="700">WHAT THE SUMMARY MAY NOT SHOW</text>
+<rect x="52" y="153" width="576" height="130" rx="14" fill="#f2e2d9" stroke="#d6b2a0"/>
+<g fill="#fff9f5" stroke="#d8b3a4"><rect x="72" y="174" width="164" height="87" rx="10"/><rect x="258" y="174" width="164" height="87" rx="10"/><rect x="444" y="174" width="164" height="87" rx="10"/></g>
+<g font-family="sans-serif" font-size="14" font-weight="700" fill="#9e4736"><text x="87" y="201">Escalations</text><text x="273" y="201">Open RCAs</text><text x="459" y="201">Customer trust</text></g>
+<g font-family="sans-serif" font-size="12" fill="#6e625b"><text x="87" y="222">Recurring signals</text><text x="273" y="222">Unresolved causes</text><text x="459" y="222">Emerging concerns</text></g>
+</svg></div>
         <p class="story-payoff"><strong>What becomes possible?</strong> Keep concise reporting, but retain a route to relevant supporting evidence, unresolved concerns and the reasoning behind a judgement—without opening every employee's communications.</p>
       </article>
       <article class="possibility-story">
         <div class="possibility-heading"><span class="possibility-number">03</span><div><div class="label">Commercial learning</div><h3>What if every delivery taught the next deal?</h3><p>Sales knows what was promised. Delivery knows what happened. Finance knows the outcome. The next proposal rarely benefits from all three.</p></div></div>
-        <div class="possibility-visual learning-visual">
-          <div class="signal-card"><strong>Sales</strong><span>Original assumptions</span></div><span class="loop-arrow" aria-hidden="true">→</span>
-          <div class="signal-card"><strong>Delivery</strong><span>What actually happened</span></div><span class="loop-arrow" aria-hidden="true">→</span>
-          <div class="signal-card"><strong>Finance</strong><span>Actual economics</span></div><span class="loop-arrow" aria-hidden="true">↻</span>
-          <div class="signal-card next-deal"><strong>Next proposal</strong><span>Better questions and assumptions</span></div>
-        </div>
+        <div class="story-art art-loop" role="img" aria-label="Sales commitments, delivery experience and actual economics form a learning loop informing the next proposal">
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M165 85 Q340 -4 515 85 M555 118 Q604 190 452 240 M228 240 Q76 190 125 118" stroke="#4d8d9a" stroke-width="3" stroke-dasharray="7 6" fill="none"/>
+<path d="m508 72 12 17 -20 1 M467 227 l-18 16 21 5 M117 133 l5-20 17 13" stroke="#4d8d9a" stroke-width="3" fill="none"/>
+<g stroke="#a7c5cb" stroke-width="2" fill="#fff"><rect x="47" y="80" width="190" height="88" rx="14"/><rect x="443" y="80" width="190" height="88" rx="14"/><rect x="245" y="197" width="190" height="88" rx="14"/></g>
+<g font-family="sans-serif" fill="#244c58" font-size="18" font-weight="700"><text x="142" y="116" text-anchor="middle">Sales</text><text x="538" y="116" text-anchor="middle">Delivery</text><text x="340" y="232" text-anchor="middle">Finance</text></g>
+<g font-family="sans-serif" fill="#5c7073" font-size="13"><text x="142" y="141" text-anchor="middle">What was promised</text><text x="538" y="141" text-anchor="middle">What happened</text><text x="340" y="257" text-anchor="middle">What it cost</text></g>
+<rect x="259" y="98" width="162" height="64" rx="32" fill="#285a67"/><text x="340" y="125" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="15" font-weight="700">NEXT DEAL</text><text x="340" y="143" text-anchor="middle" fill="#e0f2f2" font-family="sans-serif" font-size="12">Better assumptions</text>
+</svg></div>
         <p class="story-payoff"><strong>What becomes possible?</strong> Test which commercial assumptions survived delivery, which failed, and what should change next time.</p>
       </article>
     </div>
