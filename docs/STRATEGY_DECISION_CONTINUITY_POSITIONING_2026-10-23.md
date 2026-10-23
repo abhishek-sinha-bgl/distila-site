@@ -64,3 +64,20 @@ Executive clarity and analyst depth should use the **same authoritative state**.
 **Guardrail:** The website uses an assertive and accessible proposition, not recurring roadmap disclaimers. Nevertheless, illustrative workflows must not be represented as a validated live implementation; deployed research proof remains distinguishable from exploratory expression scenarios.
 
 This is a positioning and product-experience artefact, not a direction to interrupt current shared-kernel development or change accepted technical authority contracts.
+
+
+## Editorial hierarchy by audience and professional expression
+
+Decision continuity is the **primary commercial and product promise**, not decision reconstruction, defensibility or epistemic governance. Reconstruction and defensibility are useful consequences of retaining evidence and professional reasoning, and belong in supporting material rather than competing homepage headlines.
+
+**Public-page rule:** Each entry page leads with the professional's responsibility and expected benefit, not the common architecture or terms such as kernel, DCBR, governed analytical state, source-level provenance, technical expression, claim admission or lineage. Explain relevant integrity properties only after an immediately recognisable use case, with a link to the dedicated How It Works / published architecture pages for detail. The central homepage audience is the executive or accountable decision-maker, with the strategy team/PMO presented as the people who carry out the supporting analytical work. Decision continuity should be conveyed through the practical question “When new circumstances or evidence arrive, which earlier judgements deserve another look?”
+
+**Strategy page:** Choices, objectives, commitments, trade-offs, assumptions about the enterprise, decisions under review, material changes, executive attention. The user-facing experience is an executive decision briefing and an analyst-supported way to challenge and maintain a strategy—not a technical review console.
+
+**Advisory page:** Client situation → competing diagnoses → evidence-backed findings → alternatives and recommendations → changed evidence → revised client advice, when warranted. Speak in the natural language of consulting and a client's business problem. Do not simply re-label the Research Workspace's research process.
+
+**Research Workspace:** Research question and scope → source exploration → what evidence supports or challenges → uncertainty and gaps → researcher review and a stronger follow-on investigation. Methodological details are appropriate here because the research professional may inspect them directly; keep the working evidence and EU–India FTA demonstration explicit.
+
+**Assurance, RegWatch, Market Intelligence and future expressions:** Respect each profession's own frame of responsibility and kinds of evidence. Don't copy the Strategy homepage pitch and merely change job titles. **How It Works and the published technical papers** should hold the shared-architecture vocabulary and explain which foundations make the more accessible professional experience credible.
+
+Keep proposal and implemented capability distinguishable without repetitive, visually dominant development caveats. No marketing copy should claim that a synthetic experiment demonstrates verified live source reasoning or automatic fourth-source impact evaluation.
