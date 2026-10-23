@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Decision Continuity for Enterprise Strategy — Epistamate</title>
+<meta name="description" content="Connect analyst research and internal evidence to enterprise-specific choices. Preserve the reasoning behind decisions and identify what changing evidence means.">
+<meta name="keywords" content="strategy decision continuity, executive decision support, strategy intelligence, analyst research interpretation, PMO, reasoning view">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://epistamate.com/strategy.html">
+<meta property="og:title" content="Decision Continuity for Enterprise Strategy — Epistamate"><meta property="og:description" content="Connect analyst research and internal evidence to enterprise-specific choices. Preserve the reasoning behind decisions and identify what changing evidence means."><meta property="og:type" content="website"><meta property="og:url" content="https://epistamate.com/strategy.html"><meta property="og:image" content="https://epistamate.com/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://epistamate.com/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/distilapp.css">
+<style>
+  .hero-proof,.app-grid,.diff-grid,.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+  .home-proof-detail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-persona-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .home-product-shot{margin:var(--space-l) 0 0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);overflow:hidden;box-shadow:0 12px 32px rgba(15,15,15,.045)}
+  .home-product-shot img{display:block;width:100%;height:auto}
+  .home-product-shot figcaption{padding:.85rem 1rem;border-top:1px solid var(--border);font-size:.82rem;line-height:1.55;color:var(--ink-3)}
+  .home-product-shot figcaption strong{color:var(--ink)}
+  .hero-proof{max-width:980px;margin:var(--space-xl) auto 0}
+  .hero-proof>div,.app-card,.diff-card,.proof-card{border:1px solid var(--border);border-radius:var(--radius-m);padding:var(--space-l);background:var(--paper-2)}
+  .hero-proof>div{border-top:3px solid var(--accent)}
+  .hero-proof strong{display:block;font-family:var(--font-display);font-size:1.2rem;margin-bottom:5px}
+  .hero-proof span,.app-card p,.diff-card p,.proof-card p{font-size:.9rem;color:var(--ink-3);line-height:1.65}
+  .app-card{display:flex;flex-direction:column;min-height:310px}
+  .offer-strip .app-card{min-height:0;padding:1.15rem 1.25rem}
+  .offer-strip .app-card p{font-size:.84rem;line-height:1.5}
+  .offer-strip .app-card h3{font-size:1.15rem;margin-bottom:.45rem}
+  .offer-strip .app-card .label{margin-bottom:.45rem}
+  .offer-strip .app-links{padding-top:.7rem}
+  .faq-list{max-width:900px;margin-top:var(--space-xl);border-top:1px solid var(--border)}
+  .faq-list details{border-bottom:1px solid var(--border);padding:.9rem 0}
+  .faq-list summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;padding-right:2rem;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"+";position:absolute;right:0;top:-.1rem;font:400 1.3rem var(--font-mono);color:var(--ink-4)}
+  .faq-list details[open] summary::after{content:"–"}
+  .faq-list details p{max-width:760px;margin-top:.55rem;font-size:.9rem;line-height:1.65;color:var(--ink-3)}
+  .app-card .label,.diff-card .label,.proof-card .label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .app-card h3,.diff-card h3,.proof-card h3{margin-bottom:var(--space-s)}
+  .app-card .app-links{margin-top:auto;padding-top:var(--space-m);display:flex;gap:12px;flex-wrap:wrap}
+  .app-card .app-links a{font-size:.86rem;color:var(--accent);border-bottom:1px solid rgba(200,67,47,.25)}
+  .diff-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .continuity-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-s);margin-top:var(--space-xl)}
+  .continuity-flow>div{min-width:0;border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper);padding:var(--space-m)}
+  .continuity-flow .label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-s)}
+  .continuity-flow strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:5px}
+  .continuity-flow span{font-size:.8rem;line-height:1.55;color:var(--ink-3)}
+  .continuity-note{margin-top:var(--space-l);border-left:3px solid var(--accent);padding:var(--space-s) var(--space-m);color:var(--ink-3);line-height:1.7}
+  .control-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow{display:grid;grid-template-columns:1.25fr .95fr .95fr 1.1fr .9fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:var(--space-xl)}
+  .source-flow>div{background:var(--paper);padding:var(--space-m);min-width:0}
+  .source-flow strong{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:6px}
+  .source-flow span{font-size:.79rem;color:var(--ink-3);line-height:1.5}
+  .source-flow .flow-arrow{display:block;font:500 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .control-strip>div{background:var(--paper);padding:var(--space-m)}
+  .control-strip strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+  .control-strip span{font-size:.78rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:980px){.diff-grid,.control-strip,.source-flow,.continuity-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .home-page .hero{padding-top:1.45rem;padding-bottom:1.25rem}
+  .home-page #applications .section-inner{padding-top:3.25rem}
+  .home-page .hero .hero-eyebrow{margin-bottom:.45rem}
+  .home-page .hero .hero-h1{font-size:clamp(2.8rem,4.45vw,3.65rem);line-height:1.02;margin-bottom:.7rem}
+  .home-page .hero .stakes-block{margin-bottom:.35rem;padding:.7rem 1.1rem}
+  .home-page .hero .stakes-block p{font-size:.9rem;line-height:1.32}
+  .home-page .hero .stakes-block p+p{margin-top:.6rem}
+  .home-page .hero .hero-proof{margin-top:.35rem}
+  .home-page .hero .hero-proof>div{padding:.9rem 1rem}
+  .home-page .hero .hero-proof strong{font-size:1.08rem;margin-bottom:3px}
+  .home-page .hero .hero-proof span{font-size:.84rem;line-height:1.5}
+  .home-page .hero .hero-ctas{margin-top:.7rem!important}
+  .engagement-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+  @media(max-width:720px){
+    .engagement-paths{grid-template-columns:1fr}
+    .hero-proof,.app-grid,.proof-grid,.diff-grid,.control-strip,.source-flow,.home-proof-detail,.home-persona-grid,.continuity-flow{grid-template-columns:1fr}.app-card{min-height:0}
+    .home-page .hero{padding-top:2.4rem;padding-bottom:2.5rem}
+    .home-page .nav-logo>span:last-child{display:none}
+    .home-page .nav-cta{padding:7px 10px;font-size:.76rem}
+    .home-page .nav-toggle{margin-left:.5rem}
+    .home-page .hero,.home-page .stakes-block,.home-page .hero-proof{width:100%;max-width:100%}
+    .home-page .hero-proof>div{min-width:0}
+  }
+  .possibility-stories{display:grid;gap:1.25rem;margin-top:2rem}
+  .possibility-story{border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper-2);padding:clamp(1rem,3vw,2rem)}
+  .possibility-heading{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+  .possibility-heading .label{font:500 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+  .possibility-heading h3{font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.9rem);margin-bottom:.35rem}
+  .possibility-heading p,.story-payoff{color:var(--ink-3);line-height:1.65}
+  .possibility-number{font:500 .75rem var(--font-mono);color:var(--accent);border:1px solid var(--border);border-radius:50%;width:2rem;height:2rem;flex-shrink:0;display:grid;place-items:center}
+  .possibility-visual{display:grid;gap:.75rem;margin:1rem 0}
+  .possibility-visual.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .signal-card,.report-card{border:1px solid var(--border);background:var(--paper);border-radius:var(--radius-m);padding:1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+  .signal-card strong,.report-card strong{font-size:.95rem}
+  .signal-card span,.report-card>span{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+  .signal-icon{font-size:1.3rem!important;color:var(--accent)!important}
+  .possibility-convergence{text-align:center;color:var(--ink-3);font:.75rem var(--font-mono);padding:.35rem}
+  .possibility-convergence span{color:var(--accent)}
+  .possibility-question{border-left:3px solid var(--accent);padding:1rem 1.25rem;background:var(--paper)}
+  .possibility-question p{margin:.4rem 0;line-height:1.55}
+  .possibility-question small{color:var(--ink-3)}
+  .reporting-visual{max-width:750px;margin:1.25rem auto}
+  .report-card strong{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .status-good{color:#20754b;font:.72rem var(--font-mono)}
+  .report-bridge{text-align:center;font:.75rem var(--font-mono);color:var(--ink-3);padding:.3rem}
+  .warning-card{border-left:3px solid var(--accent)}
+  .learning-visual{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch}
+  .loop-arrow{align-self:center;color:var(--accent);font-size:1.25rem}
+  .next-deal{border-color:var(--accent)}
+  .story-payoff{margin-top:1rem}
+  .story-payoff strong{color:var(--ink)}
+  .possibility-invitation{margin-top:2.5rem;padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--border);border-radius:var(--radius-m);background:var(--paper)}
+  .possibility-invitation p{max-width:850px;line-height:1.7;margin:.8rem 0}
+  @media(max-width:800px){.learning-visual{grid-template-columns:1fr 1fr}.loop-arrow{display:none}}
+  @media(max-width:600px){.possibility-visual.three{grid-template-columns:1fr}.learning-visual{grid-template-columns:1fr 1fr}.possibility-heading{gap:.65rem}.report-card strong{flex-wrap:wrap}}
+  .story-art{margin:1.3rem 0;border-radius:16px;overflow:hidden;padding:clamp(.35rem,1.5vw,1rem);border:1px solid var(--border)}
+  .story-art svg{display:block;width:100%;height:auto}
+  .art-connections{background:#f5e9df}.art-depth{background:#e8f0eb}.art-loop{background:#e7f0f3}
+  .possibility-story:nth-child(1){border-top:5px solid #b96348}
+  .possibility-story:nth-child(2){border-top:5px solid #3a926e}
+  .possibility-story:nth-child(3){border-top:5px solid #4d8d9a}
+  .possibility-story:nth-child(2) .possibility-number,.possibility-story:nth-child(2) .label{color:#317c60}
+  .possibility-story:nth-child(3) .possibility-number,.possibility-story:nth-child(3) .label{color:#356e7d}
+  @media(max-width:600px){.story-art{margin:1rem -.2rem;padding:.15rem}.story-art svg{min-height:145px}.possibility-story{padding:1.05rem}}
+
+  .pattern-intro{margin:2.4rem 0 3.2rem;padding:clamp(1.4rem,4vw,3rem);border:1px solid var(--border);border-radius:18px;background:var(--paper-2)}
+  .pattern-intro h3{font-family:var(--font-display);font-size:clamp(1.8rem,3.3vw,3rem);line-height:1.15;font-weight:400;max-width:800px;margin:.7rem 0 1rem}
+  .pattern-intro p{max-width:820px;color:var(--ink-3);line-height:1.7}
+  .pattern-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:1.6rem 0}
+  .pattern-flow>div{padding:1.15rem .8rem;border-radius:10px;background:var(--paper);border-top:3px solid var(--accent)}
+  .pattern-flow strong{display:block;font-size:.94rem}.pattern-flow span{display:block;font-size:.78rem;color:var(--ink-3);margin-top:.4rem}
+  .reasoning-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:1.5rem 0}
+  .reasoning-route{min-width:0;background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+  .reasoning-route .label{display:block;font:500 .67rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:.65rem}
+  .reasoning-route h4{font-family:var(--font-display);font-size:1.35rem;font-weight:400;line-height:1.24;margin:0 0 .65rem}
+  .reasoning-route p{font-size:.9rem;line-height:1.6;margin:0}
+  .pattern-intro .reasoning-outcome{border-left:3px solid var(--accent);padding:.2rem 0 .2rem 1rem;margin:1.4rem 0}
+  .pattern-intro .reasoning-action{margin:1rem 0 0;font-size:.93rem}
+  .reasoning-action a{color:var(--accent);text-decoration:underline;text-underline-offset:4px;font-weight:600}
+  @media(max-width:700px){.reasoning-routes{grid-template-columns:1fr}.reasoning-route{padding:1rem}}
+  .editorial-feature{margin:3.3rem 0;padding:clamp(1.4rem,4vw,2.8rem);border-radius:16px;border:1px solid var(--border);background:#e7eee8}
+  .editorial-feature h3{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,4vw,3.3rem);margin:.5rem 0 1rem}
+  .editorial-feature p{max-width:740px;line-height:1.7;color:#35544b}.editorial-feature a{display:inline-block;margin-top:.6rem;font-weight:600;color:#24594b}
+  .proof-routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:2.2rem 0}
+  .proof-routes a{display:block;text-decoration:none;border:1px solid var(--border);border-radius:12px;padding:1.2rem;background:var(--paper-2)}
+  .proof-routes strong{display:block;margin-bottom:.4rem}.proof-routes span{font-size:.85rem;color:var(--ink-3);line-height:1.5}
+  @media(max-width:700px){.pattern-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.proof-routes{grid-template-columns:1fr}}
+
+  .enterprise-context{max-width:990px;margin:var(--space-l) 0;padding:1rem 1.3rem;border-left:3px solid var(--accent);background:var(--paper-2)}
+  .enterprise-context p{max-width:880px;color:var(--ink-3);line-height:1.65;font-size:.94rem}
+  .enterprise-context-links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.75rem;font-size:.86rem}
+  .enterprise-context-links a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .back-to-top{position:fixed;right:1.2rem;bottom:1.2rem;z-index:20;padding:.65rem .85rem;border:1px solid var(--border);border-radius:999px;background:var(--paper);color:var(--ink);box-shadow:0 6px 22px rgba(0,0,0,.09);font:500 .8rem var(--font-mono);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+  .back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+  .back-to-top:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  @media(max-width:720px){.enterprise-context{padding:.85rem 1rem}.back-to-top{right:.7rem;bottom:.7rem}}
+  @media(prefers-reduced-motion:reduce){.back-to-top{transition:none}}
+
+.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.4rem 0}.decision-cell{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:1.5rem}.decision-cell h3{font-family:var(--font-display);font-size:1.65rem;font-weight:400;line-height:1.2;margin:.4rem 0 .6rem}.decision-cell p{font-size:.93rem;color:var(--ink-3);line-height:1.65}.decision-emphasis{padding:1.4rem 1.6rem;border-left:4px solid var(--accent);background:var(--paper-2);margin:1.4rem 0;line-height:1.7}.decision-hero{padding-bottom:2.5rem}.decision-hero .hero-h1{max-width:1060px;font-size:clamp(2.8rem,5vw,4.6rem);line-height:1.05}.decision-hero .hero-h1 em{color:var(--accent)}.decision-text{max-width:920px;line-height:1.7;font-size:1.07rem;color:var(--ink-3)}.decision-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.decision-flow>div{padding:1.3rem;border:1px solid var(--border);background:var(--paper);border-radius:12px}.decision-flow strong{display:block;margin-bottom:.5rem}.decision-flow p{color:var(--ink-3);font-size:.87rem;line-height:1.6}.decision-badge{font:500 .7rem var(--font-mono);color:var(--accent);letter-spacing:.07em;text-transform:uppercase}.decision-cta{margin:2rem 0;padding:2rem;background:var(--ink);color:var(--paper);border-radius:14px}.decision-cta h2{color:var(--paper)}.decision-cta p{color:#e0e2e3;line-height:1.65;margin:1rem 0}.decision-inline a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}.decision-note{font-size:.8rem;color:var(--ink-3)}@media(max-width:780px){.decision-grid,.decision-flow{grid-template-columns:1fr}.decision-cell{padding:1.15rem}.decision-hero .hero-h1{font-size:clamp(2.3rem,9vw,3.3rem)}}
+</style>
+
+<!-- build:2026-09-06-site-convergence-final-density -->
+</head>
+
+<body id="top"><nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="Epistamate home"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a><div class="nav-links"><a href="/strategy.html" aria-current="page">Decision continuity</a><a href="/epistamate_demo.html">Research Workspace</a><a href="/engine.html">How it works</a><a href="/possibilities.html">Possibilities</a><a href="/blog/">Insights</a></div><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="nav-cta">Get in touch</a></div></nav>
+<main>
+<section class="hero decision-hero"><div class="hero-eyebrow">EPISTAMATE · STRATEGY &amp; DECISION CONTINUITY</div><h1 class="hero-h1">Turn intelligence into decisions.<br><em>Keep the reasoning alive.</em></h1><p class="decision-text">Your team reads analyst research, reviews business performance and weighs competing recommendations. Epistamate brings those perspectives into a continuing analytical picture: what supports your position, which assumptions matter and when new information deserves another look.</p><div class="hero-ctas"><a href="mailto:hello@epistamate.com?subject=Exploring%20decision%20continuity" class="btn-primary">Explore a decision with us →</a><a href="#decision-journey" class="btn-secondary">See how the work connects ↓</a></div></section>
+<section class="diff-section"><div class="section-inner"><div class="section-tag">Beyond the report</div><h2>Excellent research doesn't make<br><em>the decision for your enterprise.</em></h2><p class="section-sub">You may subscribe to Gartner, McKinsey, HFS and specialist research. Internally, strategy plans, financial reviews and operational reporting supply other perspectives. These sources use different evidence, reasoning and assumptions. The question is what they mean for <strong>your objectives, commitments and constraints</strong>—and what you can responsibly conclude from them.</p>
+<div class="decision-grid"><div class="decision-cell"><div class="decision-badge">External perspectives</div><h3>Understand the argument, not just the headline.</h3><p>Find where reports converge, where their underlying measures and assumptions differ, what each actually establishes and what is still uncertain.</p></div><div class="decision-cell"><div class="decision-badge">Internal reality</div><h3>Connect the evidence to the enterprise.</h3><p>Examine the implications for strategic alternatives, existing programmes, business performance and organisational capacity. Make the judgement—and its conditions—explicit.</p></div></div></div></section>
+<section class="diff-section" id="decision-journey"><div class="section-inner"><div class="section-tag">An illustrative continuing decision</div><h2>A new report arrives.<br><em>What should change?</em></h2><p class="section-sub">A strategy team develops an AI investment recommendation from several published studies and the organisation's own priorities. Three days after the executive accepts a provisional direction, another report raises a new consideration.</p>
+<div class="decision-flow"><div><span class="decision-badge">01 · Develop</span><strong>Construct a considered position</strong><p>Examine source reasoning, strategic choices and assumptions. Preserve the team's interpretation and the decision owner’s judgement.</p></div><div><span class="decision-badge">02 · Receive</span><strong>New evidence enters</strong><p>A fourth report suggests that investment governance should consider when to stop or redirect underperforming initiatives.</p></div><div><span class="decision-badge">03 · Reconsider</span><strong>Review what matters</strong><p>The team tests relevance and escalates one consequential issue rather than asking the executive to re-read everything.</p></div></div>
+<div class="decision-emphasis"><strong>What the executive might see:</strong> “Your current investment direction remains intact. One part of the supporting reasoning deserves review: when should an AI initiative be stopped or redirected?” The executive can inspect the rationale and decide whether a revision is warranted.</div>
+<p class="decision-note">Illustrative scenario showing the intended professional experience, not a claim of a deployed end-to-end assessment of those publications.</p>
+</div></section>
+<section class="diff-section"><div class="section-inner"><div class="section-tag">Different work · shared context</div><h2>The strategy team does the groundwork.<br><em>The executive sees the consequence.</em></h2>
+<div class="decision-grid"><div class="decision-cell"><div class="decision-badge">Strategy director / PMO / advisory team</div><h3>Do the analytical work.</h3><p>Bring relevant reports and company material together; inspect source qualifications, challenge candidate relationships, investigate gaps and prepare what actually requires the decision-maker's attention.</p></div><div class="decision-cell"><div class="decision-badge">CXO / decision owner</div><h3>Exercise judgement with clarity.</h3><p>See the position, its strongest supporting and competing arguments, outstanding uncertainties and material changes. Open the underlying reasoning when you need to—not as a prerequisite.</p></div></div>
+<p class="section-sub">A model can suggest relationships; it cannot silently endorse a professional conclusion. Reviewed reasoning and earlier decisions remain distinguishable as evidence and circumstances evolve.</p></div></section>
+<section class="diff-section"><div class="section-inner"><div class="section-tag">Why this is different</div><h2>Execution can be on track<br><em>while the premise changes.</em></h2><p class="section-sub">Dashboards and strategy-execution platforms help organisations monitor objectives, initiatives and performance. Epistamate concentrates on a complementary question: <strong>does the evidence and reasoning that justified our earlier decision still support it?</strong></p>
+<div class="decision-flow"><div><span class="decision-badge">Retain</span><strong>Why this was decided</strong><p>Evidence, assumptions, alternatives and reviewed judgements—not just the final slide or recommendation.</p></div><div><span class="decision-badge">Connect</span><strong>What new material implies</strong><p>Find candidate relationships between new evidence and the reasons behind decisions already taken.</p></div><div><span class="decision-badge">Review</span><strong>What deserves attention</strong><p>Reconsider material dependencies deliberately, preserving previous decisions and the history behind them.</p></div></div>
+<div class="decision-inline"><a href="/engine.html">Explore the governed reasoning foundation →</a> &nbsp; <a href="/possibilities.html">See other applications →</a></div></div></section>
+<section class="diff-section"><div class="section-inner"><div class="decision-cta"><div class="section-tag">Start with an important decision</div><h2>What is your team trying to decide?</h2><p>Bring an investment question, a strategy under review or a recurring executive reporting process. Explore how the evidence already available to your organisation could make the next judgement more informed.</p><a href="mailto:hello@epistamate.com?subject=Decision%20continuity%20conversation" class="btn-primary">Discuss a use case →</a></div></div></section>
+</main><footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Epistamate</strong><p>Evidence you can defend · Research you can continue · Decisions you can reconstruct</p></div>
+    <div class="footer-links"><a href="/strategy.html">Decision continuity</a><a href="/epistamate_demo.html">Research Workspace</a><a href="/advisory.html">Advisory applications</a><a href="/possibilities.html">Imagine the possibilities</a><a href="/engine.html">How it works</a><a href="/assurance.html">Assurance</a><a href="/blog/">Insights</a><a href="mailto:hello@epistamate.com">Get in touch</a></div>
+    <div class="footer-refs">
+      <a href="https://doi.org/10.5281/zenodo.23188285" target="_blank" rel="noopener">Governed Research State Version 2 · Zenodo</a>
+      <a href="https://zenodo.org/records/19204972" target="_blank" rel="noopener">DCBR Engine paper · Zenodo</a>
+      <a href="https://zenodo.org/records/19301680" target="_blank" rel="noopener">RegWatch paper · Zenodo</a>
+      <span class="publication-id">Defensive disclosure · IPCOM/000277741</span>
+      <a href="/landscape.html">Prior art and open problems</a>
+    </div>
+  </div>
+</footer>
+</body></html>
