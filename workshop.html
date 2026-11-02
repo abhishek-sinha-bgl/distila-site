@@ -201,7 +201,15 @@
 @media(max-width:620px){.workshop-page .workshop-intro h1{font-size:clamp(2.5rem,8.3vw,3.35rem)}.workshop-page .workshop-intro{padding:2.1rem 0 1.5rem}.workshop-difference-grid,.workshop-foundation-grid,.workshop-experience-steps{grid-template-columns:1fr}.workshop-feature h2{font-size:clamp(2rem,7.2vw,2.7rem)}.workshop-context{font-size:.72rem}.workshop-app-inner{padding:1.1rem}}
 
 </style>
-</head><body class="workshop-page"><nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="Epistamate home"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a><div class="nav-links"><a href="/#why-now">Why now</a><a href="/workshop.html" aria-current="page">Workshop</a><a href="/#applications">Applications</a><a href="/engine.html">How it works</a><a href="/blog/">Insights</a></div><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="nav-cta">Get in touch</a></div></nav><main class="preview-main workshop-content">
+<style>
+.workshop-report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin:1.35rem 0 1rem}
+.workshop-report{background:var(--paper-2);border:1px solid var(--border);border-radius:9px;padding:clamp(1rem,2.5vw,1.55rem)}
+.workshop-report-heading{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--border);padding:0 0 .9rem;color:var(--accent);font:500 .68rem var(--font-mono);letter-spacing:.04em}
+.workshop-report h3{font-family:var(--font-display);font-size:1.5rem;margin:.9rem 0 .55rem}
+.workshop-report p{font-size:.93rem;line-height:1.65;color:var(--ink-3);margin:0 0 .95rem}
+.workshop-report-detail{font-size:.8rem;color:var(--ink-3);border-top:1px solid var(--border);padding-top:.75rem}
+@media(max-width:650px){.workshop-report-grid{grid-template-columns:1fr}}
+</style></head><body class="workshop-page"><nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="Epistamate home"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a><div class="nav-links"><a href="/#why-now">Why now</a><a href="/workshop.html" aria-current="page">Workshop</a><a href="/#applications">Applications</a><a href="/engine.html">How it works</a><a href="/blog/">Insights</a></div><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="nav-cta">Get in touch</a></div></nav><main class="preview-main workshop-content">
 <header class="preview-hero workshop-intro">
   <div class="section-tag">EPISTAMATE · ORGANISATIONAL INTELLIGENCE WORKSHOP</div>
   <h1>Work on a real organisational question.<br><em>See the thinking evolve.</em></h1>
@@ -267,8 +275,8 @@
   <div class="section-tag">The method and the foundation</div>
   <h2 id="foundation-title">Research-informed judgement.<br><em>Proportionate assurance.</em></h2>
   <div class="workshop-foundation-grid">
-    <div><h3>A method shaped by research</h3><p>The facilitation draws on research and practice concerning organisational learning, evidence quality, human-AI judgement, constructive challenge and decision reconsideration. The goal is an experience that executives can practise and reuse, rather than an academic exercise.</p></div>
-    <div><h3>Epistamate underneath</h3><p>The evidence-and-reasoning foundation supports source-attributed contributions, candidate interpretations, reviewed state, continuity and change history. Model assistance helps develop synthesis; it does not independently verify organisational claims or acquire authority to approve decisions.</p></div>
+    <div><h3>A method shaped by research</h3><p>The facilitation draws on research and practice concerning organisational learning, evidence quality, human-AI judgement, constructive challenge and decision reconsideration. The goal is an experience that executives can practise and reuse, rather than an academic exercise. <a href="/blog/">Explore the research and essays →</a></p></div>
+    <div><h3>Epistamate underneath</h3><p>The evidence-and-reasoning foundation supports source-attributed contributions, candidate interpretations, reviewed state, continuity and change history. Model assistance helps develop synthesis; it does not independently verify organisational claims or acquire authority to approve decisions. <a href="/engine.html">How the foundation works →</a></p></div>
   </div>
   <p class="workshop-principle"><strong>Blue-sky ideas remain welcome.</strong> The key safeguard is faithful relationships, not citations for every speculation. Quick Pass is intended to let the facilitator accept a reasonable provisional synthesis while inspecting uncertain or consequential links more closely. A short list of important open questions is more useful than an exhaustive warning register.</p>
 </section>
@@ -277,7 +285,11 @@
   <div class="section-tag">Format and outcomes</div>
   <h2 id="format-title">A guided journey, with learning built into the work.</h2>
   <p>The core programme is designed as a five-session executive learning journey, with a shorter intensive format being evaluated. Sessions move from open possibilities to what would enable them, what might challenge them and how the group's understanding has changed. Facilitator-led recaps help participants apply the approach again.</p>
-  <p>The intended deliverables are a cumulative account of the group's reasoning and personalised learning reports. Report authoring and additional external market, regulatory and competitor-intelligence integration are being refined; the workshop is not offered as an off-the-shelf, self-configuring service.</p>
+  <div class="workshop-report-grid">
+  <article class="workshop-report"><div class="workshop-report-heading"><span>GROUP REASONING JOURNEY</span><span aria-hidden="true">↗</span></div><h3>What did the organisation explore?</h3><p>Possibilities considered, perspectives that changed them, unresolved differences and three or four consequential questions to investigate next.</p><div class="workshop-report-detail">Shared learning, with provenance and review context</div></article>
+  <article class="workshop-report"><div class="workshop-report-heading"><span>PERSONALISED LEARNING REPORT</span><span aria-hidden="true">↗</span></div><h3>What did I learn from the exercise?</h3><p>Your ideas, the questions you challenged, relevant private reflections and ways to apply the method in your own work.</p><div class="workshop-report-detail">Private reflections remain personal</div></article>
+</div>
+<p class="workshop-example-note">These are intended report formats under refinement, not downloadable outputs from an existing customer engagement. External intelligence and delivery arrangements are tailored to the participating organisation.</p>
   <p><strong>The promise is methodological and practical:</strong> participants learn to explore a real organisational question more thoughtfully. There is no guaranteed transformation strategy, approved investment case or organisation-of-the-future blueprint after five sessions.</p>
 </section>
 
