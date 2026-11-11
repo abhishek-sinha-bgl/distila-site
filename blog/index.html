@@ -185,23 +185,92 @@
 .insights-featured{margin-top:1.5rem}
 @media(max-width:820px){.insights-path-grid{grid-template-columns:1fr;gap:1rem}.insights-reading-paths{margin-top:1.7rem}.insights-path{padding:.9rem 0 1rem}.insights-path h3{font-size:1.55rem}}
 
-/* Reusable industry-series feature; sector additions can follow this structure. */
-.industry-home{margin:2.7rem 0 3rem;border-top:1px solid var(--border);padding-top:1.8rem}.industry-home h2{font-family:var(--font-display);font-weight:400;font-size:clamp(2.1rem,3.3vw,3.2rem);line-height:1.1;margin:.35rem 0 .5rem}.industry-intro{font-size:.95rem;max-width:820px;color:var(--ink-3);line-height:1.6;margin:0 0 1.4rem}.industry-feature{display:grid;grid-template-columns:1.15fr .85fr;background:#e8eeea;border:1px solid #cdd9d1;border-radius:16px;overflow:hidden}.industry-feature-copy{padding:clamp(1.5rem,3vw,2.5rem);min-width:0}.industry-feature-copy h3{font:400 clamp(1.9rem,2.75vw,2.6rem)/1.12 var(--font-display);margin:.55rem 0 .9rem}.industry-feature-copy p{color:#3c554a;line-height:1.6;font-size:.93rem}.industry-feature-latest{border-top:1px solid #c9d8cf;margin-top:1.25rem;padding-top:1.25rem}.industry-feature-latest strong{font:400 clamp(1.2rem,1.85vw,1.55rem)/1.2 var(--font-display);display:block;margin:.45rem 0}.industry-feature-actions{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.1rem}.industry-feature-actions a{color:var(--accent);font-weight:600;font-size:.88rem;text-decoration:underline;text-underline-offset:4px}.industry-feature-image{background:#0e242d;min-height:315px;display:block}.industry-feature-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}.industry-feature .section-tag{color:#4a6a5e}@media(max-width:780px){.industry-feature{grid-template-columns:1fr}.industry-feature-image{order:-1;min-height:205px;max-height:300px}.industry-home{margin:2rem 0}.industry-feature-copy{padding:1.35rem}}
+
+/* Insights editorial front page: two recent essays beside the standing industry series. */
+.preview-main{max-width:1140px;padding-left:26px;padding-right:26px}
+.preview-hero{padding:22px 0 13px;max-width:none}
+.preview-hero .section-tag{font-size:.67rem}
+.preview-hero h1{font-size:clamp(2.25rem,3.3vw,3.1rem);line-height:1.06;margin:5px 0 7px;max-width:none}
+.preview-hero p{font-size:.92rem;line-height:1.46;max-width:930px;margin:0}
+.insights-nav-row{margin:12px 0 0;gap:.9rem}
+.insights-nav-row a{font-size:.8rem}
+.insights-nav-row a:first-child{padding:7px 12px;border-radius:6px}
+.insights-opening{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:14px;align-items:stretch;margin:5px 0 0}
+.insights-featured.insights-featured-primary{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:1fr 1fr;gap:10px;margin:0}
+.insights-featured-primary article{padding:16px 20px;border-radius:12px;gap:4px;min-height:0}
+.insights-featured-primary h2{font-size:clamp(1.5rem,2.12vw,1.86rem);line-height:1.1;margin:2px 0 3px}
+.insights-featured-primary .section-tag{font-size:.61rem;line-height:1.4;letter-spacing:.05em}
+.insights-featured-primary p{font-size:.8rem;line-height:1.42;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.insights-featured-primary a{font-size:.82rem;padding-top:5px;line-height:1.3}
+.insights-industry-spotlight{min-width:0;overflow:hidden;display:flex;flex-direction:column;border:1px solid #cbd9d1;border-radius:12px;background:#e8eeea}
+.insights-industry-visual{display:block;flex:0 0 143px;max-height:143px;background:#102830;overflow:hidden}
+.insights-industry-visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 69%;filter:saturate(.83)}
+.insights-industry-content{display:flex;flex:1;flex-direction:column;gap:5px;padding:14px 20px 15px}
+.insights-industry-content .section-tag{color:#3c6659;font-size:.65rem;letter-spacing:.06em;line-height:1.4}
+.insights-industry-content .section-tag a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.insights-industry-content h2{font:400 clamp(1.8rem,2.7vw,2.23rem)/1.05 var(--font-display);margin:1px 0 7px}
+.insights-industry-content h2 a,.insights-industry-content h3 a{text-decoration:none;color:inherit}
+.insights-industry-content h2 a:hover,.insights-industry-content h3 a:hover{color:var(--accent)}
+.insights-industry-latest-label{font:500 .63rem/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:#577264}
+.insights-industry-content h3{font:400 clamp(1.12rem,1.65vw,1.42rem)/1.19 var(--font-display);margin:0}
+.insights-industry-actions{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:auto;padding-top:11px}
+.insights-industry-actions a{color:var(--accent);font-size:.82rem;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.insights-more-featured{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;border-top:1px solid var(--border);margin:16px 0 0;padding:12px 0 16px}
+.insights-more-label{font-size:.64rem;margin:4px 0}
+.insights-more-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.insights-more-items article{min-width:0;padding:0 13px 0 0;display:flex;flex-direction:column;gap:3px}
+.insights-more-items article:first-child{border-right:1px solid var(--border)}
+.insights-more-items .section-tag{font-size:.59rem;letter-spacing:.045em;line-height:1.4}
+.insights-more-items h2{font:400 1.35rem/1.14 var(--font-display);margin:0}
+.insights-more-items p{font-size:.75rem;line-height:1.4;color:var(--ink-3);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden}
+.insights-more-items article>a{font-size:.75rem;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px;line-height:1.3}
+.insights-reading-paths{margin-top:1.1rem}
+@media(max-width:930px){
+  .insights-opening{grid-template-columns:minmax(0,1fr)}
+  .insights-featured.insights-featured-primary{grid-template-rows:auto;gap:10px}
+  .insights-industry-spotlight{order:-1}
+  .insights-industry-visual{flex-basis:190px;max-height:190px}
+  .insights-more-featured{grid-template-columns:1fr;gap:10px}
+}
+@media(max-width:620px){
+  .preview-main{padding-left:18px;padding-right:18px}
+  .preview-hero{padding:22px 0 12px}
+  .preview-hero h1{font-size:clamp(2.08rem,8vw,2.65rem);line-height:1.08}
+  .preview-hero p{font-size:.89rem}
+  .insights-nav-row{gap:8px 12px;margin-top:12px}
+  .insights-nav-row a{font-size:.76rem}
+  .insights-featured-primary article{padding:14px 16px}
+  .insights-featured-primary h2{font-size:1.67rem}
+  .insights-industry-visual{flex-basis:158px;max-height:158px}
+  .insights-industry-content{padding:14px 16px}
+  .insights-more-items{grid-template-columns:1fr;gap:11px}
+  .insights-more-items article:first-child{border-right:0;border-bottom:1px solid var(--border);padding-bottom:11px}
+  .insights-more-items p{-webkit-line-clamp:2}
+}
+
 </style></head><body><nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="Epistamate home"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a><div class="nav-links"><a href="/possibilities.html">Possibilities</a><a href="/workshop.html">Workshop</a><a href="/#applications">Applications</a><a href="/engine.html">How it works</a><a href="/blog/" aria-current="page">Insights</a></div><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="nav-cta">Get in touch</a></div></nav>
 <main class="preview-main">
 <header class="preview-hero">
 <div class="section-tag">INSIGHTS · ESSAYS &amp; ARTICLES</div>
-<h1>Ideas that deserve<br><em>a closer look.</em></h1>
-<p>Writing on the unfinished AI enterprise, the changing world around it, industry research and how reasoning can remain useful as conditions change. Choose a reading path below or browse the full collection.</p>
+<h1>Ideas that deserve <em>a closer look.</em></h1>
+<p>Evidence-led writing on enterprise change, human judgement and the possibilities emerging across industries.</p>
 <div class="insights-nav-row"><a href="#articles">Explore all 23 articles ↓</a><a href="/blog/archive.html">Open the article archive →</a><a href="#research-papers">Published research papers ↓</a></div>
 </header>
-<section class="insights-featured" aria-label="Featured essays"> <article><div class="section-tag">New article · Enterprise AI strategy · 7 November 2026</div><h2>Enterprise AI Strategy: Good Advice, Uneven Evidence, Hard Decisions</h2><p>What the converging advice on AI adoption, ROI, workflow redesign and governance gets right, where the evidence is uneven, and which consequential decisions remain with enterprise leaders.</p><a href="/blog/enterprise-ai-strategy-evidence-decisions.html">Read the evidence-informed article ↗</a></article> 
-<article><div class="section-tag">New essay · Enterprise &amp; society</div><h2>When AI Changes the World Around the Enterprise</h2><p>AI is reshaping the circumstances surrounding enterprise decisions as well as the capabilities available to organisations. On competition, social acceptance, regulation and commitments that may need reconsideration.</p><a href="/blog/when-ai-changes-world-around-enterprise.html">Read the essay ↗</a></article>
-<article><div class="section-tag">Featured essay · Enterprise transformation</div><h2>The Unfinished AI Enterprise</h2><p>Delivering an AI programme is not the same as exhausting the changes AI makes possible. On commitments, evolving capabilities and the work that remains when a transformation is declared complete.</p><a href="https://abhishek-sinha-bgl.github.io/articles/unfinished-ai-enterprise.html" target="_blank" rel="noopener">Read the essay ↗</a></article>
-<article><div class="section-tag">Featured essay · AI assurance</div><h2>The AI Assurance Halo</h2><p>Why individually legitimate validation signals can create more confidence than the underlying evidence warrants, and what that means when AI-supported work reaches executive decisions.</p><a href="https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html" target="_blank" rel="noopener">Read the essay ↗</a></article>
+<div class="insights-opening"><section class="insights-featured insights-featured-primary" aria-label="Latest featured essays"><article><div class="section-tag">New article · Enterprise AI strategy · 7 November 2026</div><h2>Enterprise AI Strategy: Good Advice, Uneven Evidence, Hard Decisions</h2><p>What the converging advice on AI adoption, ROI, workflow redesign and governance gets right, where the evidence is uneven, and which consequential decisions remain with enterprise leaders.</p><a href="/blog/enterprise-ai-strategy-evidence-decisions.html">Read the evidence-informed article ↗</a></article>
+<article><div class="section-tag">New essay · Enterprise &amp; society</div><h2>When AI Changes the World Around the Enterprise</h2><p>AI is reshaping the circumstances surrounding enterprise decisions as well as the capabilities available to organisations. On competition, social acceptance, regulation and commitments that may need reconsideration.</p><a href="/blog/when-ai-changes-world-around-enterprise.html">Read the essay ↗</a></article></section><section class="insights-industry-spotlight" id="industry-insights" aria-labelledby="insights-industry-title">
+  <a class="insights-industry-visual" href="/blog/industry-insights/automotive/" aria-label="Explore the automotive industry series"><img src="/assets/articles/automotive-industry-feature.webp" alt="Understated futuristic graphite sedan in a dark architectural setting" width="560" height="315" loading="eager" decoding="async"></a>
+  <div class="insights-industry-content">
+    <div class="section-tag"><a href="/blog/industry-insights/">Industry Insights</a> · Automotive</div>
+    <h2 id="insights-industry-title"><a href="/blog/industry-insights/automotive/">AI and the Automotive Industry</a></h2>
+    <div class="insights-industry-latest-label">Latest article · 11 November 2026</div>
+    <h3><a href="/blog/industry-insights/automotive/ai-automotive-rd-engineering.html">AI in Automotive R&amp;D and Engineering: What the Evidence Shows</a></h3>
+    <div class="insights-industry-actions"><a href="/blog/industry-insights/automotive/ai-automotive-rd-engineering.html">Read the article →</a><a href="/blog/industry-insights/automotive/">Explore the series →</a></div>
+  </div>
+</section></div>
+<section class="insights-more-featured" aria-label="More featured essays"><div class="insights-more-label section-tag">Also featured</div><div class="insights-more-items"><article><div class="section-tag">Featured essay · Enterprise transformation</div><h2>The Unfinished AI Enterprise</h2><p>Delivering an AI programme is not the same as exhausting the changes AI makes possible. On commitments, evolving capabilities and the work that remains when a transformation is declared complete.</p><a href="https://abhishek-sinha-bgl.github.io/articles/unfinished-ai-enterprise.html" target="_blank" rel="noopener">Read the essay ↗</a></article>
+<article><div class="section-tag">Featured essay · AI assurance</div><h2>The AI Assurance Halo</h2><p>Why individually legitimate validation signals can create more confidence than the underlying evidence warrants, and what that means when AI-supported work reaches executive decisions.</p><a href="https://abhishek-sinha-bgl.github.io/articles/ai-assurance-halo-validation-passed.html" target="_blank" rel="noopener">Read the essay ↗</a></article></div></section>
 
-</section>
-<section class="industry-home" id="industry-insights" aria-labelledby="industry-home-title"><div class="section-tag">Industry research · Continuing investigations</div><h2 id="industry-home-title">Industry Insights</h2><p class="industry-intro">A closer look at how AI is changing particular sectors, through public evidence, industrial research and practical developments. Automotive is the first continuing series.</p><div class="industry-feature"><div class="industry-feature-copy"><div class="section-tag">Current series · Automotive</div><h3>AI and the Automotive Industry</h3><p>How AI is changing engineering, manufacturing, vehicle capabilities and the wider automotive research ecosystem.</p><div class="industry-feature-latest"><div class="section-tag">Latest in the series · Article 01</div><strong>AI in Automotive R&D and Engineering: What the Evidence Shows</strong><p>From established engineering improvements to new possibilities in materials and autonomous systems, the evidence points to different approaches across manufacturers and their partners.</p></div><div class="industry-feature-actions"><a href="/blog/industry-insights/automotive/ai-automotive-rd-engineering.html">Read the article →</a><a href="/blog/industry-insights/automotive/">Explore the automotive series →</a><a href="/blog/industry-insights/">All Industry Insights →</a></div></div><a class="industry-feature-image" href="/blog/industry-insights/automotive/" aria-label="Explore the automotive industry series"><img src="/assets/articles/automotive-industry-feature.webp" alt="Understated futuristic graphite sedan" width="560" height="315" loading="lazy"></a></div></section><section class="insights-reading-paths" id="reading-paths" aria-labelledby="reading-paths-title"><div class="section-tag">Go deeper · thematic pathways</div><h2 id="reading-paths-title">Follow an idea through the research.</h2><p class="insights-path-intro">The featured essays introduce the larger questions. These reading paths connect them to the work on judgement, evidence and reconsideration.</p>
+<section class="insights-reading-paths" id="reading-paths" aria-labelledby="reading-paths-title"><div class="section-tag">Go deeper · thematic pathways</div><h2 id="reading-paths-title">Follow an idea through the research.</h2><p class="insights-path-intro">The featured essays introduce the larger questions. These reading paths connect them to the work on judgement, evidence and reconsideration.</p>
 <div class="insights-path-grid">
 <article class="insights-path"><span class="insights-path-number">01</span><h3>The changing enterprise</h3><p>What happens when emerging capabilities and the changing environment unsettle earlier assumptions?</p><a href="https://abhishek-sinha-bgl.github.io/articles/unfinished-ai-enterprise.html">The Unfinished AI Enterprise ↗</a><a href="/workshop.html">Explore the executive workshop →</a></article>
 <article class="insights-path"><span class="insights-path-number">02</span><h3>Judgement under AI assistance</h3><p>Why approval, model agreement and validation cannot be treated as universal guarantees.</p><a href="/blog/human-reviewer-not-one-variable.html">A Human Reviewer Is Not One Variable →</a><a href="/blog/model-agreement-is-not-verification.html">Model Agreement Is Not Verification →</a></article>
