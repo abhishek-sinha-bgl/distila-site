@@ -35,3 +35,11 @@
 - Final approval of publication copy and site deployment.
 
 Do not automatically merge or deploy.
+
+## Subsequent layout and preview checks
+
+- The manufacturing image is displayed **left-facing** through a card-specific CSS mirror, matching Article 01's car direction without flipping any text or replacing the existing R&D visual.
+- The automotive landing has tighter introduction spacing and **2.35:1 desktop cover crops** so both article titles appear sooner on typical desktop viewports; the cards revert to **16:9 and a single column on mobile**.
+- GitHub PR **#62** is open as a **draft**. Vercel reports a successful preview deployment for the staging branch. Preview URL as reported in Vercel's GitHub check: https://distila-site-git-preview-au-975235-abhishek-sinha-bgls-projects.vercel.app/blog/industry-insights/automotive/ (may require Vercel project access).
+- Structural QA passes: canonical, BlogPosting schema, OG image reference, four FAQs, reciprocal article links, two series cards, two Insights sidebar links, 24 collection/archive entries and sitemap URL. A full interactive browser acceptance was not possible from this environment.
+- Final high-resolution **960×540 mirrored WebP** prepared at `/mnt/data/automotive_manufacturing_assembly_final_960.webp`, 41 KB, using the same cool graphite/blue palette and no inserted labels. The staged file is still a low-resolution working image until this optimized version is committed. The link to the optimized file is in the ChatGPT discussion.
