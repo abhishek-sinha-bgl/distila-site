@@ -1,0 +1,51 @@
+# Automotive manufacturing Article 02: website review branch
+
+**Date:** 13 November 2026  
+**Status:** prepared in `preview/automotive-manufacturing-article02-2026-11-13`; **not merged into main and not live on the Epistamate website**.
+
+## Included in this preview
+
+- New static HTML article: `blog/industry-insights/automotive/ai-automotive-manufacturing.html`, converted from the final source-checked manuscript v0.6.
+- Automotive landing: two equally weighted image-top cards in publication order, side by side on desktop and stacked on mobile. No repeated Article 01 feature/list.
+- Industry Insights parent: both article links.
+- Insights index: both articles in the Industry Insights sidebar, the new article at the front of the collection, and 24 article entries.
+- Archive: 24 entries with the new article.
+- Article 01: original text, canonical and OG retained, with a series navigation link to Article 02.
+- Sitemap: Article 02 URL and updated series dates.
+
+## Image review
+
+- Original R&D image: `assets/articles/automotive-industry-feature.webp`, not changed.
+- New manufacturing cover in the branch: `assets/articles/automotive-manufacturing-assembly.webp`. It is a **compressed, low-resolution review copy** of an AI-generated assembly scene; it contains a partly assembled graphite-silver vehicle with robotic arms, dark blue-grey lighting and muted cyan accents. The original high-resolution generation is preserved in the conversation at `/mnt/data/futuristic_automotive_assembly_line.png`. **Replace review image with full-resolution, optimised WebP before production publication**, ideally 1120×630 or better for the OG image. This review copy is only 280×158 pixels.
+- Article 01 car faces left; Article 02 car faces right. The opposing orientations are intentional in a side-by-side pairing rather than using a horizontally flipped photograph. Evaluate actual card crops before merging.
+
+## Checks performed
+
+- Article title, canonical, OG image URL, JSON-LD BlogPosting date (2026-11-13), author and series membership.
+- HTML article text has eight substantive H2 sections including four accessible FAQ items, matching the first article's FAQ style.
+- Direct links from both article pages to their companion and automotive series.
+- Two cards, two sidebar links, 24 main-index and archive entries, corrected article count and sitemap article URL.
+- Production-source numeric checks: Magna device removals vs faulty vehicles, Bosch 2021 reported pilot savings, Apollo startup ML plus Bedrock-assisted APC control and operator oversight, defect-warning retrospective thresholds, BMW classical OR, CIRP simulated planning, Xiaomi and DeepMind PoCs and Figure's trial.
+- Source links are inline static HTML, article body contains **no** promotional table or illustration.
+
+## Still required before merging
+
+- Swap low-res image for optimised high-res asset and check its actual desktop/mobile crop.
+- Browser visual/keyboard review at narrow and wide breakpoints (the source-level checks are not a live browser acceptance).
+- Final approval of publication copy and site deployment.
+
+Do not automatically merge or deploy.
+
+## Subsequent layout and preview checks
+
+- The manufacturing image is displayed **left-facing** through a card-specific CSS mirror, matching Article 01's car direction without flipping any text or replacing the existing R&D visual.
+- The automotive landing has tighter introduction spacing and **2.35:1 desktop cover crops** so both article titles appear sooner on typical desktop viewports; the cards revert to **16:9 and a single column on mobile**.
+- GitHub PR **#62** is open as a **draft**. Vercel reports a successful preview deployment for the staging branch. Preview URL as reported in Vercel's GitHub check: https://distila-site-git-preview-au-975235-abhishek-sinha-bgls-projects.vercel.app/blog/industry-insights/automotive/ (may require Vercel project access).
+- Structural QA passes: canonical, BlogPosting schema, OG image reference, four FAQs, reciprocal article links, two series cards, two Insights sidebar links, 24 collection/archive entries and sitemap URL. A full interactive browser acceptance was not possible from this environment.
+- Final high-resolution **960×540 original-orientation WebP** prepared at `/mnt/data/automotive_manufacturing_assembly_final_960.webp`, 41 KB, using the same cool graphite/blue palette and no inserted labels. The staged file is still a low-resolution working image until this optimized version is committed. The link to the optimized file is in the ChatGPT discussion.
+
+**Image orientation gate:** The series landing currently mirrors the second card with CSS `transform:scaleX(-1)`. The optimized 960×540 file at `/mnt/data/automotive_manufacturing_assembly_final_960.webp` is intentionally **unmirrored** in its bytes, so replacing the staged original-orientation low-resolution asset with this file preserves the desired left-facing presentation. Do not upload a pre-mirrored file without removing the CSS flip, or it would face right again.
+
+## FAQ presentation update (14 November 2026)
+
+Both articles now **end at their final conclusion paragraph**. The four original questions follow the article body in a compact, native HTML `<details><summary>` disclosure titled **Questions about the evidence**. It is collapsed on first load, works with keyboard input without JavaScript, preserves the original Q&A text and HTML visibility for indexing, and uses the same responsive typography for both pages. No FAQ schema was added. Review the closed and expanded states on desktop and mobile before merge.
