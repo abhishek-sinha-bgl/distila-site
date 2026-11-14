@@ -45,3 +45,7 @@ Do not automatically merge or deploy.
 - Final high-resolution **960×540 original-orientation WebP** prepared at `/mnt/data/automotive_manufacturing_assembly_final_960.webp`, 41 KB, using the same cool graphite/blue palette and no inserted labels. The staged file is still a low-resolution working image until this optimized version is committed. The link to the optimized file is in the ChatGPT discussion.
 
 **Image orientation gate:** The series landing currently mirrors the second card with CSS `transform:scaleX(-1)`. The optimized 960×540 file at `/mnt/data/automotive_manufacturing_assembly_final_960.webp` is intentionally **unmirrored** in its bytes, so replacing the staged original-orientation low-resolution asset with this file preserves the desired left-facing presentation. Do not upload a pre-mirrored file without removing the CSS flip, or it would face right again.
+
+## FAQ presentation update (14 November 2026)
+
+Both articles now **end at their final conclusion paragraph**. The four original questions follow the article body in a compact, native HTML `<details><summary>` disclosure titled **Questions about the evidence**. It is collapsed on first load, works with keyboard input without JavaScript, preserves the original Q&A text and HTML visibility for indexing, and uses the same responsive typography for both pages. No FAQ schema was added. Review the closed and expanded states on desktop and mobile before merge.
