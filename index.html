@@ -195,14 +195,15 @@
 @media(max-width:540px){.foundation-steps{grid-template-columns:1fr}}
 
 
-.home-entry-lead{max-width:760px;margin:1rem auto 0;font-size:1.04rem;line-height:1.7;color:var(--ink-3)}
-.home-entry-actions{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;margin:1.35rem auto .8rem}
-.home-entry-evidence{font-size:.84rem;color:var(--ink-3);line-height:1.6}
+.home-entry-lead{max-width:920px;margin:1rem 0 0;font-size:1.04rem;line-height:1.7;color:var(--ink-3);text-align:left}
+.home-entry-actions{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:flex-start;margin:1.35rem 0 .8rem}
+.home-entry-evidence{max-width:920px;margin:.85rem 0 0;font-size:.84rem;color:var(--ink-3);line-height:1.6;text-align:left}
 .home-entry-evidence a,.home-founder a,.home-response-foot a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .home-founder{border-top:1px solid var(--border)}.home-founder .section-inner{max-width:900px}
 .home-founder p{max-width:800px;line-height:1.7;color:var(--ink-3)}
 .home-route-primary{border-top:3px solid var(--accent)}
-@media(max-width:760px){.home-entry-actions{justify-content:flex-start}.home-entry-lead{font-size:.97rem}}
+@media(max-width:760px){.home-entry-lead{max-width:100%;font-size:.97rem}}
+@media(max-width:540px){.home-entry-actions{flex-direction:column;align-items:stretch;gap:.65rem}.home-entry-actions a{width:100%;justify-content:center;text-align:center}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"Epistamate develops adaptable ways to explore organisational possibilities and support research, strategy, advisory and assurance reasoning, with a guided executive workshop in pilot development."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}},{"@type":"WebPage","name":"Epistamate Organisational Intelligence Workshop","url":"https://epistamate.com/workshop.html","description":"Pilot guided cross-functional executive learning workshop for exploring possibilities and practising continuing reasoning."}]}</script>
 <!-- build:2026-09-06-site-convergence-final-density -->
@@ -253,11 +254,7 @@
 @media(max-width:780px){.home-page .home-mechanisms{grid-template-columns:1fr;gap:.9rem}.home-page .home-response-routes{grid-template-columns:1fr}.home-page .home-concise .home-response h2{font-size:clamp(2.6rem,8vw,3.6rem)}.home-page .home-response-ctas{flex-direction:column}.home-page .home-response-ctas a{text-align:center}}
 
 </style>
-<style>
-.home-page .home-response-proof{border-top:1px solid var(--border);padding-top:1rem;margin-top:1.15rem;font-size:.9rem;line-height:1.6;color:var(--ink-3)}
-.home-page .home-response-proof strong{color:var(--ink)}
-.home-page .home-response-proof a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}
-</style>
+
 </head>
 <body id="top" class="home-page">
 <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="Epistamate home"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a><div class="nav-links"><a href="/possibilities.html">Possibilities</a><a href="/workshop.html">Workshop</a><a href="/#applications">Applications</a><a href="/engine.html">How it works</a><a href="/blog/">Insights</a></div><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="nav-cta">Get in touch</a></div></nav>
@@ -285,7 +282,6 @@
   </div>
   <div class="home-response-ctas"><a href="/engine.html" class="btn-secondary">Understand Decision Continuity →</a></div>
   <p class="home-response-foot">The underlying approach is also being explored in <a href="/strategy.html">strategy</a>, <a href="/epistamate_demo.html">research</a>, <a href="/advisory.html">advisory</a> and <a href="/assurance.html">assurance</a>.</p>
-  <p class="home-response-proof"><strong>See a working example:</strong> <a href="/policy-research-walkthrough.html">Follow a governed EU–India policy research iteration →</a></p>
 </div></section>
 <section class="diff-section home-editorial" id="perspective"><div class="section-inner">
   <div class="section-tag">The thinking behind the approach</div>
