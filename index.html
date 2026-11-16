@@ -194,6 +194,15 @@
 @media(max-width:800px){.expression-grid,.review-demo{grid-template-columns:1fr}}
 @media(max-width:540px){.foundation-steps{grid-template-columns:1fr}}
 
+
+.home-entry-lead{max-width:760px;margin:1rem auto 0;font-size:1.04rem;line-height:1.7;color:var(--ink-3)}
+.home-entry-actions{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;margin:1.35rem auto .8rem}
+.home-entry-byline{font-size:.84rem;color:var(--ink-3);line-height:1.6}
+.home-entry-byline a,.home-founder a,.home-response-foot a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.home-founder{border-top:1px solid var(--border)}.home-founder .section-inner{max-width:900px}
+.home-founder p{max-width:800px;line-height:1.7;color:var(--ink-3)}
+.home-route-primary{border-top:3px solid var(--accent)}
+@media(max-width:760px){.home-entry-actions{justify-content:flex-start}.home-entry-lead{font-size:.97rem}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://epistamate.com/#organization","name":"Epistamate","url":"https://epistamate.com/","logo":"https://epistamate.com/epistamate-icon.svg","email":"hello@epistamate.com","description":"Epistamate develops adaptable ways to explore organisational possibilities and support research, strategy, advisory and assurance reasoning, with a guided executive workshop in pilot development."},{"@type":"WebSite","url":"https://epistamate.com/","name":"Epistamate","publisher":{"@id":"https://epistamate.com/#organization"},"creator":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"}},{"@type":"SoftwareApplication","name":"Epistamate Governed Research Workspace","applicationCategory":"BusinessApplication","description":"A local-first, single-user current build for question-led and document-led research with provenance, unresolved state, iteration lineage and human review.","url":"https://epistamate.com/epistamate_demo.html"},{"@type":"Service","name":"GenAI Workflow Assurance","description":"A bounded evidence review of consequential GenAI workflows using the same governance architecture with assurance-specific method semantics.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/genai-control-evidence-review.html"},{"@type":"Service","name":"Epistamate Consulting & Advisory","description":"A method-aware adaptation of the same governance architecture to existing consulting and advisory workflows.","provider":{"@id":"https://epistamate.com/#organization"},"url":"https://epistamate.com/advisory.html"},{"@type":"Person","@id":"https://abhishek-sinha-bgl.github.io/about.html#person","name":"Abhishek Sinha","url":"https://abhishek-sinha-bgl.github.io/about.html","sameAs":["https://www.linkedin.com/in/abhishek-sinha-bgl"]},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.23188285","name":"Governed Research State","identifier":"10.5281/zenodo.23188285","url":"https://doi.org/10.5281/zenodo.23188285","author":{"@id":"https://abhishek-sinha-bgl.github.io/about.html#person"},"about":{"@id":"https://epistamate.com/#organization"}},{"@type":"WebPage","name":"Epistamate Organisational Intelligence Workshop","url":"https://epistamate.com/workshop.html","description":"Pilot guided cross-functional executive learning workshop for exploring possibilities and practising continuing reasoning."}]}</script>
 <!-- build:2026-09-06-site-convergence-final-density -->
@@ -254,10 +263,35 @@
 <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="Epistamate home"><span class="logo-badge" aria-hidden="true">E</span><span>Epistamate</span></a><div class="nav-links"><a href="/possibilities.html">Possibilities</a><a href="/workshop.html">Workshop</a><a href="/#applications">Applications</a><a href="/engine.html">How it works</a><a href="/blog/">Insights</a></div><button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const m=document.querySelector('.nav-links');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">&#9776;</button><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="nav-cta">Get in touch</a></div></nav>
 <main class="home-concise">
 <section class="hero decision-hero expression-hero">
-  <div class="hero-eyebrow">EPISTAMATE · CONTINUING ORGANISATIONAL REASONING</div>
+  <div class="hero-eyebrow">EPISTAMATE · DECISION CONTINUITY</div>
   <h1 class="hero-h1">The enterprise is changing.<br><em>So is the world around it.</em></h1>
   <p class="decision-text">AI changes what organisations can do. It also changes competition, customer expectations, the regulatory environment and the assumptions behind earlier commitments. A transformation can finish while the possibilities it opens, and the conditions around them, continue to evolve.</p>
+  <p class="home-entry-lead">Epistamate explores how leadership teams can examine new possibilities and keep the reasoning behind consequential decisions useful. Begin with a facilitated workshop focused on your organisation's question, or bring an existing report whose assumptions may deserve another look.</p>
+  <div class="home-entry-actions"><a class="btn-primary" href="/workshop.html">Explore the workshop →</a><a class="btn-secondary" href="/possibilities.html">Explore a Reasoning View →</a></div>
+  <p class="home-entry-byline">Research and direction by <a href="https://abhishek-sinha-bgl.github.io/" rel="noopener" target="_blank">Abhishek Sinha</a>, an enterprise technology executive and independent researcher.</p>
 </section>
+<section class="diff-section home-response" id="response"><div class="section-inner">
+  <div class="section-tag">How Epistamate helps you respond</div>
+  <h2>Explore a consequential question.<br><em>Keep the reasoning useful.</em></h2>
+  <p class="home-response-lead">The starting point is the organisation's work, not a generic AI playbook. A workshop explores new possibilities with a leadership team. A focused report conversation examines the evidence and reasoning behind an existing conclusion. Both use research-informed methods while preserving professional judgement.</p>
+  <div class="home-response-routes" id="applications">
+    <article class="home-route home-route-primary"><div class="section-tag">First conversation · Facilitated pilot</div><h3>The Organisational Intelligence workshop</h3><p>A proposed five-morning intensive for 5–8 leaders from one organisation, focused on a consequential question. Facilitated discussion, selected research and reviewed synthesis help participants see how their thinking changes.</p><a href="/workshop.html">Explore the workshop format →</a></article>
+    <article class="home-route"><div class="section-tag">Another place to begin</div><h3>Bring an existing report</h3><p>What conclusions, evidence and assumptions does it contain, and what might warrant another look? Explore the Reasoning View idea for one report, as a focused investigation rather than a deployed software service.</p><a href="/possibilities.html">See the Reasoning View idea →</a><div class="home-route-links"><a href="mailto:hello@epistamate.com?subject=Reasoning%20View%20for%20an%20existing%20report">Discuss a report →</a></div></article>
+  </div>
+  <div class="home-mechanisms">
+    <div><span>01 · Explore</span><h3>Begin with the question</h3><p>Imagine new opportunities or investigate a specific decision, research problem or professional workflow.</p></div>
+    <div><span>02 · Examine</span><h3>Make the relationships visible</h3><p>Connect contributions, evidence, assumptions and alternative perspectives without inventing agreement or certainty.</p></div>
+    <div><span>03 · Reconsider</span><h3>Carry thinking forward</h3><p>Preserve reviewed interpretations and changes, and focus attention when new information matters.</p></div>
+  </div>
+  <div class="home-response-ctas"><a href="/engine.html" class="btn-secondary">Understand Decision Continuity →</a></div>
+  <p class="home-response-foot">Further directions include <a href="/strategy.html">strategy</a>, <a href="/epistamate_demo.html">research</a>, <a href="/advisory.html">advisory</a> and <a href="/assurance.html">assurance</a>. These are evolving professional applications, not an off-the-shelf suite.</p>
+  <p class="home-response-proof"><strong>See a working example:</strong> <a href="/policy-research-walkthrough.html">Follow a governed EU–India policy research iteration →</a></p>
+</div></section>
+<section class="diff-section home-founder" id="about-epistamate"><div class="section-inner">
+  <div class="section-tag">Who is behind Epistamate</div><h2>Research grounded in enterprise practice.</h2>
+  <p>Epistamate's research and direction are led by <strong>Abhishek Sinha</strong>, a technology executive with more than 30 years of enterprise experience across IBM, Kyndryl and HP. His published work examines evidence, professional judgement and the reasoning behind consequential decisions. The workshop is designed as facilitated executive learning, not an off-the-shelf software product.</p>
+  <p><a href="https://abhishek-sinha-bgl.github.io/" rel="noopener" target="_blank">Read the background and essays →</a> · <a href="https://doi.org/10.5281/zenodo.23188285" rel="noopener" target="_blank">Published research foundation →</a></p>
+</div></section>
 <section class="diff-section home-editorial" id="perspective"><div class="section-inner">
   <div class="section-tag">The thinking behind the approach</div>
   <h2>Two essays. <em>One continuing challenge.</em></h2>
@@ -266,23 +300,6 @@
     <article class="home-essay"><div class="section-tag">01 · Within the enterprise</div><h3>The Unfinished AI Enterprise</h3><p>Completing a programme does not exhaust the products, services or organisational possibilities that new AI capabilities might enable.</p><a href="https://abhishek-sinha-bgl.github.io/articles/unfinished-ai-enterprise.html">Read the essay ↗</a></article>
     <article class="home-essay"><div class="section-tag">02 · Around the enterprise</div><h3>When AI Changes the World Around the Enterprise</h3><p>Markets, customers, competitors, policy and social expectations may change while earlier decisions are still being implemented.</p><a href="/blog/when-ai-changes-world-around-enterprise.html">Read the essay →</a></article>
   </div>
-</div></section>
-<section class="diff-section home-response" id="response"><div class="section-inner">
-  <div class="section-tag">How Epistamate helps you respond</div>
-  <h2>Explore new possibilities.<br><em>Keep the reasoning useful.</em></h2>
-  <p class="home-response-lead">Epistamate is developing practical ways to help organisations work with a changing picture. It brings together their own experience, relevant evidence and new perspectives, while retaining how ideas were connected, challenged and reconsidered. The objective is not a standard AI transformation playbook, but better-informed continuing judgement in the work that matters to each organisation.</p>
-  <div class="home-mechanisms">
-    <div><span>01 · Explore</span><h3>Begin with the question</h3><p>Imagine new opportunities or investigate a specific decision, research problem or professional workflow.</p></div>
-    <div><span>02 · Examine</span><h3>Make the relationships visible</h3><p>Connect contributions, evidence, assumptions and alternative perspectives without inventing agreement or certainty.</p></div>
-    <div><span>03 · Reconsider</span><h3>Carry thinking forward</h3><p>Preserve reviewed interpretations and changes, and focus attention when new information matters.</p></div>
-  </div>
-  <div class="home-response-routes" id="applications">
-    <article class="home-route"><div class="section-tag">A good place to begin</div><h3>The Organisational Intelligence workshop</h3><p>Explore a real organisational question through a proposed five-morning, instructor-led intensive for one organisation. Participants practise challenging assumptions, considering outside perspectives and revisiting how the group's thinking changed.</p><a href="/workshop.html">Explore the workshop →</a></article>
-    <article class="home-route"><div class="section-tag">Start with a specific need</div><h3>An expression shaped around your work</h3><p>Epistamate can be explored through a focused research, strategy, advisory or assurance need, with methods and review responsibilities appropriate to that setting.</p><div class="home-route-links"><a href="/strategy.html">Strategy →</a><a href="/epistamate_demo.html">Research →</a><a href="/advisory.html">Advisory →</a><a href="/assurance.html">Assurance →</a></div></article>
-  </div>
-  <div class="home-response-ctas"><a href="/engine.html" class="btn-secondary">Explore the foundation →</a><a href="/blog/" class="btn-secondary">Read further perspectives →</a><a href="mailto:hello@epistamate.com?subject=Explore%20Epistamate" class="btn-primary">Discuss a particular need →</a></div>
-  <p class="home-response-foot">The approach is adapted to an organisation's work and circumstances, not offered as an off-the-shelf, self-configuring suite.</p>
-  <p class="home-response-proof"><strong>See a working example:</strong> <a href="/policy-research-walkthrough.html">Follow a governed EU–India policy research iteration →</a></p>
 </div></section>
 </main>
 <footer class="footer">
